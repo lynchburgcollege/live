@@ -1,0 +1,14 @@
+; $Id: cdn.info,v 1.7.2.5 2011/01/04 22:02:54 wimleers Exp $
+name = CDN
+description = "Integrates your site with a CDN, through altering file URLs."
+
+core = 7.x
+package = Performance and scalability
+configure = admin/config/development/cdn
+
+; Information added by drupal.org packaging script on 2011-01-04
+version = "7.x-2.0-beta1"
+core = "7.x"
+project = "cdn"
+datestamp = "1294179053"
+

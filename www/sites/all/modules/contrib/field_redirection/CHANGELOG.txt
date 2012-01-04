@@ -1,0 +1,34 @@
+Field_Redirection 7.x-2.3, 2011-11-06
+-------------------------------------
+#1322790 by jedihe: Regression from code simplification in #1308492.
+#1331832 by KarlShea: Query strings being removed from links.
+
+
+Field_Redirection 7.x-2.2, 2011-10-23
+-------------------------------------
+#1308492 by Pedro Lozano, DamienMcKenna: Simplified the code to reduce the need
+  for duplicate hardcoded array key checks.
+#1319232 by DamienMcKenna: Only show the "This page is set to redirect" message
+  once on node save.
+#1319236 by DamienMcKenna: URL displayed in the "This page is set to redirect"
+  message needed to simply be wrapped by url().
+
+
+Field_Redirection 7.x-2.1, 2011-09-22
+-------------------------------------
+#1287748 by Pedro Lozano, DamienMcKenna: Option to show a 404 page if the URL
+  field is empty.
+
+
+Field_Redirection 7.x-2.0, 2011-09-22
+-------------------------------------
+#1268590 by marcusx, DamienMcKenna: Support autocomplete fields, fixed path
+  checks, admin link now includes base_path().
+#1215538 by e2thex, DamienMcKenna: Changed to using a single formatter with
+  a setting to choose the desired HTTP status code.  This will allow for future
+  expansion of the module.  Note: the v7.x-1.0 release will still be supported.
+
+
+Field_Redirection 7.x-1.0, 2011-07-03
+-------------------------------------
+Initial release.
