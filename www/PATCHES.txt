@@ -1,0 +1,8 @@
+Drupal Core patches
+-------------------
+
+Drupal Contrib patches - sorted alphabetically by module name
+----------------------
+Pathauto - Provide an [array:join-path] token
+http://drupal.org/node/1046972
+http://drupal.org/files/1046972-joined_path_token-d7-1.patch
