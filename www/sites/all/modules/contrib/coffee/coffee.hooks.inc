@@ -30,7 +30,15 @@ function coffee_redirect($input) {
 
   $result = db_select('menu_links', 'ml')
   ->fields('ml', array('link_path', 'link_title') )
-  ->condition('menu_name', 'management')
+  ->condition(
+  db_or()
+    ->condition('menu_name', 'management')
+    ->condition(
+    db_and()
+      ->condition('menu_name', 'navigation')
+      ->condition('link_path', 'node/add/' . $input, 'LIKE')
+    )
+  )
   ->condition(
   db_or()
     ->condition('link_path', $input, 'LIKE')
