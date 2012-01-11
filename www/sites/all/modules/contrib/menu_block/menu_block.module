@@ -414,7 +414,7 @@ function menu_tree_add_active_path(&$tree) {
   // Find each key in the active trail.
   while ($tree_with_trail) {
     foreach ($tree_with_trail AS $key => &$value) {
-      if ($tree_with_trail[$key]['link']['in_active_trail']) {
+      if ($tree_with_trail[$key]['link']['in_active_trail'] && array_key_exists($key, $subtree_pointer)) {
         // Set the active trail info in the original tree.
         $subtree_pointer[$key]['link']['in_active_trail'] = TRUE;
         // Continue in the subtree, if it exists.
