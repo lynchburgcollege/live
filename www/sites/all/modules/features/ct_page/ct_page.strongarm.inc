@@ -103,5 +103,20 @@ function ct_page_strongarm() {
   $strongarm->value = '[node:field-nav:parents:joined-path]/[node:field-nav]/[node:title]';
   $export['pathauto_node_page_pattern'] = $strongarm;
 
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'taxonomy_menu_trails_node_page';
+  $strongarm->value = array(
+    'selection_method' => 'last',
+    'only_without_menu' => 0,
+    'tm_integration' => 1,
+    'instances' => array(
+      'field_nav' => 'field_nav',
+    ),
+    'paths_ui' => '',
+  );
+  $export['taxonomy_menu_trails_node_page'] = $strongarm;
+
   return $export;
 }
