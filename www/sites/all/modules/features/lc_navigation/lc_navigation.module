@@ -1,4 +1,10 @@
 <?php
+
+// Constants
+define('LC_NAV_VID', 1);
+define('LC_NAV_SCHEME_ID', 1);
+define('LC_NAV_RID', 1);
+
 /**
  * @file
  * Code for the Lynchburg College Navigation feature.
@@ -67,4 +73,25 @@ function lc_navigation_theme_nodehierarchy_new_child_links($variables) {
     }
   }
   return $out;
+}
+
+/**
+  * Implements hook_taxonomy_term_insert()
+  *   Add new terms to the taxonomy_access_lite variable so that permissions will apply.
+  *
+  * @param $term
+  *   The new term's object.
+  *
+ */
+function lc_navigation_taxonomy_term_insert($term) {
+  // Check the vocabulary id.
+  if ($term->vid == LC_NAV_VID) { // This is our vacabulary.
+    $scheme = variable_get('tac_lite_grants_scheme_' . LC_NAV_SCHEME_ID, NULL);
+    if (isset($scheme)) {
+      // Add the new term id to the tac lite scheme variable.
+      $scheme[LC_NAV_RID][LC_NAV_VID][$term->tid] = $term->tid;
+      // Save the variable.
+      variable_set('tac_lite_grants_scheme_' . LC_NAV_SCHEME_ID, $scheme);
+    }
+  }
 }
