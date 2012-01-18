@@ -5,3 +5,17 @@
  */
 
 include_once('lc_navigation.features.inc');
+
+/**
+ * Implements hook_pathauto_alias_alter()
+ *   Alter auto-generated aliases to remove duplicate segments.
+ *   E.g.: Modify the auto-generated alias from 'pages/pages' to 'pages'.
+ *
+ */
+function lc_navigation_pathauto_alias_alter(&$alias, $context) {
+  // Remove duplicate segments.
+  $segments = explode('/', $alias);
+  $segments = array_unique($segments);
+  $alias = implode('/', $segments);
+}
+
