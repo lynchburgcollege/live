@@ -19,3 +19,52 @@ function lc_navigation_pathauto_alias_alter(&$alias, $context) {
   $alias = implode('/', $segments);
 }
 
+/**
+ * Implements hook_theme_registry_alter()
+ *   Override the nodehierarchy child links function.
+ *
+ * @param $theme_registry
+ */
+function lc_navigation_theme_registry_alter(&$theme_registry) {
+  if (!empty($theme_registry['nodehierarchy_new_child_links'])) {
+    $theme_registry['nodehierarchy_new_child_links']['function'] = 'lc_navigation_theme_nodehierarchy_new_child_links';
+  }
+}
+
+/**
+ * Override of the theme_nodehierarchy_new_child_links() function.
+ *   Display links to create new children nodes of the given node, with taxonomy pre-filled.
+ *
+ * @param $variables
+ *
+ * @return 
+ */
+function lc_navigation_theme_nodehierarchy_new_child_links($variables) {
+  $node = $variables['node'];
+  // Get current node's section.
+  if (count($node->field_nav)) {
+    $terminfo = current($node->field_nav[$node->language]);
+    $term_name = $terminfo['taxonomy_term']->name;
+  }
+  $out = array();
+  $create_links = array();
+
+  if (user_access('create child nodes') && (user_access('create child of any parent') || node_access('update', $node))) {
+    foreach (nodehierarchy_get_allowed_child_types($node->type) as $key) {
+      if (node_access('create', $key)) {
+        $type_name = node_type_get_name($key);
+        $destination = (array)drupal_get_destination() + array('parent' => $node->nid, 'edit[field_nav][und]' => 'Accounting');
+        if (isset($term_name)) {
+          $destination += array('edit[field_nav][und]' => 'Accounting');
+        }
+        $key = str_replace('_', '-', $key);
+        $title = t('Add a new %s.', array('%s' => $type_name));
+        $create_links[] = l($type_name, "node/add/$key", array('query' => $destination, 'attributes' => array('title' => $title)));
+      }
+    }
+    if ($create_links) {
+      $out[] = array('#children' => '<div class="newchild">' . t("Create new child !s", array('!s' => implode(" | ", $create_links))) . '</div>');
+    }
+  }
+  return $out;
+}
