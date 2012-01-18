@@ -21,7 +21,7 @@ function lc_navigation_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_block_1_depth';
-  $strongarm->value = '3';
+  $strongarm->value = '9';
   $export['menu_block_1_depth'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -63,8 +63,33 @@ function lc_navigation_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_block_1_title_link';
-  $strongarm->value = 0;
+  $strongarm->value = 1;
   $export['menu_block_1_title_link'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_block_ids';
+  $strongarm->value = array(
+    0 => 1,
+  );
+  $export['menu_block_ids'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_block_menu_order';
+  $strongarm->value = array(
+    'navigation' => '',
+  );
+  $export['menu_block_menu_order'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'menu_block_suppress_core';
+  $strongarm->value = 1;
+  $export['menu_block_suppress_core'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
