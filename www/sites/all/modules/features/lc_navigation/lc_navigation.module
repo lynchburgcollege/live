@@ -50,7 +50,9 @@ function lc_navigation_theme_nodehierarchy_new_child_links($variables) {
   // Get current node's section.
   if (count($node->field_nav)) {
     $terminfo = current($node->field_nav[$node->language]);
-    $term_name = $terminfo['taxonomy_term']->name;
+    $term_id = $terminfo['tid'];
+    $term = taxonomy_term_load($term_id);
+    $term_name = $term->name;
   }
   $out = array();
   $create_links = array();
