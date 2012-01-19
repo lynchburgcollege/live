@@ -88,7 +88,7 @@ function nodehierarchy_permission() {
  */
 function nodehierarchy_menu() {
   $items = array();
-  $items['admin/config/nodehierarchy'] = array(
+  $items['admin/structure/nodehierarchy'] = array(
     'title' => t('Node Hierarchy'),
     'description' => t('Administer default Node Hierarchy settings.'),
     'page callback' => 'drupal_get_form',
