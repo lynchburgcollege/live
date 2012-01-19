@@ -59,9 +59,9 @@ function lc_navigation_theme_nodehierarchy_new_child_links($variables) {
     foreach (nodehierarchy_get_allowed_child_types($node->type) as $key) {
       if (node_access('create', $key)) {
         $type_name = node_type_get_name($key);
-        $destination = (array)drupal_get_destination() + array('parent' => $node->nid, 'edit[field_nav][und]' => 'Accounting');
+        $destination = (array)drupal_get_destination() + array('parent' => $node->nid);
         if (isset($term_name)) {
-          $destination += array('edit[field_nav][und]' => 'Accounting');
+          $destination += array('edit[field_nav][und]' => $term_name);
         }
         $key = str_replace('_', '-', $key);
         $title = t('Add a new %s.', array('%s' => $type_name));
