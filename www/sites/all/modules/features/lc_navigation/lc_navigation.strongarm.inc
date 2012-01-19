@@ -101,6 +101,36 @@ function lc_navigation_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
+  $strongarm->name = 'tac_lite_categories';
+  $strongarm->value = array(
+    1 => '1',
+  );
+  $export['tac_lite_categories'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'tac_lite_config_scheme_1';
+  $strongarm->value = array(
+    'name' => 'Site structure',
+    'perms' => array(
+      'grant_view' => 'grant_view',
+    ),
+    'term_visibility' => 1,
+    'tac_lite_create' => 1,
+  );
+  $export['tac_lite_config_scheme_1'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
+  $strongarm->name = 'tac_lite_schemes';
+  $strongarm->value = '1';
+  $export['tac_lite_schemes'] = $strongarm;
+
+  $strongarm = new stdClass();
+  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
+  $strongarm->api_version = 1;
   $strongarm->name = 'taxonomy_menu_path_1';
   $strongarm->value = 'taxonomy_menu_path_default';
   $export['taxonomy_menu_path_1'] = $strongarm;
