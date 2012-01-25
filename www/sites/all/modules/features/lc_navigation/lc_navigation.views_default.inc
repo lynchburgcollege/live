@@ -469,6 +469,11 @@ function lc_navigation_views_default_views() {
   $handler->display->display_options['filters']['machine_name']['value'] = array(
     'site_structure' => 'site_structure',
   );
+  /* Filter criterion: Taxonomy term: Related Links (field_related_links) */
+  $handler->display->display_options['filters']['field_related_links_nid']['id'] = 'field_related_links_nid';
+  $handler->display->display_options['filters']['field_related_links_nid']['table'] = 'field_data_field_related_links';
+  $handler->display->display_options['filters']['field_related_links_nid']['field'] = 'field_related_links_nid';
+  $handler->display->display_options['filters']['field_related_links_nid']['operator'] = 'not empty';
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');
