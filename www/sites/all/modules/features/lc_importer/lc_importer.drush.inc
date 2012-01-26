@@ -78,9 +78,10 @@ function drush_lc_importer_import_nav($file) {
 function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
   print "parent: $parent, depth: $depth, parent_nid: $parent_nid\n";
   
-  $name = $page['Name'];
-  $page_id = $page['ID'];
-  print "name: $name, page_id: $page_id\n";
+  $name = (string) $page['Name'];
+  $page_id = (string) $page['ID'];
+  $publish_as = (string) $page['PublishAs'];
+  print "name: $name, page_id: $page_id, publish_as: $publish_as\n";
 
   $tid = 0;
 
@@ -141,6 +142,15 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
     if ($node = node_load($nid)) {
       $node->field_nav[$node->language][0]['tid'] = $tid;
       node_save($node);
+
+      // Add a redirect from the xml url to the new url.
+      lc_importer_add_redirect($page_id . '.xml', $nid);
+      if (strlen($publish_as)) {
+        // This page has a "pretty url", add redirects for it.
+        lc_importer_add_redirect($publish_as, $nid);
+        // Pretty urls on the old site worked with or without a trailing ".xml".
+        lc_importer_add_redirect($publish_as . '.xml', $nid);
+      }
     }
   }
 
@@ -177,4 +187,26 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
   }
 
   print "\n";
+}
+
+/**
+ * Helper function - add 301 redirect with given params
+ *
+ * @param $source
+ * @param $nid
+ */
+function lc_importer_add_redirect($source, $nid) {
+  $redirect = new stdClass();
+  redirect_object_prepare($redirect);
+  // Set the parameters.
+  $redirect->source = $source;
+  $redirect->redirect = 'node/' . $nid;
+  $redirect->status_code = 301;
+
+  redirect_hash($redirect);
+
+  // Make sure this redirect doesn't already exist.
+  if (!redirect_load_by_hash($redirect->hash)) {
+    redirect_save($redirect);
+  }
 }
