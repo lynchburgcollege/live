@@ -91,7 +91,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
       // This is the deepest possible level of the taxonomy.
       // Check if this page has children - If so, use a taxonomy term.
       // If not, use nodehierarchy and tag with the parent element.
-      if ($page->count() == 0) {
+      if (count($page->children()) == 0) {
         $tid = $parent;
       }
     }
@@ -179,7 +179,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
   }
 
   // Now take care of any children.
-  if ($page->count() > 0) {
+  if (count($page->children()) > 0) {
     // This element has children, parse them recursively.
     foreach ($page->children() as $child) {
       lc_importer_tag_node($child, $vid, $tid, $depth + 1, $nid);
