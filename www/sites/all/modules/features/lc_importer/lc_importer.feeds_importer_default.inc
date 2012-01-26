@@ -20,23 +20,39 @@ function lc_importer_feeds_importer_default() {
     'fetcher' => array(
       'plugin_key' => 'FeedsFileFetcher',
       'config' => array(
-        'allowed_extensions' => 'txt csv tsv xml opml',
-        'direct' => FALSE,
+        'allowed_extensions' => 'txt csv tsv xml opml html htm',
+        'direct' => 1,
       ),
     ),
     'parser' => array(
       'plugin_key' => 'FeedsXPathParserXML',
       'config' => array(
-        'sources' => array(),
-        'rawXML' => array(),
-        'context' => '',
-        'exp' => array(
-          'errors' => FALSE,
-          'tidy' => FALSE,
-          'debug' => array(),
-          'tidy_encoding' => 'UTF8',
+        'sources' => array(
+          'xpathparser:0' => '@ID',
+          'xpathparser:1' => 'Title[1]',
+          'xpathparser:2' => 'BodyCopy',
+          'xpathparser:3' => 'fn:string(\'uncategorized\')',
         ),
-        'allow_override' => TRUE,
+        'rawXML' => array(
+          'xpathparser:0' => 0,
+          'xpathparser:1' => 0,
+          'xpathparser:2' => 0,
+          'xpathparser:3' => 0,
+        ),
+        'context' => '/Pages/Page1',
+        'exp' => array(
+          'errors' => 0,
+          'tidy' => 0,
+          'tidy_encoding' => 'UTF8',
+          'debug' => array(
+            'context' => 0,
+            'xpathparser:0' => 0,
+            'xpathparser:1' => 0,
+            'xpathparser:2' => 0,
+            'xpathparser:3' => 0,
+          ),
+        ),
+        'allow_override' => 0,
       ),
     ),
     'processor' => array(
@@ -73,10 +89,10 @@ function lc_importer_feeds_importer_default() {
     ),
     'content_type' => '',
     'update' => 0,
-    'import_period' => 1800,
+    'import_period' => '1800',
     'expire_period' => 3600,
-    'import_on_create' => TRUE,
-    'process_in_background' => FALSE,
+    'import_on_create' => 1,
+    'process_in_background' => 1,
   );
   $export['lc_page_importer'] = $feeds_importer;
 
