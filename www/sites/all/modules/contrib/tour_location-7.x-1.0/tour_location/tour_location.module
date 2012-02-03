@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Tour Location feature.
+ */
+
+include_once('tour_location.features.inc');
