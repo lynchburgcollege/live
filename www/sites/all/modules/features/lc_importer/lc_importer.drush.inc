@@ -77,7 +77,7 @@ function drush_lc_importer_import_nav($file) {
  */
 function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
   print "parent: $parent, depth: $depth, parent_nid: $parent_nid\n";
-  
+
   $name = (string) $page['Name'];
   $page_id = (string) $page['ID'];
   $publish_as = (string) $page['PublishAs'];
@@ -87,7 +87,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
 
   // We will only use 3 levels of taxonomy.
   if ($depth < 3) {
-    if ($depth == 2) {
+    if ($depth >= 1) {
       // This is the deepest possible level of the taxonomy.
       // Check if this page has children - If so, use a taxonomy term.
       // If not, use nodehierarchy and tag with the parent element.
