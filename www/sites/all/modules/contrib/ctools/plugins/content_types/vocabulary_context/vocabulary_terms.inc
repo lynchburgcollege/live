@@ -10,7 +10,7 @@ if (module_exists('taxonomy')) {
     'title' => t('Vocabulary terms'),
     'icon' => 'icon_vocabulary.png',
     'description' => t('All the terms in a vocabulary.'),
-    'required context' => new ctools_context_required(t('Vocabulary'), 'vocabulary'),
+    'required context' => new ctools_context_required(t('Vocabulary'), 'entity:taxonomy_vocabulary'),
     'category' => t('Vocabulary'),
     'defaults' => array('max_depth' => 0, 'tree' => 1),
   );
@@ -29,10 +29,10 @@ function ctools_vocabulary_terms_content_type_render($subtype, $conf, $panel_arg
     foreach ($terms as $term) {
       $items[] = l($term->name, 'taxonomy/term/' . $term->tid);
     }
-    $output = theme('item_list', $items);
+    $output = theme('item_list', array('items' => $items));
   }
   else {
-    $output = theme('item_list', _ctools_content_vocabulary_terms($vocab->vid, $max_depth));
+    $output = theme('item_list', array('items' => _ctools_content_vocabulary_terms($vocab->vid, $max_depth)));
   }
 
   $block = new stdClass();

@@ -1,0 +1,20 @@
+<?php 
+/**
+ * @file lc_importer.install
+ * @author Adrian Rollett
+ * 
+ * @date 2012-01-11
+ */
+
+/**
+ * Add the Xpath configuration for the LC page importer.
+ */
+function lc_importer_update_7001(&$sandbox) {
+  db_update('feeds_source')
+    ->fields(array(
+      'config' => 'a:2:{s:16:\"FeedsFileFetcher\";a:3:{s:3:\"fid\";s:1:\"4\";s:6:\"source\";s:23:\"public://feeds/test.xml\";s:6:\"upload\";s:0:\"\";}s:19:\"FeedsXPathParserXML\";a:4:{s:7:\"context\";s:12:\"/Pages/Page1\";s:3:\"exp\";a:4:{s:6:\"errors\";i:0;s:4:\"tidy\";i:1;s:13:\"tidy_encoding\";s:4:\"UTF8\";s:5:\"debug\";a:5:{s:7:\"context\";i:0;s:13:\"xpathparser:0\";i:0;s:13:\"xpathparser:1\";i:0;s:13:\"xpathparser:2\";i:0;s:13:\"xpathparser:3\";i:0;}}s:6:\"rawXML\";a:4:{s:13:\"xpathparser:0\";i:0;s:13:\"xpathparser:1\";i:0;s:13:\"xpathparser:2\";i:0;s:13:\"xpathparser:3\";i:0;}s:7:\"sources\";a:4:{s:13:\"xpathparser:0\";s:3:\"@ID\";s:13:\"xpathparser:1\";s:5:\"Title\";s:13:\"xpathparser:2\";s:8:\"BodyCopy\";s:13:\"xpathparser:3\";s:26:\"fn:string(\'uncategorized\')\";}}}', 
+    ))
+    ->condition('id', 'lc_page_importer')
+    ->execute();
+}
+

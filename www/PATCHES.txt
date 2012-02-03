@@ -1,0 +1,16 @@
+Drupal Core patches
+-------------------
+
+Drupal Contrib patches - sorted alphabetically by module name
+----------------------
+Menu Block - Errors in Drupal 7 when using a menu block
+http://drupal.org/node/1204064
+http://drupal.org/files/menu_block-1204064-2.patch
+
+Node Hierarchy - Admin link not showing up on the configuration page
+http://drupal.org/node/1159392
+http://drupal.org/files/nodehierarchy-admin_link_structure_section-1159392-4.patch
+
+Pathauto - Provide an [array:join-path] token
+http://drupal.org/node/1046972
+http://drupal.org/files/1046972-joined_path_token-d7-1.patch

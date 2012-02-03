@@ -1,0 +1,99 @@
+<?php
+
+// Constants
+define('LC_NAV_VID', 1);
+define('LC_NAV_SCHEME_ID', 1);
+define('LC_NAV_RID', 1);
+
+/**
+ * @file
+ * Code for the Lynchburg College Navigation feature.
+ */
+
+include_once('lc_navigation.features.inc');
+
+/**
+ * Implements hook_pathauto_alias_alter()
+ *   Alter auto-generated aliases to remove duplicate segments.
+ *   E.g.: Modify the auto-generated alias from 'pages/pages' to 'pages'.
+ *
+ */
+function lc_navigation_pathauto_alias_alter(&$alias, $context) {
+  // Remove duplicate segments.
+  $segments = explode('/', $alias);
+  $segments = array_unique($segments);
+  $alias = implode('/', $segments);
+}
+
+/**
+ * Implements hook_theme_registry_alter()
+ *   Override the nodehierarchy child links function.
+ *
+ * @param $theme_registry
+ */
+function lc_navigation_theme_registry_alter(&$theme_registry) {
+  if (!empty($theme_registry['nodehierarchy_new_child_links'])) {
+    $theme_registry['nodehierarchy_new_child_links']['function'] = 'lc_navigation_theme_nodehierarchy_new_child_links';
+  }
+}
+
+/**
+ * Override of the theme_nodehierarchy_new_child_links() function.
+ *   Display links to create new children nodes of the given node, with taxonomy pre-filled.
+ *
+ * @param $variables
+ *
+ * @return 
+ */
+function lc_navigation_theme_nodehierarchy_new_child_links($variables) {
+  $node = $variables['node'];
+  // Get current node's section.
+  if (count($node->field_nav)) {
+    $terminfo = current($node->field_nav[$node->language]);
+    $term_id = $terminfo['tid'];
+    $term = taxonomy_term_load($term_id);
+    $term_name = $term->name;
+  }
+  $out = array();
+  $create_links = array();
+
+  if (user_access('create child nodes') && (user_access('create child of any parent') || node_access('update', $node))) {
+    foreach (nodehierarchy_get_allowed_child_types($node->type) as $key) {
+      if (node_access('create', $key)) {
+        $type_name = node_type_get_name($key);
+        $destination = (array)drupal_get_destination() + array('parent' => $node->nid);
+        if (isset($term_name)) {
+          $destination += array('edit[field_nav][und]' => $term_name);
+        }
+        $key = str_replace('_', '-', $key);
+        $title = t('Add a new %s.', array('%s' => $type_name));
+        $create_links[] = l($type_name, "node/add/$key", array('query' => $destination, 'attributes' => array('title' => $title)));
+      }
+    }
+    if ($create_links) {
+      $out[] = array('#children' => '<div class="newchild">' . t("Create new child !s", array('!s' => implode(" | ", $create_links))) . '</div>');
+    }
+  }
+  return $out;
+}
+
+/**
+  * Implements hook_taxonomy_term_insert()
+  *   Add new terms to the taxonomy_access_lite variable so that permissions will apply.
+  *
+  * @param $term
+  *   The new term's object.
+  *
+ */
+function lc_navigation_taxonomy_term_insert($term) {
+  // Check the vocabulary id.
+  if ($term->vid == LC_NAV_VID) { // This is our vacabulary.
+    $scheme = variable_get('tac_lite_grants_scheme_' . LC_NAV_SCHEME_ID, NULL);
+    if (isset($scheme)) {
+      // Add the new term id to the tac lite scheme variable.
+      $scheme[LC_NAV_RID][LC_NAV_VID][$term->tid] = $term->tid;
+      // Save the variable.
+      variable_set('tac_lite_grants_scheme_' . LC_NAV_SCHEME_ID, $scheme);
+    }
+  }
+}

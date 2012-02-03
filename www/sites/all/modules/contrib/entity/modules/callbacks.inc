@@ -88,8 +88,8 @@ function entity_metadata_comment_get_node_properties($node, array $options, $nam
  */
 function entity_metadata_status_options_list() {
   return array(
-    0 => t('Published'),
-    1 => t('Unpublished'),
+    NODE_PUBLISHED => t('Published'),
+    NODE_NOT_PUBLISHED => t('Unpublished'),
   );
 }
 
@@ -622,7 +622,7 @@ function entity_metadata_taxonomy_access($op, $entity = NULL, $account = NULL, $
   if ($entity_type == 'taxonomy_vocabulary') {
     return user_access('administer taxonomy', $account);
   }
-  if (isset($entity) && $op == 'edit' && !isset($account) && taxonomy_term_edit_access($entity)) {
+  if (isset($entity) && $op == 'update' && !isset($account) && taxonomy_term_edit_access($entity)) {
     return TRUE;
   }
   if (user_access('administer taxonomy', $account) || user_access('access content', $account) && $op == 'view') {

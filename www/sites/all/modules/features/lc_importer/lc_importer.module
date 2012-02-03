@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Lynchburg College Importer feature.
+ */
+
+include_once('lc_importer.features.inc');

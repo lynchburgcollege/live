@@ -929,24 +929,23 @@ function entity_file_download_access($field, $entity_type, $entity) {
  */
 function entity_ui_controller($type = NULL) {
   $static = &drupal_static(__FUNCTION__);
-  $all = &drupal_static(__FUNCTION__);
 
-  if (isset($type) && !isset($static[$type])) {
+  if (!isset($type)) {
+    // Invoke the function for each type to ensure we have fully populated the
+    // static variable.
+    foreach (entity_get_info() as $entity_type => $info) {
+      entity_ui_controller($entity_type);
+    }
+    return array_filter($static);
+  }
+
+  if (!isset($static[$type])) {
     $info = entity_get_info($type);
     $class = isset($info['admin ui']['controller class']) ? $info['admin ui']['controller class'] : 'EntityDefaultUIController';
     $static[$type] = (isset($info['admin ui']['path']) && $class) ? new $class($type, $info) : FALSE;
   }
-  if (!isset($type) && !isset($all)) {
-    // Invoke the function for each type to ensure we have fully populated the
-    // static variable $static.
-    foreach (entity_get_info() as $entity_type => $info) {
-      $all[$entity_type] = entity_ui_controller($entity_type);
-    }
-  }
-  if ($type) {
-    return isset($static[$type]) ? $static[$type] : FALSE;
-  }
-  return array_filter($static);
+
+  return $static[$type];
 }
 
 /**
@@ -1030,13 +1029,20 @@ function entity_ui_get_form($entity_type, $entity, $op = 'edit', $form_state = a
   // we can prepulate the form state.
   $form_state['wrapper_callback'] = 'entity_ui_main_form_defaults';
   $form_state['entity_type'] = $entity_type;
+  form_load_include($form_state, 'inc', 'entity', 'includes/entity.ui');
+
+  // Handle cloning. We cannot do that in the wrapper callback as it is too late
+  // for changing arguments.
+  if ($op == 'clone') {
+    $entity = entity_ui_clone_entity($entity_type, $entity);
+  }
+
   // We don't pass the entity type as first parameter, as the implementing
   // module knows the type anyway. However, in order to allow for efficient
   // hook_forms() implementiations we append the entity type as last argument,
   // which the module implementing the form constructor may safely ignore.
   // @see entity_forms()
   $form_state['build_info']['args'] = array($entity, $op, $entity_type);
-  form_load_include($form_state, 'inc', 'entity', 'includes/entity.ui');
   return drupal_build_form($form_id, $form_state);
 }
 
@@ -1084,6 +1090,11 @@ function entity_views_api() {
  */
 function entity_metadata_wrapper($type, $data = NULL, array $info = array()) {
   if ($type == 'entity' || (($entity_info = entity_get_info()) && isset($entity_info[$type]))) {
+    // If the passed entity is the global $user, we load the user object by only
+    // passing on the user id. The global user is not a fully loaded entity.
+    if ($type == 'user' && is_object($data) && $data == $GLOBALS['user']) {
+      $data = $data->uid;
+    }
     return new EntityDrupalWrapper($type, $data, $info);
   }
   elseif ($type == 'list' || entity_property_list_extract_type($type)) {
@@ -1225,5 +1236,14 @@ function _entity_info_add_metadata(&$entity_info) {
     // Token type mapping.
     $entity_info['taxonomy_term']['token type'] = 'term';
     $entity_info['taxonomy_vocabulary']['token type'] = 'vocabulary';
+  }
+}
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function entity_ctools_plugin_directory($module, $plugin) {
+  if ($module == 'ctools' && $plugin == 'content_types') {
+    return 'ctools/content_types';
   }
 }
