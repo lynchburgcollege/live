@@ -1,0 +1,242 @@
+<?php
+
+/**
+ * Implementation of hook_init().
+ */
+function menuadminsplitter_init() {
+  global $user;
+
+  // If there's no values for the menu admin page's filter form, set some
+  // some default variables.
+  if ($user->uid && user_access('administer menu')) {
+    // Load the user's data first.
+    $data = $user->data;
+    // Possible new values will be stored here.
+    $values = array();
+
+    // No item selected, show all by default.  
+    if (empty($data['menuadminsplitter_filter']['menu_item'])) {
+      $values['menuadminsplitter_filter']['menu_item'] = 'all';
+    }
+    // No 'depth' value selected, show only second level by default.
+    if (empty($data['menuadminsplitter_filter']['menu_item_depth'])) {
+      $values['menuadminsplitter_filter']['menu_item_depth'] = 2;
+    }
+
+    // Save the new values into the user object.
+    user_save($user, $values);
+  }
+}
+
+/**
+ * Implementation of hook_form_alter().
+ */
+function menuadminsplitter_form_menu_overview_form_alter(&$form, &$form_state) {
+  
+  global $menu_admin;
+  global $user;
+  $menu['menu_name'] = $form['#menu']['menu_name'];
+
+  // Load the user's data possibly containing form defaults.
+  $data = $user->data;
+  $user_data = is_array($data['menuadminsplitter_filter']) ? $data['menuadminsplitter_filter'] : array();
+  $where = '';
+
+  // Render the filter form.
+  $form['#prefix'] = drupal_render(drupal_get_form('menuadminsplitter_filter_form')); // drupal_get_form returns an array in d7, use of drupal_render() is not encouraged
+
+  // There is some values found from the session and user didn't want all items.
+  $item = 0; 
+  $depth = 0;
+  $args = array();
+  $args[':menu_name'] = $menu['menu_name'];
+  if (!empty($user_data['menu_item']) && $user_data['menu_item'] != 'all') {
+    $where .= " AND ml.p1 = :item";
+    $item = $user_data['menu_item'];
+    $args[':item'] = $item; 
+  }
+  if (!empty($user_data['menu_item_depth'])) {
+    $where .= " AND ml.depth <= :depth";
+    $depth = $user_data['menu_item_depth'];
+    $args[':depth'] = $depth;
+  }
+  // SQL for getting the menu items.
+  $sql = "
+    SELECT m.load_functions, m.to_arg_functions, m.access_callback, m.access_arguments, m.page_callback, m.page_arguments, m.delivery_callback, m.title, m.title_callback, m.title_arguments, m.type, m.description, ml.*
+    FROM {menu_links} ml LEFT JOIN {menu_router} m ON m.path = ml.router_path
+    WHERE ml.menu_name = :menu_name $where
+    ORDER BY p1 ASC, p2 ASC, p3 ASC, p4 ASC, p5 ASC, p6 ASC, p7 ASC, p8 ASC, p9 ASC";
+
+  
+  // Add our own parameters to the function from the session.
+  $result = db_query($sql, $args, array('fetch' => PDO::FETCH_ASSOC));
+  $links = array();
+  foreach ($result as $item) {
+    $links[] = $item;
+  }
+  $tree = menu_tree_data($links);
+  $node_links = array();
+  menu_tree_collect_node_links($tree, $node_links);
+  
+  // We indicate that a menu administrator is running the menu access check.
+  $menu_admin = TRUE;
+  menu_tree_check_access($tree, $node_links);
+  $menu_admin = FALSE;
+
+  // Unset all menu items on the form.
+  foreach ($form as $element_name => $element) {
+    if (strstr($element_name, 'mlid:')) {      
+      unset($form[$element_name]);
+    }
+  }
+  
+  
+  // Call our version of _menu_overview_tree_form.
+  $new_form = _menuadminsplitter_overview_tree_form($tree);
+  // Merge the form.
+  $form = array_merge($form, $new_form);
+
+}
+
+/**
+ * Create our filter form for the menu admin page.
+ */
+function menuadminsplitter_filter_form() {
+  global $user;
+  $menu_name = arg(4);
+  $form = array();
+
+  // Load the user's data possibly containing form defaults.
+  $data = $user->data;
+  $user_data = is_array($data['menuadminsplitter_filter']) ? $data['menuadminsplitter_filter'] : array();
+
+  // Get first level menu items for the select list.
+  $sql = "SELECT mlid, link_title FROM {menu_links} WHERE p2 = :p2 AND menu_name = :menu_name ORDER BY weight";
+  $result = db_query($sql, array(
+    ':p2' => 0, 
+    ':menu_name' => $menu_name
+  ));
+  $menu_items = array('all' => t('All'));
+  while ($menu_item = $result->fetchAssoc()) {
+    $menu_items[$menu_item['mlid']] = $menu_item['link_title'];
+  }
+  // Get maximum possible depth for the menu.
+  $max_menu_depth = db_query("SELECT MAX(depth) FROM {menu_links} WHERE menu_name = :menu_name", array(':menu_name' => $menu_name))->fetchField();
+  $menu_depth = array();
+  // Store depths from 1 to max menu depth.
+  for ($i = 1; $i <= $max_menu_depth; $i++) {
+    $menu_depth[$i] = $i;
+  }
+
+  // Build the filter form.
+  $form['menusplitter_filter'] = array(
+    '#type' => 'fieldset',
+    '#title' => t('Filter menu items'),
+  );
+  
+  $form['menusplitter_filter']['menu_name'] = array(
+    '#type' => 'hidden',
+    '#value' => $menu_name,
+  );
+  $form['menusplitter_filter']['menu_item'] = array(
+    '#type' => 'select',
+    '#title' => t('Menu item'),
+    '#description' => t('Menu item which child items you would like to edit. <strong>Warning!</strong> Loading all items with very huge menu might take a very long time.'),
+    '#options' => $menu_items,
+    '#default_value' => isset($user_data['menu_item']) ? $user_data['menu_item'] : '',
+  );
+  $form['menusplitter_filter']['menu_item_depth'] = array(
+    '#type' => 'select',
+    '#title' => t('Depth of items to return'),
+    '#description' => t('Higher number means slower page loading time.'),
+    '#options' => $menu_depth,
+    '#default_value' => isset($user_data['menu_item_depth']) ? $user_data['menu_item_depth'] : '',
+  );
+  $form['menusplitter_filter']['submit'] = array(
+    '#type' => 'submit',
+    '#value' => t('Filter'),
+  );
+  return $form;
+}
+
+/**
+ * Set the values into the user object.
+ */
+function menuadminsplitter_filter_form_submit($form, &$form_state) {
+  $values['menuadminsplitter_filter']['menu_item'] = $form_state['values']['menu_item'];
+  $values['menuadminsplitter_filter']['menu_item_depth'] = $form_state['values']['menu_item_depth'];
+  global $user;
+  $data = array('menuadminsplitter' => $values);
+  user_save($user, $data);
+}
+
+function menuadminsplitter_user_presave(&$edit, $account, $category) {
+  // Make sure that our form value 'mymodule_foo' is stored as 'mymodule_bar'.
+  if (isset($edit['menuadminsplitter']['menuadminsplitter_filter'])) {                   
+    $edit['data']['menuadminsplitter_filter'] = $edit['menuadminsplitter']['menuadminsplitter_filter'];
+  }  
+}
+
+/**
+ * Recursive helper function for menu_overview_form().
+ *
+ * This is the very same _menu_overview_tree_form() function that is found from
+ * menu.admin.inc. For some weird reason, calling the _menu_overview_tree_form()
+ * renders all items in current menu instead of the items that we gave for it.
+ * This way it works. 
+ * 
+ * (the drupal_static might be the clue)
+ */
+function _menuadminsplitter_overview_tree_form($tree) {
+  $form = &drupal_static(__FUNCTION__, array('#tree' => TRUE));
+  foreach ($tree as $data) {
+    $title = '';
+    $item = $data['link'];
+    // Don't show callbacks; these have $item['hidden'] < 0.
+    if ($item && $item['hidden'] >= 0) {
+      $mlid = 'mlid:' . $item['mlid'];
+      $form[$mlid]['#item'] = $item;
+      $form[$mlid]['#attributes'] = $item['hidden'] ? array('class' => array('menu-disabled')) : array('class' => array('menu-enabled'));
+      $form[$mlid]['title']['#markup'] = l($item['title'], $item['href'], $item['localized_options']) . ($item['hidden'] ? ' (' . t('disabled') . ')' : '');
+      
+      $form[$mlid]['hidden'] = array(
+        '#type' => 'checkbox',
+        '#title' => t('Enable @title menu link', array('@title' => $item['title'])),
+        '#title_display' => 'invisible',
+        '#default_value' => !$item['hidden'],
+      );
+      $form[$mlid]['weight'] = array(
+        '#type' => 'weight',
+        '#delta' => 50,
+        '#default_value' => $item['weight'],
+        '#title_display' => 'invisible',
+        '#title' => t('Weight for @title', array('@title' => $item['title'])),
+      );
+      $form[$mlid]['mlid'] = array(
+        '#type' => 'hidden',
+        '#value' => $item['mlid'],
+      );
+      $form[$mlid]['plid'] = array(
+        '#type' => 'hidden',
+        '#default_value' => $item['plid'],
+      );
+      // Build a list of operations.
+      $operations = array();
+      $operations['edit'] = array('#type' => 'link', '#title' => t('edit'), '#href' => 'admin/structure/menu/item/' . $item['mlid'] . '/edit');
+      // Only items created by the menu module can be deleted.
+      if ($item['module'] == 'menu' || $item['updated'] == 1) {
+        $operations['delete'] = array('#type' => 'link', '#title' => t('delete'), '#href' => 'admin/structure/menu/item/' . $item['mlid'] . '/delete');
+      }
+      // Set the reset column.
+      elseif ($item['module'] == 'system' && $item['customized']) {
+        $operations['reset'] = array('#type' => 'link', '#title' => t('reset'), '#href' => 'admin/structure/menu/item/' . $item['mlid'] . '/reset');
+      }
+      $form[$mlid]['operations'] = $operations;
+    }
+
+    if ($data['below']) {
+      _menuadminsplitter_overview_tree_form($data['below']);
+    }
+  }
+  return $form;
+}

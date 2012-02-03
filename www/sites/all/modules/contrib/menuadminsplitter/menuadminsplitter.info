@@ -1,0 +1,11 @@
+name = Menu Admin Splitter
+description = Split your huge menus into small pieces
+version = VERSION
+core = 7.x
+files[] = menuadminsplitter.module
+; Information added by drupal.org packaging script on 2011-05-19
+version = "7.x-1.x-dev"
+core = "7.x"
+project = "menuadminsplitter"
+datestamp = "1305764777"
+
