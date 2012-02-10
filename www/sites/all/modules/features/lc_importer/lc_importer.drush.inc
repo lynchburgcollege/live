@@ -38,7 +38,50 @@ function lc_importer_drush_command() {
       'drush import-links link_components.xml' => 'Import link components from link_components.xml.',
     ),
   );
+  $items['import-files'] = array(
+    'description' => "Imports LC files.",
+    'arguments' => array(
+      'filename' => 'XML file.',
+      'filepath' => 'Absolute path to files directory in which to place downloaded files.',
+    ),
+    'examples' => array(
+      'drush import-files binary_documents.xml /home/lynchburg/public_html/www/files' => 'Import files from link_components.xml.',
+    ),
+  );
   return $items;
+}
+
+function drush_lc_importer_import_files($file, $filepath) {
+  if (!($contents = file_get_contents($file))) {
+    return drush_set_error('FILE_NOT_FOUND', dt('Could not load specified filename.'));
+  }
+  if (!(strlen($filepath))) {
+    return drush_set_error('FILE_NOT_FOUND', dt('You must specify a filepath.'));
+  }
+
+  try {
+    $xml = new SimpleXMLElement($contents);
+  }
+  catch (Exception $e) {
+    return drush_set_error('INVALID_XML', dt('Could not parse specified file as XML.'));
+  }
+
+  foreach ($xml->BinaryDocument as $file) {
+    $file_id = (string) $file['ID'];
+    print "file_id: $file_id\n";
+    $target = (string) $file->DocumentURL;
+    if (strpos($target, 'documents/') === FALSE) {
+      $target = 'documents/' . $target;
+    }
+    print "target: $target\n";
+    // Download file to local storage.
+    $dir = $filepath . "/archives/" . dirname($target);
+    $filename = str_replace(' ', '%20', basename($target));
+    mkdir($dir, 0777, TRUE);
+    file_put_contents($filepath . "/archives/" . $target, file_get_contents("http://www.lynchburg.edu/" . dirname($target) . '/' . $filename));
+    lc_importer_add_redirect($link_id . '.xml', $target);
+    print "\n\n";
+  }
 }
 
 function drush_lc_importer_import_links($file) {
@@ -116,7 +159,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
   $schema = (string) $page['Schema'];
   print "name: $name, page_id: $page_id, publish_as: $publish_as, schema: $schema\n";
 
-  if ($schema == 'LinkComponent') {
+  if ($schema == 'LinkComponent' || $schema == 'BinaryDocument') {
     // Fixme: perhaps remove parent_nid test for final import.
     if ($parent_nid > 0) {
       // This is a link component, add to the related links of the parent.
