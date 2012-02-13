@@ -48,7 +48,67 @@ function lc_importer_drush_command() {
       'drush import-files binary_documents.xml /home/lynchburg/public_html/www/files' => 'Import files from link_components.xml.',
     ),
   );
+  $items['import-images'] = array(
+    'description' => "Imports LC images.",
+    'arguments' => array(
+      'filename' => 'XML file.',
+      'filepath' => 'Absolute path to files directory in which to place downloaded files.',
+    ),
+    'examples' => array(
+      'drush import-images all.xml /home/lynchburg/public_html/www/files' => 'Import images from all.xml.',
+    ),
+  );
   return $items;
+}
+
+function drush_lc_importer_import_images($file, $filepath) {
+  if (!($contents = file_get_contents($file))) {
+    return drush_set_error('FILE_NOT_FOUND', dt('Could not load specified filename.'));
+  }
+  if (!(strlen($filepath))) {
+    return drush_set_error('FILE_NOT_FOUND', dt('You must specify a filepath.'));
+  }
+
+  try {
+    $xml = new SimpleXMLElement($contents);
+  }
+  catch (Exception $e) {
+    return drush_set_error('INVALID_XML', dt('Could not parse specified file as XML.'));
+  }
+
+  foreach ($xml->Page1 as $page) {
+    $page_id = (string) $page['ID'];
+    $page_html = (string) $page->BodyCopy;
+    // print "page_id: $page_id\n";
+    // Parse this page for images.
+    $DOM = new DOMDocument;
+    @$DOM->loadHTML($page_html);
+    // Get all img elements
+    $images = $DOM->getElementsByTagName('img');
+    foreach ($images as $image) {
+      print $image->getAttribute('src') . "\n";
+    }
+
+    /*
+    $target = (string) $file->DocumentURL;
+    if (strpos($target, 'documents/') === FALSE) {
+      $target = 'documents/' . $target;
+    }
+    // Get rid of anchors.
+    $target = preg_replace('/#.*$/', '', $target);
+    print "target: $target\n";
+    // Download file to local storage.
+    $dir = $filepath . "/archives/" . dirname($target);
+    $filename = str_replace(' ', '%20', basename($target));
+    // Download the file if we haven't already.
+    if (!file_exists($filepath . "/archives/" . $target)) {
+      mkdir($dir, 0777, TRUE);
+      file_put_contents($filepath . "/archives/" . $target, file_get_contents("http://www.lynchburg.edu/" . dirname($target) . '/' . $filename));
+    }
+    lc_importer_add_redirect($file_id . '.xml', "files/archives/" . $target);
+    print "\n\n";
+     */
+  }
 }
 
 function drush_lc_importer_import_files($file, $filepath) {
