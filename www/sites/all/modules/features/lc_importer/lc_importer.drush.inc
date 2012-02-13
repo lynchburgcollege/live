@@ -77,8 +77,11 @@ function drush_lc_importer_import_files($file, $filepath) {
     // Download file to local storage.
     $dir = $filepath . "/archives/" . dirname($target);
     $filename = str_replace(' ', '%20', basename($target));
-    mkdir($dir, 0777, TRUE);
-    file_put_contents($filepath . "/archives/" . $target, file_get_contents("http://www.lynchburg.edu/" . dirname($target) . '/' . $filename));
+    // Download the file if we haven't already.
+    if (!file_exists($filepath . "/archives/" . $target)) {
+      mkdir($dir, 0777, TRUE);
+      file_put_contents($filepath . "/archives/" . $target, file_get_contents("http://www.lynchburg.edu/" . dirname($target) . '/' . $filename));
+    }
     lc_importer_add_redirect($link_id . '.xml', $target);
     print "\n\n";
   }
