@@ -73,6 +73,8 @@ function drush_lc_importer_import_files($file, $filepath) {
     if (strpos($target, 'documents/') === FALSE) {
       $target = 'documents/' . $target;
     }
+    // Get rid of anchors.
+    $target = preg_replace('/#.*$/', '', $target);
     print "target: $target\n";
     // Download file to local storage.
     $dir = $filepath . "/archives/" . dirname($target);
