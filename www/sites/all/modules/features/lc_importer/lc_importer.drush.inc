@@ -82,7 +82,7 @@ function drush_lc_importer_import_files($file, $filepath) {
       mkdir($dir, 0777, TRUE);
       file_put_contents($filepath . "/archives/" . $target, file_get_contents("http://www.lynchburg.edu/" . dirname($target) . '/' . $filename));
     }
-    lc_importer_add_redirect($link_id . '.xml', $target);
+    lc_importer_add_redirect($file_id . '.xml', "files/archives/" . $target);
     print "\n\n";
   }
 }
@@ -303,7 +303,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
  * Helper function - add 301 redirect with given params
  *
  * @param $source
- * @param $nid
+ * @param $target
  */
 function lc_importer_add_redirect($source, $target) {
   $redirect = new stdClass();
