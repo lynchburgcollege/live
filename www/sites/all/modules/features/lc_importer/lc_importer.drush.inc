@@ -86,28 +86,32 @@ function drush_lc_importer_import_images($file, $filepath) {
     // Get all img elements
     $images = $DOM->getElementsByTagName('img');
     foreach ($images as $image) {
-      print $image->getAttribute('src') . "\n";
+      $target = $image->getAttribute('src');
+      $target = str_replace('http://www.lynchburg.edu/', '', $target);
+      // Get rid of leading ../s.
+      while (strpos($target, '../', 0) !== FALSE) {
+        $target = substr($target, 3);
+      }
+      print "target: $target\n";
+      if (strpos($target, 'http', 0) !== FALSE) {
+        print "Not on lynchburg.edu!\n\n";
+        continue;
+      }
+      if (strpos($target, 'data:image', 0) !== FALSE) {
+        print "Inline data!";
+        continue;
+      }
+      // Download file to local storage.
+      $dir = $filepath . "/" . dirname($target);
+      $filename = str_replace(' ', '%20', basename($target));
+      // Download the file if we haven't already.
+      if (!file_exists($filepath . "/" . $target)) {
+        @mkdir($dir, 0777, TRUE);
+        file_put_contents($filepath . "/" . $target, file_get_contents("http://www.lynchburg.edu/" . str_replace(' ', '%20', dirname($target)) . '/' . $filename));
+      }
+      lc_importer_add_redirect($file_id . '.xml', "files/archives/" . $target);
+      print "\n\n";
     }
-
-    /*
-    $target = (string) $file->DocumentURL;
-    if (strpos($target, 'documents/') === FALSE) {
-      $target = 'documents/' . $target;
-    }
-    // Get rid of anchors.
-    $target = preg_replace('/#.*$/', '', $target);
-    print "target: $target\n";
-    // Download file to local storage.
-    $dir = $filepath . "/archives/" . dirname($target);
-    $filename = str_replace(' ', '%20', basename($target));
-    // Download the file if we haven't already.
-    if (!file_exists($filepath . "/archives/" . $target)) {
-      mkdir($dir, 0777, TRUE);
-      file_put_contents($filepath . "/archives/" . $target, file_get_contents("http://www.lynchburg.edu/" . dirname($target) . '/' . $filename));
-    }
-    lc_importer_add_redirect($file_id . '.xml', "files/archives/" . $target);
-    print "\n\n";
-     */
   }
 }
 
