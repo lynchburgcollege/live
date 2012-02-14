@@ -112,7 +112,7 @@ abstract class FeedsXPathParserBase extends FeedsParser {
       $results = array();
       if (in_array($source, $this->rawXML)) {
         foreach ($node_list as $node) {
-          $results[] = $this->doc->savexML($node);
+          $results[] = $this->getRaw($node);
         }
       }
       else {
@@ -229,8 +229,8 @@ abstract class FeedsXPathParserBase extends FeedsParser {
       );
       if (!empty($variables)) {
         $variable_text = format_plural(count($variables),
-          t('The variable ' . implode(', ', $variables) . ' is availliable for replacement.'),
-          t('The variables ' . implode(', ', $variables) . ' are availliable for replacement.')
+          t('The variable ' . implode(', ', $variables) . ' is available for replacement.'),
+          t('The variables ' . implode(', ', $variables) . ' are available for replacement.')
         );
         $form['xpath']['sources'][$source]['#description'] .= '<br />' . $variable_text;
       }
@@ -505,4 +505,6 @@ abstract class FeedsXPathParserBase extends FeedsParser {
     libxml_clear_errors();
     libxml_use_internal_errors($use);
   }
+
+  abstract protected function getRaw(DOMNode $node);
 }

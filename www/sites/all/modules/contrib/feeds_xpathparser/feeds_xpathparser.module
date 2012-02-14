@@ -10,7 +10,8 @@ function feeds_xpathparser_feeds_plugins() {
       'description' => t('Parse HTML using XPath.'),
       'handler' => array(
         'parent' => 'FeedsParser',
-        'class'  => 'FeedsXPathParserHTML',
+        'class' => 'FeedsXPathParserHTML',
+        'file' => 'FeedsXPathParserHTML.inc',
       ),
     ),
     'FeedsXPathParserXML' => array(
@@ -18,7 +19,8 @@ function feeds_xpathparser_feeds_plugins() {
       'description' => t('Parse XML using XPath.'),
       'handler' => array(
         'parent' => 'FeedsParser',
-        'class'  => 'FeedsXPathParserXML',
+        'class' => 'FeedsXPathParserXML',
+        'file' => 'FeedsXPathParserXML.inc',
       ),
     ),
   );
