@@ -14,3 +14,7 @@ http://drupal.org/files/nodehierarchy-admin_link_structure_section-1159392-4.pat
 Pathauto - Provide an [array:join-path] token
 http://drupal.org/node/1046972
 http://drupal.org/files/1046972-joined_path_token-d7-1.patch
+
+UUID - Rewrite token integration to be more entity generic
+http://drupal.org/node/1423542
+http://drupal.org/files/test_if_replacement_requested-1423542-29.patch
