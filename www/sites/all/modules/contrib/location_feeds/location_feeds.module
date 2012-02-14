@@ -293,7 +293,7 @@ function location_feeds_set_point($source, $entity, $target, $value) {
       if (strpos($val,'-') === 0) {
         $neg = TRUE;
       }
-      $val = preg_replace ('/[^\d\s]/', '', $val);
+      $val = preg_replace ('/[^\d\s\.]/', '', $val);
       $dms = explode(' ', $val);
       if (count($dms) == 3) {
         $val = (abs($dms[0]) + ($dms[1]/60) + ($dms[2]/3600)) * ($neg ? -1 : 1);
