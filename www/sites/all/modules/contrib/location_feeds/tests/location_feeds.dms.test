@@ -56,6 +56,26 @@ class DMSFeedsMapperLocationTestCase extends FeedsMapperLocationTestCase {
         'latitude'  => 40.611111,
         'longitude' => -124.763611,
       ),
+      2 => array(
+        // The White House.
+        'latitude'  => '38.898648',
+        'longitude' => '-77.037692',
+      ),
+      3 => array(
+        // The Vatican.
+        'latitude'  => '41.910833',
+        'longitude' => '12.451944',
+      ),
+      4 => array(
+        // Machu Picchu.
+        'latitude'  => '-13.163056',
+        'longitude' => '-72.545556',
+      ),
+      5 => array(
+        // Sydney Opera House.
+        'latitude'  => '-33.858667',
+        'longitude' => '151.214028',
+      ),
     );
 
     // Create and configure importer.
@@ -95,7 +115,7 @@ class DMSFeedsMapperLocationTestCase extends FeedsMapperLocationTestCase {
 
     // Import CSV file.
     $this->importFile('location_import', drupal_get_path('module', 'location_feeds') .'/tests/feeds/location_dms.csv');
-    $this->assertText('Created 2 nodes');
+    $this->assertText('Created 6 nodes');
 
     // Check the imported locations
     $x = 0;

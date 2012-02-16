@@ -5,7 +5,7 @@ Drupal Contrib patches - sorted alphabetically by module name
 ----------------------
 Location Feeds - DMS co-ordinates with decimal second values not imported correctly
 http://drupal.org/node/1440200
-http://drupal.org/files/location_feeds-account_for_decimal_second_values-1440200-1.patch
+http://drupal.org/files/location_feeds-account_for_decimal_second_values_with_tests-1440200-3.patch
 
 Menu Block - Errors in Drupal 7 when using a menu block
 http://drupal.org/node/1204064
