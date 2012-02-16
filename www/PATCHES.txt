@@ -3,6 +3,10 @@ Drupal Core patches
 
 Drupal Contrib patches - sorted alphabetically by module name
 ----------------------
+Location Feeds - DMS co-ordinates with decimal second values not imported correctly
+http://drupal.org/node/1440200
+http://drupal.org/files/location_feeds-account_for_decimal_second_values_with_tests-1440200-3.patch
+
 Menu Block - Errors in Drupal 7 when using a menu block
 http://drupal.org/node/1204064
 http://drupal.org/files/menu_block-1204064-2.patch
@@ -14,3 +18,7 @@ http://drupal.org/files/nodehierarchy-admin_link_structure_section-1159392-4.pat
 Pathauto - Provide an [array:join-path] token
 http://drupal.org/node/1046972
 http://drupal.org/files/1046972-joined_path_token-d7-1.patch
+
+UUID - Rewrite token integration to be more entity generic
+http://drupal.org/node/1423542
+http://drupal.org/files/test_if_replacement_requested-1423542-29.patch

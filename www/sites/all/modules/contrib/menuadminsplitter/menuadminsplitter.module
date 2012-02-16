@@ -20,9 +20,9 @@ function menuadminsplitter_init() {
     }
     // No 'depth' value selected, show only second level by default.
     if (empty($data['menuadminsplitter_filter']['menu_item_depth'])) {
-      $values['menuadminsplitter_filter']['menu_item_depth'] = 2;
+      $values['menuadminsplitter_filter']['menu_item_depth'] = variable_get('menuadminsplitter_default_depth', 2);
     }
-
+    
     // Save the new values into the user object.
     user_save($user, $values);
   }
@@ -59,6 +59,10 @@ function menuadminsplitter_form_menu_overview_form_alter(&$form, &$form_state) {
     $where .= " AND ml.depth <= :depth";
     $depth = $user_data['menu_item_depth'];
     $args[':depth'] = $depth;
+  }
+  else{
+    $where .= " AND ml.depth <= :depth";
+    $args[':depth'] = variable_get('menuadminsplitter_default_depth', 2);
   }
   // SQL for getting the menu items.
   $sql = "
@@ -150,7 +154,7 @@ function menuadminsplitter_filter_form() {
     '#title' => t('Depth of items to return'),
     '#description' => t('Higher number means slower page loading time.'),
     '#options' => $menu_depth,
-    '#default_value' => isset($user_data['menu_item_depth']) ? $user_data['menu_item_depth'] : '',
+    '#default_value' => isset($user_data['menu_item_depth']) ? $user_data['menu_item_depth'] : variable_get('menuadminsplitter_default_depth', 2),
   );
   $form['menusplitter_filter']['submit'] = array(
     '#type' => 'submit',
