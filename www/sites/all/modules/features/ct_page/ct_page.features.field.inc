@@ -35,7 +35,7 @@ function ct_page_field_default_fields() {
       ),
       'module' => 'text',
       'settings' => array(),
-      'translatable' => '0',
+      'translatable' => '1',
       'type' => 'text_with_summary',
     ),
     'field_instance' => array(
@@ -78,6 +78,74 @@ function ct_page_field_default_fields() {
         ),
         'type' => 'text_textarea_with_summary',
         'weight' => '2',
+      ),
+    ),
+  );
+
+  // Exported field: 'node-page-field_aside'
+  $fields['node-page-field_aside'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_aside',
+      'foreign keys' => array(
+        'format' => array(
+          'columns' => array(
+            'format' => 'format',
+          ),
+          'table' => 'filter_format',
+        ),
+      ),
+      'indexes' => array(
+        'format' => array(
+          0 => 'format',
+        ),
+      ),
+      'module' => 'text',
+      'settings' => array(),
+      'translatable' => '0',
+      'type' => 'text_with_summary',
+    ),
+    'field_instance' => array(
+      'bundle' => 'page',
+      'default_value' => NULL,
+      'deleted' => '0',
+      'description' => 'Content appears in a column to the side of the main content. If this field is left empty, no side column shows.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'text',
+          'settings' => array(),
+          'type' => 'text_default',
+          'weight' => 2,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_aside',
+      'label' => 'Aside',
+      'required' => 0,
+      'settings' => array(
+        'display_summary' => 0,
+        'text_processing' => '1',
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'text',
+        'settings' => array(
+          'rows' => '10',
+          'summary_rows' => 5,
+        ),
+        'type' => 'text_textarea_with_summary',
+        'weight' => '3',
       ),
     ),
   );
@@ -164,61 +232,6 @@ function ct_page_field_default_fields() {
     ),
   );
 
-  // Exported field: 'node-page-field_location'
-  $fields['node-page-field_location'] = array(
-    'field_config' => array(
-      'active' => '1',
-      'cardinality' => '1',
-      'deleted' => '0',
-      'entity_types' => array(),
-      'field_name' => 'field_location',
-      'foreign keys' => array(),
-      'indexes' => array(
-        'lid' => array(
-          0 => 'lid',
-        ),
-      ),
-      'module' => 'location_cck',
-      'settings' => array(),
-      'translatable' => '0',
-      'type' => 'location',
-    ),
-    'field_instance' => array(
-      'bundle' => 'page',
-      'default_value' => NULL,
-      'deleted' => '0',
-      'description' => '',
-      'display' => array(
-        'default' => array(
-          'label' => 'above',
-          'module' => 'location_cck',
-          'settings' => array(),
-          'type' => 'location_default',
-          'weight' => 2,
-        ),
-        'teaser' => array(
-          'label' => 'above',
-          'settings' => array(),
-          'type' => 'hidden',
-          'weight' => 0,
-        ),
-      ),
-      'entity_type' => 'node',
-      'field_name' => 'field_location',
-      'label' => 'Location',
-      'required' => FALSE,
-      'settings' => array(
-        'user_register_form' => FALSE,
-      ),
-      'widget' => array(
-        'module' => 'location_cck',
-        'settings' => array(),
-        'type' => 'location',
-        'weight' => '6',
-      ),
-    ),
-  );
-
   // Exported field: 'node-page-field_nav'
   $fields['node-page-field_nav'] = array(
     'field_config' => array(
@@ -300,9 +313,10 @@ function ct_page_field_default_fields() {
 
   // Translatables
   // Included for use with string extractors like potx.
+  t('Aside');
   t('Body');
+  t('Content appears in a column to the side of the main content. If this field is left empty, no side column shows.');
   t('Enter related links to be displayed when viewing this node. (Or section, if this is the parent of a content section)');
-  t('Location');
   t('Navigation');
   t('Related Links');
   t('Select the site section for this page.');
