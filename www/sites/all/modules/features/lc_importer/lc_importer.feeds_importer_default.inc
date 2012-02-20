@@ -32,12 +32,14 @@ function lc_importer_feeds_importer_default() {
           'xpathparser:1' => 'Title[1]',
           'xpathparser:2' => 'BodyCopy',
           'xpathparser:3' => 'fn:string(\'uncategorized\')',
+          'xpathparser:4' => 'ColumnCopy',
         ),
         'rawXML' => array(
           'xpathparser:0' => 0,
           'xpathparser:1' => 0,
           'xpathparser:2' => 0,
           'xpathparser:3' => 0,
+          'xpathparser:4' => 0,
         ),
         'context' => '/Pages/Page1',
         'exp' => array(
@@ -50,6 +52,7 @@ function lc_importer_feeds_importer_default() {
             'xpathparser:1' => 0,
             'xpathparser:2' => 0,
             'xpathparser:3' => 0,
+            'xpathparser:4' => 0,
           ),
         ),
         'allow_override' => 0,
@@ -80,6 +83,11 @@ function lc_importer_feeds_importer_default() {
           3 => array(
             'source' => 'xpathparser:3',
             'target' => 'field_nav',
+            'unique' => FALSE,
+          ),
+          4 => array(
+            'source' => 'xpathparser:4',
+            'target' => 'field_aside',
             'unique' => FALSE,
           ),
         ),
