@@ -293,17 +293,26 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
   else {
     $tid = 0;
 
-    // We will only use 3 levels of taxonomy.
-    if ($depth < 3) {
-      if ($depth >= 1) {
-        // This is the deepest possible level of the taxonomy.
-        // Check if this page has children - If so, use a taxonomy term.
-        // If not, use nodehierarchy and tag with the parent element.
-        if (count($page->children()) == 0) {
-          $tid = $parent;
+    // Find how many levels deep we go below this node.
+    $childdepth = 0;
+    if (count($page->children()) > 0) {
+      $childdepth = 1;
+      foreach ($page->children() as $child) {
+        if (count($child->children()) > 0) {
+          $childdepth = 2;
+          foreach ($child->children() as $second_level) {
+            if (count($second_level->children()) > 0) {
+              $childdepth = 3;
+              continue;
+            }
+          }
         }
       }
+    }
+    print "Child depth is $childdepth.\n";
 
+    // Use nodehierarchy for bottom two levels, taxonomy for the rest.
+    if ($childdepth > 2 || $depth == 0) {
       if ($tid == 0) {
         // This page has children.
         // First, load the appropriate level of the Site Structure vocabulary.
@@ -332,7 +341,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
       }
     }
     else {
-      // This node is more than 2 levels deep, use the parent tid to tag.
+      // This is a nodehierarchy node, use the parent tid to tag.
       $tid = $parent;
     }
 
@@ -348,6 +357,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
       $nid = $result['entity_id'];
       // Load the node
       if ($node = node_load($nid)) {
+        print $tid;
         $node->field_nav[$node->language][0]['tid'] = $tid;
         node_save($node);
 
@@ -394,8 +404,6 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
       }
     }
   }
-
-  print "\n";
 }
 
 /**
