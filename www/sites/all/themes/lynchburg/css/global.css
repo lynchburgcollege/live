@@ -1,7 +1,43 @@
 /* This file will hold the main styles for your website. */
 
+body {
+	background: #fff url("/sites/all/themes/lynchburg/images/bg-body-top.jpg") repeat-x top left;
+	color:#000;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	background:transparent;
+
+}
+
+/*****************/
+/* header region */
+/*****************/
+
+header#section-header {
+	background: transparent url("/sites/all/themes/lynchburg/images/bg-header-arch.jpg") no-repeat top center;
+}
 
 
+/********** this should be unnecessary when we are done. ********/
+div.region-user-first-inner {
+	display:none;
+}
+
+div#region-user-second {
+	height:30px;
+}
+
+div#region-menu {
+	border:solid 2px #ff0;
+	position:relative;
+	top:45px;
+	
+}
+
+/*****************/
+/* footer region */
+/*****************/
 
 footer {
 	background:#242424 url("/sites/all/themes/lynchburg/images/bg-footer-first.jpg") repeat-x top left;
