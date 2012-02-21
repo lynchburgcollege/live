@@ -311,8 +311,8 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
     }
     print "Child depth is $childdepth.\n";
 
-    // Use nodehierarchy for bottom two levels, taxonomy for the rest.
-    if ($childdepth > 2 || $depth == 0) {
+    // Use taxonomy for at least the top 3 levels, nodehierarchy for bottom two levels.
+    if ($depth <= 3 || $childdepth > 2) {
       if ($tid == 0) {
         // This page has children.
         // First, load the appropriate level of the Site Structure vocabulary.
