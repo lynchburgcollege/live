@@ -1,0 +1,5 @@
+name = "Lynchburg College Formhandler"
+description = "Processes legacy forms"
+core = 7.x
+package = Lynchburgh
+files[] = lc_formhandler.module

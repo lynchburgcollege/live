@@ -1,0 +1,33 @@
+<?php
+/**
+ * @file
+ */
+
+/**
+ * Implements hook_menu().
+ */
+function lc_formhandler_menu() { 
+  $items = array();
+
+  $items['lc_formhandler'] = array(
+    'title' => 'Formhandler',
+    'description' => 'LC formhandler',
+    'page callback' => 'lc_formhandler_process_legacy_form',
+    'access arguments' => array('access content'), 
+    'type' => MENU_CALLBACK,
+  );
+
+  return $items;
+}
+
+/**
+ * Menu callback - process forms.
+ */
+function lc_formhandler_process_legacy_form() {
+  print_r($_POST);
+
+  // May be worth looking into using http://api.drupal.org/api/drupal/includes%21mail.inc/function/drupal_mail/7
+
+  // Useful function for redirection after processing form data.
+  // drupal_goto('/');
+}

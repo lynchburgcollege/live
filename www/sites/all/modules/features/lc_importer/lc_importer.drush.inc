@@ -58,7 +58,40 @@ function lc_importer_drush_command() {
       'drush import-images all.xml /home/lynchburg/public_html/www/files' => 'Import images from all.xml.',
     ),
   );
+  $items['clean-text'] = array(
+    'description' => "Cleans text in imported pages.",
+    'examples' => array(
+      'drush clean-text' => 'Clean up text in all pages.',
+    ),
+  );
   return $items;
+}
+
+function drush_lc_importer_clean_text() {
+  $query = db_select('node', 'n')
+    ->fields('n', array('nid'))
+    ->condition('type', 'page', '=');
+  $result = $query->execute();
+
+  foreach ($result as $record) {
+    $modified = FALSE;
+    $node = node_load($record->nid);
+    // Fix Image paths.
+    $node->body[$node->language][0]['value'] = preg_replace('#\ssrc="images/#i', ' src="/Images/', $node->body[$node->language][0]['value'], -1, $strings_replaced);
+    if ($strings_replaced > 0) {
+      $modified = TRUE;
+    }
+    // Change formmail paths.
+    $node->body[$node->language][0]['value'] = preg_replace('#\saction="[^"]*formmail.asp"#i', ' action="/lc_formhandler"', $node->body[$node->language][0]['value'], -1, $strings_replaced);
+    if ($strings_replaced > 0) {
+      $modified = TRUE;
+      // print($node->body[$node->language][0]['value']);
+    }
+    if ($modified) {
+      node_save($node);
+    }
+  }
+
 }
 
 function drush_lc_importer_import_images($file, $filepath) {
