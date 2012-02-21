@@ -4,7 +4,7 @@
 
 
 footer {
-	background:#242424;
+	background:#242424 url("/sites/all/themes/lynchburg/images/bg-footer-first.jpg") repeat-x top left;
 	color:#acacac;
 }
 
@@ -12,6 +12,11 @@ footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
 	color:#f1f1f1;
 }
 
-#region-footer-first {
-	background-image:url(/sites/all/themes/lynchburg/images/bg-footer-first.jpg) repeat-x left;
+#region-footer-first, #region-footer-first div.content {
+	background:transparent;
+	height:60px;
+}
+
+#region-footer-second {
+	clear:both;
 }
