@@ -7,9 +7,9 @@ files[] = pathauto.test
 configure = admin/config/search/path/patterns
 recommends[] = redirect
 
-; Information added by drupal.org packaging script on 2011-10-31
-version = "7.x-1.x-dev"
+; Information added by drupal.org packaging script on 2012-02-21
+version = "7.x-1.0+3-dev"
 core = "7.x"
 project = "pathauto"
-datestamp = "1320020628"
+datestamp = "1329784564"
 
