@@ -1,8 +1,12 @@
 /* This file will hold the main styles for your website. */
 
+
 body {
 	background: #fff url("/sites/all/themes/lynchburg/images/bg-body-top.jpg") repeat-x top left;
 	color:#000;
+/*	margin:0;
+	padding:0;
+*/
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -10,49 +14,10 @@ h1, h2, h3, h4, h5, h6 {
 
 }
 
-/*****************/
-/* header region */
-/*****************/
-
-header#section-header {
-	background: transparent url("/sites/all/themes/lynchburg/images/bg-header-arch.jpg") no-repeat top center;
-}
 
 
-/********** this should be unnecessary when we are done. ********/
-div.region-user-first-inner {
-	display:none;
-}
 
-div#region-user-second {
-	height:30px;
-}
-
-div#region-menu {
-	border:solid 2px #ff0;
-	position:relative;
-	top:45px;
-	
-}
-
-/*****************/
-/* footer region */
-/*****************/
 
 footer {
-	background:#242424 url("/sites/all/themes/lynchburg/images/bg-footer-first.jpg") repeat-x top left;
-	color:#acacac;
-}
-
-footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
-	color:#f1f1f1;
-}
-
-#region-footer-first, #region-footer-first div.content {
-	background:transparent;
-	height:60px;
-}
-
-#region-footer-second {
-	clear:both;
+	background:#242424;
 }
