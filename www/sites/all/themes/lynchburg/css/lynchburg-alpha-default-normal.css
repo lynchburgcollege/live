@@ -1,21 +1,3 @@
 /* This file will hold styles that are loaded using the same media query as the normal grid. */
 
 
-
-/*****************/
-/* footer region */
-/*****************/
-
-footer {
-	background-image: url("/sites/all/themes/lynchburg/images/bg-footer-first.jpg") repeat-x top left;
-	color:#acacac;
-}
-
-#region-footer-first, #region-footer-first div.content {
-	background:transparent;
-	height:60px;
-}
-
-#region-footer-second {
-	clear:both;
-}

@@ -33,20 +33,46 @@ div#region-menu {
 /* footer region */
 /*****************/
 
-footer {
-	background-image: url("/sites/all/themes/lynchburg/images/bg-footer-first.jpg") repeat-x top left;
-	color:#acacac;
+footer#section-footer {
+	background:#202022  url("/sites/all/themes/lynchburg/images/bg-footer-first.jpg") repeat-x top left;
 }
-
-footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
-	color:#f1f1f1;
+footer#section-footer a {
+	color:#acacac;
+	text-decoration:none;
+}
+footer#section-footer a:hover {
+	color:#fff;
+	text-decoration:underline;
 }
 
 #region-footer-first, #region-footer-first div.content {
 	background:transparent;
 	height:60px;
 }
+.footer-bar-link {
+	display:inline-block;
+}
+.footer-bar-link a {
+	display:inline-block;
+	margin:20px ;
+}
+.give {
+	height:60px; width: 80px; 
+	background: transparent url("/sites/all/themes/lynchburg/images/bg-give.png") no-repeat center;
+	
+}
+.give:hover {	
+	background: transparent url("/sites/all/themes/lynchburg/images/bg-give-hover.png") no-repeat center;
+}
+footer#section-footer span.give a {
+	color:#fff;
+}
+footer#section-footer span.give:hover a {
+	color:#000;
+}
+
 
 #region-footer-second {
 	clear:both;
+	background: #202022 url("/sites/all/themes/lynchburg/images/bg-footer.jpg") no-repeat center;
 }

@@ -18,18 +18,29 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-footer {
-	background:#242424;
+footer#section-footer {
+	background: #202022;
+	color:#acacac;
+	
 }
 
 
-footer h1, footer h2, footer h3, footer h4, footer h5, footer h6 {
+footer#section-footer h1, footer#section-footer h2, footer#section-footer h3, footer#section-footer h4, footer#section-footer h5, footer#section-footer h6 {
 	color:#f1f1f1;
 }
-
-footer h2 {
+ 
+footer#section-footer h2 {
 	border-bottom:solid 1px #5b5b5b;
 	font-family:arial, sans-serif;
 	font-size:16px;
 	font-weight:normal;
+}
+
+footer#section-footer ul {
+	list-style-type:none;
+}
+
+
+.grid12 {
+	width:960px;
 }
