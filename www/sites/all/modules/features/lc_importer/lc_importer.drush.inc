@@ -378,23 +378,19 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
     if ($tid == $parent) {
       // This is not a new level of the taxonomy, we need to add the node reference info.
       if (is_object($node)) {
-        $add_parent = TRUE;
-        // Check if this node already has this parent.
+        // Clear out existing references.
         if (isset($node->field_parents[$node->language])) {
-          if (count($node->field_parents[$node->language])) {
-            foreach ($node->field_parents[$node->language] as $parent) {
-              if ($parent['nid'] == $parent_nid) {
-                $add_parent = FALSE;
-              }
-            }
-          }
+          unset($node->field_parents[$node->language]);
         }
-        if ($add_parent) { // This parent has not yet been added to this node.
-          $node->field_parents[$node->language][] = array(
+        if (isset($node->field_children[$node->language])) {
+          unset($node->field_children[$node->language]);
+        }
+        $node->field_parents[$node->language] = array(
+          0 => array(
             'nid' => $parent_nid,
-          );
-          node_save($node);
-        }
+          ),
+        );
+        node_save($node);
       }
     }
 
