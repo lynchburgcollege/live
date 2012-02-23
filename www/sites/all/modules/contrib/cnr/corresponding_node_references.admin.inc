@@ -110,7 +110,7 @@ function corresponding_node_references_settings_form_submit($form, $form_values)
 
   // delete old presets
   foreach ($presets as $preset) {
-    //ctools_export_crud_delete($preset);
+    ctools_export_crud_delete('corresponding_node_references', $preset);
   }
 
   drupal_set_message(t('The configuration has been saved'));
