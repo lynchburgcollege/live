@@ -324,6 +324,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
           if (strtolower($name) == strtolower($term->name)) {
             // This is a match! Use this tid.
             $tid = $term->tid;
+            print "Using term with name $term->name\n";
             continue;
           }
         }
@@ -338,10 +339,12 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
         $new_term->description = 'Auto-generated on import.';
         taxonomy_term_save($new_term);
         $tid = $new_term->tid;
+        print "Using term with name $new_term->name\n";
       }
     }
     else {
-      // This is a nodehierarchy node, use the parent tid to tag.
+      // This is a section node, use the parent tid to tag.
+      print "Using references for this node!\n";
       $tid = $parent;
     }
 
@@ -373,26 +376,25 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
     }
 
     if ($tid == $parent) {
-      // This is not a new level of the taxonomy, we need to add the nodehierarchy info.
-      // Code from: http://drupal.org/node/1391578
+      // This is not a new level of the taxonomy, we need to add the node reference info.
       if (is_object($node)) {
-        $plid = _nodehierarchy_get_node_mlid($parent_nid, TRUE);
-        $nodehierarchy_menu_links = _nodehierarchy_default_menu_link($parent_nid, $plid);
-        $nodehierarchy_menu_links['pnid']= $parent_nid;
-        $nodehierarchy_menu_links['hidden'] = FALSE;
-        $nodehierarchy_menu_links['enabled'] = TRUE;
-        $nodehierarchy_old_menu_links = $nodehierarchy_menu_links;
-        $nodehierarchy_old_menu_links['enabled'] = TRUE;
-        unset($nodehierarchy_old_menu_links['hidden']);
-        unset($nodehierarchy_old_menu_links['link_path']);
-        $nodehierarchy_old_menu_links['link_title'] = '';
-        $nodehierarchy_old_menu_links['expanded'] = '';
-        $nodehierarchy_old_menu_links['description'] = '';
-        $nodehierarchy_old_menu_links['customized'] = '';
-        $node->nodehierarchy_menu_links[] = $nodehierarchy_menu_links;
-        $node->nodehierarchy_old_menu_links[] = $nodehierarchy_old_menu_links;
-
-        _nodehierarchy_save_node($node);
+        $add_parent = TRUE;
+        // Check if this node already has this parent.
+        if (isset($node->field_parents[$node->language])) {
+          if (count($node->field_parents[$node->language])) {
+            foreach ($node->field_parents[$node->language] as $parent) {
+              if ($parent['nid'] == $parent_nid) {
+                $add_parent = FALSE;
+              }
+            }
+          }
+        }
+        if ($add_parent) { // This parent has not yet been added to this node.
+          $node->field_parents[$node->language][] = array(
+            'nid' => $parent_nid,
+          );
+          node_save($node);
+        }
       }
     }
 

@@ -28,18 +28,19 @@ function corresponding_node_references_insert($home_node, $home_field, $away_nod
           // See http://api.drupal.org/api/drupal/modules--node--node.module/function/node_load_multiple/7
           if ($referenced_node = node_load($reference['nid'], NULL, FALSE)) {
             if ($referenced_node->type == $away_node_type) {
+              $away_field_language = field_language('node', $referenced_node, $away_field);
               // Add the new reference.
               // If there are no other references, we need to make sure this
               // is delta 0
-              if (array_key_exists($referenced_node->language, $referenced_node->{$away_field}) == FALSE || $referenced_node->{$away_field}[$referenced_node->language][0]['nid'] == NULL) {
-                $referenced_node->{$away_field}[$referenced_node->language][0]['nid'] = $home_node->nid;
+              if (array_key_exists($away_field_language, $referenced_node->{$away_field}) == FALSE || $referenced_node->{$away_field}[$away_field_language][0]['nid'] == NULL) {
+                $referenced_node->{$away_field}[$away_field_language][0]['nid'] = $home_node->nid;
               }
               else {
                 // Add the new reference.
                 // Check for doubles, could happen when nodes of same type are
                 // referenced.
                 $exists = FALSE;
-                foreach ($referenced_node->{$away_field}[$referenced_node->language] as $key => $value) {
+                foreach ($referenced_node->{$away_field}[$away_field_language] as $key => $value) {
                   if ($value['nid'] == $home_node->nid) {
                     $exists = TRUE;
                     break;
@@ -47,8 +48,7 @@ function corresponding_node_references_insert($home_node, $home_field, $away_nod
                 }
 
                 if (!$exists) {
-                  $referenced_node->{$away_field}[$referenced_node->language][] = array('nid' => $home_node->nid);
-                }
+                  $referenced_node->{$away_field}[$away_field_language][] = array('nid' => $home_node->nid);                }
               }
               _corresponding_node_references_update($referenced_node);
             }
@@ -117,12 +117,13 @@ function corresponding_node_references_update($home_node, $home_field, $away_nod
           if ($referenced_node = node_load($nid, NULL, FALSE)) {
             // Self-references are handled by the node_reference module anyway.
             if ($referenced_node->type == $away_node_type && $nid != $home_node->nid) {
-              if (isset($referenced_node->{$away_field}[$referenced_node->language]) && is_array($referenced_node->{$away_field}[$referenced_node->language])) {
+              $away_field_language = field_language('node', $referenced_node, $away_field);
+              if (isset($referenced_node->{$away_field}[$away_field_language]) && is_array($referenced_node->{$away_field}[$away_field_language])) {
                 // Iterate through the away node's references.
-                foreach ($referenced_node->{$away_field}[$referenced_node->language] as $key => $value) {
+                foreach ($referenced_node->{$away_field}[$away_field_language] as $key => $value) {
                   // Remove references to the deleted node.
                   if ($value['nid'] && $value['nid'] == $home_node->nid) {
-                    unset($referenced_node->{$away_field}[$referenced_node->language][$key]);
+                    unset($referenced_node->{$away_field}[$away_field_language][$key]);
                     _corresponding_node_references_update($referenced_node);
                     break;
                   }
@@ -140,12 +141,13 @@ function corresponding_node_references_update($home_node, $home_field, $away_nod
     foreach ($added as $nid) {
       // Load the referenced node if it is of the specified away type.
       if ($referenced_node = node_load($nid, NULL, FALSE)) {
+        $away_field_language = field_language('node', $referenced_node, $away_field);
         // Self-references are handled by the node_reference module anyway.
         if ($referenced_node->type == $away_node_type && $nid != $home_node->nid) {
           // Detect whether the reference already exists.
           $exists = FALSE;
-          if (isset($referenced_node->{$away_field}[$referenced_node->language]) && !empty($referenced_node->{$away_field}[$referenced_node->language])) {
-            foreach ($referenced_node->{$away_field}[$referenced_node->language] as $data) {
+          if (isset($referenced_node->{$away_field}[$away_field_language]) && !empty($referenced_node->{$away_field}[$away_field_language])) {
+            foreach ($referenced_node->{$away_field}[$away_field_language] as $data) {
               if ($data['nid'] == $home_node->nid) {
                 $exists = TRUE;
                 break;
@@ -157,14 +159,14 @@ function corresponding_node_references_update($home_node, $home_field, $away_nod
           // Yes this means the deltas change on the away node when a
           // reference is made on the home node.
           $values = array();
-          if (isset($referenced_node->{$away_field}[$referenced_node->language])) {
-            foreach ($referenced_node->{$away_field}[$referenced_node->language] as $value) {
+          if (isset($referenced_node->{$away_field}[$away_field_language])) {
+            foreach ($referenced_node->{$away_field}[$away_field_language] as $value) {
               if (!empty($value['nid'])) {
                 $values[] = $value;
               }
             }
           }
-          $referenced_node->{$away_field}[$referenced_node->language] = $values;
+          $referenced_node->{$away_field}[$away_field_language] = $values;
           // Add the new reference. Don't create a duplicate.
           if (!$exists) {
             // Get the allowed values.
@@ -179,9 +181,9 @@ function corresponding_node_references_update($home_node, $home_field, $away_nod
                 $allowed_references = $field['cardinality'];
               }
               // Check for reference overloading.
-              $references = count($referenced_node->{$away_field}[$referenced_node->language]) + 1;
+              $references = count($referenced_node->{$away_field}[$away_field_language]) + 1;
               if (($allowed_references >= $references) || $unlimited) {
-                $referenced_node->{$away_field}[$referenced_node->language][] = array('nid' => $home_node->nid);
+                $referenced_node->{$away_field}[$away_field_language][] = array('nid' => $home_node->nid);
                 _corresponding_node_references_update($referenced_node);
               }
               else {
@@ -247,5 +249,6 @@ function corresponding_node_references_delete($home_node, $home_field, $away_nod
  * @param $node the referenced node to be updated.
  */
 function _corresponding_node_references_update(&$node) {
+  field_attach_presave('node', $node);
   field_attach_update('node', $node);
 }
