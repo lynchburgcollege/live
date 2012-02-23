@@ -5,3 +5,129 @@
  */
 
 include_once('ct_page.features.inc');
+
+function ct_page_block_info() {
+  $blocks['lc_section_nav'] = array(
+    'info' => t('LC Section Nav'),
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  return $blocks;
+}
+
+function ct_page_block_view($delta) {
+  $block = array();
+
+  switch ($delta) {
+    case 'lc_section_nav':
+      $block = ct_page_lc_section_nav();
+      break;
+  }
+
+  return $block;
+}
+
+function ct_page_lc_section_nav() {
+  $start = microtime(TRUE);
+  $display_block = FALSE;
+  // Get current node.
+  $node = menu_get_object();
+  // We want to display this block if the current node has parents or children.
+  if (isset($node->field_parents[$node->language])) {
+    if (count($node->field_parents[$node->language])) {
+      $display_block = TRUE;
+    }
+  }
+  if (isset($node->field_children[$node->language])) {
+    if (count($node->field_children[$node->language])) {
+      $display_block = TRUE;
+    }
+  }
+
+  if ($display_block) {
+    // First, find the top-level parent.
+    $parent_found = FALSE;
+    while (!$parent_found) {
+      if (isset($parent_nid)) {
+        $node = node_load($parent_nid);
+      }
+      if (isset($node->field_parents[$node->language])) {
+        if (count($node->field_parents[$node->language]) > 0) {
+          // Only handling one parent for now.
+          $parent_nid = $node->field_parents[$node->language][0]['nid'];
+        }
+        else {
+          $parent_found = TRUE;
+        }
+      }
+      else {
+        $parent_found = TRUE;
+      }
+    }
+
+    $block = array(
+      'subject' => l($node->title, 'node/' . $node->nid),
+    );
+
+    // Set up the menu array.
+    $items = array(
+      'title' => '',
+      'type' => 'ul',
+      'items' => array(),
+      'attributes' => array(),
+    );
+
+    // Now that we've found the parent, work from the top down.
+    foreach ($node->field_children[$node->language] as $child) {
+      // Recursively generate this part of the tree.
+      $node = node_load($child['nid']);
+      $item = array(
+        'data' => l($node->title, 'node/' . $node->nid),
+        'children' => array(),
+      );
+      _ct_page_generate_child_leaf($node, $item['children']);
+      $items['items'][] = $item;
+    }
+    $block['content'] = theme_item_list($items);
+
+    $end = microtime(TRUE);
+    $gen_time = $end - $start;
+    // dsm('block took ' . $gen_time . ' ms to generate.');
+
+    return $block;
+  }
+
+  return FALSE;
+}
+
+/**
+ * Populate item children
+ *
+ * @param $node
+ * @param $children
+ *
+ * @return 
+ */
+function _ct_page_generate_child_leaf($node, &$children) {
+  if (isset($node->field_children[$node->language])) {
+    if (count($node->field_children[$node->language])) {
+      foreach($node->field_children[$node->language] as $child) {
+        $node = node_load($child['nid']);
+        $children[] = array(
+          'data' => l($node->title, 'node/' . $node->nid),
+          'children' => array(),
+        );
+        if (isset($node->field_children[$node->language])) {
+          if (count($node->field_children[$node->language])) {
+            foreach($node->field_children[$node->language] as $child) {
+              // Get the member just created.
+              $this_child = end($children);
+              _ct_page_generate_child_leaf($node, $this_child['children']);
+            }
+          }
+        }
+      }
+    }
+    return $children;
+  }
+}
