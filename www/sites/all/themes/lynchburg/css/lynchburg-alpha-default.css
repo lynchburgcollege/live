@@ -5,15 +5,17 @@
 /* header region */
 /*****************/
 
+
 header#section-header {
+	height:142px;
 	margin:0;
 	padding:0;
-	border:0;
 	background: transparent url("/sites/all/themes/lynchburg/images/bg-header-arch.jpg") no-repeat top center;
 }
 
 
-/********** this should be unnecessary when we are done. ********/
+
+/* this should be unnecessary when we are done. */
 div.region-user-first-inner {
 	display:none;
 }
@@ -23,11 +25,22 @@ div#region-user-second {
 }
 
 div#region-menu {
-	border:solid 2px #ff0;
 	position:relative;
 	top:45px;
-	
+	border:none;
 }
+
+
+
+
+#section-content {
+	clear:both;
+}
+
+
+
+
+
 
 /*****************/
 /* footer region */
