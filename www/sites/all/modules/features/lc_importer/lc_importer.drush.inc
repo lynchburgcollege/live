@@ -252,7 +252,10 @@ function drush_lc_importer_import_nav($file) {
  * @param $depth
  *   int: current depth within hierarchy.
  */
-function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
+function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $use_taxonomy = TRUE) {
+  // List of Xids that represent top-level section parents.
+  $parent_ids = array('x27475', 'x2402', 'x23959', 'x2673', 'x2727', 'x28722', 'x2733');
+
   print "parent: $parent, depth: $depth, parent_nid: $parent_nid\n";
 
   $name = (string) $page['Name'];
@@ -294,6 +297,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
     $tid = 0;
 
     // Find how many levels deep we go below this node.
+    /*
     $childdepth = 0;
     if (count($page->children()) > 0) {
       $childdepth = 1;
@@ -310,9 +314,11 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
       }
     }
     print "Child depth is $childdepth.\n";
+     */
 
     // Use taxonomy for at least the top 3 levels, nodehierarchy for bottom two levels.
-    if ($depth == 0 || $childdepth > 1) {
+    // if ($depth == 0 || (array_search($parent_ids, $page_id) === FALSE)) {
+    if ($use_taxonomy) {
       if ($tid == 0) {
         // This page has children.
         // First, load the appropriate level of the Site Structure vocabulary.
@@ -394,11 +400,16 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0) {
       }
     }
 
+    if (array_search($parent_ids, $page_id) !== FALSE) {
+      // This is a section top level, use references for children.
+      $use_taxonomy = FALSE;
+    }
+
     // Now take care of any children.
     if (count($page->children()) > 0) {
       // This element has children, parse them recursively.
       foreach ($page->children() as $child) {
-        lc_importer_tag_node($child, $vid, $tid, $depth + 1, $nid);
+        lc_importer_tag_node($child, $vid, $tid, $depth + 1, $nid, $use_taxonomy);
       }
     }
   }
