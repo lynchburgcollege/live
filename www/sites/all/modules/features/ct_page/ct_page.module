@@ -131,3 +131,37 @@ function _ct_page_generate_child_leaf($node, &$children) {
     return $children;
   }
 }
+
+/**
+ * Implements hook_node_presave().
+ *   Ensure that nodes always use the same taxonomy term as their parent.
+ *
+ * @param $node
+ */
+ /*
+function ct_page_node_presave($node) {
+  if (isset($node->field_parents[$node->language])) {
+    if (count($node->field_parents[$node->language])) {
+      // This node has a parent, make sure it's using the same taxonomy term as its parent.
+      $parent_node = node_load($node->field_parents[$node->language][0]['nid']);
+      $parent_tid = $parent_node->field_nav[$node->language][0]['tid'];
+      if ($node->field_nav[$node->language][0]['tid'] != $parent_tid) {
+        // The tids are different, update this node.
+        $node->field_nav[$node->language][0]['tid'] = $parent_tid;
+        drupal_set_message(t('Updated parent term for %title', array('%title' => $node->title)));
+        // Update any children present as well.
+        if (isset($node->field_children[$node->language])) {
+          if (count($node->field_children[$node->language])) {
+            foreach ($node->field_children[$node->language] as $child) {
+              // All we need to do is load and save the node, this hook will take care of the rest.
+              $child_node = node_load($child['nid']);
+              $child_node->field_nav[$node->language][0]['tid'] = $parent_tid;
+              node_save($child_node);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+*/
