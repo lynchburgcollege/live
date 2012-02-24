@@ -306,6 +306,9 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
       }
     }
   }
+  elseif ($schema == 'FacStaffPage') {
+    // We're not doing anything with these.
+  }
   else {
     $tid = 0;
 
