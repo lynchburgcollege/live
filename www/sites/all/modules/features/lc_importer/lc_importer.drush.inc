@@ -306,7 +306,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
       }
     }
   }
-  elseif ($schema == 'FacStaffPage') {
+  elseif ($schema == 'FacStaffPage' || $schema == 'Profile') {
     // We're not doing anything with these.
   }
   else {
