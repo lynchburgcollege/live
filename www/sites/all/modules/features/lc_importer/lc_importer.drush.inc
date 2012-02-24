@@ -417,6 +417,11 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
       print "SECTION TOP LEVEL\n\n\n";
     }
 
+    // If this node was not found, use its parent for any children.
+    if ($nid == 0) {
+      $nid = $parent_nid;
+    }
+
     // Now take care of any children.
     if (count($page->children()) > 0) {
       // This element has children, parse them recursively.
