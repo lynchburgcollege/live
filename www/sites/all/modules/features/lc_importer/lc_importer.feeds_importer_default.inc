@@ -30,16 +30,18 @@ function lc_importer_feeds_importer_default() {
         'sources' => array(
           'xpathparser:0' => '@ID',
           'xpathparser:1' => '@Name',
-          'xpathparser:2' => 'ProgramDescription',
+          'xpathparser:2' => 'concat(ProgramDescription, VisualHighlights, Outcomes)',
           'xpathparser:3' => 'fn:string(\'uncategorized\')',
-          'xpathparser:4' => 'Outcomes',
+          'xpathparser:5' => 'VisualHighlights',
+          'xpathparser:6' => 'Outcomes',
         ),
         'rawXML' => array(
           'xpathparser:0' => 0,
           'xpathparser:1' => 0,
           'xpathparser:2' => 0,
           'xpathparser:3' => 0,
-          'xpathparser:4' => 0,
+          'xpathparser:5' => 0,
+          'xpathparser:6' => 0,
         ),
         'context' => '/Departments/Department',
         'exp' => array(
@@ -52,7 +54,8 @@ function lc_importer_feeds_importer_default() {
             'xpathparser:1' => 0,
             'xpathparser:2' => 0,
             'xpathparser:3' => 0,
-            'xpathparser:4' => 0,
+            'xpathparser:5' => 0,
+            'xpathparser:6' => 0,
           ),
         ),
         'allow_override' => 0,
@@ -83,11 +86,6 @@ function lc_importer_feeds_importer_default() {
           3 => array(
             'source' => 'xpathparser:3',
             'target' => 'field_nav',
-            'unique' => FALSE,
-          ),
-          4 => array(
-            'source' => 'xpathparser:4',
-            'target' => 'field_aside',
             'unique' => FALSE,
           ),
         ),
