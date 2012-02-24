@@ -138,6 +138,7 @@ function _ct_page_generate_child_leaf($node, &$children) {
  *
  * @param $node
  */
+ /*
 function ct_page_node_presave($node) {
   if (isset($node->field_parents[$node->language])) {
     if (count($node->field_parents[$node->language])) {
@@ -163,3 +164,4 @@ function ct_page_node_presave($node) {
     }
   }
 }
+*/

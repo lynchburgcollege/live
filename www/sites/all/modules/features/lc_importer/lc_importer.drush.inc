@@ -317,7 +317,6 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
      */
 
     // Use taxonomy for at least the top 3 levels, nodehierarchy for bottom two levels.
-    // if ($depth == 0 || (array_search($parent_ids, $page_id) === FALSE)) {
     if ($use_taxonomy) {
       if ($tid == 0) {
         // This page has children.
@@ -330,7 +329,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
           if (strtolower($name) == strtolower($term->name)) {
             // This is a match! Use this tid.
             $tid = $term->tid;
-            print "Using term with name $term->name\n";
+            print "Using existing term with name $term->name\n";
             continue;
           }
         }
@@ -345,7 +344,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
         $new_term->description = 'Auto-generated on import.';
         taxonomy_term_save($new_term);
         $tid = $new_term->tid;
-        print "Using term with name $new_term->name\n";
+        print "Creating term with name $new_term->name\n";
       }
     }
     else {
@@ -366,7 +365,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
       $nid = $result['entity_id'];
       // Load the node
       if ($node = node_load($nid)) {
-        print $tid;
+        print "Using tid: $tid\n";
         $node->field_nav[$node->language][0]['tid'] = $tid;
         node_save($node);
 
@@ -400,9 +399,10 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
       }
     }
 
-    if (array_search($parent_ids, $page_id) !== FALSE) {
+    if (array_search($page_id, $parent_ids) !== FALSE) {
       // This is a section top level, use references for children.
       $use_taxonomy = FALSE;
+      print "SECTION TOP LEVEL\n\n\n";
     }
 
     // Now take care of any children.
