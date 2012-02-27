@@ -32,10 +32,11 @@ function ct_page_lc_section_nav() {
   $display_block = FALSE;
   // Get current node.
   $node = menu_get_object();
+  $cache_nids = array($node->nid);
 
   // Retrieve block from cache if available.
-  if ($block = cache_get('ct_nav_' . $node->nid, 'cache_block')) {
-    return $block;
+  if ($block = cache_get('ct_page:nav:' . $node->nid, 'cache_block')) {
+    return $block->data;
   }
 
   // We want to display this block if the current node has parents or children.
@@ -86,9 +87,11 @@ function ct_page_lc_section_nav() {
     // Now that we've found the parent, work from the top down.
     if (isset($node->field_children[$node->language])) {
       if (count($node->field_children[$node->language])) {
+        $cache_nids[] = $node->nid;
         foreach ($node->field_children[$node->language] as $child) {
           // Recursively generate this part of the tree.
           $node = node_load($child['nid']);
+          $cache_nids[] = $node->nid;
           $item = array(
             'data' => l($node->title, 'node/' . $node->nid),
             'children' => array(),
@@ -104,7 +107,10 @@ function ct_page_lc_section_nav() {
     $gen_time = $end - $start;
     // dsm('block took ' . $gen_time . ' ms to generate.');
 
-    cache_set('ct_nav_' . $node->nid, $block, 'cache_block', CACHE_TEMPORARY);
+    // Set the cache for all nids found. Inefficient, but that's key-value stores for you...
+    foreach ($cache_nids as $nid) {
+      cache_set('ct_page:nav:' . $nid, $block, 'cache_block', CACHE_TEMPORARY);
+    }
 
     return $block;
   }
