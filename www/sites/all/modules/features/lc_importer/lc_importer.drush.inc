@@ -370,7 +370,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
       }
     }
   }
-  elseif ($schema == 'Page1' || $schema == 'Department') {
+  elseif ($schema == 'Page1' || $schema == 'Department' || $schema == 'NewsStory') {
     $tid = 0;
 
     // Find how many levels deep we go below this node.
