@@ -80,7 +80,7 @@ function lc_importer_drush_command() {
 function drush_lc_importer_clean_text() {
   $query = db_select('node', 'n')
     ->fields('n', array('nid'))
-    ->condition('type', array('page', 'news-article'), 'IN');
+    ->condition('type', array('page', 'news_article'), 'IN');
   $result = $query->execute();
 
   foreach ($result as $record) {
