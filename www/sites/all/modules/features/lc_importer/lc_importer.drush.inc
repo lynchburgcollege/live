@@ -58,6 +58,16 @@ function lc_importer_drush_command() {
       'drush import-images all.xml /home/lynchburg/public_html/www/files' => 'Import images from all.xml.',
     ),
   );
+  $items['import-news-images'] = array(
+    'description' => "Imports LC news images.",
+    'arguments' => array(
+      'filename' => 'XML file.',
+      'filepath' => 'Absolute path to files directory in which to place downloaded files.',
+    ),
+    'examples' => array(
+      'drush import-news-images all.xml /home/lynchburg/public_html/www/files' => 'Import images from all.xml.',
+    ),
+  );
   $items['clean-text'] = array(
     'description' => "Cleans text in imported pages.",
     'examples' => array(
@@ -110,6 +120,60 @@ function drush_lc_importer_import_images($file, $filepath) {
   }
 
   foreach ($xml->Page1 as $page) {
+    $page_id = (string) $page['ID'];
+    $page_html = (string) $page->BodyCopy;
+    // print "page_id: $page_id\n";
+    // Parse this page for images.
+    $DOM = new DOMDocument;
+    @$DOM->loadHTML($page_html);
+    // Get all img elements
+    $images = $DOM->getElementsByTagName('img');
+    foreach ($images as $image) {
+      $target = $image->getAttribute('src');
+      $target = str_replace('http://www.lynchburg.edu/', '', $target);
+      // Get rid of leading ../s.
+      while (strpos($target, '../', 0) !== FALSE) {
+        $target = substr($target, 3);
+      }
+      print "target: $target\n";
+      if (strpos($target, 'http', 0) !== FALSE) {
+        print "Not on lynchburg.edu!\n\n";
+        continue;
+      }
+      if (strpos($target, 'data:image', 0) !== FALSE) {
+        print "Inline data!";
+        continue;
+      }
+      // Download file to local storage.
+      $dir = $filepath . "/" . dirname($target);
+      $filename = str_replace(' ', '%20', basename($target));
+      // Download the file if we haven't already.
+      if (!file_exists($filepath . "/" . $target)) {
+        @mkdir($dir, 0777, TRUE);
+        file_put_contents($filepath . "/" . $target, file_get_contents("http://www.lynchburg.edu/" . str_replace(' ', '%20', dirname($target)) . '/' . $filename));
+      }
+      lc_importer_add_redirect($file_id . '.xml', "files/archives/" . $target);
+      print "\n\n";
+    }
+  }
+}
+
+function drush_lc_importer_import_news_images($file, $filepath) {
+  if (!($contents = file_get_contents($file))) {
+    return drush_set_error('FILE_NOT_FOUND', dt('Could not load specified filename.'));
+  }
+  if (!(strlen($filepath))) {
+    return drush_set_error('FILE_NOT_FOUND', dt('You must specify a filepath.'));
+  }
+
+  try {
+    $xml = new SimpleXMLElement($contents);
+  }
+  catch (Exception $e) {
+    return drush_set_error('INVALID_XML', dt('Could not parse specified file as XML.'));
+  }
+
+  foreach ($xml->NewsStory as $page) {
     $page_id = (string) $page['ID'];
     $page_html = (string) $page->BodyCopy;
     // print "page_id: $page_id\n";
