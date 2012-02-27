@@ -78,17 +78,21 @@ function ct_page_lc_section_nav() {
     );
 
     // Now that we've found the parent, work from the top down.
-    foreach ($node->field_children[$node->language] as $child) {
-      // Recursively generate this part of the tree.
-      $node = node_load($child['nid']);
-      $item = array(
-        'data' => l($node->title, 'node/' . $node->nid),
-        'children' => array(),
-      );
-      _ct_page_generate_child_leaf($node, $item['children']);
-      $items['items'][] = $item;
+    if (isset($node->field_children[$node->language])) {
+      if (count($node->field_children[$node->language])) {
+        foreach ($node->field_children[$node->language] as $child) {
+          // Recursively generate this part of the tree.
+          $node = node_load($child['nid']);
+          $item = array(
+            'data' => l($node->title, 'node/' . $node->nid),
+            'children' => array(),
+          );
+          _ct_page_generate_child_leaf($node, $item['children']);
+          $items['items'][] = $item;
+        }
+        $block['content'] = theme_item_list($items);
+      }
     }
-    $block['content'] = theme_item_list($items);
 
     $end = microtime(TRUE);
     $gen_time = $end - $start;
