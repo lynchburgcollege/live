@@ -34,7 +34,7 @@ function ct_page_lc_section_nav() {
   $node = menu_get_object();
 
   // Retrieve block from cache if available.
-  if ($block = cache_get('ct_nav_' . $node->nid)) {
+  if ($block = cache_get('ct_nav_' . $node->nid, 'cache_block')) {
     return $block;
   }
 
