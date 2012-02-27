@@ -156,10 +156,12 @@ function _ct_page_generate_child_leaf($node, &$children) {
  *
  * @param $node
  */
- /*
+/*
 function ct_page_node_presave($node) {
   if (isset($node->field_parents[$node->language])) {
     if (count($node->field_parents[$node->language])) {
+      // Clear the nav block cache for this node.
+      cache_clear_all('ct_page:nav:' . $nid, 'cache_block');
       // This node has a parent, make sure it's using the same taxonomy term as its parent.
       $parent_node = node_load($node->field_parents[$node->language][0]['nid']);
       $parent_tid = $parent_node->field_nav[$node->language][0]['tid'];
@@ -179,6 +181,12 @@ function ct_page_node_presave($node) {
           }
         }
       }
+    }
+  }
+  elseif (isset($node->field_children[$node->language])) {
+    if (count($node->field_children[$node->language])) {
+      // Clear the nav block cache for this node.
+      cache_clear_all('ct_page:nav:' . $nid, 'cache_block');
     }
   }
 }
