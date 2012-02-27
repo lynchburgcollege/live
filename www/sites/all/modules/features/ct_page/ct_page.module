@@ -32,6 +32,12 @@ function ct_page_lc_section_nav() {
   $display_block = FALSE;
   // Get current node.
   $node = menu_get_object();
+
+  // Retrieve block from cache if available.
+  if ($block = cache_get('ct_nav_' . $node->nid)) {
+    return $block;
+  }
+
   // We want to display this block if the current node has parents or children.
   if (isset($node->field_parents[$node->language])) {
     if (count($node->field_parents[$node->language])) {
@@ -97,6 +103,8 @@ function ct_page_lc_section_nav() {
     $end = microtime(TRUE);
     $gen_time = $end - $start;
     // dsm('block took ' . $gen_time . ' ms to generate.');
+
+    cache_set('ct_nav_' . $node->nid, $block, 'cache_block', CACHE_TEMPORARY);
 
     return $block;
   }
