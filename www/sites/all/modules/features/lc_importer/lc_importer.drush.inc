@@ -236,6 +236,7 @@ function drush_lc_importer_import_files($file, $filepath) {
     }
     // Get rid of anchors.
     $target = preg_replace('/#.*$/', '', $target);
+    $target = str_replace('http://www.lynchburg.edu/', '', $target);
     print "target: $target\n";
     // Download file to local storage.
     $dir = $filepath . "/archives/" . dirname($target);
@@ -243,7 +244,7 @@ function drush_lc_importer_import_files($file, $filepath) {
     // Download the file if we haven't already.
     if (!file_exists($filepath . "/archives/" . $target)) {
       mkdir($dir, 0777, TRUE);
-      file_put_contents($filepath . "/archives/" . $target, file_get_contents("http://www.lynchburg.edu/" . str_replace('http://www.lynchburg.edu/', '', str_replace(' ', '%20', dirname($target))) . '/' . $filename));
+      file_put_contents($filepath . "/archives/" . $target, file_get_contents("http://www.lynchburg.edu/" . str_replace(' ', '%20', dirname($target)) . '/' . $filename));
     }
     lc_importer_add_redirect($file_id . '.xml', "files/archives/" . $target);
     print "\n\n";
