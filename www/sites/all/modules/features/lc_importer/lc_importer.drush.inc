@@ -370,7 +370,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
       }
     }
   }
-  elseif ($schema == 'Page1' || $schema == 'Department' || $schema == 'NewsStory') {
+  elseif ($schema == 'Page1' || $schema == 'Department' || $schema == 'NewsStory' || $schema == 'Folder') {
     $tid = 0;
 
     // Find how many levels deep we go below this node.
@@ -479,7 +479,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
     if (array_search($page_id, $parent_ids) !== FALSE) {
       // This is a section top level, use references for children.
       $use_taxonomy = FALSE;
-      print "SECTION TOP LEVEL\n\n\n";
+      print "\n\nSECTION TOP LEVEL\n\n\n";
     }
 
     // If this node was not found, use its parent for any children.
