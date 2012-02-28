@@ -29,6 +29,15 @@ function lc_importer_drush_command() {
       'drush import-nav reference.xml' => 'Import navigation structure from reference.xml.',
     ),
   );
+  $items['import-delete-unpublished'] = array(
+    'description' => "Deletes all nodes not marked for publishing.",
+    'arguments' => array(
+      'filename' => 'XML file.',
+    ),
+    'examples' => array(
+      'drush import-delete-unpublished reference.xml' => 'Delete all nodes marked as unpublished in reference.xml.',
+    ),
+  );
   $items['import-links'] = array(
     'description' => "Imports LC link components.",
     'arguments' => array(
@@ -305,6 +314,24 @@ function drush_lc_importer_import_nav($file) {
 
 }
 
+function drush_lc_importer_import_delete_unpublished($file) {
+  if (!($contents = file_get_contents($file))) {
+    return drush_set_error('FILE_NOT_FOUND', dt('Could not load specified filename.'));
+  }
+
+  try {
+    $xml = new SimpleXMLElement($contents);
+  }
+  catch (Exception $e) {
+    return drush_set_error('INVALID_XML', dt('Could not parse specified file as XML.'));
+  }
+
+  foreach ($xml->Page[0]->Page[0]->Page[0] as $page) {
+    _lc_importer_delete_unpublished($page);
+  }
+
+}
+
 /**
  * Take a given xml element and tag the corresponding node correctly.
  *
@@ -494,6 +521,39 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
       foreach ($page->children() as $child) {
         lc_importer_tag_node($child, $vid, $tid, $depth + 1, $nid, $use_taxonomy);
       }
+    }
+  }
+}
+
+function _lc_importer_delete_unpublished($page) {
+  // This is the root level of the tree for our purposes.
+  $name = (string) $page['Name'];
+  $page_id = (string) $page['ID'];
+  $publish_as = (string) $page['PublishAs'];
+  $schema = (string) $page['Schema'];
+  $mfp = (string) $page['MarkedForPublish'];
+  print "name: $name, page_id: $page_id, publish_as: $publish_as, schema: $schema, mfp: $mfp\n";
+  if ($mfp == 'false') {
+    print "Deleting element with xID $page_id!\n";
+    // Find the node id.
+    $result = db_select('feeds_item', 'f')
+      ->fields('f', array('entity_id'))
+      ->condition('guid', $page_id, '=')
+      ->execute()
+      ->fetchAssoc();
+
+    $nid = 0;
+    if (isset($result['entity_id'])) {
+      $nid = $result['entity_id'];
+      print "Deleting node with nid $nid!\n";
+      node_delete($nid);
+    }
+  }
+
+  if (count($page->children()) > 0) {
+    // This element has children, parse them recursively.
+    foreach ($page->children() as $child) {
+      _lc_importer_delete_unpublished($child);
     }
   }
 }
