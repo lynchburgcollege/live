@@ -29,6 +29,15 @@ function lc_importer_drush_command() {
       'drush import-nav reference.xml' => 'Import navigation structure from reference.xml.',
     ),
   );
+  $items['import-delete-unpublished'] = array(
+    'description' => "Deletes all nodes not marked for publishing.",
+    'arguments' => array(
+      'filename' => 'XML file.',
+    ),
+    'examples' => array(
+      'drush import-delete-unpublished reference.xml' => 'Delete all nodes marked as unpublished in reference.xml.',
+    ),
+  );
   $items['import-links'] = array(
     'description' => "Imports LC link components.",
     'arguments' => array(
@@ -58,6 +67,16 @@ function lc_importer_drush_command() {
       'drush import-images all.xml /home/lynchburg/public_html/www/files' => 'Import images from all.xml.',
     ),
   );
+  $items['import-news-images'] = array(
+    'description' => "Imports LC news images.",
+    'arguments' => array(
+      'filename' => 'XML file.',
+      'filepath' => 'Absolute path to files directory in which to place downloaded files.',
+    ),
+    'examples' => array(
+      'drush import-news-images all.xml /home/lynchburg/public_html/www/files' => 'Import images from all.xml.',
+    ),
+  );
   $items['clean-text'] = array(
     'description' => "Cleans text in imported pages.",
     'examples' => array(
@@ -70,7 +89,7 @@ function lc_importer_drush_command() {
 function drush_lc_importer_clean_text() {
   $query = db_select('node', 'n')
     ->fields('n', array('nid'))
-    ->condition('type', 'page', '=');
+    ->condition('type', array('page', 'news_article'), 'IN');
   $result = $query->execute();
 
   foreach ($result as $record) {
@@ -148,6 +167,60 @@ function drush_lc_importer_import_images($file, $filepath) {
   }
 }
 
+function drush_lc_importer_import_news_images($file, $filepath) {
+  if (!($contents = file_get_contents($file))) {
+    return drush_set_error('FILE_NOT_FOUND', dt('Could not load specified filename.'));
+  }
+  if (!(strlen($filepath))) {
+    return drush_set_error('FILE_NOT_FOUND', dt('You must specify a filepath.'));
+  }
+
+  try {
+    $xml = new SimpleXMLElement($contents);
+  }
+  catch (Exception $e) {
+    return drush_set_error('INVALID_XML', dt('Could not parse specified file as XML.'));
+  }
+
+  foreach ($xml->NewsStory as $page) {
+    $page_id = (string) $page['ID'];
+    $page_html = (string) $page->BodyCopy;
+    // print "page_id: $page_id\n";
+    // Parse this page for images.
+    $DOM = new DOMDocument;
+    @$DOM->loadHTML($page_html);
+    // Get all img elements
+    $images = $DOM->getElementsByTagName('img');
+    foreach ($images as $image) {
+      $target = $image->getAttribute('src');
+      $target = str_replace('http://www.lynchburg.edu/', '', $target);
+      // Get rid of leading ../s.
+      while (strpos($target, '../', 0) !== FALSE) {
+        $target = substr($target, 3);
+      }
+      print "target: $target\n";
+      if (strpos($target, 'http', 0) !== FALSE) {
+        print "Not on lynchburg.edu!\n\n";
+        continue;
+      }
+      if (strpos($target, 'data:image', 0) !== FALSE) {
+        print "Inline data!";
+        continue;
+      }
+      // Download file to local storage.
+      $dir = $filepath . "/" . dirname($target);
+      $filename = str_replace(' ', '%20', basename($target));
+      // Download the file if we haven't already.
+      if (!file_exists($filepath . "/" . $target)) {
+        @mkdir($dir, 0777, TRUE);
+        file_put_contents($filepath . "/" . $target, file_get_contents("http://www.lynchburg.edu/" . str_replace(' ', '%20', dirname($target)) . '/' . $filename));
+      }
+      lc_importer_add_redirect($file_id . '.xml', "files/archives/" . $target);
+      print "\n\n";
+    }
+  }
+}
+
 function drush_lc_importer_import_files($file, $filepath) {
   if (!($contents = file_get_contents($file))) {
     return drush_set_error('FILE_NOT_FOUND', dt('Could not load specified filename.'));
@@ -172,6 +245,7 @@ function drush_lc_importer_import_files($file, $filepath) {
     }
     // Get rid of anchors.
     $target = preg_replace('/#.*$/', '', $target);
+    $target = str_replace('http://www.lynchburg.edu/', '', $target);
     print "target: $target\n";
     // Download file to local storage.
     $dir = $filepath . "/archives/" . dirname($target);
@@ -179,7 +253,7 @@ function drush_lc_importer_import_files($file, $filepath) {
     // Download the file if we haven't already.
     if (!file_exists($filepath . "/archives/" . $target)) {
       mkdir($dir, 0777, TRUE);
-      file_put_contents($filepath . "/archives/" . $target, file_get_contents("http://www.lynchburg.edu/" . dirname($target) . '/' . $filename));
+      file_put_contents($filepath . "/archives/" . $target, file_get_contents("http://www.lynchburg.edu/" . str_replace(' ', '%20', dirname($target)) . '/' . $filename));
     }
     lc_importer_add_redirect($file_id . '.xml', "files/archives/" . $target);
     print "\n\n";
@@ -236,6 +310,24 @@ function drush_lc_importer_import_nav($file) {
   foreach ($xml->Page[0]->Page[0]->Page[0] as $page) {
     // This is the root level of the tree for our purposes.
     lc_importer_tag_node($page, $vid, 0, 0);
+  }
+
+}
+
+function drush_lc_importer_import_delete_unpublished($file) {
+  if (!($contents = file_get_contents($file))) {
+    return drush_set_error('FILE_NOT_FOUND', dt('Could not load specified filename.'));
+  }
+
+  try {
+    $xml = new SimpleXMLElement($contents);
+  }
+  catch (Exception $e) {
+    return drush_set_error('INVALID_XML', dt('Could not parse specified file as XML.'));
+  }
+
+  foreach ($xml->Page[0]->Page[0]->Page[0] as $page) {
+    _lc_importer_delete_unpublished($page);
   }
 
 }
@@ -306,7 +398,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
       }
     }
   }
-  else {
+  elseif ($schema == 'Page1' || $schema == 'Department' || $schema == 'NewsStory' || $schema == 'Folder') {
     $tid = 0;
 
     // Find how many levels deep we go below this node.
@@ -415,7 +507,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
     if (array_search($page_id, $parent_ids) !== FALSE) {
       // This is a section top level, use references for children.
       $use_taxonomy = FALSE;
-      print "SECTION TOP LEVEL\n\n\n";
+      print "\n\nSECTION TOP LEVEL\n\n\n";
     }
 
     // If this node was not found, use its parent for any children.
@@ -429,6 +521,39 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
       foreach ($page->children() as $child) {
         lc_importer_tag_node($child, $vid, $tid, $depth + 1, $nid, $use_taxonomy);
       }
+    }
+  }
+}
+
+function _lc_importer_delete_unpublished($page) {
+  // This is the root level of the tree for our purposes.
+  $name = (string) $page['Name'];
+  $page_id = (string) $page['ID'];
+  $publish_as = (string) $page['PublishAs'];
+  $schema = (string) $page['Schema'];
+  $mfp = (string) $page['MarkedForPublish'];
+  print "name: $name, page_id: $page_id, publish_as: $publish_as, schema: $schema, mfp: $mfp\n";
+  if ($mfp == 'false') {
+    print "Deleting element with xID $page_id!\n";
+    // Find the node id.
+    $result = db_select('feeds_item', 'f')
+      ->fields('f', array('entity_id'))
+      ->condition('guid', $page_id, '=')
+      ->execute()
+      ->fetchAssoc();
+
+    $nid = 0;
+    if (isset($result['entity_id'])) {
+      $nid = $result['entity_id'];
+      print "Deleting node with nid $nid!\n";
+      node_delete($nid);
+    }
+  }
+
+  if (count($page->children()) > 0) {
+    // This element has children, parse them recursively.
+    foreach ($page->children() as $child) {
+      _lc_importer_delete_unpublished($child);
     }
   }
 }
