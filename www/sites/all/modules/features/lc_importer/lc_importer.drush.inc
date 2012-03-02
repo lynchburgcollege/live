@@ -532,10 +532,12 @@ function _lc_importer_delete_unpublished($page) {
   $publish_as = (string) $page['PublishAs'];
   $schema = (string) $page['Schema'];
   $mfp = (string) $page['MarkedForPublish'];
-  print "name: $name, page_id: $page_id, publish_as: $publish_as, schema: $schema, mfp: $mfp\n";
+  // print "name: $name, page_id: $page_id, publish_as: $publish_as, schema: $schema, mfp: $mfp\n";
   if ($mfp == 'false') {
-    print "Deleting element with xID $page_id!\n";
+    // print "Deleting element with xID $page_id!\n";
+    print "$page_id ";
     // Find the node id.
+    /*
     $result = db_select('feeds_item', 'f')
       ->fields('f', array('entity_id'))
       ->condition('guid', $page_id, '=')
@@ -545,9 +547,10 @@ function _lc_importer_delete_unpublished($page) {
     $nid = 0;
     if (isset($result['entity_id'])) {
       $nid = $result['entity_id'];
-      print "Deleting node with nid $nid!\n";
-      node_delete($nid);
+      // print "Deleting node with nid $nid!\n";
+      // node_delete($nid);
     }
+     */
   }
 
   if (count($page->children()) > 0) {
