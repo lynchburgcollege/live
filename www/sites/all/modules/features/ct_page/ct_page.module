@@ -164,7 +164,7 @@ function ct_page_node_presave($node) {
       // This node has a parent, make sure it's using the same taxonomy term as its parent.
       $parent_node = node_load($node->field_parents[$node->language][0]['nid']);
       $parent_tid = $parent_node->field_nav[$node->language][0]['tid'];
-      if ($node->field_nav[$node->language][0]['tid'] != $parent_tid) {
+      if ($node->field_nav[$node->language][0]['tid'] != $parent_tid && isset($parent_tid)) {
         // The tids are different, update this node.
         $node->field_nav[$node->language][0]['tid'] = $parent_tid;
         drupal_set_message(t('Updated parent term for %title', array('%title' => $node->title)));
