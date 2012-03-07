@@ -3,7 +3,7 @@
 /**
  * Implements hook_panels_layouts().
  */
-function lc_lc_12_threecol_3_6_3_panels_layouts() {
+function lynchburg_lc_12_threecol_3_6_3_panels_layouts() {
   $items['lc_12_threecol_3_6_3'] = array(
     'title' => t('Three column 3-6-3'),
     'category' => t('LC: 12 Column Grid'),
