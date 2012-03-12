@@ -599,20 +599,22 @@ function _lc_importer_xid_redirect($page) {
   $publish_as = (string) $page['PublishAs'];
   $schema = (string) $page['Schema'];
   $mfp = (string) $page['MarkedForPublish'];
-  print "Adding redirect for page with xID $page_id!\n";
-  print "$page_id ";
-  $result = db_select('feeds_item', 'f')
-    ->fields('f', array('entity_id'))
-    ->condition('guid', $page_id, '=')
-    ->execute()
-    ->fetchAssoc();
+  if ($publish_as != '') {
+    print "Publish as is $publish_as\n";
+    print "$page_id ";
+    $result = db_select('feeds_item', 'f')
+      ->fields('f', array('entity_id'))
+      ->condition('guid', $page_id, '=')
+      ->execute()
+      ->fetchAssoc();
 
-  $nid = 0;
-  if (isset($result['entity_id'])) {
-    $nid = $result['entity_id'];
-    print "Adding redirect for node with nid $nid!\n";
-    // Add a redirect from the xml url to the new url.
-    lc_importer_add_redirect($page_id . '.xml', 'node/' . $nid);
+    $nid = 0;
+    if (isset($result['entity_id'])) {
+      $nid = $result['entity_id'];
+      print "Adding redirect from $publish_as for node with nid $nid!\n";
+      // Add a redirect from the xml url to the new url.
+      lc_importer_add_redirect($publish_as, 'node/' . $nid);
+    }
   }
 
   if (count($page->children()) > 0) {
