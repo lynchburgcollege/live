@@ -29,6 +29,15 @@ function lc_importer_drush_command() {
       'drush import-nav reference.xml' => 'Import navigation structure from reference.xml.',
     ),
   );
+  $items['import-xid-redirects'] = array(
+    'description' => "Adds redirects for xID.xml style links.",
+    'arguments' => array(
+      'filename' => 'XML file.',
+    ),
+    'examples' => array(
+      'drush import-xid-redirects reference.xml' => 'Add redirects for all xIDs in reference.xml.',
+    ),
+  );
   $items['import-delete-unpublished'] = array(
     'description' => "Deletes all nodes not marked for publishing.",
     'arguments' => array(
@@ -332,6 +341,24 @@ function drush_lc_importer_import_delete_unpublished($file) {
 
 }
 
+function drush_lc_importer_import_xid_redirects($file) {
+  if (!($contents = file_get_contents($file))) {
+    return drush_set_error('FILE_NOT_FOUND', dt('Could not load specified filename.'));
+  }
+
+  try {
+    $xml = new SimpleXMLElement($contents);
+  }
+  catch (Exception $e) {
+    return drush_set_error('INVALID_XML', dt('Could not parse specified file as XML.'));
+  }
+
+  foreach ($xml->Page[0]->Page[0]->Page[0] as $page) {
+    _lc_importer_xid_redirect($page);
+  }
+
+}
+
 /**
  * Take a given xml element and tag the corresponding node correctly.
  *
@@ -561,6 +588,37 @@ function _lc_importer_delete_unpublished($page) {
     // This element has children, parse them recursively.
     foreach ($page->children() as $child) {
       _lc_importer_delete_unpublished($child);
+    }
+  }
+}
+
+function _lc_importer_xid_redirect($page) {
+  // This is the root level of the tree for our purposes.
+  $name = (string) $page['Name'];
+  $page_id = (string) $page['ID'];
+  $publish_as = (string) $page['PublishAs'];
+  $schema = (string) $page['Schema'];
+  $mfp = (string) $page['MarkedForPublish'];
+  print "Adding redirect for page with xID $page_id!\n";
+  print "$page_id ";
+  $result = db_select('feeds_item', 'f')
+    ->fields('f', array('entity_id'))
+    ->condition('guid', $page_id, '=')
+    ->execute()
+    ->fetchAssoc();
+
+  $nid = 0;
+  if (isset($result['entity_id'])) {
+    $nid = $result['entity_id'];
+    print "Adding redirect for node with nid $nid!\n";
+    // Add a redirect from the xml url to the new url.
+    lc_importer_add_redirect($page_id . '.xml', 'node/' . $nid);
+  }
+
+  if (count($page->children()) > 0) {
+    // This element has children, parse them recursively.
+    foreach ($page->children() as $child) {
+      _lc_importer_xid_redirect($child);
     }
   }
 }
