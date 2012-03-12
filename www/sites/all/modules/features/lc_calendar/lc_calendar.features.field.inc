@@ -377,7 +377,7 @@ function lc_calendar_field_default_fields() {
         'module' => 'options',
         'settings' => array(),
         'type' => 'options_buttons',
-        'weight' => '8',
+        'weight' => '1',
       ),
     ),
   );
