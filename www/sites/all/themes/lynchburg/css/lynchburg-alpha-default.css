@@ -47,7 +47,7 @@ div#region-menu {
 /*****************/
 
 footer#section-footer {
-	background:#202022  url("/sites/all/themes/lynchburg/images/bg-footer-first.jpg") repeat-x top left;
+	background:#202022  url("/sites/all/themes/lynchburg/images/bg-footer-first1.jpg") repeat-x top left;
 }
 footer#section-footer a {
 	color:#acacac;
@@ -70,7 +70,7 @@ footer#section-footer a:hover {
 	margin:20px ;
 }
 .give {
-	height:60px; width: 80px; 
+	height:60px; width: 70px; 
 	background: transparent url("/sites/all/themes/lynchburg/images/bg-give.png") no-repeat center;
 	
 }
@@ -87,5 +87,5 @@ footer#section-footer span.give:hover a {
 
 #region-footer-second {
 	clear:both;
-	background: #202022 url("/sites/all/themes/lynchburg/images/bg-footer.jpg") no-repeat center;
+	/*background:#202022 url("/sites/all/themes/lynchburg/images/footerHighlight.jpg") no-repeat center;*/
 }
