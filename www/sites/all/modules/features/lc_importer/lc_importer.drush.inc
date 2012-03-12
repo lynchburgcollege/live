@@ -29,6 +29,15 @@ function lc_importer_drush_command() {
       'drush import-nav reference.xml' => 'Import navigation structure from reference.xml.',
     ),
   );
+  $items['import-xid-redirects'] = array(
+    'description' => "Adds redirects for xID.xml style links.",
+    'arguments' => array(
+      'filename' => 'XML file.',
+    ),
+    'examples' => array(
+      'drush import-xid-redirects reference.xml' => 'Add redirects for all xIDs in reference.xml.',
+    ),
+  );
   $items['import-delete-unpublished'] = array(
     'description' => "Deletes all nodes not marked for publishing.",
     'arguments' => array(
@@ -332,6 +341,24 @@ function drush_lc_importer_import_delete_unpublished($file) {
 
 }
 
+function drush_lc_importer_import_xid_redirects($file) {
+  if (!($contents = file_get_contents($file))) {
+    return drush_set_error('FILE_NOT_FOUND', dt('Could not load specified filename.'));
+  }
+
+  try {
+    $xml = new SimpleXMLElement($contents);
+  }
+  catch (Exception $e) {
+    return drush_set_error('INVALID_XML', dt('Could not parse specified file as XML.'));
+  }
+
+  foreach ($xml->Page[0]->Page[0]->Page[0] as $page) {
+    _lc_importer_xid_redirect($page);
+  }
+
+}
+
 /**
  * Take a given xml element and tag the corresponding node correctly.
  *
@@ -358,7 +385,11 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
     'x23457','x8369','x649','x28549','x24841','x10864','x8889','x1826','x7549','x28915','x23852',
     'x562','x27883','x7131','x2239','x1482','x1888','x1949','x1111','x1073','x979','x1087',
     'x6359','x679','x703','x24338','x2225','x23375','x4066','x6224','x23380','x24774','x24373',
-    'x3110','x3116','x2616','x2759','x3128','x3132',
+    'x3110','x3116','x2616','x2759','x3128','x3132','x27475','x2402','x23959','x2673','x2727',
+    'x28722','x2733','x6539','x23801','x13149','x29478','x29477','x10678','x3240','x2311','x2695',
+    'x11951','x23983','x24219','x24217','x3360','x29493','x4845','x29287','x29485','x29489',
+    'x2833','x4819','x6073','x2938','x23624','x1492','x2854','x3716','x3305','x29289','x3171',
+    'x2945','x3135','x2873','x4855','x4866','x10687','x10690','x10689','x24229','x2421',
   );
 
   print "parent: $parent, depth: $depth, parent_nid: $parent_nid\n";
@@ -398,7 +429,7 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
       }
     }
   }
-  elseif ($schema == 'Page1' || $schema == 'Department' || $schema == 'NewsStory' || $schema == 'Folder') {
+  elseif ($schema == 'Page1' || $schema == 'Department' || $schema == 'NewsStory' || $schema == 'Folder' || $schema == 'Library') {
     $tid = 0;
 
     // Find how many levels deep we go below this node.
@@ -557,6 +588,39 @@ function _lc_importer_delete_unpublished($page) {
     // This element has children, parse them recursively.
     foreach ($page->children() as $child) {
       _lc_importer_delete_unpublished($child);
+    }
+  }
+}
+
+function _lc_importer_xid_redirect($page) {
+  // This is the root level of the tree for our purposes.
+  $name = (string) $page['Name'];
+  $page_id = (string) $page['ID'];
+  $publish_as = (string) $page['PublishAs'];
+  $schema = (string) $page['Schema'];
+  $mfp = (string) $page['MarkedForPublish'];
+  if ($publish_as != '') {
+    print "Publish as is $publish_as\n";
+    print "$page_id ";
+    $result = db_select('feeds_item', 'f')
+      ->fields('f', array('entity_id'))
+      ->condition('guid', $page_id, '=')
+      ->execute()
+      ->fetchAssoc();
+
+    $nid = 0;
+    if (isset($result['entity_id'])) {
+      $nid = $result['entity_id'];
+      print "Adding redirect from $publish_as for node with nid $nid!\n";
+      // Add a redirect from the xml url to the new url.
+      lc_importer_add_redirect($publish_as, 'node/' . $nid);
+    }
+  }
+
+  if (count($page->children()) > 0) {
+    // This element has children, parse them recursively.
+    foreach ($page->children() as $child) {
+      _lc_importer_xid_redirect($child);
     }
   }
 }

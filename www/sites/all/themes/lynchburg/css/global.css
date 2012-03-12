@@ -14,12 +14,7 @@ body {
 	line-height:1.5em;
 	background: #f9f9f9 url("/sites/all/themes/lynchburg/images/bg-body-top.jpg") repeat-x top left;
 }
-.navigation{
-	border:#0F0 solid 1px;
-}
-.navigation ul li {
-	color:#454545;
-	}
+
 
 
 /* ========== SECONDARY NAV STYLES ========== */
@@ -128,10 +123,6 @@ a {
 
 a:hover {
 	color:#a1a1a1 !important;
-}
-a:visited {
-	color:#7ba0ba;
-	text-decoration:underline;
 }
 a, a:link, a:visited, a:focus {
 	text-decoration:none;
@@ -257,8 +248,8 @@ blockquote {
 .content_wrapper_sbb {
 	background:url(../images/vertical_rig_both.png) repeat-y;
 }
-.content_wrapper_sbl {
-	background:url("/sites/all/themes/lynchburg/images/vertical_rig_right.png") repeat-y;
+.content_wrapper_sbr {
+	background:url(../images/vertical_rig_right.png) repeat-y;
 }
 .content_wrapper_sbl {
 	background:url(../images/vertical_rig_left.png) repeat-y;
@@ -561,7 +552,21 @@ blockquote {
 	padding:1em 0 0 0;
 }
 
-
+/* ========== Nav ========== */
+.content_wrapper_sbr #sidebar {
+	float: right;
+	/*outline:#FF0 solid 1px;*/
+}
+.content_wrapper_sbl #sidebar {
+	float: left;
+	/*outline:#FF0 solid 1px;*/
+}
+#sidebar {
+	min-height: 550px;
+	position: relative;
+	width: 220px;
+	padding:1em 0 0 0;
+}
 
 /* ========== FEATURE TABLES ========== */
 .feature_table {
