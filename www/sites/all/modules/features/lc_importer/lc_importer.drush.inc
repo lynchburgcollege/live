@@ -735,11 +735,11 @@ function lc_importer_check_node($page, $vid, $parent, $depth, $parent_nid = 0, $
         }
          */
       }
-      else {
-        print "Could not find node for xID $page_id!\nMore info:\n";
-        print "parent: $parent, depth: $depth, parent_nid: $parent_nid\n";
-        print "name: $name, page_id: $page_id, publish_as: $publish_as, schema: $schema\n\n";
-      }
+    }
+    else {
+      print "Could not find node for xID $page_id!\nMore info:\n";
+      print "parent: $parent, depth: $depth, parent_nid: $parent_nid\n";
+      print "name: $name, page_id: $page_id, publish_as: $publish_as, schema: $schema\n\n";
     }
 
     if ($tid == $parent) {
