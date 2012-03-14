@@ -682,7 +682,7 @@ function lc_importer_check_node($page, $vid, $parent, $depth, $parent_nid = 0, $
           if (strtolower($name) == strtolower($term->name)) {
             // This is a match! Use this tid.
             $tid = $term->tid;
-            print "Using existing term with name $term->name\n";
+            // print "Using existing term with name $term->name\n";
             continue;
           }
         }
@@ -690,6 +690,7 @@ function lc_importer_check_node($page, $vid, $parent, $depth, $parent_nid = 0, $
 
       if ($tid == 0) {
         // Couldn't find an existing tid, we need to create one.
+        /*
         $new_term = new StdClass();
         $new_term->vid = $vid;
         $new_term->name = $name;
@@ -698,11 +699,12 @@ function lc_importer_check_node($page, $vid, $parent, $depth, $parent_nid = 0, $
         taxonomy_term_save($new_term);
         $tid = $new_term->tid;
         print "Creating term with name $new_term->name\n";
+        */
       }
     }
     else {
       // This is a section node, use the parent tid to tag.
-      print "Using references for this node!\n";
+      // print "Using references for this node!\n";
       $tid = $parent;
     }
 
@@ -718,7 +720,7 @@ function lc_importer_check_node($page, $vid, $parent, $depth, $parent_nid = 0, $
       $nid = $result['entity_id'];
       // Load the node
       if ($node = node_load($nid)) {
-        print "Using tid: $tid\n";
+        // print "Using tid: $tid\n";
         /*
         $node->field_nav[$node->language][0]['tid'] = $tid;
         node_save($node);
@@ -764,7 +766,7 @@ function lc_importer_check_node($page, $vid, $parent, $depth, $parent_nid = 0, $
     if (array_search($page_id, $parent_ids) !== FALSE) {
       // This is a section top level, use references for children.
       $use_taxonomy = FALSE;
-      print "\n\nSECTION TOP LEVEL\n\n\n";
+      // print "\n\nSECTION TOP LEVEL\n\n\n";
     }
 
     // If this node was not found, use its parent for any children.
