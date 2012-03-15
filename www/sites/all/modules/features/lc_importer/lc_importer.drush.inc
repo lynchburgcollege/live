@@ -29,6 +29,15 @@ function lc_importer_drush_command() {
       'drush import-nav reference.xml' => 'Import navigation structure from reference.xml.',
     ),
   );
+  $items['check-nav'] = array(
+    'description' => "Checks LC navigation structure.",
+    'arguments' => array(
+      'filename' => 'XML file.',
+    ),
+    'examples' => array(
+      'drush check-nav reference.xml' => 'Check navigation structure from reference.xml.',
+    ),
+  );
   $items['import-xid-redirects'] = array(
     'description' => "Adds redirects for xID.xml style links.",
     'arguments' => array(
@@ -323,6 +332,37 @@ function drush_lc_importer_import_nav($file) {
 
 }
 
+function drush_lc_importer_check_nav($file) {
+  // Setup.
+  $vocabs = taxonomy_get_vocabularies(NULL);
+  foreach ($vocabs as $vocab_object) {
+    if ($vocab_object->machine_name == 'site_structure') {
+      $vid = $vocab_object->vid;
+    }
+  }
+
+  if (!isset($vid)) {
+    return drush_set_error('VID_NOT_FOUND', dt('Could not load the vocabulary!'));
+  }
+
+  if (!($contents = file_get_contents($file))) {
+    return drush_set_error('FILE_NOT_FOUND', dt('Could not load specified filename.'));
+  }
+
+  try {
+    $xml = new SimpleXMLElement($contents);
+  }
+  catch (Exception $e) {
+    return drush_set_error('INVALID_XML', dt('Could not parse specified file as XML.'));
+  }
+
+  foreach ($xml->Page[0]->Page[0]->Page[0] as $page) {
+    // This is the root level of the tree for our purposes.
+    lc_importer_check_node($page, $vid, 0, 0);
+  }
+
+}
+
 function drush_lc_importer_import_delete_unpublished($file) {
   if (!($contents = file_get_contents($file))) {
     return drush_set_error('FILE_NOT_FOUND', dt('Could not load specified filename.'));
@@ -551,6 +591,194 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
       // This element has children, parse them recursively.
       foreach ($page->children() as $child) {
         lc_importer_tag_node($child, $vid, $tid, $depth + 1, $nid, $use_taxonomy);
+      }
+    }
+  }
+}
+
+/**
+ * Take a given xml element and tag the corresponding node correctly.
+ *
+ * @param $page
+ *   object: simplexml entity.
+ * @param $vid
+ *   int: vid of site structure vocabulary.
+ * @param $parent
+ *   int: tid of parent term.
+ * @param $depth
+ *   int: current depth within hierarchy.
+ */
+function lc_importer_check_node($page, $vid, $parent, $depth, $parent_nid = 0, $use_taxonomy = TRUE) {
+  // List of Xids that represent top-level section parents.
+  $parent_ids = array('x29926','x888','x12287','x5937','x6028','x24374','x1001','x3685','x4308',
+    'x29881','x867','x2733','x6539','x23801','x13149','x29478','x29477','x10678','x3240',
+    'x2311','x2695','x11951','x23983','x24219','x24217','x3360','x29493','x4845','x29287',
+    'x29485','x29489','x2833','x28957','x13154','x13450','x28770','x6073','x2938','x23624',
+    'x1492','x2854','x3716','x3305','x29289','x3171','x2945','x3135','x2873','x4855','x4866',
+    'x10687','x10690','x10689','x24229','x2421','x23527','x1524','x2137','x28959','x24550',
+    'x24559','x24062','x24085','x24077','x24155','x24100','x24115','x24119','x24128','x24133',
+    'x24137','x24299','x23800','x23847','x10251','x1728','x23492','x505','x619','x344','x7504',
+    'x29349','x542','x1166','x371','x341','x362','x345','x18484','x6922','x349','x28630',
+    'x23457','x8369','x649','x28549','x24841','x10864','x8889','x1826','x7549','x28915','x23852',
+    'x562','x27883','x7131','x2239','x1482','x1888','x1949','x1111','x1073','x979','x1087',
+    'x6359','x679','x703','x24338','x2225','x23375','x4066','x6224','x23380','x24774','x24373',
+    'x3110','x3116','x2616','x2759','x3128','x3132','x27475','x2402','x23959','x2673','x2727',
+    'x28722','x2733','x6539','x23801','x13149','x29478','x29477','x10678','x3240','x2311','x2695',
+    'x11951','x23983','x24219','x24217','x3360','x29493','x4845','x29287','x29485','x29489',
+    'x2833','x4819','x6073','x2938','x23624','x1492','x2854','x3716','x3305','x29289','x3171',
+    'x2945','x3135','x2873','x4855','x4866','x10687','x10690','x10689','x24229','x2421',
+  );
+
+  // print "parent: $parent, depth: $depth, parent_nid: $parent_nid\n";
+
+  $name = (string) $page['Name'];
+  $page_id = (string) $page['ID'];
+  $publish_as = (string) $page['PublishAs'];
+  $schema = (string) $page['Schema'];
+  // print "name: $name, page_id: $page_id, publish_as: $publish_as, schema: $schema\n";
+
+  if ($schema == 'LinkComponent' || $schema == 'BinaryDocument') {
+    // Fixme: perhaps remove parent_nid test for final import.
+    if ($parent_nid > 0) {
+      // This is a link component, add to the related links of the parent.
+      $node = node_load($parent_nid);
+      $add_link = TRUE;
+      $path = $page_id . '.xml';
+      if (isset($node->field_links[$node->language])) {
+        $links = $node->field_links[$node->language];
+      }
+      // Check if this link is already set.
+      if (count($links)) {
+        foreach ($links as $link) {
+          if ($link['url'] == $path) {
+            // This link already exists, don't re-add it.
+            $add_link = FALSE;
+          }
+        }
+      }
+      if ($add_link) {
+        $new_link = array(
+          'url' => $path,
+          'title' => $name,
+        );
+        $node->field_links[$node->language][] = $new_link;
+        node_save($node);
+      }
+    }
+  }
+  elseif ($schema == 'Page1' || $schema == 'Department' || $schema == 'NewsStory' || $schema == 'Folder' || $schema == 'Library') {
+    $tid = 0;
+
+    // Use taxonomy for at least the top 3 levels, nodehierarchy for bottom two levels.
+    if ($use_taxonomy) {
+      if ($tid == 0) {
+        // This page has children.
+        // First, load the appropriate level of the Site Structure vocabulary.
+        $tree = taxonomy_get_tree($vid, $parent, 1);
+
+        // See if we can find a matching taxonomy term.
+        foreach ($tree as $term) {
+          // Ignore case for a better chance at a match.
+          if (strtolower($name) == strtolower($term->name)) {
+            // This is a match! Use this tid.
+            $tid = $term->tid;
+            // print "Using existing term with name $term->name\n";
+            continue;
+          }
+        }
+      }
+
+      if ($tid == 0) {
+        // Couldn't find an existing tid, we need to create one.
+        /*
+        $new_term = new StdClass();
+        $new_term->vid = $vid;
+        $new_term->name = $name;
+        $new_term->parent = $parent;
+        $new_term->description = 'Auto-generated on import.';
+        taxonomy_term_save($new_term);
+        $tid = $new_term->tid;
+        print "Creating term with name $new_term->name\n";
+        */
+      }
+    }
+    else {
+      // This is a section node, use the parent tid to tag.
+      // print "Using references for this node!\n";
+      $tid = $parent;
+    }
+
+    // Find the node id.
+    $result = db_select('feeds_item', 'f')
+      ->fields('f', array('entity_id'))
+      ->condition('guid', $page_id, '=')
+      ->execute()
+      ->fetchAssoc();
+
+    $nid = 0;
+    if (isset($result['entity_id'])) {
+      $nid = $result['entity_id'];
+      // Load the node
+      if ($node = node_load($nid)) {
+        // print "Using tid: $tid\n";
+        /*
+        $node->field_nav[$node->language][0]['tid'] = $tid;
+        node_save($node);
+
+        // Add a redirect from the xml url to the new url.
+        lc_importer_add_redirect($page_id . '.xml', 'node/' . $nid);
+        if (strlen($publish_as)) {
+          // This page has a "pretty url", add redirects for it.
+          lc_importer_add_redirect($publish_as, 'node/' . $nid);
+          // Pretty urls on the old site worked with or without a trailing ".xml".
+          lc_importer_add_redirect($publish_as . '.xml', 'node/' . $nid);
+        }
+         */
+      }
+    }
+    else {
+      print "Could not find node for xID $page_id!\nMore info:\n";
+      print "parent: $parent, depth: $depth, parent_nid: $parent_nid\n";
+      print "name: $name, page_id: $page_id, publish_as: $publish_as, schema: $schema\n\n";
+    }
+
+    if ($tid == $parent) {
+      // This is not a new level of the taxonomy, we need to add the node reference info.
+      if (is_object($node)) {
+        /*
+        // Clear out existing references.
+        if (isset($node->field_parents[$node->language])) {
+          unset($node->field_parents[$node->language]);
+        }
+        if (isset($node->field_children[$node->language])) {
+          unset($node->field_children[$node->language]);
+        }
+        $node->field_parents[$node->language] = array(
+          0 => array(
+            'nid' => $parent_nid,
+          ),
+        );
+        node_save($node);
+        */
+      }
+    }
+
+    if (array_search($page_id, $parent_ids) !== FALSE) {
+      // This is a section top level, use references for children.
+      $use_taxonomy = FALSE;
+      // print "\n\nSECTION TOP LEVEL\n\n\n";
+    }
+
+    // If this node was not found, use its parent for any children.
+    if ($nid == 0) {
+      $nid = $parent_nid;
+    }
+
+    // Now take care of any children.
+    if (count($page->children()) > 0) {
+      // This element has children, parse them recursively.
+      foreach ($page->children() as $child) {
+        lc_importer_check_node($child, $vid, $tid, $depth + 1, $nid, $use_taxonomy);
       }
     }
   }

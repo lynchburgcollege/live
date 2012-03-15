@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Lynchburg Calendar feature.
+ */
+
+include_once('lc_calendar.features.inc');
