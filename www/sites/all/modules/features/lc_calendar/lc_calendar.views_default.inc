@@ -33,7 +33,7 @@ function lc_calendar_views_default_views() {
   $handler->display->display_options['style_options']['grouping'] = 'field_date';
   $handler->display->display_options['style_options']['group_rendered'] = 1;
   $handler->display->display_options['row_plugin'] = 'fields';
-  /* Field: Content: When */
+  /* Field: Content: Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
@@ -57,7 +57,7 @@ function lc_calendar_views_default_views() {
   $handler->display->display_options['fields']['field_date']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_date']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_date']['settings'] = array(
-    'format_type' => 'lc_event_calendar_date',
+    'format_type' => 'lc_calendar_day_month_date_year',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -80,7 +80,7 @@ function lc_calendar_views_default_views() {
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
-  /* Field: Content: When */
+  /* Field: Content: Date */
   $handler->display->display_options['fields']['field_date_1']['id'] = 'field_date_1';
   $handler->display->display_options['fields']['field_date_1']['table'] = 'field_data_field_date';
   $handler->display->display_options['fields']['field_date_1']['field'] = 'field_date';
@@ -103,7 +103,7 @@ function lc_calendar_views_default_views() {
   $handler->display->display_options['fields']['field_date_1']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_date_1']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_date_1']['settings'] = array(
-    'format_type' => 'lc_12hr',
+    'format_type' => 'lc_calendar_12_hr',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
@@ -224,7 +224,7 @@ function lc_calendar_views_default_views() {
   $handler->display->display_options['fields']['field_contact']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_contact']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_contact']['field_api_classes'] = 0;
-  /* Sort criterion: Content: When (field_date) */
+  /* Sort criterion: Content: Date (field_date) */
   $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
   $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
   $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
