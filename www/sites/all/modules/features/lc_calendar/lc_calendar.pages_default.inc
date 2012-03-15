@@ -50,7 +50,7 @@ function lc_calendar_default_page_manager_pages() {
     'relationships' => array(),
   );
   $display = new panels_display();
-  $display->layout = 'omega_12_threecol_4_4_4';
+  $display->layout = 'lynchburg_12_threecol_3_6_3';
   $display->layout_settings = array();
   $display->panel_settings = array(
     'style_settings' => array(
@@ -112,7 +112,7 @@ function lc_calendar_default_page_manager_pages() {
     $display->panels['left'][1] = 'new-2';
     $pane = new stdClass();
     $pane->pid = 'new-3';
-    $pane->panel = 'middle';
+    $pane->panel = 'main';
     $pane->type = 'views_panes';
     $pane->subtype = 'lc_events-panel_pane_1';
     $pane->shown = TRUE;
@@ -127,7 +127,7 @@ function lc_calendar_default_page_manager_pages() {
     $pane->position = 0;
     $pane->locks = array();
     $display->content['new-3'] = $pane;
-    $display->panels['middle'][0] = 'new-3';
+    $display->panels['main'][0] = 'new-3';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;
