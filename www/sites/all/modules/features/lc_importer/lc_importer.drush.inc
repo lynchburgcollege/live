@@ -542,8 +542,13 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
       // Load the node
       if ($node = node_load($nid)) {
         print "Using tid: $tid\n";
-        $node->field_nav[$node->language][0]['tid'] = $tid;
-        node_save($node);
+        if (count($node->field_nav[$node->language]) && $node->field_nav[$node->language][0]['tid'] > 0) {
+          print "This node has tid: " . $node->field_nav[$node->language][0]['tid'] . ", not saving new!\n";
+        }
+        else {
+          $node->field_nav[$node->language][0]['tid'] = $tid;
+          node_save($node);
+        }
 
         // Add a redirect from the xml url to the new url.
         lc_importer_add_redirect($page_id . '.xml', 'node/' . $nid);
@@ -560,18 +565,27 @@ function lc_importer_tag_node($page, $vid, $parent, $depth, $parent_nid = 0, $us
       // This is not a new level of the taxonomy, we need to add the node reference info.
       if (is_object($node)) {
         // Clear out existing references.
-        if (isset($node->field_parents[$node->language])) {
-          unset($node->field_parents[$node->language]);
-        }
+        /*
         if (isset($node->field_children[$node->language])) {
           unset($node->field_children[$node->language]);
         }
-        $node->field_parents[$node->language] = array(
-          0 => array(
-            'nid' => $parent_nid,
-          ),
-        );
-        node_save($node);
+         */
+        if (count($node->field_parents[$node->language])) {
+          print "Existing parent: ";
+          print_r($node->field_parents[$node->language]);
+          print "\n";
+        }
+        else {
+          if (isset($node->field_parents[$node->language])) {
+            unset($node->field_parents[$node->language]);
+          }
+          $node->field_parents[$node->language] = array(
+            0 => array(
+              'nid' => $parent_nid,
+            ),
+          );
+          node_save($node);
+        }
       }
     }
 
