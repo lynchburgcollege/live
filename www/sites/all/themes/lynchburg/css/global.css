@@ -142,9 +142,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 #megamenu-apply{
 }
 main-mune.#megamenu-visit {
-background:url("/sites/all/themes/lynchburg/images/visitHover.png");
-background-repeat:no-repeat;
-	/*background-position:0 -30px;*/
+/*	background:url("/sites/all/themes/lynchburg/images/visitHover.png");
+	background-repeat:no-repeat;
+	background-position:0 -30px;*/
 }
 
 /* ========== MAIN NAV DROPDOWN ========== */
