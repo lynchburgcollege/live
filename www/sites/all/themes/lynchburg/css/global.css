@@ -199,7 +199,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 .pane-ct-page-lc-section-nav h2.pane-title{
 	font-size:1.333em; /*16px*/
 	background:none;
-	line-height:.02em;
+	line-height:1.2em;
 	margin-bottom:1em;
 	color:#242424
 }
