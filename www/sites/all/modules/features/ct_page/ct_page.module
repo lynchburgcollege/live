@@ -157,10 +157,17 @@ function _ct_page_generate_child_leaf($node, &$children) {
  * @param $node
  */
 function ct_page_node_presave($node) {
+  if ($node->field_nav_inherit == 1) {
+    // The 'save new term to child nodes' box was checked.
+    // Save the new term to all decendents.
+    ct_page_save_term_children($node);
+  }
+
   if (isset($node->field_parents[$node->language])) {
     if (count($node->field_parents[$node->language])) {
       // Clear the nav block cache for this node.
       cache_clear_all('ct_page:nav:' . $nid, 'cache_block');
+      /* Disabled in favor of the opt-in behavior above.
       // This node has a parent, make sure it's using the same taxonomy term as its parent.
       $parent_node = node_load($node->field_parents[$node->language][0]['nid']);
       $parent_tid = $parent_node->field_nav[$node->language][0]['tid'];
@@ -180,12 +187,52 @@ function ct_page_node_presave($node) {
           }
         }
       }
+      */
     }
   }
   elseif (isset($node->field_children[$node->language])) {
     if (count($node->field_children[$node->language])) {
       // Clear the nav block cache for this node.
       cache_clear_all('ct_page:nav:' . $nid, 'cache_block');
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter.
+ *
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+function ct_page_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'page_node_form') {
+    // Get weight of navigation field so we can stick our checkbox after it.
+    $weight = $form['field_nav']['#weight'] + 1;
+    $form['field_nav_inherit'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Apply to descendants'),
+      '#weight' => $weight,
+      '#description' => t('Check the box to apply this term to all descendant nodes.'),
+    );
+  }
+}
+
+/**
+ * Save navigation term of given node to all children.
+ *
+ * @param $node
+ */
+function ct_page_save_term_children($node) {
+  $tid = $node->field_nav[$node->language][0]['tid'];
+  if (isset($node->field_children[$node->language])) {
+    if (count($node->field_children[$node->language])) {
+      foreach ($node->field_children[$node->language] as $child) {
+        $child_node = node_load($child['nid']);
+        $child_node->field_nav[$node->language][0]['tid'] = $tid;
+        node_save($child_node);
+        ct_page_save_term_children($child_node);
+      }
     }
   }
 }

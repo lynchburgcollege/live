@@ -1,0 +1,535 @@
+/* This file will hold the main styles for your website. */
+
+
+
+/* ----- General Styles ----- */
+body {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#6b6b6b;
+	font-size:12px;
+	padding:150px 0;
+	line-height:1.5em;
+	background: #fff url("/sites/all/themes/lynchburg/images/bg-body-top.jpg") repeat-x top left;
+	color:#000;
+/*	margin:0;
+	padding:0;
+*/
+}
+
+
+/* ----- List Styles ----- */
+ol, ul {
+	list-style: none;
+	margin:0 0 1.5em;
+	padding: 0;
+}
+ul li, ol li {
+	margin:0;
+	padding:0.75em 0;
+}
+ul li a, ol li a {
+	text-decoration:none;
+}
+
+/* ---- Ordered List Styles ---- */
+ol.ordered {
+	padding-left: 2.1em;
+}
+ol.type-1 {
+	list-style: decimal-leading-zero;
+}
+ol.type-2 {
+	list-style: decimal;
+}
+
+/* ---- Unordered List Styles ---- */
+ul.unordered li {
+	padding-left: 2.1em;
+	background-position: 0 0.75em;
+	background-repeat: no-repeat;
+}
+ul.unordered.type-1 li {
+	background-image: url("/sites/all/themes/lynchburg/images/tick.png");
+}
+ul.unordered.type-2 li {
+	background-image: url("/sites/all/themes/lynchburg/images/arrow_state_blue_right.png");
+}
+ul.unordered.type-3 li {
+	background-image: url("/sites/all/themes/lynchburg/images/media_controls_forward_small.png");
+}
+
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}/* tables still need 'cellspacing="0"' in the markup */
+
+p {
+	margin:0 0 1.5em 0;
+	padding: 0;
+}
+p strong {
+	color: #232323;
+}
+
+/* ----- Text Selection Styles ----- */
+::-moz-selection {
+color: #fff;
+background-color: #115482;
+}
+::selection {
+	color: #fff;
+	background-color: #115482;
+}
+
+
+/* ----- Link Styles ----- */
+a {
+	text-decoration:none;
+	color: #115482;
+}
+
+a:hover {
+	color:#a1a1a1 !important;
+}
+a, a:link, a:visited, a:focus {
+	text-decoration:none;
+	outline:none;
+}
+
+
+/* ----- Heading Styles ----- */
+h1, h2, h3, h4, h5, h6 {
+	font-family: Arial, Verdana, sans-serif;
+	font-weight:normal;
+	color:#242424;
+}
+h1 {
+	font-size:24px;
+	letter-spacing:-1px;
+	margin-bottom: 0.5em;
+	color:#900900;
+}
+h2 {
+	font-size:20px;
+	margin-bottom: 0.7em;
+}
+h3 {
+	font-size:17px;
+	margin-bottom:1em;
+}
+h4 {
+	font-size:17px;
+	margin-bottom:1em;
+	color:#900900;
+}
+h5 {
+	font-size:14px;
+	margin-bottom:0.7em;
+}
+h6 {
+	font-size:12px;
+	color:#858585;
+	margin-top:0.5em;
+	margin-bottom:0.7em;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+	text-decoration:none;
+}
+
+/* ----- Blockquote Styles ----- */
+blockquote {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size: 16px;
+	border-left:4px solid #115482;
+	font-style: italic;
+	color: #303030;
+	line-height: 1.5em;
+	margin-bottom:1em;
+	padding:0 0 0 1em;
+}
+
+/* ----- Bio Styles ----- */
+#bio {
+	background:url("/sites/all/themes/lynchburg/images/bg_bio.png") repeat-x left top #f0f0f0;
+	min-height:120px;
+	margin-top:3.4em;
+	padding:14px 20px;
+	border:1px solid #d4d4d4;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	-moz-box-shadow: 1px 2px 3px rgba(228,228,228,0.8);
+	-webkit-box-shadow: 1px 2px 3px rgba(228,228,228,0.8);
+	box-shadow: 1px 2px 3px rgba(228,228,228,0.8);
+	position:relative;
+	behavior: url(js/PIE.htc);
+}
+.bio_info {
+	overflow:hidden;
+	display:table;
+}
+#bio h5 {
+	text-shadow:#fafafa 1px 1px 0;
+	margin-bottom:1em;
+	color:#858585;
+}
+
+/* ---- Content---- */
+
+.content_wrapper, .content_wrapper_sbr, .content_wrapper_sbl, .content_wrapper_sbb {
+	margin: 0 auto;
+	min-height: 300px;
+	padding: 30px 0 50px;
+	width: 960px;/*outline:#000 solid 1px;*/
+}
+.content_wrapper_sbb {
+	background:url(../images/vertical_rig_both.png) repeat-y;
+}
+.content_wrapper_sbr {
+	background:url(../images/vertical_rig_right.png) repeat-y;
+}
+.content_wrapper_sbl {
+	background:url(../images/vertical_rig_left.png) repeat-y;
+}
+.content_wrapper #content {
+	width:960px;/*outline:#FF0 solid 1px;*/
+}
+.content_wrapper_sbr #content, .content_wrapper_sbl #content {
+	width: 620px;
+	padding-top:1em;/*	outline:#0F0 solid 1px;*/
+}
+.content_wrapper_sbb #content, {
+ width: 520px;
+ padding-top:1em;
+/*	outline:#0F0 solid 1px;*/
+}
+.content_wrapper_sbr #content {
+	float: left;
+}
+.content_wrapper_sbl #content {
+	float: right;
+}
+.content_wrapper_gallery {
+	margin: 0 auto;
+	min-height: 300px;
+	padding: 0 0 50px;
+	width: 978px;
+	background:#f9f9f9;
+	-moz-border-radius:0 0 5px 5px;
+	-webkit-border-radius:0 0 5px 5px;
+	border-radius:0 0 5px 5px;
+}
+/* ----- Picture Styles ----- */
+.pic-box {
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	background:#f3f3f3;
+	border:3px solid #fff;
+	-moz-box-shadow:0 1px 3px #efefef;
+	-webkit-box-shadow:0 1px 3px #efefef;
+	box-shadow:0 0 3px #efefef;
+	width:276px;
+	height:120px;
+	margin-bottom:15px;
+	position:relative;
+	behavior: url(js/PIE.htc);
+}
+.pic-box:hover {
+	background:#e0e1e0;
+	-moz-transition: all 0.2s linear 0s;
+	-webkit-transition: all 0.2s linear 0s;
+	-o-transition: all 0.2s linear 0s;
+}
+/* ----- Floating & Alignment ----- */
+
+.alignleft {
+	float: left;
+	margin-right:1.5em;
+}
+.alignleft_pic {
+	float:left;
+	margin-right:10px;
+	padding-top:4px;
+}
+.alignleft20 {
+	float:left;
+	margin-right:20px;
+}
+.alignright {
+	float: right;
+	margin-left:1.5em;
+}
+.topmargin {
+	margin-top:10px;
+}
+.imgcenter {
+	display: block;
+	margin: 20px auto 20px;
+}
+.aligncenter, div.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+/* ---- Dividers ---- */
+
+.divider_content {
+	background:url("/sites/all/themes/lynchburg/images/divider_content.png") no-repeat center;
+	height:4px;
+	width:100%;
+	margin:30px 0 45px;
+}
+.divider_top {
+	background: url("/sites/all/themes/lynchburg/images/square_divider.png") repeat-x scroll center center transparent;
+	clear: both;
+	position:relative;
+	display: block;
+	font-size:10px;
+	padding: 20px 0;
+	width: 100%;
+}
+.divider_top a {
+	border: 0 none;
+	cursor: pointer;
+	height: 20px;
+	font-family: Arial, Verdana, sans-serif;
+	outline: medium none;
+	position: absolute;
+	right: 0;
+	top: 0;
+}
+.divider_bottom {
+	background:url("/sites/all/themes/lynchburg/images/bottom_line.png") no-repeat bottom center;
+	width:100%;
+	height:4px;
+}
+.divider_line {
+	background:url("/sites/all/themes/lynchburg/images/bottom_line.png") no-repeat center center;
+	width:100%;
+	margin:60px 0 50px;
+	height:4px;
+	clear:both;
+	display: block;
+}
+.divider_padding {
+	padding-bottom: 60px;
+}
+.divider_padding {
+	clear: both;
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	width: 100%;
+}
+
+/* ========== SIDEBARS ========== */
+
+.content_wrapper_sbr #sidebar {
+	float: right;/*outline:#FF0 solid 1px;*/
+}
+.content_wrapper_sbl #sidebar {
+	float: left;/*outline:#FF0 solid 1px;*/
+}
+#sidebar {
+	min-height: 550px;
+	position: relative;
+	width: 220px;
+	padding:1em 0 0 0;
+}
+/* ----- Features Tables ----- */
+
+.feature_table {
+	background:#fff;
+	margin:0 0 20px 0;
+	width:100%;
+	position:relative;
+	border:1px solid #e8e8e8;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	border-collapse:inherit;
+	-moz-box-shadow:0 1px 3px #e4e4e4;
+	-webkit-box-shadow:0 1px 3px #e4e4e4;
+	box-shadow:0 1px 3px #e4e4e4;
+}
+table.feature_table thead tr {
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	-moz-box-shadow:0 1px 3px #e4e4e4;
+	-webkit-box-shadow:0 1px 3px #e4e4e4;
+	box-shadow:0 1px 3px #e4e4e4;
+}
+table.feature_table thead tr th {
+	background:url(../images/sprite_table.png) repeat-x #fff;
+	border-right:1px solid #e7e7e7;
+}
+table.feature_table thead tr th.left_round {
+	-moz-border-radius:8px 0 0 8px;
+	-webkit-border-radius:8px 0 0 8px;
+	border-radius:8px 0 0 8px;
+}
+table.feature_table thead tr th.right_round {
+	-moz-border-radius:0 8px 8px 0;
+	-webkit-border-radius:0 8px 8px 0;
+	border-radius:0 8px 8px 0;
+}
+.feature_table thead tr th {
+	font-family: 'Arimo', Arial, Verdana;
+	padding:14px 20px 12px 20px;
+	font-size:16px;
+	position:relative;
+	font-weight:100;
+	text-align:left;
+	text-shadow:1px 1px #f8f8f8;
+	color:#6b6b6b;
+	margin:0;
+}
+table.feature_table tbody td {
+	margin:0;
+	padding:10px 20px;
+	font-size:12px;
+	color:#6b6b6b;
+	border-top:1px solid #f0f0f0;
+	border-right:1px solid #f0f0f0;
+}
+table.feature_table tbody tr:first-child td {
+	border-top:none;
+}
+table.feature_table tbody tr td.noborder {
+	border-right:none;
+}
+table.feature_table tbody tr:hover {
+	background:#f6f6f6;
+	-moz-transition: all 0.2s linear 0s;
+	-webkit-transition: all 0.2s linear 0s;
+	-o-transition: all 0.2s linear 0s;
+}
+/* --- Table Grey --- */
+
+table.feature_table.table_grey thead th {
+	background-position: 0 0;
+	border-right:1px solid #e7e7e7;
+}
+table.feature_table.table_grey thead tr th.left_round {
+	border-left:1px solid #f6f6f6;
+}
+table.feature_table.table_grey thead tr th.right_round {
+	border-right:1px solid #f6f6f6;
+}
+/* --- Table Dark --- */
+
+table.feature_table.table_dark thead th {
+	background-position: 0 -45px;
+	font-size:16px;
+	border-right:1px solid #595a5a;
+	text-shadow:0 -1px #2a2b2b;
+	color:#fff;
+}
+table.feature_table.table_dark thead tr th.left_round {
+	border-left:1px solid #2b2c2c;
+}
+table.feature_table.table_dark thead tr th.right_round {
+	border-right:1px solid #2b2c2c;
+}
+/* --- Table Light gray --- */
+
+table.feature_table.table_light_gray thead th {
+	background-position: 0 -90px;
+	font-size:16px;
+	border-right:1px solid #908f8f;
+	text-shadow:1px 1px #444444;
+	color:#323232;
+}
+table.feature_table.table_light_gray thead tr th.left_round {
+	border-left:1px solid #908f8f;
+}
+table.feature_table.table_light_gray thead tr th.right_round {
+	border-right:1px solid #908f8f !important;
+}
+/* --- Table gray --- */
+
+table.feature_table.table_gray thead th {
+	background-position: 0 -136px;
+	font-size:16px;
+	border-right:1px solid #69757b;
+	text-shadow:1px 1px #484949;
+	color:#fff;
+}
+table.feature_table.table_gray thead tr th.left_round {
+	border-left:1px solid #484949;
+}
+table.feature_table.table_gray thead tr th.right_round {
+	border-right:1px solid #484949;
+}
+/* --- Table blue --- */
+
+table.feature_table.table_blue thead th {
+	background-position: 0 -181px;
+	font-size:16px;
+	border-right:1px solid #1369a4;
+	text-shadow:1px 1px #104468;
+	color:#fff;
+}
+table.feature_table.table_blue thead tr th.left_round {
+	border-left:1px solid #1369a4;
+}
+table.feature_table.table_blue thead tr th.right_round {
+	border-right:1px solid #1369a4;
+}
+/* --- Table Red --- */ 
+
+table.feature_table.table_red thead th {
+	background-position: 0 -226px;
+	font-size:16px;
+	border-right:1px solid #6490101b110a;
+	text-shadow:1px 1px #484848;
+	color:#fff;
+}
+table.feature_table.table_red thead tr th.left_round {
+	border-left:1px solid #490101;
+}
+table.feature_table.table_red thead tr th.right_round {
+	border-right:1px solid #490101;
+}
+/*************************
+ *  footer area          *
+ *************************/
+
+footer#section-footer {
+	color:#acacac;
+	background:#202022;
+}
+
+
+footer#section-footer h1, footer#section-footer h2, footer#section-footer h3, footer#section-footer h4, footer#section-footer h5, footer#section-footer h6 {
+	color:#f1f1f1;
+	/*border:#0F0 solid 1px;*/
+}
+ 
+footer#section-footer h2 {
+	border-bottom:solid 1px #5b5b5b;
+	font-family:arial, sans-serif;
+	font-size:16px;
+	font-weight:normal;
+	margin-top:20px;
+}
+
+footer#section-footer ul li{
+	list-style:none;
+	/*border:#0F0 solid 1px;*/
+}
+	
+
+.grid12 {
+	width:960px;
+}
+
+
+
+
+
+
