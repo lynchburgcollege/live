@@ -8,7 +8,7 @@
 
 /* ========== GENERAL STYLES ========== */
 body {
-	font-family:Arimo, Arial, Helvetica, sans-serif;
+	font-family:'Arimo', Arial, Helvetica, sans-serif;
 	color:#6b6b6b;
 	/*padding:20px 30  20px 0px;*/
 	font-size:0.75em;
@@ -141,11 +141,13 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 #megamenu-studentlife {margin-right:350px;}
 #megamenu-apply{
 }
-main-mune.#megamenu-visit {
-/*	background:url("/sites/all/themes/lynchburg/images/visitHover.png");
-	background-repeat:no-repeat;
-	background-position:0 -30px;*/
-}
+
+.navigation ul #megamenu-apply {
+	background-image:url("/sites/all/themes/lynchburg/images/applyVisitAll.png")
+	padding:8px;
+	}
+.navigation ul {background-position:0px 0px}
+#main-menu #megamenu-apply li a:hover {background-position:0px -72px}
 
 /* ========== MAIN NAV DROPDOWN ========== */
 .qtip{border:none;}
@@ -1109,9 +1111,93 @@ select {
 	width:6px
 } 
 /*************************
- *  footer area          *
+ *  footer area  top        *
  *************************/
 
+.pane-menu-menu-footer-bar-left ul, .pane-menu-menu-footer-bar-right ul{
+	font-size:14px;
+}
+.pane-menu-menu-footer-bar-left li, .pane-menu-menu-footer-bar-right li{float:left; padding:10px 4px 0px 4px;}
+.pane-menu-menu-footer-bar-left li a, .pane-menu-menu-footer-bar-right li a{padding:10px;}
+
+#dhtml_menu-34352 a, #dhtml_menu-34355 a, #dhtml_menu-34354 a, #dhtml_menu-34353 a, #dhtml_menu-34356 a, #dhtml_menu-34357 a, #dhtml_menu-34358 a, #dhtml_menu-34359 a, #dhtml_menu-34360 a{
+	display:block;
+	text-indent:-9999px;
+}
+#dhtml_menu-34356 a, #dhtml_menu-34357 a, #dhtml_menu-34358 a, #dhtml_menu-34359 a, #dhtml_menu-34360 a{
+	width:20px;
+}
+/*give*/ 
+#dhtml_menu-34352 a{
+	background:url(../images/giveIcon.png) no-repeat center;
+	padding-left:40px;
+	padding-right:40px;
+	border-right:#56585b solid 2px;
+	margin-left:0;
+	text-indent:0px;
+}
+#dhtml_menu-34352 a:hover{background:url(../images/giveIconHover.png) no-repeat center;}
+
+/*follow us*/
+#dhtml_menu-34355 a{
+	background:url(../images/followIcon.png) no-repeat center;
+	padding-left:30px; 
+	padding-right:40px;  
+	margin-right:0;
+	text-indent:0px;
+	}
+#dhtml_menu-34355 a:hover{background:url(../images/followIconHover.png) no-repeat center;}
+
+
+
+
+
+/*news*/
+#dhtml_menu-34354 a{
+	background:url(../images/newsIcon.png) no-repeat center left; 
+	border-right:#56585b solid 2px;
+	text-align:right;
+	width:120px;
+	text-indent:0px;
+}
+#dhtml_menu-34354 a:hover{background:url(../images/newsIconHover.png) no-repeat center left;}
+
+
+/*faculty staff*/
+#dhtml_menu-34353 a{
+	background:url(../images/facultyStaffIcon.png) no-repeat center left; 
+	/*border-right:#56585b solid 2px;*/
+	text-align:right;
+	width:168px;
+	text-indent:0px;
+}
+#dhtml_menu-34353 a:hover{background:url(../images/facultyStaffIconHover.png) no-repeat center left;}
+
+
+
+/*facebook*/
+#dhtml_menu-34356 a{
+	background:url(../images/facebookIcon.png) no-repeat center; 
+	
+	}
+#dhtml_menu-34356 a:hover{background:url(../images/facebookIconHover.png) no-repeat center;}
+/*twitter*/
+#dhtml_menu-34357 a{background:url(../images/twitterIcon.png) no-repeat center;}
+#dhtml_menu-34357 a:hover{background:url(../images/twitterIconHover.png) no-repeat center;}
+/*youTube*/
+#dhtml_menu-34358 a{background:url(../images/youTubeIcon.png) no-repeat center;}
+#dhtml_menu-34358 a:hover{background:url(../images/youTubeIconHover.png) no-repeat center;}
+/*flickr*/
+#dhtml_menu-34359 a{background:url(../images/flickrIcon.png) no-repeat center;}
+#dhtml_menu-34359 a:hover{background:url(../images/flickrIconHover.png) no-repeat center;}
+/*blog*/
+#dhtml_menu-34360 a{background:url(../images/blogIcon.png) no-repeat center;}
+#dhtml_menu-34360 a:hover{background:url(../images/blogIconHover.png) no-repeat center;}
+
+
+/*************************
+ *  footer area  bottom  *
+ *************************/
 footer#section-footer {
 	color:#acacac;
 	background:#202022;
