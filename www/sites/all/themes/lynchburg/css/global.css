@@ -13,9 +13,16 @@ body {
 	/*padding:20px 30  20px 0px;*/
 	font-size:0.75em;
 	line-height:1.5em;
-	background: #f9f9f9 url("/sites/all/themes/lynchburg/images/bg-body-top.jpg") repeat-x top left;
+	background: #f9f9f9 url("/sites/all/themes/lynchburg/images/bg-body-top2.jpg") repeat-x top left;
+	margin-top:-1px;
 }
-
+.section-content{
+	background:url("/sites/all/themes/lynchburg/images/bg2.jpg") no-repeat top center;
+	margin-top:-5px;
+}
+.zone-content{
+	margin-top:30px;
+}
 /* ========== LIST STYLES ========== */
 ol, ul {
 	list-style: none;
@@ -112,7 +119,7 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom:0.3em;
 	letter-spacing:.5px;
 }
-h1.page-title {
+h1 {
 	font-size:2.5em; /*30px*/
 	margin-bottom: 1em;
 	line-height:32px;
@@ -130,6 +137,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 
 
 /* ========== MAIN NAV ========== */
+
 .navigation, .navigation a, #main-menu {
 	font-family:'Arimo', Arial, Helvetica, sans-serif;
 	font-size:1.083em;
@@ -137,17 +145,13 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	color:#454545;
 }
 
-#megamenu-undergraduate, #megamenu-graduate,#megamenu-studentlife, #megamenu-alumni, #megamenu-athletics{padding:0px 40px 0 0; margin-left:0;}
-#megamenu-studentlife {margin-right:350px;}
-#megamenu-apply{
-}
+#megamenu-undergraduate, #megamenu-graduate,#megamenu-studentlife, #megamenu-alumni, #megamenu-athletics{padding:0px 5px 0 0; margin-left:0;}
+#megamenu-studentlife {margin-right:330px;}
 
-.navigation ul #megamenu-apply {
-	background-image:url("/sites/all/themes/lynchburg/images/applyVisitAll.png")
-	padding:8px;
-	}
-.navigation ul {background-position:0px 0px}
-#main-menu #megamenu-apply li a:hover {background-position:0px -72px}
+
+	
+	
+	
 
 /* ========== MAIN NAV DROPDOWN ========== */
 .qtip{border:none;}
@@ -1118,25 +1122,31 @@ select {
 	font-size:14px;
 }
 .pane-menu-menu-footer-bar-left li, .pane-menu-menu-footer-bar-right li{float:left; padding:10px 4px 0px 4px;}
-.pane-menu-menu-footer-bar-left li a, .pane-menu-menu-footer-bar-right li a{padding:10px;}
+.pane-menu-menu-footer-bar-left li a, .pane-menu-menu-footer-bar-right li a{padding:10px;/* border:#0F3 solid 1px;*/}
 
 #dhtml_menu-34352 a, #dhtml_menu-34355 a, #dhtml_menu-34354 a, #dhtml_menu-34353 a, #dhtml_menu-34356 a, #dhtml_menu-34357 a, #dhtml_menu-34358 a, #dhtml_menu-34359 a, #dhtml_menu-34360 a{
-	display:block;
+	display:inline-block;
 	text-indent:-9999px;
 }
+/*#dhtml_menu-34352 a:hover, #dhtml_menu-34355 a:hover, #dhtml_menu-34354 a:hover, #dhtml_menu-34353 a:hover, #dhtml_menu-34356 a:hover, #dhtml_menu-34357 a:hover, #dhtml_menu-34358 a:hover, #dhtml_menu-34359 a:hover, #dhtml_menu-34360 a:hover{
+	text-decoration:underline;
+	}*/
+
+/*social media icons*/
 #dhtml_menu-34356 a, #dhtml_menu-34357 a, #dhtml_menu-34358 a, #dhtml_menu-34359 a, #dhtml_menu-34360 a{
 	width:20px;
 }
+
 /*give*/ 
 #dhtml_menu-34352 a{
-	background:url(../images/giveIcon.png) no-repeat center;
-	padding-left:40px;
+	background:url(../images/giveIcon.png) no-repeat left;
+	padding-left:25px;
 	padding-right:40px;
 	border-right:#56585b solid 2px;
-	margin-left:0;
 	text-indent:0px;
+	text-align:center;
 }
-#dhtml_menu-34352 a:hover{background:url(../images/giveIconHover.png) no-repeat center;}
+#dhtml_menu-34352 a:hover{background:url(../images/giveIconHover.png) no-repeat left;}
 
 /*follow us*/
 #dhtml_menu-34355 a{
@@ -1166,30 +1176,28 @@ select {
 /*faculty staff*/
 #dhtml_menu-34353 a{
 	background:url(../images/facultyStaffIcon.png) no-repeat center left; 
-	/*border-right:#56585b solid 2px;*/
 	text-align:right;
 	width:168px;
 	text-indent:0px;
 }
 #dhtml_menu-34353 a:hover{background:url(../images/facultyStaffIconHover.png) no-repeat center left;}
 
-
-
 /*facebook*/
-#dhtml_menu-34356 a{
-	background:url(../images/facebookIcon.png) no-repeat center; 
-	
-	}
+#dhtml_menu-34356 a{background:url(../images/facebookIcon.png) no-repeat center;}
 #dhtml_menu-34356 a:hover{background:url(../images/facebookIconHover.png) no-repeat center;}
+
 /*twitter*/
 #dhtml_menu-34357 a{background:url(../images/twitterIcon.png) no-repeat center;}
 #dhtml_menu-34357 a:hover{background:url(../images/twitterIconHover.png) no-repeat center;}
+
 /*youTube*/
 #dhtml_menu-34358 a{background:url(../images/youTubeIcon.png) no-repeat center;}
 #dhtml_menu-34358 a:hover{background:url(../images/youTubeIconHover.png) no-repeat center;}
+
 /*flickr*/
 #dhtml_menu-34359 a{background:url(../images/flickrIcon.png) no-repeat center;}
 #dhtml_menu-34359 a:hover{background:url(../images/flickrIconHover.png) no-repeat center;}
+
 /*blog*/
 #dhtml_menu-34360 a{background:url(../images/blogIcon.png) no-repeat center;}
 #dhtml_menu-34360 a:hover{background:url(../images/blogIconHover.png) no-repeat center;}
@@ -1199,29 +1207,43 @@ select {
  *  footer area  bottom  *
  *************************/
 footer#section-footer {
-	color:#acacac;
-	background:#202022;
+	background:#202022  url("/sites/all/themes/lynchburg/images/bg-footer-first1.jpg") repeat-x top left;
 }
 
-
 footer#section-footer h1, footer#section-footer h2, footer#section-footer h3, footer#section-footer h4, footer#section-footer h5, footer#section-footer h6 {
-	color:#f1f1f1;
-	/*border:#0F0 solid 1px;*/
+	color:#fff;
 }
  
 footer#section-footer h2 {
 	border-bottom:solid 1px #5b5b5b;
-	font-family:arial, sans-serif;
+	font-family: arial, sans-serif;
 	font-size:1.333em;
 	font-weight:normal;
 	margin-top:20px;
 }
-
-footer#section-footer ul li{
+footer#section-footer ul{
+	margin-left:0;
+	padding-left:0;
+	/*border:#0F0 solid 1px;*/
+}
+footer#section-footer li{
 	list-style:none;
+	
+}
+footer#section-footer li a{
+	color:#b9b9b9;
+}
+footer#section-footer li a:hover{
+	color:#fff;
+	text-decoration:underline;
 	/*border:#0F0 solid 1px;*/
 }
 
-.grid12 {
+/*ul.menu li{
+	border: #3F0 solid 1px;	
+}*/
+
+/*.grid12 {
 	width:960px;
 }
+*/
