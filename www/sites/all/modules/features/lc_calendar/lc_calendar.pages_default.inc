@@ -16,7 +16,10 @@ function lc_calendar_default_page_manager_pages() {
   $page->admin_title = 'LC Events';
   $page->admin_description = '';
   $page->path = 'events/%date';
-  $page->access = array();
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array(
     'date' => array(
