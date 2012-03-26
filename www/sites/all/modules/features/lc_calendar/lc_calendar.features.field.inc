@@ -382,6 +382,74 @@ function lc_calendar_field_default_fields() {
     ),
   );
 
+  // Exported field: 'node-event-field_feature'
+  $fields['node-event-field_feature'] = array(
+    'field_config' => array(
+      'active' => '1',
+      'cardinality' => '1',
+      'deleted' => '0',
+      'entity_types' => array(),
+      'field_name' => 'field_feature',
+      'foreign keys' => array(),
+      'indexes' => array(
+        'value' => array(
+          0 => 'value',
+        ),
+      ),
+      'module' => 'list',
+      'settings' => array(
+        'allowed_values' => array(
+          0 => 'Not featured',
+          1 => 'Featured',
+        ),
+        'allowed_values_function' => '',
+      ),
+      'translatable' => '0',
+      'type' => 'list_boolean',
+    ),
+    'field_instance' => array(
+      'bundle' => 'event',
+      'default_value' => array(
+        0 => array(
+          'value' => 0,
+        ),
+      ),
+      'deleted' => '0',
+      'description' => 'Feature this event in featured event listings.',
+      'display' => array(
+        'default' => array(
+          'label' => 'above',
+          'module' => 'list',
+          'settings' => array(),
+          'type' => 'list_default',
+          'weight' => 8,
+        ),
+        'teaser' => array(
+          'label' => 'above',
+          'settings' => array(),
+          'type' => 'hidden',
+          'weight' => 0,
+        ),
+      ),
+      'entity_type' => 'node',
+      'field_name' => 'field_feature',
+      'label' => 'Feature',
+      'required' => 0,
+      'settings' => array(
+        'user_register_form' => FALSE,
+      ),
+      'widget' => array(
+        'active' => 1,
+        'module' => 'options',
+        'settings' => array(
+          'display_label' => 0,
+        ),
+        'type' => 'options_onoff',
+        'weight' => '10',
+      ),
+    ),
+  );
+
   // Exported field: 'node-event-field_location'
   $fields['node-event-field_location'] = array(
     'field_config' => array(
@@ -597,6 +665,8 @@ function lc_calendar_field_default_fields() {
   t('Contact');
   t('Event Category');
   t('Event Details');
+  t('Feature');
+  t('Feature this event in featured event listings.');
   t('If this event is on campus, please select the campus location.');
   t('If ticket is required, fill out ticket information here. If no ticket is required, leave this field blank.');
   t('Select the category(s) in which this event should be listed.');
