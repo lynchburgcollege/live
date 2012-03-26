@@ -15,8 +15,8 @@ function lc_calendar_ctools_plugin_directory($owner, $plugin_type) {
   }
 }
 
-/*
- * hook_date_format_types
+/**
+ * Implements hook_date_format_types.
  */
 function lc_calendar_date_format_types() {
   return array(
@@ -25,8 +25,8 @@ function lc_calendar_date_format_types() {
   );
 }
 
-/*
- * hook_date_formats
+/**
+ * Implements hook_date_formats.
  */
 function lc_calendar_date_formats() {
   $formats = array();
@@ -46,7 +46,18 @@ function lc_calendar_date_formats() {
   return $formats;
 }
 
-
+/**
+ * Implements hook_events
+ *
+ * @return 
+ */
+function lc_calendar_menu() {
+  $items['events'] = array(
+    'page callback' => 'lc_calendar_event_default',
+    'access callback' => TRUE,
+  );
+  return $items;
+}
 /**
  * Implements hook_form.
  */
@@ -88,4 +99,11 @@ function lc_calendar_search_events_form_submit($form, &$form_state) {
     $date_range = date('Y-m-d--') . (date('Y') + 3);
     drupal_goto('events/' . $date_range . '/' . $form_state['values']['search_terms']);
   }
+}
+/**
+ * Callback for /events - redirect to current event list.
+ */
+function lc_calendar_event_default() {
+  $date_range = date('Y-m-d--') . (date('Y-m-d', strtotime("+1 month")));
+  drupal_goto('events/' . $date_range);
 }
