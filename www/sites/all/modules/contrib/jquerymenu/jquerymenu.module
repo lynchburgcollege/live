@@ -164,18 +164,9 @@ function recursive_link_creator($items = array(), $trail, $parentid = '') {
   }
 
   $url_array = $trail;
-  
+
   global $active;
-  /*foreach ($items as $item) {
-    if(in_array($item['link']['href'], $url_array)) {
-        for($i=1; $i<10; $i++) {
-            if($item['link']['p'.$i] != 0) { //if item is active tail, get a list of it's parents.
-                $active  .= ' ' . $item['link']['p' . $i];
-            }
-          }
-      }
-  }*/
-  
+
   $i = 0;
   if (!empty($items)) {
     foreach ($items as $item) {
@@ -193,7 +184,7 @@ function recursive_link_creator($items = array(), $trail, $parentid = '') {
       }
 
       // If the menu item is expanded or in the active trail and if has children add the "open" class.
-      if (in_array($item['link']['mlid'], explode(" ", $active)) || !empty($item['link']['expanded']) || ((in_array($item['link']['href'], $url_array) || ($_GET['q'] == $item['link']['href'])) && !empty($item['link']['has_children']) && !empty($nextlevel))) {
+      if ((!empty($item['link']['mlid']) && in_array($item['link']['mlid'], explode(" ", $active))) || !empty($item['link']['expanded']) || ((in_array($item['link']['href'], $url_array) || ($_GET['q'] == $item['link']['href'])) && !empty($item['link']['has_children']) && !empty($nextlevel))) {
         $classes[] = 'open';
         $state = 'open';
       }
