@@ -597,8 +597,6 @@ function lc_calendar_field_default_fields() {
   t('Contact');
   t('Event Category');
   t('Event Details');
-  t('Feature');
-  t('Feature this event in featured event listings.');
   t('If this event is on campus, please select the campus location.');
   t('If ticket is required, fill out ticket information here. If no ticket is required, leave this field blank.');
   t('Select the category(s) in which this event should be listed.');

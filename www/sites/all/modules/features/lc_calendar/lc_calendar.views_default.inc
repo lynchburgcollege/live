@@ -38,6 +38,15 @@ function lc_calendar_views_default_views() {
     ),
   );
   $handler->display->display_options['row_plugin'] = 'fields';
+  /* No results behavior: Global: Text area */
+  $handler->display->display_options['empty']['area']['id'] = 'area';
+  $handler->display->display_options['empty']['area']['table'] = 'views';
+  $handler->display->display_options['empty']['area']['field'] = 'area';
+  $handler->display->display_options['empty']['area']['label'] = 'No results';
+  $handler->display->display_options['empty']['area']['empty'] = FALSE;
+  $handler->display->display_options['empty']['area']['content'] = 'No results were found with the specified dates and/or search terms.';
+  $handler->display->display_options['empty']['area']['format'] = 'plain_text';
+  $handler->display->display_options['empty']['area']['tokenize'] = 0;
   /* Field: Content: Date */
   $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
   $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
@@ -245,6 +254,19 @@ function lc_calendar_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
     'field_data_field_date.field_date_value' => 'field_data_field_date.field_date_value',
   );
+  /* Contextual filter: Search: Search Terms */
+  $handler->display->display_options['arguments']['keys']['id'] = 'keys';
+  $handler->display->display_options['arguments']['keys']['table'] = 'search_index';
+  $handler->display->display_options['arguments']['keys']['field'] = 'keys';
+  $handler->display->display_options['arguments']['keys']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['keys']['default_argument_type'] = 'raw';
+  $handler->display->display_options['arguments']['keys']['default_argument_options']['index'] = '2';
+  $handler->display->display_options['arguments']['keys']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['keys']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['keys']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['keys']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['keys']['specify_validation'] = 1;
+  $handler->display->display_options['arguments']['keys']['validate']['fail'] = 'empty';
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -273,16 +295,6 @@ function lc_calendar_views_default_views() {
   $handler->display->display_options['filters']['field_event_category_tid']['type'] = 'select';
   $handler->display->display_options['filters']['field_event_category_tid']['vocabulary'] = 'event_category';
   $handler->display->display_options['filters']['field_event_category_tid']['error_message'] = 1;
-  /* Filter criterion: Search: Search Terms */
-  $handler->display->display_options['filters']['keys']['id'] = 'keys';
-  $handler->display->display_options['filters']['keys']['table'] = 'search_index';
-  $handler->display->display_options['filters']['keys']['field'] = 'keys';
-  $handler->display->display_options['filters']['keys']['exposed'] = TRUE;
-  $handler->display->display_options['filters']['keys']['expose']['operator_id'] = 'keys_op';
-  $handler->display->display_options['filters']['keys']['expose']['label'] = 'Search Terms';
-  $handler->display->display_options['filters']['keys']['expose']['operator'] = 'keys_op';
-  $handler->display->display_options['filters']['keys']['expose']['identifier'] = 'keywords';
-  $handler->display->display_options['filters']['keys']['expose']['multiple'] = FALSE;
 
   /* Display: LC Event List */
   $handler = $view->new_display('panel_pane', 'LC Event List', 'panel_pane_1');
@@ -295,6 +307,14 @@ function lc_calendar_views_default_views() {
       'panel' => '0',
       'fixed' => '',
       'label' => 'Date: Date (node)',
+    ),
+    'keys' => array(
+      'type' => 'context',
+      'context' => 'string.html_safe',
+      'context_optional' => 1,
+      'panel' => '1',
+      'fixed' => '',
+      'label' => 'Search: Search Terms',
     ),
   );
 

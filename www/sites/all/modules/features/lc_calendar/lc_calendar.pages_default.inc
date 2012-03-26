@@ -15,7 +15,7 @@ function lc_calendar_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'LC Events';
   $page->admin_description = '';
-  $page->path = 'events/%date';
+  $page->path = 'events/%date/!search';
   $page->access = array(
     'type' => 'none',
     'settings' => NULL,
@@ -25,6 +25,14 @@ function lc_calendar_default_page_manager_pages() {
     'date' => array(
       'id' => 1,
       'identifier' => 'Date Range',
+      'name' => 'string',
+      'settings' => array(
+        'use_tail' => 0,
+      ),
+    ),
+    'search' => array(
+      'id' => 2,
+      'identifier' => 'Search',
       'name' => 'string',
       'settings' => array(
         'use_tail' => 0,
