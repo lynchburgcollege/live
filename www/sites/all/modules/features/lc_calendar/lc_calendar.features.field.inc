@@ -300,7 +300,7 @@ function lc_calendar_field_default_fields() {
         'module' => 'date',
         'settings' => array(
           'increment' => '15',
-          'input_format' => 'm/d/Y - H:i:s',
+          'input_format' => 'm/d/Y - g:i:sa',
           'input_format_custom' => '',
           'label_position' => 'above',
           'text_parts' => array(),
