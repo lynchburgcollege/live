@@ -119,7 +119,8 @@ function drush_lc_importer_clean_text() {
       $modified = TRUE;
     }
     // Change formmail paths.
-    $node->body[$node->language][0]['value'] = preg_replace('#\saction="[^"]*formmail.asp"#i', ' action="/lc_formhandler"', $node->body[$node->language][0]['value'], -1, $strings_replaced);
+    $node->body[$node->language][0]['value'] = preg_replace('#\saction="[^"]*formmail.asp"#i', ' action="https://ws.lynchburg.edu/formmailscript/formmail.asp"', $node->body[$node->language][0]['value'], -1, $strings_replaced);
+    $node->body[$node->language][0]['value'] = preg_replace('#\saction="[^"]*lc_formhandler"#i', ' action="https://ws.lynchburg.edu/formmailscript/formmail.asp"', $node->body[$node->language][0]['value'], -1, $strings_replaced);
     if ($strings_replaced > 0) {
       $modified = TRUE;
       // print($node->body[$node->language][0]['value']);
