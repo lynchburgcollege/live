@@ -578,6 +578,14 @@ blockquote {
 	color:#858585;
 }
 
+/* ========== CALENDAR ========== */
+.view .date-nav-wrapper .date-nav {
+  margin-bottom: 5px;
+  min-height: 0px;
+}
+.view .date-nav-wrapper .date-prev {
+  right: auto;
+}
 
 /* ========== FEATURE TABLES ========== */
 table, table.feature_table {
