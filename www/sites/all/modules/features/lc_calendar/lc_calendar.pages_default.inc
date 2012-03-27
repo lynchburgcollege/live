@@ -15,13 +15,24 @@ function lc_calendar_default_page_manager_pages() {
   $page->task = 'page';
   $page->admin_title = 'LC Events';
   $page->admin_description = '';
-  $page->path = 'events/%date';
-  $page->access = array();
+  $page->path = 'events/%date/!search';
+  $page->access = array(
+    'type' => 'none',
+    'settings' => NULL,
+  );
   $page->menu = array();
   $page->arguments = array(
     'date' => array(
       'id' => 1,
       'identifier' => 'Date Range',
+      'name' => 'string',
+      'settings' => array(
+        'use_tail' => 0,
+      ),
+    ),
+    'search' => array(
+      'id' => 2,
+      'identifier' => 'Search',
       'name' => 'string',
       'settings' => array(
         'use_tail' => 0,
@@ -68,12 +79,11 @@ function lc_calendar_default_page_manager_pages() {
     $pane = new stdClass();
     $pane->pid = 'new-1';
     $pane->panel = 'left';
-    $pane->type = 'block';
-    $pane->subtype = 'views--exp-lc_events-panel_pane_1';
+    $pane->type = 'search_events';
+    $pane->subtype = 'search_events';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'inherit_path' => 1,
       'override_title' => 1,
       'override_title_text' => '',
     );
@@ -89,6 +99,49 @@ function lc_calendar_default_page_manager_pages() {
     $display->panels['left'][0] = 'new-1';
     $pane = new stdClass();
     $pane->pid = 'new-2';
+    $pane->panel = 'left';
+    $pane->type = 'block';
+    $pane->subtype = 'views--exp-lc_events-panel_pane_1';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'inherit_path' => 1,
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $display->content['new-2'] = $pane;
+    $display->panels['left'][1] = 'new-2';
+    $pane = new stdClass();
+    $pane->pid = 'new-3';
+    $pane->panel = 'main';
+    $pane->type = 'events_header';
+    $pane->subtype = 'events_header';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array(
+      'override_title' => 1,
+      'override_title_text' => '',
+    );
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 0;
+    $pane->locks = array();
+    $display->content['new-3'] = $pane;
+    $display->panels['main'][0] = 'new-3';
+    $pane = new stdClass();
+    $pane->pid = 'new-4';
     $pane->panel = 'main';
     $pane->type = 'views_panes';
     $pane->subtype = 'lc_events-panel_pane_1';
@@ -101,12 +154,12 @@ function lc_calendar_default_page_manager_pages() {
     );
     $pane->css = array();
     $pane->extras = array();
-    $pane->position = 0;
+    $pane->position = 1;
     $pane->locks = array();
-    $display->content['new-2'] = $pane;
-    $display->panels['main'][0] = 'new-2';
+    $display->content['new-4'] = $pane;
+    $display->panels['main'][1] = 'new-4';
     $pane = new stdClass();
-    $pane->pid = 'new-3';
+    $pane->pid = 'new-5';
     $pane->panel = 'right';
     $pane->type = 'custom';
     $pane->subtype = 'custom';
@@ -127,8 +180,26 @@ function lc_calendar_default_page_manager_pages() {
     $pane->extras = array();
     $pane->position = 0;
     $pane->locks = array();
-    $display->content['new-3'] = $pane;
-    $display->panels['right'][0] = 'new-3';
+    $display->content['new-5'] = $pane;
+    $display->panels['right'][0] = 'new-5';
+    $pane = new stdClass();
+    $pane->pid = 'new-6';
+    $pane->panel = 'right';
+    $pane->type = 'views_panes';
+    $pane->subtype = 'lc_events-panel_pane_2';
+    $pane->shown = TRUE;
+    $pane->access = array();
+    $pane->configuration = array();
+    $pane->cache = array();
+    $pane->style = array(
+      'settings' => NULL,
+    );
+    $pane->css = array();
+    $pane->extras = array();
+    $pane->position = 1;
+    $pane->locks = array();
+    $display->content['new-6'] = $pane;
+    $display->panels['right'][1] = 'new-6';
   $display->hide_title = PANELS_TITLE_FIXED;
   $display->title_pane = '0';
   $handler->conf['display'] = $display;

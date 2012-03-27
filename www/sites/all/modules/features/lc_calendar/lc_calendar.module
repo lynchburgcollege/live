@@ -6,8 +6,17 @@
 
 include_once('lc_calendar.features.inc');
 
-/*
- * hook_date_format_types
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function lc_calendar_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/content_types';
+  }
+}
+
+/**
+ * Implements hook_date_format_types.
  */
 function lc_calendar_date_format_types() {
   return array(
@@ -16,8 +25,8 @@ function lc_calendar_date_format_types() {
   );
 }
 
-/*
- * hook_date_formats
+/**
+ * Implements hook_date_formats.
  */
 function lc_calendar_date_formats() {
   $formats = array();
@@ -37,3 +46,64 @@ function lc_calendar_date_formats() {
   return $formats;
 }
 
+/**
+ * Implements hook_events
+ *
+ * @return 
+ */
+function lc_calendar_menu() {
+  $items['events'] = array(
+    'page callback' => 'lc_calendar_event_default',
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+/**
+ * Implements hook_form.
+ */
+function lc_calendar_search_events_form($form, $form_state) {
+  // Get the active search terms (if any) from the URL
+  $arguments = explode('/', $_GET['q']);
+  $active_search_terms = '';
+  if (isset($arguments[2])) {
+    $active_search_terms = $arguments[2];
+  }
+  // Handle wildcard.
+  if ($active_search_terms == 'all') {
+    $active_search_terms = '';
+  }
+
+  $search_form = array(
+    'search_terms' => array(
+      '#type' => 'textfield', 
+      '#title' => t(''), 
+      '#default_value' => $active_search_terms,
+      '#size' => 20, 
+      '#maxlength' => 128, 
+      '#required' => FALSE,
+    ),
+    'submit' => array(
+      '#type' => 'submit', 
+      '#value' => t('Search')
+    ),
+  );
+
+  return $search_form;
+}
+
+/**
+ * Submit handler for lc_calendar_search_events_form().
+ */
+function lc_calendar_search_events_form_submit($form, &$form_state) {
+  if (isset($form_state['values']['search_terms'])) {
+    $date_range = date('Y-m-d--') . (date('Y') + 3);
+    drupal_goto('events/' . $date_range . '/' . $form_state['values']['search_terms']);
+  }
+}
+/**
+ * Callback for /events - redirect to current event list.
+ */
+function lc_calendar_event_default() {
+  $date_range = date('Y-m-d--') . (date('Y-m-d', strtotime("+1 month")));
+  drupal_goto('events/' . $date_range);
+}

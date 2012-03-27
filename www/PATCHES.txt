@@ -3,6 +3,10 @@ Drupal Core patches
 
 Drupal Contrib patches - sorted alphabetically by module name
 ----------------------
+Jquery Menu - Items always expanded when calling with a non-menu object
+http://drupal.org/node/1503064
+http://drupal.org/files/jquerymenu-items_always_expanded-1503064-1.patch
+
 Location Feeds - DMS co-ordinates with decimal second values not imported correctly
 http://drupal.org/node/1440200
 http://drupal.org/files/location_feeds-account_for_decimal_second_values_with_tests-1440200-3.patch
