@@ -17,7 +17,7 @@ body {
 	margin-top:-1px;
 }
 .section-content{
-	background:url("/sites/all/themes/lynchburg/images/bg2.jpg") no-repeat top center;
+	/*background:url("/sites/all/themes/lynchburg/images/bg2.jpg") no-repeat top center;*/
 	margin-top:-5px;
 }
 .zone-content{
@@ -47,32 +47,35 @@ outline: none;
 /* ========== LIST STYLES ========== */
 ol, ul {
 	list-style: none;
-	margin:0 0 1.5em;
+	margin:0 0 1em;
 	padding: 0;
 }
 ul li, ol li {
 	margin:0;
-	padding:0.75em 0;
+	padding:0.5em 0;
 }
 ul li a, ol li a {
 	text-decoration:none;
 }
 
 /* ========== ORDERED LISTS ========== */
-ol.ordered {
+ol.ordered{
 	padding-left: 2.1em;
 }
-ol.type-1 {
+
+ol.type-1{
 	list-style: decimal-leading-zero;
 }
-ol.type-2 {
+
+ol.type-2{
 	list-style: decimal;
 }
+
 
 /* ========== UNORDERED LISTS ========== */
 ul.unordered li {
 	padding-left: 2.1em;
-	background-position: 0 0.75em;
+	background-position: 0 0.6em;
 	background-repeat: no-repeat;
 }
 ul.unordered.type-1 li {
@@ -242,7 +245,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	background:url("/sites/all/themes/lynchburg/images/square_divider.png") repeat-x top;
 } 
 
-.field-name-field-aside li, .pane-ct-page-lc-section-nav .pane-content .item-list li {
+.field-name-field-aside ul li, .pane-ct-page-lc-section-nav .pane-content .item-list li {
 	background:url("/sites/all/themes/lynchburg/images/square_divider.png") repeat-x bottom;
 	/*border-bottom:#c3c3c3  dotted 1.25px;*/
 	padding:0.74em 0 0.74em 2em;
@@ -250,8 +253,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	list-style:none;
 	margin:0;
 } 
-.field-name-field-aside li:after,
-.field-name-field-aside li .after,
+
+.field-name-field-aside ul li:after,
+.field-name-field-aside ul li .after,
 .pane-ct-page-lc-section-nav .pane-content .item-list li:after,  
 .pane-ct-page-lc-section-nav .pane-content .item-list li .after{
 	background-image:url("/sites/all/themes/lynchburg/images/circle_list.png");
@@ -632,7 +636,7 @@ table.feature_table thead tr {
 	box-shadow:0 1px 3px #e4e4e4;
 }
 table.feature_table thead tr th {
-	background:url("/sites/all/themes/lynchburg/images/sprite_table.png") repeat-x #fff;
+	/*background:url("/sites/all/themes/lynchburg/images/sprite_table.png") repeat-x #fff;*/
 	border-right:1px solid #e7e7e7;
 }
 table.feature_table thead tr th.left_round {
@@ -679,8 +683,15 @@ table.feature_table tbody tr:hover {
 
 /* --- Table Grey --- */
 table.feature_table.table_grey thead th {
-	background-position: 0 0;
-	border-right:1px solid #e7e7e7;
+	/* for non-css3 browsers */
+	background: #d9d9d9;
+	/* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f1f1f1', endColorstr='#d9d9d9'); 
+	/* for webkit browsers */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f1f1f1), to(#d9d9d9), color-stop(.6,#e9e9e9));
+	/* for firefox 3.6+ */
+	background: -moz-linear-gradient(25% 87% 90deg,#d9d9d9, #e9e9e9, #f1f1f1 100%); 	
+	/*background-position: 0 0;*/
 }
 table.feature_table.table_grey thead tr th.left_round {
 	border-left:1px solid #f6f6f6;
@@ -690,11 +701,19 @@ table.feature_table.table_grey thead tr th.right_round {
 }
 /* --- Table Dark --- */
 table.feature_table.table_dark thead th {
-	background-position: 0 -45px;
+	/*background-position: 0 -45px;*/
 	font-size:1.333em;/*16px*/
 	border-right:1px solid #595a5a;
 	text-shadow:0 -1px #2a2b2b;
 	color:#fff;
+	/* for non-css3 browsers */
+	background: #5a5f63;
+	/* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#727b82', endColorstr='#323232'); 
+	/* for webkit browsers */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#727b82), to(#323232), color-stop(.6,#5a5f63));
+	/* for firefox 3.6+ */
+	background: -moz-linear-gradient(25% 87% 90deg,#323232, #5a5f63, #727b82 100%); 	
 }
 table.feature_table.table_dark thead tr th.left_round {
 	border-left:1px solid #2b2c2c;
@@ -704,11 +723,20 @@ table.feature_table.table_dark thead tr th.right_round {
 }
 /* --- Table blue --- */
 table.feature_table.table_blue thead th {
-	background-position: 0 -181px;
+	/*background-position: 0 -181px;*/
 	font-size:1.333em;/*16px*/
 	border-right:1px solid #1369a4;
 	text-shadow:1px 1px #104468;
 	color:#fff;
+	/* for non-css3 browsers */
+	background: #125889;
+	/* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#2187cf', endColorstr='#125889'); 
+	/* for webkit browsers */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#2187cf), to(#125889), color-stop(.6,#1b74b0));
+	/* for firefox 3.6+ */
+	background: -moz-linear-gradient(25% 87% 90deg,#125889, #1b74b0, #2187cf 100%); 	
+	/*background-position: 0 0;*/
 }
 table.feature_table.table_blue thead tr th.left_round {
 	border-left:1px solid #1369a4;
@@ -718,11 +746,20 @@ table.feature_table.table_blue thead tr th.right_round {
 }
 /* --- Table Red --- */ 
 table.feature_table.table_red thead th {
-	background-position: 0 -226px;
+	/*background-position: 0 -226px;*/
 	font-size:1.333em;/*16px*/
 	border-right:1px solid #6d0903;
 	text-shadow:1px 1px #484848;
 	color:#fff;
+	/* for non-css3 browsers */
+	background: #790600;
+	/* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8f0900', endColorstr='#5a0500'); 
+	/* for webkit browsers */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8f0900), to(#5a0500), color-stop(.6,#790600));
+	/* for firefox 3.6+ */
+	background: -moz-linear-gradient(25% 87% 90deg,#5a0500, #790600, #8f0900 100%); 	
+	/*background-position: 0 0;*/
 }
 table.feature_table.table_red thead tr th.left_round {
 	border-left:1px solid #490101;
@@ -822,11 +859,29 @@ select {
 	-webkit-border-radius:5px;
 	border-radius:5px;
 	min-height:60px;
-	background: url("/sites/all/themes/lynchburg/images/notifications.png") repeat-x scroll 0 0 #efeded;
+	/*background: url("/sites/all/themes/lynchburg/images/notifications.png") repeat-x scroll 0 0 #efeded;*/
+	/* for non-css3 browsers */
+	background: #d9d9d9;
+	/* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f4f4', endColorstr='#ecebeb'); 
+	/* for webkit browsers */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#f5f4f4), to(#ecebeb), color-stop(.6,#ecebeb));
+	/* for firefox 3.6+ */
+	background: -moz-linear-gradient(25% 87% 90deg,#ecebeb, #ecebeb, #f5f4f4 100%); 	
+	/*background-position: 0 0;*/
 }
 
 .info:hover, .warnings:hover, .errors:hover, .success:hover {
-	background-position: 0 -150px;	
+	/*background-position: 0 -150px;	*/
+	/* for non-css3 browsers */
+	background: #e9e9e9;
+	/* for IE */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ecebeb', endColorstr='#f5f4f4'); 
+	/* for webkit browsers */
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#ecebeb), to(#f0f0f0), color-stop(.6,#ecebeb));
+	/* for firefox 3.6+ */
+	background: -moz-linear-gradient(25% 87% 90deg,#f5f4f4, #ecebeb, #ecebeb 100%); 	
+	/*background-position: 0 0;*/
 } 
 
 .info img, .warnings img, .errors img, .success img {
