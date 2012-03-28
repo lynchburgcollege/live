@@ -762,7 +762,7 @@ return TRUE;';
       'label' => 'Date: Date (node)',
     ),
     'keys' => array(
-      'type' => 'context',
+      'type' => 'wildcard',
       'context' => 'string.html_safe',
       'context_optional' => 1,
       'panel' => '1',
