@@ -694,9 +694,17 @@ function lc_calendar_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
   $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
   $handler->display->display_options['arguments']['date_argument']['field'] = 'date_argument';
+  $handler->display->display_options['arguments']['date_argument']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['date_argument']['default_argument_type'] = 'raw';
   $handler->display->display_options['arguments']['date_argument']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['date_argument']['summary_options']['grouping'] = 'field_date';
+  $handler->display->display_options['arguments']['date_argument']['summary_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_date',
+      'rendered' => 1,
+      'rendered_strip' => 1,
+    ),
+  );
   $handler->display->display_options['arguments']['date_argument']['specify_validation'] = 1;
   $handler->display->display_options['arguments']['date_argument']['granularity'] = 'day';
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
@@ -716,7 +724,7 @@ function lc_calendar_views_default_views() {
   $handler->display->display_options['arguments']['keys']['specify_validation'] = 1;
   $handler->display->display_options['arguments']['keys']['validate']['type'] = 'php';
   $handler->display->display_options['arguments']['keys']['validate_options']['code'] = 'if ($argument == \'\') {
-  $argument == \'all\';
+  $argument = \'all\';
 }
 return TRUE;';
   $handler->display->display_options['arguments']['keys']['validate']['fail'] = 'empty';
@@ -754,7 +762,7 @@ return TRUE;';
   $handler->display->display_options['exposed_block'] = TRUE;
   $handler->display->display_options['argument_input'] = array(
     'date_argument' => array(
-      'type' => 'context',
+      'type' => 'none',
       'context' => 'string.html_safe',
       'context_optional' => 0,
       'panel' => '0',
@@ -762,7 +770,7 @@ return TRUE;';
       'label' => 'Date: Date (node)',
     ),
     'keys' => array(
-      'type' => 'wildcard',
+      'type' => 'none',
       'context' => 'string.html_safe',
       'context_optional' => 1,
       'panel' => '1',
@@ -811,6 +819,27 @@ return TRUE;';
   $handler->display->display_options['fields']['title']['hide_empty'] = 0;
   $handler->display->display_options['fields']['title']['empty_zero'] = 0;
   $handler->display->display_options['fields']['title']['link_to_node'] = 1;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Date: Date (node) */
+  $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
+  $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
+  $handler->display->display_options['arguments']['date_argument']['field'] = 'date_argument';
+  $handler->display->display_options['arguments']['date_argument']['default_action'] = 'default';
+  $handler->display->display_options['arguments']['date_argument']['default_argument_type'] = 'php';
+  $handler->display->display_options['arguments']['date_argument']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['date_argument']['summary_options']['grouping'] = array(
+    0 => array(
+      'field' => 'field_date',
+      'rendered' => 1,
+      'rendered_strip' => 1,
+    ),
+  );
+  $handler->display->display_options['arguments']['date_argument']['specify_validation'] = 1;
+  $handler->display->display_options['arguments']['date_argument']['granularity'] = 'day';
+  $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
+    'field_data_field_date.field_date_value' => 'field_data_field_date.field_date_value',
+  );
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
