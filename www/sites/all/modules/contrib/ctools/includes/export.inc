@@ -389,7 +389,7 @@ function ctools_export_load_object($table, $type = 'all', $args = array()) {
   $cached_database = &drupal_static('ctools_export_load_object_all');
 
   $schema = ctools_export_get_schema($table);
-  if (empty($schema)) {
+  if (empty($schema) || !db_table_exists($table)) {
     return array();
   }
 
@@ -825,7 +825,7 @@ function _ctools_export_unpack_object($schema, $data, $object = 'stdClass') {
       if (!empty($join['load'])) {
         foreach ($join['load'] as $field) {
           $info = $join_schema['fields'][$field];
-          $object->$field = empty($info['serialize']) ? $data->$field : unserialize(db_decode_blob($data->$field));
+          $object->$field = empty($info['serialize']) ? $data->$field : unserialize($data->$field);
         }
       }
     }
@@ -1201,7 +1201,7 @@ function ctools_export_to_hook_code(&$code, $table, $names = array(), $name = 'f
 function ctools_export_default_to_hook_code($schema, $table, $names, $name) {
   $export = $schema['export'];
   $output = '';
-  $objects = ctools_export_load_object($table, 'names', $names);
+  $objects = ctools_export_crud_load_multiple($table, $names);
   if ($objects) {
     $output = "/**\n";
     $output .= " * Implements hook_{$export['default hook']}().\n";
