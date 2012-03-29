@@ -12,7 +12,7 @@ body {
 	/*padding:20px 30  20px 0px;*/
 	font-size:0.75em;
 	line-height:1.5em;
-	background: #f9f9f9 url("/sites/all/themes/lynchburg/images/bg-body-top2.jpg") repeat-x top left;
+	background: #f9f9f9;
 	margin-top:-1px;
 }
 .section-content {
@@ -29,20 +29,47 @@ body {
 	border-right:#e8e8e8 double 3px;
 }*/
 
+.section-header {
+	background: #840a0a; /* Old browsers */
+	background: -moz-linear-gradient(top,  #840a0a 0%, #360d08 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#840a0a), color-stop(100%,#360d08)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #840a0a 0%,#360d08 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #840a0a 0%,#360d08 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #840a0a 0%,#360d08 100%); /* IE10+ */
+	background: linear-gradient(top,  #840a0a 0%,#360d08 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#840a0a', endColorstr='#360d08',GradientType=0 ); /* IE6-9 */
+}
+.zone-menu-wrapper {
+	background: #f9f9f9; /* Old browsers */
+	background: -moz-linear-gradient(top,  #eeeeee 0%, #f9f9f9 7%, #f9f9f9 91%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(7%,#f9f9f9), color-stop(91%,#f9f9f9), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #eeeeee 0%,#f9f9f9 7%,#f9f9f9 91%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #eeeeee 0%,#f9f9f9 7%,#f9f9f9 91%,#e5e5e5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #eeeeee 0%,#f9f9f9 7%,#f9f9f9 91%,#e5e5e5 100%); /* IE10+ */
+	background: linear-gradient(top,  #eeeeee 0%,#f9f9f9 7%,#f9f9f9 91%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
 
 /* ========== LOGO ========== */
-#region-branding {
-	display: block;
-/*	width: 353px;
-	height: 137px;*/
-	text-indent: -9999px;
-	background: transparent url("/sites/all/themes/lynchburg/images/logo.png") no-repeat top center;
+.region-branding {
+	display:block;
+	width:353px;
+	height:137px;
+	margin:-30px 0 0 0;
 }
-#region-branding a {
+
+.region-branding a{
 	display: block;
-	/*width: 100%;
+	width: 100%;
 	height: 100%;
-	*/outline: none;
+	outline: none;
+}
+
+.logo-img {
+	display:block;
+	margin-right:0;
+	text-align:center;
+	width:100%;
 }
 /* ========== LIST STYLES ========== */
 ol, ul {
@@ -172,14 +199,16 @@ nav.navigation{
 	font-size:1.083em;
 	padding-top:8px;
 	color:#454545;
+}.logo-img {
+float: left;
+margin-right: 20px;
 }
-#megamenu-undergraduate, #megamenu-graduate, #megamenu-studentlife, #megamenu-alumni, #megamenu-athletics {
-	padding:0px 5px 0 0;
-	margin-left:0;
-}
-#megamenu-studentlife {
-	margin-right:330px;
-}
+
+#megamenu-undergraduate, #megamenu-graduate,#megamenu-studentlife, #megamenu-alumni, #megamenu-athletics{padding:0px 5px 0 0; margin-left:0;}
+
+
+
+
 /* ========== MAIN NAV DROPDOWN ========== */
 .qtip {
 	border:none;
@@ -436,8 +465,8 @@ blockquote {
 .quoteleft p, .quoteright p {
 	margin:0;
 }
-/* ----- Columns Styles ----- */	
-	
+/* ----- Columns Styles ----- */
+
 .columns, .columns2, .columns3, .columns4, .columns5, .columns6, .columns7, .columns8, .columns9, .columns10, .columns11, .columns12, .columns13, .columns14, .columns15, .columns16 {
 	width:auto;
 	margin-bottom:2em;
@@ -724,7 +753,7 @@ table.feature_table.table_blue thead tr th.left_round {
 table.feature_table.table_blue thead tr th.right_round {
 	border-right:1px solid #1369a4;
 }
-/* --- Table Red --- */ 
+/* --- Table Red --- */
 table.feature_table.table_red thead th {
 	/*background-position: 0 -226px;*/
 	font-size:1.333em;/*16px*/
@@ -1160,7 +1189,7 @@ select {
 #dhtml_menu-34356 a, #dhtml_menu-34357 a, #dhtml_menu-34358 a, #dhtml_menu-34359 a, #dhtml_menu-34360 a {
 	width:20px;
 }
-/*give*/ 
+/*give*/
 #dhtml_menu-34352 a {
 	background:url(../images/giveIcon.png) no-repeat left;
 	padding-left:25px;
@@ -1271,7 +1300,7 @@ footer#section-footer li a:hover {
 }
 
 /*ul.menu li{
-	border: #3F0 solid 1px;	
+	border: #3F0 solid 1px;
 }*/
 
 /*.grid12 {

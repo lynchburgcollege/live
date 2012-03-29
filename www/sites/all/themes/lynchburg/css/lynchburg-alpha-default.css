@@ -5,16 +5,6 @@
 /* header region */
 /*****************/
 
-
-header#section-header {
-	height:142px;
-	margin:0;
-	padding:0;
-	background: transparent url("/sites/all/themes/lynchburg/images/bg-header-arch1.jpg") no-repeat top center;
-}
-
-
-
 /* this should be unnecessary when we are done. */
 div.region-user-first-inner {
 	display:none;
@@ -24,11 +14,8 @@ div#region-user-second {
 	height:30px;
 }
 
-div#region-menu {
-	position:relative;
-	top:45px;
-	border:none;
-}
+
+
 
 
 
@@ -70,11 +57,11 @@ footer#section-footer a:hover {
 	margin:20px ;
 }*/
 /*.give {
-	height:60px; width: 70px; 
+	height:60px; width: 70px;
 	background: transparent url("/sites/all/themes/lynchburg/images/bg-give.png") no-repeat center;
-	
+
 }
-.give:hover {	
+.give:hover {
 	background: transparent url("/sites/all/themes/lynchburg/images/bg-give-hover.png") no-repeat center;
 }*/
 /*footer#section-footer span.give a {
