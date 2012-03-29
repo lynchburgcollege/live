@@ -8,7 +8,37 @@
  */
 function menu_minipanels_admin() {
   $form = array();
+
+  // Give shortcuts to the menu-edit pages.
+  $result = db_query("SELECT * FROM {menu_custom} ORDER BY title", array(), array('fetch' => PDO::FETCH_ASSOC));
+  $header = array(t('Title'), array('data' => t('Can be used?')));
+  $rows = array();
+  foreach ($result as $menu) {
+    $row = array(theme('menu_admin_overview', array('title' => $menu['title'], 'name' => $menu['menu_name'])));
+    if (variable_get('menu_minipanels_' . $menu['menu_name'] . '_enabled', FALSE)) {
+      $label = 'Yes';
+    }
+    else {
+      $label = 'No';
+    }
+    $row[] = array('data' => l(t($label), 'admin/structure/menu/manage/' . $menu['menu_name'] . '/edit', array('query' => array('destination' => 'admin/config/content/menu_minipanels'))));
+    $rows[] = $row;
+  }
+  $form['menus'] = array(
+    '#markup' => theme('table', array('header' => $header, 'rows' => $rows)),
+  );
+
+  // Additional global settings.
+  $form['menu_minipanels_show_admin'] = array(
+    '#title' => 'Load on admin pages',
+    '#type' => 'checkbox',
+    '#default_value' => variable_get('menu_minipanels_show_admin', TRUE),
+    '#description' => t('Optionally hide on the admin pages.'),
+  );
+
+  // Default settings.
   _menu_minipanels_hover_settings_form($form, variable_get('menu_minipanels_hover', _menu_minipanels_hover_defaults()), _menu_minipanels_hover_defaults());
+
   return system_settings_form($form);
 }
 
@@ -290,7 +320,7 @@ function _menu_minipanels_hover_defaults() {
         'screen' => 'false',
         'scroll' => 'true',
         'resize' => 'true',
-      )
+      ),
     ),
     'show' => array(
       'delay' => 0,
@@ -299,29 +329,29 @@ function _menu_minipanels_hover_defaults() {
       ),
       'effect' => array(
         'type' => 'slide',
-        'length' => 0
-      )
+        'length' => 0,
+      ),
     ),
     'hide' => array(
       'fixed' => 'true',
       'effect' => array(
         'type' => 'slide',
-        'length' => 0
-      )
+        'length' => 0,
+      ),
     ),
     'style' => array(
       'name' => 'light',
       'width' => array(
         'min' => 0,
-        'max' => 250
+        'max' => 250,
       ),
       'border' => array(
         'width' => 3,
         'radius' => 0,
-        'color' => '#d3d3d3'
+        'color' => '#d3d3d3',
       ),
-      'tip' => 'topLeft',
-    )
+      'tip' => 'none',
+    ),
   );
 
   // Implement hook_menu_minipanels_defaults_alter() in a module to override

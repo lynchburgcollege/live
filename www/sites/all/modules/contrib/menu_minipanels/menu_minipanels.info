@@ -5,9 +5,9 @@ package = "Menu"
 dependencies[] = menu
 dependencies[] = panels_mini
 
-; Information added by drupal.org packaging script on 2011-09-03
-version = "7.x-1.0-rc2"
+; Information added by drupal.org packaging script on 2012-03-28
+version = "7.x-1.0-rc4+2-dev"
 core = "7.x"
 project = "menu_minipanels"
-datestamp = "1315024921"
+datestamp = "1332937568"
 

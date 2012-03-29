@@ -18,6 +18,28 @@ Installation
    (http://drupal.org/project/libraries).
 4. Enable the module.
 5. Visit "Menu Minipanels Settings" to configure default settings for qTip.
+6. Visit the "Edit menu" page for each menu (not menu item) to ensure the
+   correct menus are enabled for use with Menu MiniPanels.
+
+
+Tips
+----
+The module will add the class "qtip-hover" to the menu item which triggered the
+minipanel to display, allowing it to be themed to match the normal :hover
+state.  There is not currently a way to make it retain the :hover state while
+the pointer is over the minipanel, so this is a work-around.
+
+
+Known Issues
+------------
+If an error "Invalid calling object" shows on IE9's Javascript console, there
+may be another script or plugin loading on the page which is conflicting. In
+one case it was caused by DivX Player (http://drupal.org/node/1379542), once it
+was removed the problem ended.
+
+The qTip library takes over the tooltip display DOM events so it is not
+possible to display normal link title tooltips on menu items which have
+minipanels attached.
 
 
 Author

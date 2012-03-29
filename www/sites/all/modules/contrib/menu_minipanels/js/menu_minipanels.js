@@ -72,6 +72,21 @@
         // Initialize the qTip.
         $(this).qtip(settings);
       });
+
+      // Mark target element as selected.
+      MenuMiniPanels.setCallback('beforeShow', function(qTip, event, content) {
+        var $target = $(qTip.elements.target.get(0));
+        if ($target !== undefined) {
+          $target.addClass('qtip-hover');
+        }
+      });
+
+      // Unmark target element as selected.
+      MenuMiniPanels.setCallback('beforeHide', function(qTip, event, content) {
+        // Forceably remove the class off all DOM elements, avoid problems
+        // of it not being properly removed in certain scenarios.
+        $('.qtip-hover').removeClass('qtip-hover');
+      });
     }
   };
 })(jQuery);
