@@ -1,14 +1,14 @@
 ﻿/* This file will hold the main styles for your website. */
-/*@font-face {
+@font-face {
 	font-family: Arimo;
 	src: url("/sites/all/themes/lynchburg/fonts/Arimo.ttf");
 }
 
-*/
+
 
 /* ========== GENERAL STYLES ========== */
 body {
-	font-family:Arial, Helvetica, sans-serif;
+	font-family:'Arimo', Arial, Helvetica, sans-serif;
 	color:#6b6b6b;
 	/*padding:20px 30  20px 0px;*/
 	font-size:0.75em;
