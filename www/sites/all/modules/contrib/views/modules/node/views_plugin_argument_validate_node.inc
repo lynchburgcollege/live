@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Contains the 'node' argument validator plugin.
@@ -12,7 +11,7 @@ class views_plugin_argument_validate_node extends views_plugin_argument_validate
   function option_definition() {
     $options = parent::option_definition();
     $options['types'] = array('default' => array());
-    $options['access'] = array('default' => FALSE, 'bool' => TRUE);
+    $options['access'] = array('default' => FALSE);
     $options['access_op'] = array('default' => 'view');
     $options['nid_type'] = array('default' => 'nid');
 

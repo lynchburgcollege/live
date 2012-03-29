@@ -1,11 +1,6 @@
 <?php
 
 /**
- * @file
- * Definition of views_handler_filter_term_node_tid.
- */
-
-/**
  * Filter by term id.
  *
  * @ingroup views_filter_handlers
@@ -38,10 +33,10 @@ class views_handler_filter_term_node_tid extends views_handler_filter_many_to_on
     $options = parent::option_definition();
 
     $options['type'] = array('default' => 'textfield');
-    $options['limit'] = array('default' => TRUE, 'bool' => TRUE);
+    $options['limit'] = array('default' => TRUE);
     $options['vocabulary'] = array('default' => 0);
     $options['hierarchy'] = array('default' => 0);
-    $options['error_message'] = array('default' => TRUE, 'bool' => TRUE);
+    $options['error_message'] = array('default' => TRUE);
 
     return $options;
   }
@@ -341,7 +336,6 @@ class views_handler_filter_term_node_tid extends views_handler_filter_many_to_on
     $this->value_options = array();
 
     if ($this->value) {
-      $this->value = array_filter($this->value);
       $result = db_select('taxonomy_term_data', 'td')
         ->fields('td')
         ->condition('td.tid', $this->value)

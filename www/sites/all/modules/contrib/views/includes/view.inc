@@ -1,12 +1,11 @@
 <?php
-
 /**
- * @file
+ * @file view.inc
  * Provides the view object type and associated methods.
  */
 
 /**
- * @defgroup views_objects Objects that represent a View or part of a view
+ * @defgroup views_objects Objects that represent a View or part of a view.
  * @{
  * These objects are the core of Views do the bulk of the direction and
  * storing of data. All database activity is in these objects.
@@ -123,7 +122,7 @@ class view extends views_db_object {
   // Stores the next steps of form items to handle.
   // It's an array of stack items, which contain the form id, the type of form,
   // the view, the display and some additional arguments.
-  // @see views_ui_add_form_to_stack()
+  // @see views_ui_add_form_to_stack().
   // var $stack;
 
   /**
@@ -1122,9 +1121,6 @@ class view extends views_db_object {
     if (!empty($this->build_info['fail'])) {
       return;
     }
-    if (!empty($this->view->build_info['denied'])) {
-      return;
-    }
 
     drupal_theme_initialize();
 
@@ -1294,9 +1290,6 @@ class view extends views_db_object {
       $function = $module . '_views_pre_view';
       $function($this, $display_id, $this->args);
     }
-
-    // Allow hook_views_pre_view() to set the dom_id, then ensure it is set.
-    $this->dom_id = !empty($this->dom_id) ? $this->dom_id : md5($this->name . REQUEST_TIME . rand());
 
     // Allow the display handler to set up for execution
     $this->display_handler->pre_execute();
@@ -1962,7 +1955,6 @@ class view extends views_db_object {
     $this->localization_plugin = views_get_plugin('localization', views_get_localization_plugin());
 
     if (empty($this->localization_plugin)) {
-      $this->localization_plugin = views_get_plugin('localization', 'none');
       return FALSE;
     }
 
@@ -1997,9 +1989,9 @@ class view extends views_db_object {
     $this->process_locale_strings('delete');
   }
 
-  /**
-   * Export localized strings.
-   */
+ /**
+  * Export localized strings.
+  */
   function export_locale_strings() {
     $this->process_locale_strings('export');
   }

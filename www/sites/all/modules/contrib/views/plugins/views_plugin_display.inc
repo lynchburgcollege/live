@@ -1,12 +1,11 @@
 <?php
-
 /**
  * @file
  * Contains the base display plugin.
  */
 
 /**
- * @defgroup views_display_plugins Views display plugins
+ * @defgroup views_display_plugins Views' display plugins
  * @{
  * Display plugins control how Views interact with the rest of Drupal.
  *
@@ -15,12 +14,14 @@
  * handle creating Views from an external module source, such as
  * a Panels pane, or an insert view, or a CCK field type.
  *
- * @see hook_views_plugins()
+ * @see hook_views_plugins
  */
 
 /**
  * The default display plugin handler. Display plugins handle options and
  * basic mechanisms for different output methods.
+ *
+ * @ingroup views_display_plugins
  */
 class views_plugin_display extends views_plugin {
   /**
@@ -40,23 +41,6 @@ class views_plugin_display extends views_plugin {
   function init(&$view, &$display, $options = NULL) {
     $this->view = &$view;
     $this->display = &$display;
-
-    // Load extenders as soon as possible.
-    $this->extender = array();
-    $extenders = views_get_enabled_display_extenders();
-    // If you update to the dev version the registry might not be loaded yet.
-    if (!empty($extenders) && class_exists('views_plugin_display_extender')) {
-      foreach ($extenders as $extender) {
-        $plugin = views_get_plugin('display_extender', $extender);
-        if ($plugin) {
-          $plugin->init($this->view, $this);
-          $this->extender[$extender] = $plugin;
-        }
-        else {
-          vpr('Invalid display extender @extender', array('@handler' => $extender));
-        }
-      }
-    }
 
     // Track changes that the user should know about.
     $changed = FALSE;
@@ -232,6 +216,25 @@ class views_plugin_display extends views_plugin {
     if ($changed) {
       $this->view->changed = TRUE;
     }
+  }
+
+  function construct() {
+    // Load extenders as soon as possible
+    $this->extender = array();
+    $extenders = views_get_enabled_display_extenders();
+    // If you update to the dev version the registry might not be loaded yet.
+    if (!empty($extenders) && class_exists('views_plugin_display_extender')) {
+      foreach ($extenders as $extender) {
+        $data = views_fetch_plugin_data('display_extender', $extender);
+        if (isset($data['handler']) && class_exists($data['handler'])) {
+          $this->extender[$extender] = new $data['handler']($this->view, $this);
+        }
+        else {
+          vpr('Invalid display extender @extender', array('@handler' => $extender));
+        }
+      }
+    }
+    parent::construct();
   }
 
   function destroy() {
@@ -683,7 +686,7 @@ class views_plugin_display extends views_plugin {
     }
 
     foreach ($this->extender as $extender) {
-      $extender->options_definition_alter($options);
+      $extender->option_definition($options);
     }
 
     return $options;

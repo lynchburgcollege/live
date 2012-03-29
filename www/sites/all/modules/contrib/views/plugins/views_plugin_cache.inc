@@ -1,20 +1,9 @@
 <?php
 
 /**
- * @file
- * Definition of views_plugin_cache.
- */
-
-/**
- * @defgroup views_cache_plugins Views cache plugins
- * @{
- * @todo.
- *
- * @see hook_views_plugins()
- */
-
-/**
  * The base plugin to handle caching.
+ *
+ * @ingroup views_cache_plugins
  */
 class views_plugin_cache extends views_plugin {
   /**
@@ -278,9 +267,8 @@ class views_plugin_cache extends views_plugin {
         'roles' => array_keys($user->roles),
         'super-user' => $user->uid == 1, // special caching for super user.
         'language' => $GLOBALS['language']->language,
-        'base_url' => $GLOBALS['base_url'],
       );
-      foreach (array('exposed_info', 'page', 'sort', 'order', 'items_per_page', 'offset') as $key) {
+      foreach (array('exposed_info', 'page', 'sort', 'order') as $key) {
         if (isset($_GET[$key])) {
           $key_data[$key] = $_GET[$key];
         }
@@ -301,7 +289,6 @@ class views_plugin_cache extends views_plugin {
         'super-user' => $user->uid == 1, // special caching for super user.
         'theme' => $GLOBALS['theme'],
         'language' => $GLOBALS['language']->language,
-        'base_url' => $GLOBALS['base_url'],
       );
 
       $this->_output_key = $this->view->name . ':' . $this->display->id . ':output:' . md5(serialize($key_data));
@@ -309,8 +296,5 @@ class views_plugin_cache extends views_plugin {
 
     return $this->_output_key;
   }
-}
 
-/**
- * @}
- */
+}

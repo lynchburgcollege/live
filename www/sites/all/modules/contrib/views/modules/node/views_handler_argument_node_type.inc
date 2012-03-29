@@ -1,10 +1,4 @@
 <?php
-
-/**
- * @file
- * Definition of views_handler_argument_node_type.
- */
-
 /**
  * Argument handler to accept a node type.
  */

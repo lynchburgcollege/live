@@ -1,11 +1,6 @@
 <?php
 
 /**
- * @file
- * Helper module for Views tests.
- */
-
-/**
  * Implements hook_permission().
  */
 function views_test_permission() {

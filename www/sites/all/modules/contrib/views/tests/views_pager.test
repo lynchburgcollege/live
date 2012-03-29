@@ -2,13 +2,10 @@
 
 /**
  * @file
- * Definition of ViewsPagerTest.
- */
-
-/**
  * Tests the pluggable pager system.
  */
-class ViewsPagerTest extends ViewsTestCase {
+
+class ViewsPagerTest extends DrupalWebTestCase {
   public static function getInfo() {
     return array(
       'name' => 'Pager',
@@ -117,7 +114,7 @@ class ViewsPagerTest extends ViewsTestCase {
   }
 
   /**
-   * Tests the none-pager-query.
+   * Test the none-pager-query.
    */
   public function testNoLimit() {
     // Create 11 nodes and make sure that everyone is returned.
@@ -127,7 +124,8 @@ class ViewsPagerTest extends ViewsTestCase {
     }
     $view = $this->viewsPagerNoLimit();
     $view->set_display('default');
-    $this->executeView($view);
+    $view->pre_execute();
+    $view->execute();
     $this->assertEqual(count($view->result), 11, 'Make sure that every item is returned in the result');
 
     $view->destroy();
@@ -143,7 +141,8 @@ class ViewsPagerTest extends ViewsTestCase {
       ),
     );
     $view->display_handler->set_option('pager', $pager);
-    $this->executeView($view);
+    $view->pre_execute();
+    $view->execute();
 
     $this->assertEqual(count($view->result), 8, 'Make sure that every item beside the first three is returned in the result');
 
@@ -176,7 +175,7 @@ class ViewsPagerTest extends ViewsTestCase {
   }
 
   /**
-   * Tests the some pager plugin.
+   * Test the some pager plugin.
    */
   public function testLimit() {
     // Create 11 nodes and make sure that everyone is returned.
@@ -186,7 +185,7 @@ class ViewsPagerTest extends ViewsTestCase {
     }
     $view = $this->viewsPagerLimit();
     $view->set_display('default');
-    $this->executeView($view);
+    $view->execute();
     $this->assertEqual(count($view->result), 5, 'Make sure that only a certain count of items is returned');
     $view->destroy();
 
@@ -202,7 +201,8 @@ class ViewsPagerTest extends ViewsTestCase {
       ),
     );
     $view->display_handler->set_option('pager', $pager);
-    $this->executeView($view);
+    $view->pre_execute();
+    $view->execute();
     $this->assertEqual(count($view->result), 3, 'Make sure that only a certain count of items is returned');
 
     // Check some public functions.
@@ -235,7 +235,7 @@ class ViewsPagerTest extends ViewsTestCase {
   }
 
   /**
-   * Tests the normal pager.
+   * Test the normal pager.
    */
   public function testNormalPager() {
     // Create 11 nodes and make sure that everyone is returned.
@@ -245,7 +245,8 @@ class ViewsPagerTest extends ViewsTestCase {
     }
     $view = $this->viewsPagerFull();
     $view->set_display('default');
-    $this->executeView($view);
+    $view->pre_execute();
+    $view->execute();
     $this->assertEqual(count($view->result), 5, 'Make sure that only a certain count of items is returned');
     $view->destroy();
 
@@ -261,13 +262,15 @@ class ViewsPagerTest extends ViewsTestCase {
       ),
     );
     $view->display_handler->set_option('pager', $pager);
-    $this->executeView($view);
+    $view->pre_execute();
+    $view->execute();
     $this->assertEqual(count($view->result), 3, 'Make sure that only a certain count of items is returned');
 
     // Test items per page = 0
     $view = $this->viewPagerFullZeroItemsPerPage();
     $view->set_display('default');
-    $this->executeView($view);
+    $view->pre_execute();
+    $view->execute();
 
     $this->assertEqual(count($view->result), 11, 'All items are return');
 
@@ -289,7 +292,7 @@ class ViewsPagerTest extends ViewsTestCase {
     );
 
     $view->display_handler->set_option('pager', $pager);
-    $this->executeView($view);
+    $view->execute();
     $this->assertEqual($view->query->pager->get_items_per_page(), 0);
     $this->assertEqual(count($view->result), 11);
   }
@@ -399,14 +402,14 @@ class ViewsPagerTest extends ViewsTestCase {
   }
 
   /**
-   * Tests the minipager.
+   * Test the minipager.
    */
   public function testMiniPager() {
     // the functionality is the same as the normal pager, so i don't know what to test here.
   }
 
   /**
-   * Tests rendering with NULL pager.
+   * Test rendering with NULL pager.
    */
   public function testRenderNullPager() {
     // Create 11 nodes and make sure that everyone is returned.
@@ -416,7 +419,7 @@ class ViewsPagerTest extends ViewsTestCase {
     }
     $view = $this->viewsPagerFullFields();
     $view->set_display('default');
-    $this->executeView($view);
+    $view->execute();
     $view->use_ajax = TRUE; // force the value again here
     $view->query->pager = NULL;
     $output = $view->render();

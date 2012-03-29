@@ -2,21 +2,20 @@
 
 /**
  * @file
- * Definition of views_handler_area_text.
+ * Contains views_handler_area_text handler.
  */
 
 /**
  * Views area text handler.
- *
- * @ingroup views_area_handlers
- */
+ * @ingroup views_area_handlers Views' area handlers
+*/
 class views_handler_area_text extends views_handler_area {
 
   function option_definition() {
     $options = parent::option_definition();
     $options['content'] = array('default' => '', 'translatable' => TRUE, 'format_key' => 'format');
     $options['format'] = array('default' => NULL);
-    $options['tokenize'] = array('default' => FALSE, 'bool' => TRUE);
+    $options['tokenize'] = array('default' => FALSE);
     return $options;
   }
 
@@ -107,4 +106,5 @@ class views_handler_area_text extends views_handler_area {
       return check_markup($value, $format, '', FALSE);
     }
   }
+
 }

@@ -1,5 +1,4 @@
 <?php
-
 /**
  * @file
  * Contains the base row style plugin.
@@ -19,8 +18,8 @@ class views_plugin_row_fields extends views_plugin_row {
 
     $options['inline'] = array('default' => array());
     $options['separator'] = array('default' => '');
-    $options['hide_empty'] = array('default' => FALSE, 'bool' => TRUE);
-    $options['default_field_elements'] = array('default' => TRUE, 'bool' => TRUE);
+    $options['hide_empty'] = array('default' => FALSE);
+    $options['default_field_elements'] = array('default' => TRUE);
     return $options;
   }
 

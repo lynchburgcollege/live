@@ -1,11 +1,6 @@
 <?php
 
 /**
- * @file
- * Definition of ViewsArgumentDefaultTest.
- */
-
-/**
  * Basic test for pluggable argument default.
  */
 class ViewsArgumentDefaultTest extends ViewsSqlTest {
@@ -24,7 +19,7 @@ class ViewsArgumentDefaultTest extends ViewsSqlTest {
   }
 
   /**
-   * Tests fixed default argument.
+   * Test fixed default argument.
    */
   function testArgumentDefaultFixed() {
     $view = $this->view_argument_default_fixed();

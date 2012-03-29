@@ -1,8 +1,7 @@
 <?php
-
 /**
  * @file
- * Definition of views_handler_argument_field_list.
+ * Contains views_handler_argument_field_list handler
  */
 
 /**
@@ -25,7 +24,7 @@ class views_handler_argument_field_list extends views_handler_argument_numeric {
 
   function option_definition() {
     $options = parent::option_definition();
-    $options['summary']['contains']['human'] = array('default' => FALSE, 'bool' => TRUE);
+    $options['summary']['contains']['human'] = array('default' => FALSE);
 
     return $options;
   }
@@ -54,3 +53,4 @@ class views_handler_argument_field_list extends views_handler_argument_numeric {
     }
   }
 }
+

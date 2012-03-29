@@ -1,11 +1,6 @@
 <?php
 
 /**
- * @file
- * Definition of views_handler_argument_string.
- */
-
-/**
  * Basic argument handler to implement string arguments that may have length
  * limits.
  *
@@ -26,16 +21,16 @@ class views_handler_argument_string extends views_handler_argument {
   function option_definition() {
     $options = parent::option_definition();
 
-    $options['glossary'] = array('default' => FALSE, 'bool' => TRUE);
+    $options['glossary'] = array('default' => FALSE);
     $options['limit'] = array('default' => 0);
     $options['case'] = array('default' => 'none');
     $options['path_case'] = array('default' => 'none');
-    $options['transform_dash'] = array('default' => FALSE, 'bool' => TRUE);
-    $options['break_phrase'] = array('default' => FALSE, 'bool' => TRUE);
+    $options['transform_dash'] = array('default' => FALSE);
+    $options['break_phrase'] = array('default' => FALSE);
 
     if (!empty($this->definition['many to one'])) {
-      $options['add_table'] = array('default' => FALSE, 'bool' => TRUE);
-      $options['require_value'] = array('default' => FALSE, 'bool' => TRUE);
+      $options['add_table'] = array('default' => FALSE);
+      $options['require_value'] = array('default' => FALSE);
     }
 
     return $options;

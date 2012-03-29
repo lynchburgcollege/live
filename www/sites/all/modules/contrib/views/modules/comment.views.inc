@@ -1,14 +1,18 @@
 <?php
-
 /**
  * @file
- * Provide views data and handlers for comment.module.
- *
- * @ingroup views_module_handlers
+ * Provide views data and handlers for comment.module
  */
 
 /**
- * Implements hook_views_data().
+ * @defgroup views_comment_module comment.module handlers
+ *
+ * Includes the tables 'comment' and 'node_comment_statistics'
+ * @{
+ */
+
+/**
+ * Implements hook_views_data()
  */
 
 function comment_views_data() {
@@ -501,7 +505,7 @@ function comment_views_data() {
       'handler' => 'views_handler_argument_numeric',
     ),
     'field' => array(
-      'handler' => 'views_handler_field_numeric',
+      'handler' => 'views_handler_filter_user_name',
     ),
   );
 
@@ -581,7 +585,7 @@ function comment_views_data_alter(&$data) {
 }
 
 /**
- * Implements hook_views_plugins().
+ * Implements hook_views_plugins
  */
 function comment_views_plugins() {
   return array(
@@ -638,3 +642,7 @@ function template_preprocess_views_view_row_comment(&$vars) {
   }
   $vars['comment'] = drupal_render($build);
 }
+
+/**
+ * @}
+ */
