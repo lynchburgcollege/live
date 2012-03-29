@@ -1,4 +1,5 @@
 <?php
+
 /**
  * @file
  * Contains the page display plugin.
@@ -215,6 +216,10 @@ class views_plugin_display_page extends views_plugin_display {
     $this->view->build();
     if (!empty($this->view->build_info['fail'])) {
       return drupal_not_found();
+    }
+
+    if (!empty($this->view->build_info['denied'])) {
+      return drupal_access_denied();
     }
 
     $this->view->get_breadcrumb(TRUE);
