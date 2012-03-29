@@ -247,3 +247,19 @@ function ct_page_save_term_children($node) {
     }
   }
 }
+
+/**
+ * Remove section parents from orphan nodes view.
+ */
+function ct_page_views_pre_render(&$view) {
+  if ($view->name == 'orphan_pages') {
+    foreach ($view->result as $key => $result) {
+      $node = node_load($result->nid);
+      $term = taxonomy_term_load($node->field_nav[$node->language][0]['tid']);
+      if (strcasecmp($node->title, $term->name) == 0) {
+        unset($view->result[$key]);
+      }
+    }
+  }
+}
+
