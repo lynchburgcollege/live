@@ -53,6 +53,10 @@ zones[footer] = Footer
 css[global.css][name] = Your custom global styles
 css[global.css][description] = This file holds all the globally active custom CSS of your theme.
 css[global.css][options][weight] = 10
+css[print.css][name] = Custom print styles
+css[print.css][description] = This file holds print styles.
+css[print.css][options][weight] = 10
+css[print.css][options][media] = print
 
 ; THEME SETTINGS (DEFAULTS)
 
