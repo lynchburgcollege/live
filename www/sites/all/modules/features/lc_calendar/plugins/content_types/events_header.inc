@@ -57,12 +57,17 @@ function events_header_content_type_render($subtype, $conf, $args, $context) {
 
   $block->title = check_plain("Events");
 
-  $block->content = l('< ' . $prev_month_name, 'events/' . $prev, array('attributes' => array ('class' => array('lc-calendar-previous-link'))));
+  $block->content = '<div class="lc-calendar-header-nav">';
+  $block->content .= l('< ' . $prev_month_name, 'events/' . $prev, array('attributes' => array ('class' => array('lc-calendar-previous-link'))));
   // Output current link if we're not already there.
   if ($active_date != $default_date) {
     $block->content .= l('Current', 'events/' . $default_date, array('attributes' => array ('class' => array('lc-calendar-current-link'))));
   }
   $block->content .= l($next_month_name . ' >',  'events/' . $next, array('attributes' => array ('class' => array('lc-calendar-next-link'))));
+  $block->content .= '</div><div class="lc-calendar-header-buttons">';
+  $block->content .= '<a class="lc-calendar-print-link" href="javascript:window.print()">Print</a>';
+  $block->content .= '<a class="lc-calendar-rss-link" href="/events-rss.xml">RSS</a>';
+  $block->content .= '</div>';
   return $block;
 }
 
