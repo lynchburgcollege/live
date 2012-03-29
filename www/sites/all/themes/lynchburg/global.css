@@ -378,7 +378,7 @@ table.feature_table thead tr th.right_round {
 	border-radius:0 8px 8px 0;
 }
 .feature_table thead tr th {
-	font-family: 'Arimo', Arial, Verdana;
+	font-family: Arial, Verdana;
 	padding:14px 20px 12px 20px;
 	font-size:16px;
 	position:relative;
@@ -480,7 +480,7 @@ table.feature_table.table_blue thead tr th.left_round {
 table.feature_table.table_blue thead tr th.right_round {
 	border-right:1px solid #1369a4;
 }
-/* --- Table Red --- */ 
+/* --- Table Red --- */
 
 table.feature_table.table_red thead th {
 	background-position: 0 -226px;
@@ -509,7 +509,7 @@ footer#section-footer h1, footer#section-footer h2, footer#section-footer h3, fo
 	color:#f1f1f1;
 	/*border:#0F0 solid 1px;*/
 }
- 
+
 footer#section-footer h2 {
 	border-bottom:solid 1px #5b5b5b;
 	font-family:arial, sans-serif;
@@ -522,7 +522,7 @@ footer#section-footer ul li{
 	list-style:none;
 	/*border:#0F0 solid 1px;*/
 }
-	
+
 
 .grid12 {
 	width:960px;
