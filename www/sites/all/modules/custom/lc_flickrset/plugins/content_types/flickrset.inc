@@ -34,7 +34,6 @@ function flickrset_embed_content_type_render($subtype, $conf, $args, $context) {
     return;
   }
   $fsid = $context->data->field_flickrsetid[$context->data->language][0]['safe_value'];
-  // $fuid = variable_get('lc_flickrset_uid', '25910205@N03');
 
   $block = new stdClass();
 
