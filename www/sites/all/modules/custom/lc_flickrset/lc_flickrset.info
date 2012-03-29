@@ -1,0 +1,4 @@
+name = "Lynchburg Flickrset Display"
+description = "Provides a ctools plugin to embed a flickr photoset"
+core = 7.x
+package = Lynchburgh
