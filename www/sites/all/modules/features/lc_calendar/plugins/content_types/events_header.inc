@@ -31,6 +31,7 @@ $plugin = array(
 function events_header_content_type_render($subtype, $conf, $args, $context) {
   $block = new stdClass();
 
+  // Get current date.
   $arguments = explode('/', $_GET['q']);
   $active_search_terms = '';
   if (isset($arguments[1])) {
@@ -39,6 +40,15 @@ function events_header_content_type_render($subtype, $conf, $args, $context) {
   $date = date_parse($active_date);
   $current_month = $date['month'];
   $current_year = $date['year'];
+  // Get events category.
+  if (isset($_GET['category'])) {
+    $tid = $_GET['category'];
+    $term = taxonomy_term_load($tid);
+    if (isset($term->name)) {
+      $category = $term->name;
+    }
+  }
+
 
   // Get previous month dates + name.
   $prev_year = $current_month > 1 ? $current_year : $current_year - 1;
@@ -66,7 +76,12 @@ function events_header_content_type_render($subtype, $conf, $args, $context) {
   $block->content .= l($next_month_name . ' >',  'events/' . $next, array('attributes' => array ('class' => array('lc-calendar-next-link'))));
   $block->content .= '</div><div class="lc-calendar-header-buttons">';
   $block->content .= '<a class="lc-calendar-print-link" href="javascript:window.print()">Print</a>';
-  $block->content .= '<a class="lc-calendar-rss-link" href="/events-rss.xml">RSS</a>';
+  $block->content .= '<a class="lc-calendar-rss-link" href="/events-rss.xml';
+  // Add event category if present.
+  if (isset($category)) {
+    $block->content .= '?category=' . urlencode($category);
+  }
+  $block->content .= '">RSS</a>';
   $block->content .= '</div>';
   return $block;
 }
