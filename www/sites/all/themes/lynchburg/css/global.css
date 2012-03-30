@@ -154,7 +154,7 @@ a, a:link, a:visited, a:focus {
 }
 /* ========== HEADING STYLES ========== */
 h1, h2, h3, h4, h5, h6 {
-	font-family:'Arimo', Arial, Verdana, sans-serif;
+	font-family: Arial, Verdana, sans-serif;
 	font-weight:normal;
 	color:#242424;
 	margin-bottom:0.3em;
@@ -167,26 +167,27 @@ h1 {
 	color:#900900;
 }
 h2 {
-	font-size:1.667em;
-	line-height:22px;
-} /*20px*/
+	font-size:20px;
+	line-height:24px;
+} 
 h3 {
-	font-size:1.417em;
-	line-height:19px;
-} /*17px*/
+	font-size:17px;
+	line-height:21px;
+}
 h4 {
-	font-size:1.25em;
-	line-height:17px;
-} /*15px*/
+	font-size:15px;
+	line-height:19px;
+}
 h5 {
-	font-size:1.167em;
-	line-height:14px;
-} /*14px*/
+	font-size:15px;
+	line-height:19px;
+	color:#900900
+}
 h6 {
-	font-size:1.167em;
+	font-size:14px;
 	color:#858585;
-	line-height:14px;
-} /*14px*/
+	line-height:18px;
+} 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	text-decoration:none;
 }
@@ -801,7 +802,7 @@ table.feature_table.table_red thead tr th.right_round {
 .emphasis_box {
 	clear:both;
 	padding-top:1.5em;
-	padding-bottom:-1.5em;
+	padding-bottom:1.5em;
 	margin-top:3.5em;
 	margin-bottom:3.5em;
 	color:#393939;
