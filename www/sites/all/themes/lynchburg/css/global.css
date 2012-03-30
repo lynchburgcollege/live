@@ -9,7 +9,6 @@
 body {
 	font-family:Arial, Helvetica, sans-serif;
 	color:#6b6b6b;
-	/*padding:20px 30  20px 0px;*/
 	font-size:12px;
 	line-height:16px;
 	background: #f9f9f9;
@@ -49,7 +48,10 @@ body {
 	background: linear-gradient(top,  #eeeeee 0%,#f9f9f9 7%,#f9f9f9 91%,#e5e5e5 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
 }
-
+.lynchburg-main{
+	/*border:red solid 1px;*/
+	margin-bottom:80px;
+}
 /* ========== LOGO ========== */
 .region-branding {
 	display:block;
@@ -161,9 +163,9 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing:.5px;
 }
 h1 {
-	font-size:24px; 
+	font-size:22px; 
 	margin-bottom: 1em;
-	line-height:28px;
+	line-height:24px;
 	color:#900900;
 }
 h2 {
@@ -278,7 +280,7 @@ ul.jquerymenu li.parent span.open {
 }
 .field-name-field-aside {
 	margin-left:0px;
-	padding-left:0px;
+	padding-left:20px;
 	border-left:#e8e8e8 double 3px;
 	overflow:visible;
 }
@@ -288,15 +290,15 @@ ul.jquerymenu li.parent span.open {
 	border-right:#e8e8e8 double 3px;
 	overflow:visible;
 }
-h2.pane-title {
-	font-size:1.333em; /*16px*/
+.pane-ct-page-lc-section-nav h2.pane-title {
+	font-size:15px;
 	background:none;
-	line-height:1.2em;
+	line-height:20px;
 	margin-bottom:.75em;
 	color:#242424
 }
 .field-name-field-aside ul, .pane-ct-page-lc-section-nav .pane-content ul {
-	/*border-top:#c3c3c3  dotted 1.75px;*/
+	/*border:red  solid 1px;*/
 	background:url(../images/square_divider.png) repeat-x top;
 }
 .field-name-field-aside ul li, .pane-ct-page-lc-section-nav .pane-content ul li {
@@ -324,9 +326,9 @@ h2.pane-title {
 .field-name-field-aside li:hover:after, .field-name-field-aside li .after:hover, .pane-ct-page-lc-section-nav .pane-content li:hover:after, .pane-ct-page-lc-section-nav .pane-content li .after:hover {
 	background-position:0 0;
 }
-.field-name-field-aside .field-item h2, .field-name-field-aside .field-item h3 {
-	font-size:1.333em; /*16px*/
-	line-height:20px;
+.field-name-field-aside .field-item h2, .field-name-field-aside .field-item h2 {
+	font-size:15px; 
+	line-height:19px;
 	margin-bottom:.5em;
 }
 .field-name-field-aside .field-item h2, .field-name-field-aside .field-item h3 {
@@ -349,11 +351,11 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 /* ========== BLOCKQUOTES ========== */
 blockquote {
 	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size:1.333em; /*16px*/
+	font-size:16px;
 	border-left:4px solid #115482;
 	font-style: italic;
 	color: #303030;
-	line-height: 1.5em;
+	line-height:20px;
 	margin-bottom:1em;
 	padding:0 0 0 1em;
 
@@ -368,16 +370,17 @@ blockquote {
 	margin-top:10px;
 	text-align:right;
 	font-style:italic;
-	font-size:1em; /*12px*/
+	font-size:12px;
+	line-height:20px
 	color:#ff7706;
 }
 .quote-text {
 	font-family:Georgia, "Times New Roman", Times, serif;
 	color:#303030;
 	font-style:italic;
-	font-size:1.333em; /*16px*/
+	font-size:16px;
 	font-weight:normal;
-	line-height:1.4em;
+	line-height:20px;
 }
 /* ========== IMAGE & BORDERS ========== */
 .image, .imageTopLeft, .imageTopRight, .imageLeft, .imageRight, .imageCenter {
@@ -431,7 +434,7 @@ blockquote {
 	border-bottom:#c3c3c3 dotted 2px;
 }
 .caption .caption-date, .caption .caption-author, .caption .caption-tags {
-	font-size:0.917em; /*11px*/
+	font-size:011px;
 	float:left;
 	font-style:italic;
 }
@@ -503,8 +506,8 @@ blockquote {
 .dropcap {
 	color: #5e5e5e;
 	float: left;
-	font-size:3.333em; /*40px*/
-	line-height: 1em;
+	font-size:40px;
+	line-height:44px;
 	margin: 0 10px 0 0;
 	padding: 3px 0;
 }
@@ -513,7 +516,7 @@ blockquote {
 	color: #f0f0f0;
 	float: left;
 	text-shadow: none;
-	font-size: 3.75em;/*45px*/
+	font-size:45px;
 	line-height: 1em;
 	margin: 0 10px 0 0;
 	padding: 10px 15px;
@@ -524,7 +527,7 @@ blockquote {
 	color: #bfbfbf;
 	float: left;
 	clear:both;
-	font-size:4.167em;/*50px*/
+	font-size:50px;
 	line-height: 1em;
 	margin: 0 10px 0 0;
 	padding: 8px 15px 7px;
@@ -535,7 +538,7 @@ blockquote {
 	color: #FFFEFE;
 	display: block;
 	float: left;
-	font-size:2em;/*24px*/
+	font-size:24px;
 	height: 62px;
 	line-height: 62px;
 	padding-right: 8px;
@@ -553,7 +556,7 @@ blockquote {
 	color: #FFFEFE;
 	display: block;
 	float: left;
-	font-size:1.5em;/*18px*/
+	font-size:18px;
 	height: 40px;
 	line-height: 38px;
 	margin-top:5px;
@@ -576,7 +579,7 @@ blockquote {
 	clear: both;
 	position:relative;
 	display: block;
-	font-size:0.833em;/*10px*/
+	font-size:10px;
 	padding: 20px 0;
 	width: 100%;
 }
@@ -687,7 +690,7 @@ table.feature_table thead tr th.right_round {
 .feature_table thead tr th {
 	font-family:Arial, Verdana;
 	padding:14px 20px 12px 20px;
-	font-size:1.333em;/*16px*/
+	font-size:16px;
 	position:relative;
 	font-weight:100;
 	text-align:left;
@@ -698,7 +701,7 @@ table.feature_table thead tr th.right_round {
 table.feature_table tbody td {
 	margin:0;
 	padding:10px 20px;
-	font-size:1em;/*12px*/
+	font-size:12px;
 	color:#6b6b6b;
 	border-top:1px solid #f0f0f0;
 	border-right:1px solid #f0f0f0;
@@ -735,7 +738,7 @@ table.feature_table.table_grey thead tr th.right_round {
 /* --- Table Dark --- */
 table.feature_table.table_dark thead th {
 	/*background-position: 0 -45px;*/
-	font-size:1.333em;/*16px*/
+	font-size:16px;
 	border-right:1px solid #595a5a;
 	text-shadow:0 -1px #2a2b2b;
 	color:#fff;
@@ -757,7 +760,7 @@ table.feature_table.table_dark thead tr th.right_round {
 /* --- Table blue --- */
 table.feature_table.table_blue thead th {
 	/*background-position: 0 -181px;*/
-	font-size:1.333em;/*16px*/
+	font-size:16px;
 	border-right:1px solid #1369a4;
 	text-shadow:1px 1px #104468;
 	color:#fff;
@@ -779,7 +782,7 @@ table.feature_table.table_blue thead tr th.right_round {
 /* --- Table Red --- */
 table.feature_table.table_red thead th {
 	/*background-position: 0 -226px;*/
-	font-size:1.333em;/*16px*/
+	font-size:16px;
 	border-right:1px solid #6d0903;
 	text-shadow:1px 1px #484848;
 	color:#fff;
@@ -810,7 +813,7 @@ table.feature_table.table_red thead tr th.right_round {
 	border-bottom:#c3c3c3 dotted 2px;
 }
 .emphasis_box .emphasis-date, .emphasis_box .emphasis-author, .emphasis_box .emphasis-tags {
-	font-size:0.917em;/*11px*/
+	font-size:11px;
 	float:left;
 	font-style:italic;
 }
@@ -836,7 +839,7 @@ table.feature_table.table_red thead tr th.right_round {
 /* ----- Default Form Elements ----- */
 
 input, select, textarea {
-	font-size:1em;
+	font-size:12px;
 	font-family:Arial, Helvetica, sans-serif;
 	color:#6b6b6b;
 	font-weight:normal;
@@ -870,7 +873,7 @@ select {
 /* ========== NOTIFICATIONS ========== */
 .info, .warnings, .errors, .success {
 	border:1px solid #d7d7d7;
-	font-size:1em;
+	font-size:12px;;
 	margin-bottom:10px;
 	padding:20px 60px 20px 20px;
 	-moz-border-radius:5px;
