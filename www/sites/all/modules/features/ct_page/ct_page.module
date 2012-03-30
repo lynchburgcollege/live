@@ -338,3 +338,52 @@ function _ct_page_user_can_edit_section($tid) {
   }
   return FALSE;
 }
+
+/**
+ * Theme functions.
+ */
+
+/**
+ * Render a single link, possibly with open/close link and/or edit button. not currently used.
+ */
+function theme_ct_page_jquerymenu_links($variables) {
+  // create values from the parameter array
+  $title        = $variables["title"];
+  $path         = $variables["path"];
+  $options      = $variables["options"];
+  $state        = $variables["state"];
+  $classes      = $variables["classes"];
+  $has_children = $variables["has_children"];
+  $edit_path    = $variables["edit_path"];
+  $edit_text    = $variables["edit_text"];
+  $edit_access  = $variables["edit_access"];
+  
+  $parentlink = variable_get('jquerymenu_parentlink', 0);
+
+  $output = '';
+  // This is the span that becomes the little plus and minus symbol.
+  $plus = '<span' . (empty($classes) ? '>' : ' class="' . implode(' ', $classes) . '">');
+  $endplus = '</span>';
+  $link = l($title, $path, $options);
+  if ($edit_path != NULL && user_access($edit_access)) {
+    $edit_box = jquerymenu_edit_box($edit_path, $edit_text);
+    if ($has_children != 0) {
+      $output .= $parentlink ? $edit_box . $plus . $title . $endplus : $editbox . $plus . $link . $endplus;
+    }
+    else {
+      //$output .= $edit_box . l($title, $path, $options);
+      $output .= $edit_box . $link;
+    }
+  }
+  else {
+    if ($has_children != 0) {
+      //$output .= $plus . l($title, $path, $options);
+      $output .= $parentlink ? $plus . $title : $plus . $link;
+    }
+    else {
+      //$output .= l($title, $path, $options);
+      $output .= $link;
+    }
+  }
+  return $output;
+}
