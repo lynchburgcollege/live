@@ -341,7 +341,8 @@ h2.pane-title {
 li.parent.last.open ul, li.parent.open ul, li.parent.open li {
 	background-image:none;
 	line-height:15px;
-	padding:4px 0px 4px 8px;
+	padding:4px;
+	margin:0;
 }
 li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open ul li:after, li.parent.open ul li .after {
 	background-image:none;
