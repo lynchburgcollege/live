@@ -1,19 +1,18 @@
 // $Id: jquerymenu.js,v 1.7 2010/05/05 07:50:55 aaronhawkins Exp $
 
 (function ($) {
-    
-Drupal.behaviors.jquerymenu = { 
-    attach:function(context) {    
-    
-    
+
+Drupal.behaviors.jquerymenu = {
+    attach:function(context) {
+
   jqm_showit = function() {
     $(this).children('.jqm_link_edit').fadeIn();
-  }
+  };
   jqm_hideit = function() {
     $(this).children('.jqm_link_edit').fadeOut();
-  }
+  };
   $('ul.jquerymenu li').hover(jqm_showit, jqm_hideit);
-  
+
   jqm_mouseenter = function() {
     momma = $(this);
     if ($(momma).hasClass('closed')){
@@ -23,9 +22,9 @@ Drupal.behaviors.jquerymenu = {
       }
       $(momma).removeClass('closed').addClass('open');
       $(this).removeClass('closed').addClass('open');
-    }    
-  }
-  
+    }
+  };
+
   jqm_mouseleave = function(){
     momma = $(this);
     if ($(momma).hasClass('open')){
@@ -36,7 +35,7 @@ Drupal.behaviors.jquerymenu = {
       $(momma).removeClass('open').addClass('closed');
       $(this).removeClass('open').addClass('closed');
     }
-  }
+  };
 
 $('ul.jquerymenu .active').parents('li').removeClass('closed').addClass('open');
 $('ul.jquerymenu .active').parents('li').children('span.parent').removeClass('closed').addClass('open');
@@ -61,7 +60,7 @@ $('ul.jquerymenu .active').parents('li').children('span.parent').removeClass('cl
           $(this).removeClass('closed').addClass('open');
         }
         else{
-          if (Drupal.settings.jquerymenu.animate === 1) {          
+          if (Drupal.settings.jquerymenu.animate === 1) {
             $(momma).children('ul').slideUp('700');
             $($(this).siblings('ul').children()).fadeOut('3000');
           }
@@ -72,4 +71,6 @@ $('ul.jquerymenu .active').parents('li').children('span.parent').removeClass('cl
     });
   }
 }
-}})(jQuery);
+};
+
+})(jQuery);
