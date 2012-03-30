@@ -10,8 +10,8 @@ body {
 	font-family:Arial, Helvetica, sans-serif;
 	color:#6b6b6b;
 	/*padding:20px 30  20px 0px;*/
-	font-size:0.75em;
-	line-height:1.5em;
+	font-size:12px;
+	line-height:16px;
 	background: #f9f9f9;
 	margin-top:-1px;
 }
@@ -161,9 +161,9 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing:.5px;
 }
 h1 {
-	font-size:2em; /*24px*/
+	font-size:24px; 
 	margin-bottom: 1em;
-	line-height:26px;
+	line-height:28px;
 	color:#900900;
 }
 h2 {
