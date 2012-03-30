@@ -1,7 +1,7 @@
 /* This file will hold styles that are loaded using the same media query as the normal grid. */
 
 body {
-	background: url("/sites/all/themes/lynchburg/images/bg-body-top2.jpg") repeat-x top left;
+	background: url(../images/bg-body-top2.jpg) repeat-x top left;
 }
 body.front {
 	/* custom homepage background overrides the above default background ^ */
@@ -11,7 +11,7 @@ body.front {
 	height:142px;
 	margin:0;
 	padding:0;
-	background: transparent url("/sites/all/themes/lynchburg/images/bg-header-arch1.jpg") no-repeat top center;
+	background: transparent url(../images/bg-header-arch1.jpg) no-repeat top center;
 }
 .front .section-header {
 	/* custom homepage background overrides the above default background ^ */

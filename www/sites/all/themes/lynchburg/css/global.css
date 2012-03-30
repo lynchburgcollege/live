@@ -16,7 +16,7 @@ body {
 	margin-top:-1px;
 }
 .section-content {
-	/*background:url("/sites/all/themes/lynchburg/images/bg2.jpg") no-repeat top center;*/
+	/*background:url(../images/bg2.jpg) no-repeat top center;*/
 	margin-top:-5px;
 }
 .zone-content {
@@ -101,13 +101,13 @@ ul.unordered li {
 	background-repeat: no-repeat;
 }
 ul.unordered.type-1 li {
-	background-image: url("/sites/all/themes/lynchburg/images/tick.png");
+	background-image: url(../images/tick.png);
 }
 ul.unordered.type-2 li {
-	background-image: url("/sites/all/themes/lynchburg/images/arrow_state_blue_right.png");
+	background-image: url(../images/arrow_state_blue_right.png);
 }
 ul.unordered.type-3 li {
-	background-image: url("/sites/all/themes/lynchburg/images/media_controls_forward_small.png");
+	background-image: url(../images/media_controls_forward_small.png);
 }
 ul.unordered.type-4 li {
 	background-image: none;
@@ -296,10 +296,10 @@ h2.pane-title {
 }
 .field-name-field-aside ul, .pane-ct-page-lc-section-nav .pane-content ul {
 	/*border-top:#c3c3c3  dotted 1.75px;*/
-	background:url("/sites/all/themes/lynchburg/images/square_divider.png") repeat-x top;
+	background:url(../images/square_divider.png) repeat-x top;
 }
 .field-name-field-aside ul li, .pane-ct-page-lc-section-nav .pane-content ul li {
-	background:url("/sites/all/themes/lynchburg/images/square_divider.png") repeat-x bottom;
+	background:url(../images/square_divider.png) repeat-x bottom;
 	/*border-bottom:#c3c3c3  dotted 1.25px;*/
 	padding:0.74em 4px 0.74em 1.5em;
 	position:relative;
@@ -310,7 +310,7 @@ h2.pane-title {
 	background-position:0 0;
 }
 .field-name-field-aside ul li:after, .field-name-field-aside ul li .after, .pane-ct-page-lc-section-nav li:after, .pane-ct-page-lc-section-nav li .after {
-	background-image:url("/sites/all/themes/lynchburg/images/circle_list.png");
+	background-image:url(../images/circle_list.png);
 	background-repeat:no-repeat;
 	background-position:0 -30px;
 	position:absolute;
@@ -510,7 +510,7 @@ blockquote {
 	padding: 3px 0;
 }
 .dropcap2 {
-	background: url("/sites/all/themes/lynchburg/images/dropcapspot_2.png") no-repeat scroll 50% 50% transparent;
+	background: url(../images/dropcapspot_2.png) no-repeat scroll 50% 50% transparent;
 	color: #f0f0f0;
 	float: left;
 	text-shadow: none;
@@ -521,7 +521,7 @@ blockquote {
 	text-align: center;
 }
 .dropcap3 {
-	background: url("/sites/all/themes/lynchburg/images/dropcap3.png") no-repeat scroll 50% 50% transparent;
+	background: url(../images/dropcap3.png) no-repeat scroll 50% 50% transparent;
 	color: #bfbfbf;
 	float: left;
 	clear:both;
@@ -532,7 +532,7 @@ blockquote {
 	text-align: center;
 }
 .dropcapspot, .dropcapspot2 {
-	background: url("/sites/all/themes/lynchburg/images/dropcapspot_2.png") no-repeat scroll left center transparent;
+	background: url(../images/dropcapspot_2.png) no-repeat scroll left center transparent;
 	color: #FFFEFE;
 	display: block;
 	float: left;
@@ -550,7 +550,7 @@ blockquote {
 	top:-6px;
 }
 .dropcapspot3 {
-	background: url("/sites/all/themes/lynchburg/images/dropcapspot3.png") no-repeat scroll left center transparent;
+	background: url(../images/dropcapspot3.png) no-repeat scroll left center transparent;
 	color: #FFFEFE;
 	display: block;
 	float: left;
@@ -567,13 +567,13 @@ blockquote {
 }
 /* ========== DIVIDERS ========== */
 .divider_content {
-	background:url("/sites/all/themes/lynchburg/images/divider_content.png") no-repeat center;
+	background:url(../images/divider_content.png) no-repeat center;
 	height:4px;
 	width:100%;
 	margin:30px 0 45px;
 }
 .divider_top {
-	background: url("/sites/all/themes/lynchburg/images/square_divider.png") repeat-x scroll center center transparent;
+	background: url(../images/square_divider.png) repeat-x scroll center center transparent;
 	clear: both;
 	position:relative;
 	display: block;
@@ -592,12 +592,12 @@ blockquote {
 	top: 0;
 }
 .divider_bottom {
-	background:url("/sites/all/themes/lynchburg/images/bottom_line.png") no-repeat bottom center;
+	background:url(../images/bottom_line.png) no-repeat bottom center;
 	width:100%;
 	height:4px;
 }
 .divider_line {
-	background:url("/sites/all/themes/lynchburg/images/bottom_line.png") no-repeat center center;
+	background:url(../images/bottom_line.png) no-repeat center center;
 	width:100%;
 	margin:60px 0 50px;
 	height:4px;
@@ -617,7 +617,7 @@ blockquote {
 }
 /* ========== BIO STYLES ========== */
 #bio {
-	background:url("/sites/all/themes/lynchburg/images/bg_bio.png") repeat-x left top #f0f0f0;
+	background:url(../images/bg_bio.png) repeat-x left top #f0f0f0;
 	min-height:120px;
 	margin-top:3.4em;
 	padding:14px 20px;
@@ -672,7 +672,7 @@ table.feature_table thead tr {
 	box-shadow:0 1px 3px #e4e4e4;
 }
 table.feature_table thead tr th {
-	/*background:url("/sites/all/themes/lynchburg/images/sprite_table.png") repeat-x #fff;*/
+	/*background:url(../images/sprite_table.png) repeat-x #fff;*/
 	border-right:1px solid #e7e7e7;
 }
 table.feature_table thead tr th.left_round {
@@ -878,7 +878,7 @@ select {
 	-webkit-border-radius:5px;
 	border-radius:5px;
 	min-height:60px;
-	/*background: url("/sites/all/themes/lynchburg/images/notifications.png") repeat-x scroll 0 0 #efeded;*/
+	/*background: url(../images/notifications.png) repeat-x scroll 0 0 #efeded;*/
 	/* for non-css3 browsers */
 	background: #d9d9d9;
 	/* for IE */
@@ -938,7 +938,7 @@ select {
 	margin-right:2px;
 	text-indent:-9999px;
 	line-height:9999px;
-	background-image: url("/sites/all/themes/lynchburg/images/buttons.png");
+	background-image: url(../images/buttons.png);
 	background-repeat:no-repeat;
 }
 /* ----- Styles for Buttons ----- */
@@ -1296,7 +1296,7 @@ select {
  *  footer area  bottom  *
  *************************/
 footer#section-footer {
-	background:#202022 url("/sites/all/themes/lynchburg/images/bg-footer-first1.jpg") repeat-x top left;
+	background:#202022 url(../images/bg-footer-first1.jpg) repeat-x top left;
 }
 footer#section-footer h1, footer#section-footer h2, footer#section-footer h3, footer#section-footer h4, footer#section-footer h5, footer#section-footer h6 {
 	color:#fff;
