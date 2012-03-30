@@ -267,6 +267,14 @@ ul.main-menu li {
 	padding:10px 40px 0 0;
 }
 /* ========== ASIDE & SECONDARY NAV ========== */
+ul.jquerymenu li.parent span.open,
+ul.jquerymenu li.parent span.closed  {
+	background:url(../images/circle_list.png) no-repeat 3px -60px;
+	z-index:10;
+}
+ul.jquerymenu li.parent span.open {
+	background-position:3px -90px;
+}
 .field-name-field-aside {
 	margin-left:0px;
 	padding-left:0px;
