@@ -163,7 +163,7 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing:.5px;
 }
 h1 {
-	font-size:22px; 
+	font-size:22px;
 	margin-bottom: 1em;
 	line-height:24px;
 	color:#900900;
@@ -171,7 +171,7 @@ h1 {
 h2 {
 	font-size:20px;
 	line-height:24px;
-} 
+}
 h3 {
 	font-size:17px;
 	line-height:21px;
@@ -189,9 +189,16 @@ h6 {
 	font-size:14px;
 	color:#858585;
 	line-height:18px;
-} 
+}
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	text-decoration:none;
+}
+h2.pane-title {
+	font-size:1.333em; /*16px*/
+	background:none;
+	line-height:1.2em;
+	margin-bottom:.75em;
+	color:#242424
 }
 /* ========== MAIN NAV ========== */
 
@@ -270,14 +277,6 @@ ul.main-menu li {
 	padding:10px 40px 0 0;
 }
 /* ========== ASIDE & SECONDARY NAV ========== */
-ul.jquerymenu li.parent span.open,
-ul.jquerymenu li.parent span.closed  {
-	background:url(../images/circle_list.png?a) no-repeat 3px -60px;
-	z-index:10;
-}
-ul.jquerymenu li.parent span.open {
-	background-position:3px -90px;
-}
 .field-name-field-aside {
 	margin-left:0px;
 	padding-left:20px;
@@ -297,57 +296,80 @@ ul.jquerymenu li.parent span.open {
 	margin-bottom:.75em;
 	color:#242424
 }
-.field-name-field-aside ul, .pane-ct-page-lc-section-nav .pane-content ul {
-	/*border:red  solid 1px;*/
+.field-name-field-aside ul,
+.pane-ct-page-lc-section-nav .pane-content ul {
 	background:url(../images/square_divider.png) repeat-x top;
 }
-.field-name-field-aside ul li, .pane-ct-page-lc-section-nav .pane-content ul li {
+.field-name-field-aside ul li,
+.pane-ct-page-lc-section-nav .pane-content ul li {
 	background:url(../images/square_divider.png) repeat-x bottom;
-	/*border-bottom:#c3c3c3  dotted 1.25px;*/
 	padding:0.74em 4px 0.74em 1.5em;
 	position:relative;
 	list-style:none;
 	margin:0;
 }
-.field-name-field-aside ul li:hover:after, field-name-field-aside ul li .after:hover, .pane-ct-page-lc-section-nav .pane-content ul li:hover:after, .pane-ct-page-lc-section-nav .pane-content ul li .after:hover {
+.field-name-field-aside ul li:hover:after,
+.field-name-field-aside ul li .after:hover,
+.pane-ct-page-lc-section-nav .pane-content ul li:hover:after,
+.pane-ct-page-lc-section-nav .pane-content ul li .after:hover {
 	background-position:0 0;
 }
-.field-name-field-aside ul li:after, .field-name-field-aside ul li .after, .pane-ct-page-lc-section-nav li:after, .pane-ct-page-lc-section-nav li .after {
+.field-name-field-aside ul li:after,
+.field-name-field-aside ul li .after,
+.pane-ct-page-lc-section-nav li:after,
+.pane-ct-page-lc-section-nav li .after {
 	background:url(../images/circle_list.png?a) no-repeat 0 -30px;
 	position:absolute;
-	content:"";
-	after:"&nbsp;";
 	top:0.75em;
 	left:0;
 	list-style:none;
 	height:16px;
 	width:16px;
+	content:"";
+	after:"&nbsp;";
 }
-.field-name-field-aside li:hover:after, .field-name-field-aside li .after:hover, .pane-ct-page-lc-section-nav .pane-content li:hover:after, .pane-ct-page-lc-section-nav .pane-content li .after:hover {
+.field-name-field-aside li:hover:after,
+.field-name-field-aside li .after:hover,
+.pane-ct-page-lc-section-nav .pane-content li:hover:after,
+.pane-ct-page-lc-section-nav .pane-content li .after:hover {
 	background-position:0 0;
 }
-.field-name-field-aside .field-item h2, .field-name-field-aside .field-item h2 {
-	font-size:15px; 
+.field-name-field-aside .field-item h2,
+.field-name-field-aside .field-item h2 {
+	font-size:15px;
 	line-height:19px;
 	margin-bottom:.5em;
 }
-.field-name-field-aside .field-item h2, .field-name-field-aside .field-item h3 {
+.field-name-field-aside .field-item h2,
+.field-name-field-aside .field-item h3 {
 	color:#900900;
 }
-.field-name-field-aside .field-item h4, .field-name-field-aside .field-item h5 {
+.field-name-field-aside .field-item h4,
+.field-name-field-aside .field-item h5 {
 	font-size:14px;
 	line-height:18px;
 	margin-bottom:0.2em;
 }
-li.parent.last.open ul, li.parent.open ul, li.parent.open li {
+.pane-ct-page-lc-section-nav .jquerymenu .parent span.open,
+.pane-ct-page-lc-section-nav .jquerymenu .parent span.closed  {
+	background:url(../images/circle_list.png?a) no-repeat 3px -60px;
+	z-index:10;
+}
+.pane-ct-page-lc-section-nav .jquerymenu .parent span.open {
+	background-position:3px -90px;
+}
+.pane-ct-page-lc-section-nav .jquerymenu ul ul,
+.pane-ct-page-lc-section-nav .jquerymenu ul li {
 	background-image:none;
 	line-height:15px;
 	padding:4px 0 4px 4px;
 	margin:0;
 }
-li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open ul li:after, li.parent.open ul li .after {
+.pane-ct-page-lc-section-nav .jquerymenu ul li:after,
+.pane-ct-page-lc-section-nav .jquerymenu ul li .after {
 	background-image:none;
 }
+
 /* ========== BLOCKQUOTES ========== */
 blockquote {
 	font-family: Georgia, "Times New Roman", Times, serif;
