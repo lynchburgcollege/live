@@ -269,7 +269,7 @@ ul.main-menu li {
 /* ========== ASIDE & SECONDARY NAV ========== */
 ul.jquerymenu li.parent span.open,
 ul.jquerymenu li.parent span.closed  {
-	background:url(../images/circle_list.png) no-repeat 3px -60px;
+	background:url(../images/circle_list.png?a) no-repeat 3px -60px;
 	z-index:10;
 }
 ul.jquerymenu li.parent span.open {
@@ -310,7 +310,7 @@ h2.pane-title {
 	background-position:0 0;
 }
 .field-name-field-aside ul li:after, .field-name-field-aside ul li .after, .pane-ct-page-lc-section-nav li:after, .pane-ct-page-lc-section-nav li .after {
-	background-image:url(../images/circle_list.png);
+	background-image:url(../images/circle_list.png?a);
 	background-repeat:no-repeat;
 	background-position:0 -30px;
 	position:absolute;
