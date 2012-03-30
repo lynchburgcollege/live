@@ -301,7 +301,7 @@ h2.pane-title {
 .field-name-field-aside ul li, .pane-ct-page-lc-section-nav .pane-content ul li {
 	background:url("/sites/all/themes/lynchburg/images/square_divider.png") repeat-x bottom;
 	/*border-bottom:#c3c3c3  dotted 1.25px;*/
-	padding:0.74em 0 0.74em 1.5em;
+	padding:0.74em 4px 0.74em 1.5em;
 	position:relative;
 	list-style:none;
 	margin:0;
@@ -341,7 +341,7 @@ h2.pane-title {
 li.parent.last.open ul, li.parent.open ul, li.parent.open li {
 	background-image:none;
 	line-height:15px;
-	padding:4px;
+	padding:4px 0 4px 4px;
 	margin:0;
 }
 li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open ul li:after, li.parent.open ul li .after {
