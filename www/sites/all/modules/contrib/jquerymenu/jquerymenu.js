@@ -52,12 +52,20 @@ $('ul.jquerymenu .active').parents('li').children('span.parent').removeClass('cl
       $(this).find("li.parent span.parent").click(function(){
         momma = $(this).parent();
         if ($(momma).hasClass('closed')){
+          /*$($(momma).siblings('li')).each(
+            function close_sibs() {
+              if ($(this).hasClass('open')) {
+                close_menu($(this));
+              }
+            }
+          );*/
           if (Drupal.settings.jquerymenu.animate === 1) {
             $($(this).siblings('ul').children()).hide().fadeIn('3000');
             $(momma).children('ul').slideDown('700');
           }
           $(momma).removeClass('closed').addClass('open');
           $(this).removeClass('closed').addClass('open');
+          /*$(this).siblings('ul').find(momma).slideUp('700');*/
         }
         else{
           if (Drupal.settings.jquerymenu.animate === 1) {

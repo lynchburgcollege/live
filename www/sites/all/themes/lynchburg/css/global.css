@@ -310,7 +310,7 @@ h2.pane-title {
 	background-position:0 0;
 }
 .field-name-field-aside ul li:after, .field-name-field-aside ul li .after, .pane-ct-page-lc-section-nav li:after, .pane-ct-page-lc-section-nav li .after {
-	background-image:url(../images/circle_list.png?a) no-repeat 0 -30px;
+	background:url(../images/circle_list.png?a) no-repeat 0 -30px;
 	position:absolute;
 	content:"";
 	after:"&nbsp;";
