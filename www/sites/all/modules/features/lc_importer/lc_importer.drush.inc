@@ -113,6 +113,7 @@ function drush_lc_importer_clean_text() {
   foreach ($result as $record) {
     $modified = FALSE;
     $node = node_load($record->nid);
+    /*
     // Fix Image paths.
     $node->body[$node->language][0]['value'] = preg_replace('#\ssrc="images/#i', ' src="/Images/', $node->body[$node->language][0]['value'], -1, $strings_replaced);
     if ($strings_replaced > 0) {
@@ -124,12 +125,28 @@ function drush_lc_importer_clean_text() {
       $modified = TRUE;
       print($node->body[$node->language][0]['value']);
     }
-    $node->body[$node->language][0]['value'] = preg_replace('#\saction="[^"]*lc_formhandler"#i', ' action="https://ws.lynchburg.edu/formmailscript/formmail.asp"', $node->body[$node->language][0]['value'], -1, $strings_replaced);
+     */
+    $node->body[$node->language][0]['value'] = preg_replace('#href="http://www.lynchburg.edu/#i', 'href="/', $node->body[$node->language][0]['value'], -1, $strings_replaced);
     if ($strings_replaced > 0) {
       $modified = TRUE;
-      print($node->body[$node->language][0]['value']);
+    }
+    $node->field_aside[$node->language][0]['value'] = preg_replace('#href="http://www.lynchburg.edu/#i', 'href="/', $node->body[$node->language][0]['value'], -1, $strings_replaced);
+    if ($strings_replaced > 0) {
+      $modified = TRUE;
+    }
+    if (count($node->field_links)) {
+      foreach ($node->field_links['und'] as &$link) {
+        $link['url'] = preg_replace('#http://www.lynchburg.edu/#i', '/', $link['url'], -1, $strings_replaced);
+        if ($strings_replaced > 0) {
+          $modified = TRUE;
+        }
+      }
+      if ($modified) {
+        $modified = TRUE;
+      }
     }
     if ($modified) {
+      print ($node->nid . "\n");
       node_save($node);
     }
   }
