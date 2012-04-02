@@ -120,8 +120,8 @@ function drush_lc_importer_map_profile_terms() {
   // DB connection info.
   $olddb = array(
       'database' => 'lctestsandbox',
-      // 'username' => 'root', // assuming this is necessary
-      //'password' => 'password', // assuming this is necessary
+      'username' => 'lynchburg', // assuming this is necessary
+      'password' => 'lynchburg', // assuming this is necessary
       //'host' => 'localhost', // assumes localhost
       'driver' => 'mysql', // replace with your database driver
   );
