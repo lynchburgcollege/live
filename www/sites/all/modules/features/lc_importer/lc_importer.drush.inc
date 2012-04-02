@@ -140,21 +140,16 @@ function drush_lc_importer_fix_aside($file) {
       $nid = $result['entity_id'];
       // Load the node
       if ($node = node_load($nid)) {
-        if ($node->body[$node->language][0]['value'] == $node->field_aside[$node->language][0]['value'] && strlen($node->field_aside[$node->language][0]['value'])) {
+        if (($node->body[$node->language][0]['value'] == $node->field_aside[$node->language][0]['value']) && strlen($node->field_aside[$node->language][0]['value'])) {
+          $aside = $page->ColumnCopy;
           print "Here's a messed up node with nid $nid!\n";
+          print "Aside should be: $aside";
+          $node->field_aside[$node->language][0]['value'] = $aside;
+          node_save($node);
         }
       }
     }
   }
-
-  /*
-    // $node->body[$node->language][0]['value'] = preg_replace('#href="http://www.lynchburg.edu/#i', 'href="/', $node->body[$node->language][0]['value'], -1, $strings_replaced);
-    if ($modified) {
-      print ($node->nid . "\n");
-      node_save($node);
-    }
-   */
-
 }
 
 function drush_lc_importer_clean_text() {
