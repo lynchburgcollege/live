@@ -42,7 +42,7 @@ function ct_page_lc_section_nav() {
   $display_block = FALSE;
   // Get current node.
   $node = menu_get_object();
-  if (isset($node->nid)) {
+  if (isset($node->nid) && $node->type == 'page') {
     $cache_nids = array($node->nid);
     $trail = array('node/' . $node->nid);
 
