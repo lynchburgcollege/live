@@ -14,28 +14,38 @@ Drupal.behaviors.jquerymenu = {
   $('ul.jquerymenu li').hover(jqm_showit, jqm_hideit);
 
   jqm_mouseenter = function() {
-    momma = $(this);
-    if ($(momma).hasClass('closed')){
-      if (Drupal.settings.jquerymenu.animate === 1) {
-        $($(this).siblings('ul').children()).hide().fadeIn('3000');
-        $(momma).children('ul').slideDown('700');
-      }
-      $(momma).removeClass('closed').addClass('open');
-      $(this).removeClass('closed').addClass('open');
+    $momma = $(this);
+    if ($momma.hasClass('closed')){
+      jqm_open($momma);
     }
   };
 
   jqm_mouseleave = function(){
-    momma = $(this);
-    if ($(momma).hasClass('open')){
-      if (Drupal.settings.jquerymenu.animate === 1) {
-        $(momma).children('ul').slideUp('700');
-        $($(this).siblings('ul').children()).fadeOut('3000');
-      }
-      $(momma).removeClass('open').addClass('closed');
-      $(this).removeClass('open').addClass('closed');
+    $momma = $(this);
+    if ($momma.hasClass('open')){
+      jqm_close($momma);
     }
   };
+
+  function jqm_close(item) {
+    $item = $(item);
+    if (Drupal.settings.jquerymenu.animate === 1) {
+      $($item.siblings('ul').children()).fadeOut('3000');
+      $($item.children('ul')).slideUp('700');
+    }
+    $item.removeClass('open').addClass('closed');
+    $item.children('span').removeClass('open').addClass('closed');
+  }
+
+  function jqm_open(item) {
+    $item = $(item);
+    if (Drupal.settings.jquerymenu.animate === 1) {
+      $($item.siblings('ul').children()).hide().fadeIn('3000');
+      $($item.children('ul')).slideDown('700');
+    }
+    $item.removeClass('closed').addClass('open');
+    $item.children('span').removeClass('closed').addClass('open');
+  }
 
 $('ul.jquerymenu .active').parents('li').removeClass('closed').addClass('open');
 $('ul.jquerymenu .active').parents('li').children('span.parent').removeClass('closed').addClass('open');
@@ -50,30 +60,18 @@ $('ul.jquerymenu .active').parents('li').children('span.parent').removeClass('cl
   else if (Drupal.settings.jquerymenu.hover === 0) {
     $('ul.jquerymenu:not(.jquerymenu-processed)', context).addClass('jquerymenu-processed').each(function(){
       $(this).find("li.parent span.parent").click(function(){
-        momma = $(this).parent();
-        if ($(momma).hasClass('closed')){
-          /*$($(momma).siblings('li')).each(
-            function close_sibs() {
-              if ($(this).hasClass('open')) {
-                close_menu($(this));
-              }
+        $element = $(this);
+        $momma = $element.parent();
+        if ($momma.hasClass('closed')){
+          $momma.siblings('li').each(function (){
+            if ($(this).hasClass('open')) {
+             jqm_close($(this));
             }
-          );*/
-          if (Drupal.settings.jquerymenu.animate === 1) {
-            $($(this).siblings('ul').children()).hide().fadeIn('3000');
-            $(momma).children('ul').slideDown('700');
-          }
-          $(momma).removeClass('closed').addClass('open');
-          $(this).removeClass('closed').addClass('open');
-          /*$(this).siblings('ul').find(momma).slideUp('700');*/
+          });
+          jqm_open($momma);
         }
         else{
-          if (Drupal.settings.jquerymenu.animate === 1) {
-            $(momma).children('ul').slideUp('700');
-            $($(this).siblings('ul').children()).fadeOut('3000');
-          }
-          $(momma).removeClass('open').addClass('closed');
-          $(this).removeClass('open').addClass('closed');
+          jqm_close($momma);
         }
       });
     });

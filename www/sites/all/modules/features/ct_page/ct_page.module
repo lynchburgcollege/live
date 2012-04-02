@@ -42,96 +42,100 @@ function ct_page_lc_section_nav() {
   $display_block = FALSE;
   // Get current node.
   $node = menu_get_object();
-  $cache_nids = array($node->nid);
-  $trail = array('node/' . $node->nid);
+  $block = array(
+    'subject' => l($node->title, 'node/' . $node->nid),
+  );
 
-  // Retrieve block from cache if available.
-  if ($block = cache_get('ct_page:nav:' . $node->nid, 'cache_block')) {
-    return $block->data;
-  }
+  if (isset($node->nid) && $node->type == 'page') {
+    $cache_nids = array($node->nid);
+    $trail = array('node/' . $node->nid);
 
-  // We want to display this block if the current node has parents or children.
-  if (isset($node->field_parents[$node->language])) {
-    if (count($node->field_parents[$node->language])) {
-      $display_block = TRUE;
+    // Retrieve block from cache if available.
+    if ($cache = cache_get('ct_page:nav:' . $node->nid, 'cache_block')) {
+      $variables = $cache->data;
+      $block['content'] = theme('jquerymenu_menu', $variables);
+      return $block;
     }
-  }
-  if (isset($node->field_children[$node->language])) {
-    if (count($node->field_children[$node->language])) {
-      $display_block = TRUE;
-    }
-  }
-
-  if ($display_block) {
-    // First, find the top-level parent.
-    $parent_found = FALSE;
-    while (!$parent_found) {
-      if (isset($parent_nid)) {
-        $node = node_load($parent_nid);
-      }
+    else {
+      // We want to display this block if the current node has parents or children.
       if (isset($node->field_parents[$node->language])) {
-        if (count($node->field_parents[$node->language]) > 0) {
-          // Only handling one parent for now.
-          $parent_nid = $node->field_parents[$node->language][0]['nid'];
-        }
-        else {
-          $parent_found = TRUE;
+        if (count($node->field_parents[$node->language])) {
+          $display_block = TRUE;
         }
       }
-      else {
-        $parent_found = TRUE;
+      if (isset($node->field_children[$node->language])) {
+        if (count($node->field_children[$node->language])) {
+          $display_block = TRUE;
+        }
       }
-    }
 
-    $block = array(
-      'subject' => l($node->title, 'node/' . $node->nid),
-    );
-
-    // Set up the menu array.
-    $items = array();
-
-    // Now that we've found the parent, work from the top down.
-    if (isset($node->field_children[$node->language])) {
-      if (count($node->field_children[$node->language])) {
-        $cache_nids[] = $node->nid;
-        foreach ($node->field_children[$node->language] as $child) {
-          // Recursively generate this part of the tree.
-          $node = node_load($child['nid']);
-          $cache_nids[] = $node->nid;
-          $item = array(
-            'link' => array(
-              'title' => $node->title,
-              'href' => 'node/' . $node->nid,
-              'expanded' => 0,
-            ),
-            'below' => array(),
-          );
-          _ct_page_generate_child_leaf($node, $item['below']);
-          if (count($item['below'])) {
-            $item['link']['has_children'] = 1;
+      if ($display_block) {
+        // First, find the top-level parent.
+        $parent_found = FALSE;
+        while (!$parent_found) {
+          if (isset($parent_nid)) {
+            $node = node_load($parent_nid);
+          }
+          if (isset($node->field_parents[$node->language])) {
+            if (count($node->field_parents[$node->language]) > 0) {
+              // Only handling one parent for now.
+              $parent_nid = $node->field_parents[$node->language][0]['nid'];
+            }
+            else {
+              $parent_found = TRUE;
+            }
           }
           else {
-            $item['link']['has_children'] = 0;
+            $parent_found = TRUE;
           }
-          $items[] = $item;
         }
-        $variables = array('tree' => $items, 'trail' => $trail);
+
+        // Set up the menu array.
+        $items = array();
+
+        // Now that we've found the parent, work from the top down.
+        if (isset($node->field_children[$node->language])) {
+          if (count($node->field_children[$node->language])) {
+            $cache_nids[] = $node->nid;
+            foreach ($node->field_children[$node->language] as $child) {
+              // Recursively generate this part of the tree.
+              $node = node_load($child['nid']);
+              $cache_nids[] = $node->nid;
+              $item = array(
+                'link' => array(
+                  'title' => $node->title,
+                  'href' => 'node/' . $node->nid,
+                  'expanded' => 0,
+                ),
+                'below' => array(),
+              );
+              _ct_page_generate_child_leaf($node, $item['below']);
+              if (count($item['below'])) {
+                $item['link']['has_children'] = 1;
+              }
+              else {
+                $item['link']['has_children'] = 0;
+              }
+              $items[] = $item;
+            }
+            $variables = array('tree' => $items, 'trail' => $trail);
+          }
+        }
+
+        $end = microtime(TRUE);
+        $gen_time = $end - $start;
+        // dsm('block took ' . $gen_time . ' ms to generate.');
+
+        // Set the cache for all nids found. Inefficient, but that's key-value stores for you...
+        foreach ($cache_nids as $nid) {
+          cache_set('ct_page:nav:' . $nid, $variables, 'cache_block', CACHE_TEMPORARY);
+        }
+
         $block['content'] = theme('jquerymenu_menu', $variables);
+        return $block;
       }
     }
-
-    $end = microtime(TRUE);
-    $gen_time = $end - $start;
-    // dsm('block took ' . $gen_time . ' ms to generate.');
-
-    // Set the cache for all nids found. Inefficient, but that's key-value stores for you...
-    foreach ($cache_nids as $nid) {
-      cache_set('ct_page:nav:' . $nid, $block, 'cache_block', CACHE_TEMPORARY);
-    }
-
-    return $block;
   }
-
   return FALSE;
 }
 
@@ -357,7 +361,7 @@ function theme_ct_page_jquerymenu_links($variables) {
   $edit_path    = $variables["edit_path"];
   $edit_text    = $variables["edit_text"];
   $edit_access  = $variables["edit_access"];
-  
+
   $parentlink = variable_get('jquerymenu_parentlink', 0);
 
   $output = '';

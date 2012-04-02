@@ -101,7 +101,55 @@ function lc_importer_drush_command() {
       'drush clean-text' => 'Clean up text in all pages.',
     ),
   );
+  $items['fix-aside'] = array(
+    'description' => "Fix aside fields",
+    'examples' => array(
+      'drush fix-aside' => 'Clean up text in all pages.',
+    ),
+  );
   return $items;
+}
+
+function drush_lc_importer_fix_aside($file) {
+  if (!($contents = file_get_contents($file))) {
+    return drush_set_error('FILE_NOT_FOUND', dt('Could not load specified filename.'));
+  }
+
+  try {
+    $xml = new SimpleXMLElement($contents);
+  }
+  catch (Exception $e) {
+    return drush_set_error('INVALID_XML', dt('Could not parse specified file as XML.'));
+  }
+
+  foreach ($xml->Page1 as $page) {
+    $name = (string) $page['Name'];
+    $page_id = (string) $page['ID'];
+    $publish_as = (string) $page['PublishAs'];
+    $schema = (string) $page['Schema'];
+    // print "name: $name, page_id: $page_id, publish_as: $publish_as, schema: $schema\n";
+    // Find the node id.
+    $result = db_select('feeds_item', 'f')
+      ->fields('f', array('entity_id'))
+      ->condition('guid', $page_id, '=')
+      ->execute()
+      ->fetchAssoc();
+
+    $nid = 0;
+    if (isset($result['entity_id'])) {
+      $nid = $result['entity_id'];
+      // Load the node
+      if ($node = node_load($nid)) {
+        if (($node->body[$node->language][0]['value'] == $node->field_aside[$node->language][0]['value']) && strlen($node->field_aside[$node->language][0]['value'])) {
+          $aside = $page->ColumnCopy;
+          print "Here's a messed up node with nid $nid!\n";
+          print "Aside should be: $aside";
+          $node->field_aside[$node->language][0]['value'] = $aside;
+          node_save($node);
+        }
+      }
+    }
+  }
 }
 
 function drush_lc_importer_clean_text() {
@@ -125,15 +173,16 @@ function drush_lc_importer_clean_text() {
       $modified = TRUE;
       print($node->body[$node->language][0]['value']);
     }
-     */
     $node->body[$node->language][0]['value'] = preg_replace('#href="http://www.lynchburg.edu/#i', 'href="/', $node->body[$node->language][0]['value'], -1, $strings_replaced);
     if ($strings_replaced > 0) {
       $modified = TRUE;
     }
-    $node->field_aside[$node->language][0]['value'] = preg_replace('#href="http://www.lynchburg.edu/#i', 'href="/', $node->body[$node->language][0]['value'], -1, $strings_replaced);
+     */
+    $node->field_aside[$node->language][0]['value'] = preg_replace('#href="http://www.lynchburg.edu/#i', 'href="/', $node->field_aside[$node->language][0]['value'], -1, $strings_replaced);
     if ($strings_replaced > 0) {
       $modified = TRUE;
     }
+    /*
     if (count($node->field_links)) {
       foreach ($node->field_links['und'] as &$link) {
         $link['url'] = preg_replace('#http://www.lynchburg.edu/#i', '/', $link['url'], -1, $strings_replaced);
@@ -145,6 +194,7 @@ function drush_lc_importer_clean_text() {
         $modified = TRUE;
       }
     }
+     */
     if ($modified) {
       print ($node->nid . "\n");
       node_save($node);
