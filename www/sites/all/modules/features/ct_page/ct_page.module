@@ -42,9 +42,6 @@ function ct_page_lc_section_nav() {
   $display_block = FALSE;
   // Get current node.
   $node = menu_get_object();
-  $block = array(
-    'subject' => l($node->title, 'node/' . $node->nid),
-  );
 
   if (isset($node->nid) && $node->type == 'page') {
     $cache_nids = array($node->nid);
@@ -52,8 +49,7 @@ function ct_page_lc_section_nav() {
 
     // Retrieve block from cache if available.
     if ($cache = cache_get('ct_page:nav:' . $node->nid, 'cache_block')) {
-      $variables = $cache->data;
-      $block['content'] = theme('jquerymenu_menu', $variables);
+      $block = array('subject' => $cache->data['title'], 'content' => theme('jquerymenu_menu', $cache->data['variables']));
       return $block;
     }
     else {
@@ -89,6 +85,8 @@ function ct_page_lc_section_nav() {
             $parent_found = TRUE;
           }
         }
+
+        $parent_title = l($node->title, 'node/' . $node->nid);
 
         // Set up the menu array.
         $items = array();
@@ -126,11 +124,13 @@ function ct_page_lc_section_nav() {
         $gen_time = $end - $start;
         // dsm('block took ' . $gen_time . ' ms to generate.');
 
+        $cache = array('title' => $parent_title, 'variables' => $variables);
         // Set the cache for all nids found. Inefficient, but that's key-value stores for you...
         foreach ($cache_nids as $nid) {
-          cache_set('ct_page:nav:' . $nid, $variables, 'cache_block', CACHE_TEMPORARY);
+          cache_set('ct_page:nav:' . $nid, $cache, 'cache_block', CACHE_TEMPORARY);
         }
 
+        $block = array('subject' => $parent_title);
         $block['content'] = theme('jquerymenu_menu', $variables);
         return $block;
       }
