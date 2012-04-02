@@ -124,15 +124,14 @@ function ct_page_lc_section_nav() {
         foreach ($cache_nids as $nid) {
           cache_set('ct_page:nav:' . $nid, $variables, 'cache_block', CACHE_TEMPORARY);
         }
+        $block = array(
+          'subject' => l($node->title, 'node/' . $node->nid),
+        );
+        $block['content'] = theme('jquerymenu_menu', $variables);
+
+        return $block;
       }
     }
-
-    $block = array(
-      'subject' => l($node->title, 'node/' . $node->nid),
-    );
-    $block['content'] = theme('jquerymenu_menu', $variables);
-
-    return $block;
   }
   return FALSE;
 }
