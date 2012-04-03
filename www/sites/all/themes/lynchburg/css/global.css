@@ -353,19 +353,18 @@ ul.jquerymenu li.parent span.closed  {
 ul.jquerymenu li.parent span.open {
 	background-position:3px -90px;
 }
-.lynchburg-right-sidebar {
+/*.lynchburg-right-sidebar {
 	margin:0px;
 	border-left:#e8e8e8 double 3px;
 	padding:0 0 0px 0px;
 }
 
 .lynchburg-left-sidebar{
-	/*border:red solid 1px;*/
 	border-right:#e8e8e8 double 3px;
 	overflow:visible;
 	margin:0px;
 	padding:0 10px 30px 0;
-}
+}*/
 
 
 
