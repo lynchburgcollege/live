@@ -107,7 +107,71 @@ function lc_importer_drush_command() {
       'drush fix-aside' => 'Clean up text in all pages.',
     ),
   );
+  $items['map-profile-terms'] = array(
+    'description' => "Correctly map profile node taxonomy terms",
+    'examples' => array(
+      'drush map-profile-terms' => 'Clean up text in all pages.',
+    ),
+  );
   return $items;
+}
+
+function drush_lc_importer_map_profile_terms() {
+  // DB connection info.
+  $olddb = array(
+      'database' => 'lctestsandbox',
+      // 'username' => 'root', // assuming this is necessary
+      //'password' => 'password', // assuming this is necessary
+      //'host' => 'localhost', // assumes localhost
+      'driver' => 'mysql', // replace with your database driver
+  );
+  Database::addConnectionInfo('LCSandbox', 'default', $olddb);
+
+  // Array mapping vids in new db to field names.
+  // For profiles
+  // $fields = array(5 => 'field_program', 3 => 'field_gradprogram', 4 => 'field_school', 2 => 'field_expertise');
+  // For courses
+  $fields = array(6 => 'field_courseprefix');
+
+  $query = db_select('node', 'n')
+    ->fields('n', array('nid'))
+    ->condition('type', array('course'), 'IN');
+  $result = $query->execute();
+
+  foreach ($result as $record) {
+    $modified = FALSE;
+    $node = node_load($record->nid);
+    foreach ($fields as $vid => $fieldname) {
+      if (count($node->{$fieldname}[$node->language])) {
+        foreach ($node->{$fieldname}[$node->language] as &$term) {
+          db_set_active('LCSandbox');
+          $query = db_select('taxonomy_term_data', 't')
+            ->fields('t')
+            ->condition('tid', $term['tid'], '=')
+            ->execute();
+          foreach ($query as $result) {
+            $termname = $result->name;
+          }
+          db_set_active(); // Set back to the default db connection.
+          $query = db_select('taxonomy_term_data', 't')
+            ->fields('t')
+            ->condition('name', $termname, '=')
+            ->condition('vid', $vid, '=')
+            ->execute();
+          foreach ($query as $result) {
+            if (isset($result->tid)) {
+              $term['tid'] = $result->tid;
+              $modified = TRUE;
+            }
+          }
+        }
+      }
+      if ($modified) {
+        node_save($node);
+      }
+    }
+    print_r($node->nid . "\n");
+  }
 }
 
 function drush_lc_importer_fix_aside($file) {
