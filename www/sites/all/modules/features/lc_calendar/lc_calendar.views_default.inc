@@ -658,6 +658,153 @@ return TRUE;';
   $handler->display->display_options['filters']['tid']['vocabulary'] = 'event_category';
   $handler->display->display_options['filters']['tid']['error_message'] = 1;
   $handler->display->display_options['path'] = 'events-rss.xml';
+  $handler->display->display_options['displays'] = array(
+    'default' => 0,
+    'panel_pane_1' => 0,
+    'panel_pane_2' => 0,
+    'panel_pane_3' => 0,
+  );
+
+  /* Display: Upcoming events by category(s) */
+  $handler = $view->new_display('panel_pane', 'Upcoming events by category(s)', 'panel_pane_3');
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['empty'] = FALSE;
+  $handler->display->display_options['footer']['area']['content'] = '<!--<a href="/events-rss.xml?category=!1"><img typeof="foaf:Image" src="http://lc.localhost/misc/feed.png" width="16" height="16" alt="Subscribe to "></a>-->';
+  $handler->display->display_options['footer']['area']['format'] = 'full_html';
+  $handler->display->display_options['footer']['area']['tokenize'] = 1;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  /* Contextual filter: Content: Event Category (field_event_category) */
+  $handler->display->display_options['arguments']['field_event_category_tid']['id'] = 'field_event_category_tid';
+  $handler->display->display_options['arguments']['field_event_category_tid']['table'] = 'field_data_field_event_category';
+  $handler->display->display_options['arguments']['field_event_category_tid']['field'] = 'field_event_category_tid';
+  $handler->display->display_options['arguments']['field_event_category_tid']['default_action'] = 'not found';
+  $handler->display->display_options['arguments']['field_event_category_tid']['default_argument_type'] = 'fixed';
+  $handler->display->display_options['arguments']['field_event_category_tid']['default_argument_skip_url'] = 0;
+  $handler->display->display_options['arguments']['field_event_category_tid']['summary']['number_of_records'] = '0';
+  $handler->display->display_options['arguments']['field_event_category_tid']['summary']['format'] = 'default_summary';
+  $handler->display->display_options['arguments']['field_event_category_tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['field_event_category_tid']['specify_validation'] = 1;
+  $handler->display->display_options['arguments']['field_event_category_tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['field_event_category_tid']['validate_options']['vocabularies'] = array(
+    'event_category' => 'event_category',
+  );
+  $handler->display->display_options['arguments']['field_event_category_tid']['validate_options']['type'] = 'convert';
+  $handler->display->display_options['arguments']['field_event_category_tid']['validate_options']['transform'] = 0;
+  $handler->display->display_options['arguments']['field_event_category_tid']['break_phrase'] = 1;
+  $handler->display->display_options['arguments']['field_event_category_tid']['not'] = 0;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 0;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'event' => 'event',
+  );
+  /* Filter criterion: Content: Date (field_date) */
+  $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_date_value']['form_type'] = 'date_text';
+  $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now';
+  $handler->display->display_options['argument_input'] = array(
+    'field_event_category_tid' => array(
+      'type' => 'user',
+      'context' => 'entity:comment.author',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Event Category (separate multiple categories with commas)',
+    ),
+  );
+
+  /* Display: Upcoming events */
+  $handler = $view->new_display('panel_pane', 'Upcoming events', 'panel_pane_4');
+  $handler->display->display_options['defaults']['title'] = FALSE;
+  $handler->display->display_options['title'] = 'Upcoming Events';
+  $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['defaults']['pager'] = FALSE;
+  $handler->display->display_options['pager']['type'] = 'some';
+  $handler->display->display_options['pager']['options']['items_per_page'] = '5';
+  $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['footer'] = FALSE;
+  /* Footer: Global: Text area */
+  $handler->display->display_options['footer']['area']['id'] = 'area';
+  $handler->display->display_options['footer']['area']['table'] = 'views';
+  $handler->display->display_options['footer']['area']['field'] = 'area';
+  $handler->display->display_options['footer']['area']['empty'] = FALSE;
+  $handler->display->display_options['footer']['area']['content'] = '<!--<a href="/events-rss.xml"><img typeof="foaf:Image" src="http://lc.localhost/misc/feed.png" width="16" height="16" alt="Subscribe to "></a>-->';
+  $handler->display->display_options['footer']['area']['format'] = 'full_html';
+  $handler->display->display_options['footer']['area']['tokenize'] = 1;
+  $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Title */
+  $handler->display->display_options['fields']['title']['id'] = 'title';
+  $handler->display->display_options['fields']['title']['table'] = 'node';
+  $handler->display->display_options['fields']['title']['field'] = 'title';
+  $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['defaults']['filters'] = FALSE;
+  /* Filter criterion: Content: Published */
+  $handler->display->display_options['filters']['status']['id'] = 'status';
+  $handler->display->display_options['filters']['status']['table'] = 'node';
+  $handler->display->display_options['filters']['status']['field'] = 'status';
+  $handler->display->display_options['filters']['status']['value'] = 1;
+  $handler->display->display_options['filters']['status']['group'] = 0;
+  $handler->display->display_options['filters']['status']['expose']['operator'] = FALSE;
+  /* Filter criterion: Content: Type */
+  $handler->display->display_options['filters']['type']['id'] = 'type';
+  $handler->display->display_options['filters']['type']['table'] = 'node';
+  $handler->display->display_options['filters']['type']['field'] = 'type';
+  $handler->display->display_options['filters']['type']['value'] = array(
+    'event' => 'event',
+  );
+  /* Filter criterion: Content: Date (field_date) */
+  $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
+  $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
+  $handler->display->display_options['filters']['field_date_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_date_value']['form_type'] = 'date_text';
+  $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now';
+  $handler->display->display_options['argument_input'] = array(
+    'field_event_category_tid' => array(
+      'type' => 'user',
+      'context' => 'entity:comment.author',
+      'context_optional' => 0,
+      'panel' => '0',
+      'fixed' => '',
+      'label' => 'Event Category (separate multiple categories with commas)',
+    ),
+  );
   $export['lc_events'] = $view;
 
   return $export;

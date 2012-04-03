@@ -104,6 +104,18 @@ function lc_calendar_search_events_form_submit($form, &$form_state) {
  * Callback for /events - redirect to current event list.
  */
 function lc_calendar_event_default() {
+  $category = '';
+  if (isset($_GET['category'])) {
+    $tid = $_GET['category'];
+    if (is_numeric($tid)) {
+      $category = $tid;
+    }
+  }
   $date_range = date('Y-m-d--') . (date('Y-m-d', strtotime("+1 month")));
-  drupal_goto('events/' . $date_range);
+  if (empty($category)) {
+    drupal_goto('events/' . $date_range);
+  }
+  else {
+    drupal_goto('events/' . $date_range, array('query' => array('category' => $category)));
+  }
 }

@@ -6,6 +6,16 @@
 
 include_once('ct_page.features.inc');
 
+
+/**
+ * Navigation stuff.
+ */
+
+/**
+ * Implements hook_block_info.
+ *
+ * @return array $blocks
+ */
 function ct_page_block_info() {
   $blocks['lc_section_nav'] = array(
     'info' => t('LC Section Nav'),
@@ -32,96 +42,98 @@ function ct_page_lc_section_nav() {
   $display_block = FALSE;
   // Get current node.
   $node = menu_get_object();
-  $cache_nids = array($node->nid);
-  $trail = array('node/' . $node->nid);
+  if (isset($node->nid)) {
+    $cache_nids = array($node->nid);
+    $trail = array('node/' . $node->nid);
 
-  // Retrieve block from cache if available.
-  if ($block = cache_get('ct_page:nav:' . $node->nid, 'cache_block')) {
-    return $block->data;
-  }
-
-  // We want to display this block if the current node has parents or children.
-  if (isset($node->field_parents[$node->language])) {
-    if (count($node->field_parents[$node->language])) {
-      $display_block = TRUE;
+    // Retrieve block from cache if available.
+    if ($cache = cache_get('ct_page:nav:' . $node->nid, 'cache_block')) {
+      $variables = $cache->data;
     }
-  }
-  if (isset($node->field_children[$node->language])) {
-    if (count($node->field_children[$node->language])) {
-      $display_block = TRUE;
-    }
-  }
-
-  if ($display_block) {
-    // First, find the top-level parent.
-    $parent_found = FALSE;
-    while (!$parent_found) {
-      if (isset($parent_nid)) {
-        $node = node_load($parent_nid);
-      }
+    else {
+      // We want to display this block if the current node has parents or children.
       if (isset($node->field_parents[$node->language])) {
-        if (count($node->field_parents[$node->language]) > 0) {
-          // Only handling one parent for now.
-          $parent_nid = $node->field_parents[$node->language][0]['nid'];
-        }
-        else {
-          $parent_found = TRUE;
+        if (count($node->field_parents[$node->language])) {
+          $display_block = TRUE;
         }
       }
-      else {
-        $parent_found = TRUE;
+      if (isset($node->field_children[$node->language])) {
+        if (count($node->field_children[$node->language])) {
+          $display_block = TRUE;
+        }
+      }
+
+      if ($display_block) {
+        // First, find the top-level parent.
+        $parent_found = FALSE;
+        while (!$parent_found) {
+          if (isset($parent_nid)) {
+            $node = node_load($parent_nid);
+          }
+          if (isset($node->field_parents[$node->language])) {
+            if (count($node->field_parents[$node->language]) > 0) {
+              // Only handling one parent for now.
+              $parent_nid = $node->field_parents[$node->language][0]['nid'];
+            }
+            else {
+              $parent_found = TRUE;
+            }
+          }
+          else {
+            $parent_found = TRUE;
+          }
+        }
+
+        // Set up the menu array.
+        $items = array();
+
+        // Now that we've found the parent, work from the top down.
+        if (isset($node->field_children[$node->language])) {
+          if (count($node->field_children[$node->language])) {
+            $cache_nids[] = $node->nid;
+            foreach ($node->field_children[$node->language] as $child) {
+              // Recursively generate this part of the tree.
+              $node = node_load($child['nid']);
+              $cache_nids[] = $node->nid;
+              $item = array(
+                'link' => array(
+                  'title' => $node->title,
+                  'href' => 'node/' . $node->nid,
+                  'expanded' => 0,
+                ),
+                'below' => array(),
+              );
+              _ct_page_generate_child_leaf($node, $item['below']);
+              if (count($item['below'])) {
+                $item['link']['has_children'] = 1;
+              }
+              else {
+                $item['link']['has_children'] = 0;
+              }
+              $items[] = $item;
+            }
+            $variables = array('tree' => $items, 'trail' => $trail);
+          }
+        }
+
+        $end = microtime(TRUE);
+        $gen_time = $end - $start;
+        // dsm('block took ' . $gen_time . ' ms to generate.');
+
+        // Set the cache for all nids found. Inefficient, but that's key-value stores for you...
+        foreach ($cache_nids as $nid) {
+          cache_set('ct_page:nav:' . $nid, $variables, 'cache_block', CACHE_TEMPORARY);
+        }
       }
     }
 
     $block = array(
       'subject' => l($node->title, 'node/' . $node->nid),
     );
-
-    // Set up the menu array.
-    $items = array();
-
-    // Now that we've found the parent, work from the top down.
-    if (isset($node->field_children[$node->language])) {
-      if (count($node->field_children[$node->language])) {
-        $cache_nids[] = $node->nid;
-        foreach ($node->field_children[$node->language] as $child) {
-          // Recursively generate this part of the tree.
-          $node = node_load($child['nid']);
-          $cache_nids[] = $node->nid;
-          $item = array(
-            'link' => array(
-              'title' => $node->title,
-              'href' => 'node/' . $node->nid,
-              'expanded' => 0,
-            ),
-            'below' => array(),
-          );
-          _ct_page_generate_child_leaf($node, $item['below']);
-          if (count($item['below'])) {
-            $item['link']['has_children'] = 1;
-          }
-          else {
-            $item['link']['has_children'] = 0;
-          }
-          $items[] = $item;
-        }
-        $variables = array('tree' => $items, 'trail' => $trail);
-        $block['content'] = theme('jquerymenu_menu', $variables);
-      }
-    }
-
-    $end = microtime(TRUE);
-    $gen_time = $end - $start;
-    // dsm('block took ' . $gen_time . ' ms to generate.');
-
-    // Set the cache for all nids found. Inefficient, but that's key-value stores for you...
-    foreach ($cache_nids as $nid) {
-      cache_set('ct_page:nav:' . $nid, $block, 'cache_block', CACHE_TEMPORARY);
-    }
+    $block['content'] = theme('jquerymenu_menu', $variables);
 
     return $block;
   }
-
   return FALSE;
 }
 
@@ -158,6 +170,63 @@ function _ct_page_generate_child_leaf($node, &$children) {
       }
     }
     return $children;
+  }
+}
+
+/**
+ * Implements hook_form_alter.
+ *
+ * @param $form
+ * @param $form_state
+ * @param $form_id
+ */
+function ct_page_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'page_node_form') {
+    // Access control - check if the user has permission to edit this node.
+    // First, check if field_nav is set and has a value. If not, we don't need to
+    // do anything else here.
+    if (isset($form_state['build_info']['args'][0]->field_nav)) {
+      // Check this node's section against the editor's sections.
+      if (!_ct_page_user_can_edit_section($form_state['build_info']['args'][0]->field_nav['und'][0]['tid'])) {
+        // This user does not have access to this section.
+        drupal_set_message(t('You do not have permission to edit this section, sorry!'), 'warning');
+        drupal_goto('node/' . $form_state['build_info']['args'][0]->nid);
+      }
+    }
+
+    // Get weight of navigation field so we can stick our checkbox after it.
+    $weight = $form['field_nav']['#weight'] + 1;
+    $form['field_nav_inherit'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Apply to descendants'),
+      '#weight' => $weight,
+      '#description' => t('Check the box to apply this term to all descendant nodes.'),
+    );
+  }
+}
+
+
+/**
+ * nodeapi hooks.
+ */
+
+/**
+ * Implements hook_node_validate.
+ *
+ * @param $node
+ * @param $form
+ * @param $form_state
+ *
+ * @return 
+ */
+function ct_page_node_validate($node, $form, &$form_state) {
+  if ($node->type == 'page') {
+    if (isset($form_state['values']['field_nav'][$form_state['values']['language']][0]['tid'])) {
+      $new_tid = $form_state['values']['field_nav'][$form_state['values']['language']][0]['tid'];
+      if (!_ct_page_user_can_edit_section($new_tid)) {
+        form_set_error('field_nav', t('Sorry, but you do not have permission to save a node in this section!'));
+      }
+    }
   }
 }
 
@@ -209,25 +278,10 @@ function ct_page_node_presave($node) {
   }
 }
 
+
 /**
- * Implements hook_form_alter.
- *
- * @param $form
- * @param $form_state
- * @param $form_id
+ * Helper functions.
  */
-function ct_page_form_alter(&$form, &$form_state, $form_id) {
-  if ($form_id == 'page_node_form') {
-    // Get weight of navigation field so we can stick our checkbox after it.
-    $weight = $form['field_nav']['#weight'] + 1;
-    $form['field_nav_inherit'] = array(
-      '#type' => 'checkbox',
-      '#title' => t('Apply to descendants'),
-      '#weight' => $weight,
-      '#description' => t('Check the box to apply this term to all descendant nodes.'),
-    );
-  }
-}
 
 /**
  * Save navigation term of given node to all children.
@@ -263,3 +317,75 @@ function ct_page_views_pre_render(&$view) {
   }
 }
 
+/**
+ * Determine whether a user has permission to edit a section by its tid.
+ *
+ * @param $tid
+ *
+ * @return boolean
+ */
+function _ct_page_user_can_edit_section($tid) {
+  global $user;
+  // User 1 can do whatever they feel like. GOSH!
+  if ($user->uid == 1) {
+    return TRUE;
+  }
+
+  $account = user_load($user->uid);
+  // Check this node's section against the editor's sections.
+  foreach ($account->field_edit_sections['und'] as $section) {
+    if ($section['tid'] == $tid) {
+      return TRUE;
+    }
+  }
+  return FALSE;
+}
+
+/**
+ * Theme functions.
+ */
+
+/**
+ * Render a single link, possibly with open/close link and/or edit button. not currently used.
+ */
+function theme_ct_page_jquerymenu_links($variables) {
+  // create values from the parameter array
+  $title        = $variables["title"];
+  $path         = $variables["path"];
+  $options      = $variables["options"];
+  $state        = $variables["state"];
+  $classes      = $variables["classes"];
+  $has_children = $variables["has_children"];
+  $edit_path    = $variables["edit_path"];
+  $edit_text    = $variables["edit_text"];
+  $edit_access  = $variables["edit_access"];
+
+  $parentlink = variable_get('jquerymenu_parentlink', 0);
+
+  $output = '';
+  // This is the span that becomes the little plus and minus symbol.
+  $plus = '<span' . (empty($classes) ? '>' : ' class="' . implode(' ', $classes) . '">');
+  $endplus = '</span>';
+  $link = l($title, $path, $options);
+  if ($edit_path != NULL && user_access($edit_access)) {
+    $edit_box = jquerymenu_edit_box($edit_path, $edit_text);
+    if ($has_children != 0) {
+      $output .= $parentlink ? $edit_box . $plus . $title . $endplus : $editbox . $plus . $link . $endplus;
+    }
+    else {
+      //$output .= $edit_box . l($title, $path, $options);
+      $output .= $edit_box . $link;
+    }
+  }
+  else {
+    if ($has_children != 0) {
+      //$output .= $plus . l($title, $path, $options);
+      $output .= $parentlink ? $plus . $title : $plus . $link;
+    }
+    else {
+      //$output .= l($title, $path, $options);
+      $output .= $link;
+    }
+  }
+  return $output;
+}

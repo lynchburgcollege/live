@@ -291,7 +291,7 @@ function lc_navigation_views_default_views() {
   $handler->display->display_options['fields']['changed']['empty_zero'] = 0;
   $handler->display->display_options['fields']['changed']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['changed']['date_format'] = 'short';
-  /* Field: Node: Edit link */
+  /* Field: Content: Edit link */
   $handler->display->display_options['fields']['edit_node']['id'] = 'edit_node';
   $handler->display->display_options['fields']['edit_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['edit_node']['field'] = 'edit_node';
@@ -313,7 +313,7 @@ function lc_navigation_views_default_views() {
   $handler->display->display_options['fields']['edit_node']['hide_empty'] = 0;
   $handler->display->display_options['fields']['edit_node']['empty_zero'] = 0;
   $handler->display->display_options['fields']['edit_node']['hide_alter_empty'] = 1;
-  /* Field: Node: Delete link */
+  /* Field: Content: Delete link */
   $handler->display->display_options['fields']['delete_node']['id'] = 'delete_node';
   $handler->display->display_options['fields']['delete_node']['table'] = 'views_entity_node';
   $handler->display->display_options['fields']['delete_node']['field'] = 'delete_node';
@@ -460,6 +460,8 @@ function lc_navigation_views_default_views() {
   $handler->display->display_options['arguments']['tid']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['tid']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['tid']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['tid']['validate']['type'] = 'taxonomy_term';
+  $handler->display->display_options['arguments']['tid']['validate_options']['transform'] = 0;
   $handler->display->display_options['arguments']['tid']['break_phrase'] = 0;
   $handler->display->display_options['arguments']['tid']['not'] = 0;
   /* Filter criterion: Taxonomy vocabulary: Machine name */
@@ -474,6 +476,7 @@ function lc_navigation_views_default_views() {
   $handler->display->display_options['filters']['field_related_links_nid']['table'] = 'field_data_field_related_links';
   $handler->display->display_options['filters']['field_related_links_nid']['field'] = 'field_related_links_nid';
   $handler->display->display_options['filters']['field_related_links_nid']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_related_links_nid']['group'] = '0';
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block');

@@ -24,7 +24,8 @@ function lc_navigation_user_default_permissions() {
   $permissions['create page content'] = array(
     'name' => 'create page content',
     'roles' => array(
-      0 => 'editor',
+      0 => 'approver',
+      1 => 'editor',
     ),
     'module' => 'node',
   );
@@ -33,7 +34,8 @@ function lc_navigation_user_default_permissions() {
   $permissions['delete any page content'] = array(
     'name' => 'delete any page content',
     'roles' => array(
-      0 => 'editor',
+      0 => 'approver',
+      1 => 'editor',
     ),
     'module' => 'node',
   );
@@ -42,7 +44,8 @@ function lc_navigation_user_default_permissions() {
   $permissions['delete own page content'] = array(
     'name' => 'delete own page content',
     'roles' => array(
-      0 => 'editor',
+      0 => 'approver',
+      1 => 'editor',
     ),
     'module' => 'node',
   );
@@ -51,7 +54,8 @@ function lc_navigation_user_default_permissions() {
   $permissions['edit any page content'] = array(
     'name' => 'edit any page content',
     'roles' => array(
-      0 => 'editor',
+      0 => 'approver',
+      1 => 'editor',
     ),
     'module' => 'node',
   );
@@ -60,7 +64,8 @@ function lc_navigation_user_default_permissions() {
   $permissions['edit own page content'] = array(
     'name' => 'edit own page content',
     'roles' => array(
-      0 => 'editor',
+      0 => 'approver',
+      1 => 'editor',
     ),
     'module' => 'node',
   );
@@ -68,16 +73,17 @@ function lc_navigation_user_default_permissions() {
   // Exported permission: use text format full_html
   $permissions['use text format full_html'] = array(
     'name' => 'use text format full_html',
-    'roles' => array(
-      0 => 'editor',
-    ),
-    'module' => 'filter',
+    'roles' => array(),
   );
 
   // Exported permission: view own unpublished content
   $permissions['view own unpublished content'] = array(
     'name' => 'view own unpublished content',
-    'roles' => array(),
+    'roles' => array(
+      0 => 'approver',
+      1 => 'editor',
+    ),
+    'module' => 'node',
   );
 
   return $permissions;
