@@ -277,7 +277,7 @@ ul.main-menu li {
 }*/
 
 
-.qtip-wrapper, .panels-flexible-region-inside-last {
+.qtip-wrapper, /*.panels-flexible-region-inside-last*/ {
 	-moz-box-shadow: 3px 3px 6px #dddedf;
 	-webkit-box-shadow: 3px 3px 6px #dddedf;
 	box-shadow: 3px 3px 6px #dddedf;
