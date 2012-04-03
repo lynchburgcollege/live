@@ -128,11 +128,14 @@ function drush_lc_importer_map_profile_terms() {
   Database::addConnectionInfo('LCSandbox', 'default', $olddb);
 
   // Array mapping vids in new db to field names.
-  $fields = array(5 => 'field_program', 3 => 'field_gradprogram', 4 => 'field_school', 2 => 'field_expertise');
+  // For profiles
+  // $fields = array(5 => 'field_program', 3 => 'field_gradprogram', 4 => 'field_school', 2 => 'field_expertise');
+  // For courses
+  $fields = array(6 => 'field_courseprefix');
 
   $query = db_select('node', 'n')
     ->fields('n', array('nid'))
-    ->condition('type', array('profile'), 'IN');
+    ->condition('type', array('course'), 'IN');
   $result = $query->execute();
 
   foreach ($result as $record) {
