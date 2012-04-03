@@ -158,9 +158,7 @@ p {
 	}
 .lynchburg-main p a:hover, {
 	text-decoration:none;
-	}
-
-
+}
 strong {
 	color:#565656;
 }
@@ -259,9 +257,9 @@ ul.main-menu li {
 	margin-right:40px;
 }
 /*dropdown inside*/
-.panels-flexible-region-last{
+/*.panels-flexible-region-last{
 	border-left:#dddedf dotted 1px;
-	margin-bottom: -200px; /*margins are necessary for border to extend full height of longest column*/
+	margin-bottom: -200px; 
 	padding-bottom: 200px;
 }
 .panels-flexible-region-last{
@@ -276,10 +274,10 @@ ul.main-menu li {
 	-moz-border-radius-topleft:8px;
 	-webkit-border-top-left-radius:8px;
 	
-}
+}*/
 
 
-.qtip-wrapper, .panels-flexible-region-inside-last {
+.qtip-wrapper, /*.panels-flexible-region-inside-last*/ {
 	-moz-box-shadow: 3px 3px 6px #dddedf;
 	-webkit-box-shadow: 3px 3px 6px #dddedf;
 	box-shadow: 3px 3px 6px #dddedf;
@@ -358,7 +356,7 @@ ul.jquerymenu li.parent span.open {
 .lynchburg-right-sidebar {
 	margin:0px;
 	border-left:#e8e8e8 double 3px;
-	padding:0 0 30px 10px;
+	padding:0 0 0px 0px;
 }
 
 .lynchburg-left-sidebar{
@@ -370,13 +368,7 @@ ul.jquerymenu li.parent span.open {
 }
 
 
-.pane-node-field-links li {
-	padding:1em 0 1em 0;
-}
-.pane-node-field-links h2 {
-	margin-bottom:.5em;
-	margin-top:2em;
-}
+
 .lynchburg-left-sidebar h2 a:link {
 	font-size:15px;
 	background:none;
@@ -392,7 +384,6 @@ ul.jquerymenu li.parent span.open {
 	background:url(../images/square_divider.png) repeat-x top;
 }
 .lynchburg-right-sidebar ul li, .lynchburg-left-sidebar .pane-content ul li,  
-/*related links*/ 
 .lynchburg-left-sidebar .pane-node-field-links .field-item{
 	background:url(../images/square_divider.png) repeat-x bottom;
 	/*border-bottom:#c3c3c3  dotted 1.25px;*/
@@ -401,7 +392,14 @@ ul.jquerymenu li.parent span.open {
 	list-style:none;
 	margin:0;
 }
-
+/*related links*/ 
+.pane-node-field-links li {
+	padding:1em 0 1em 0;
+}
+.pane-node-field-links h2 {
+	margin-bottom:.5em;
+	margin-top:2em;
+}
 
 .lynchburg-right-sidebar ul a:link, .lynchburg-left-sidebar .pane-content ul a:link {
 	margin-left:6px;
