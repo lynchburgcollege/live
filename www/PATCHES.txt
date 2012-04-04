@@ -3,6 +3,10 @@ Drupal Core patches
 
 Drupal Contrib patches - sorted alphabetically by module name
 ----------------------
+Chaos Tools - 'num posts' setting not respected when overriding view options unless pager is used
+http://drupal.org/node/1091554
+http://drupal.org/files/ctools-num_posts_not_respected-1091554-4.patch
+
 Jquery Menu - Items always expanded when calling with a non-menu object
 http://drupal.org/node/1503064
 http://drupal.org/files/jquerymenu-items_always_expanded-1503064-1.patch

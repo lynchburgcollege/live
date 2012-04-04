@@ -182,7 +182,7 @@ function views_content_views_content_type_render($subtype, $conf, $panel_args, $
         $pager['type'] = 'full';
       }
       elseif (!$conf['use_pager'] && $pager['type'] != 'none' && $pager['type'] != 'some') {
-        $pager['type'] = $view->get_items_per_page() ? 'some' : 'none';
+        $pager['type'] = $conf['nodes_per_page'] ? 'some' : 'none';
       }
 
       if ($conf['use_pager']) {
