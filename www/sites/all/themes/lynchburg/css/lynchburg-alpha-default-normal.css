@@ -3,9 +3,7 @@
 body {
 	background: url(../images/bg-body-top2.jpg) repeat-x top left;
 }
-body.front {
-	/* custom homepage background overrides the above default background ^ */
-}
+
 
 .section-header {
 	height:142px;
@@ -28,3 +26,13 @@ body.front {
 	margin-right: 330px;
 }
 
+
+
+
+/*********************/
+/* HOMEPAGE          */
+/*********************/
+
+ body.front {
+ 	background:#f9f9f9 url("../images/home/bg-stripe-home.jpg") repeat-x top left;
+ }

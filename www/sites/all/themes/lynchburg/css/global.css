@@ -1,4 +1,4 @@
-﻿/* This file will hold the main styles for your website. */
+/* This file will hold the main styles for your website. */
 /*@font-face {
 	font-family: Arimo;
 	src: url("/sites/all/themes/lynchburg/fonts/Arimo.ttf");
@@ -20,11 +20,7 @@ body {
 	background-color:#f9f9f9;
 	margin-top:-5px;
 }
-.front .section-content {
-	background:url(../images/bg2-home.jpg) no-repeat top center;
-	background-color:#f9f9f9;
-	margin-top:-5px;
-}
+
 .zone-content {
 	margin-top:30px;
 }
@@ -170,7 +166,6 @@ a, a:link, a:visited, a:focus a:active {
 p {
 	margin:0 0 1.5em 0;
 	padding: 0;
-	word-spacing: 1px;
 }
 .lynchburg-main p a:link {
 	text-decoration: underline;
@@ -1476,7 +1471,7 @@ footer#section-footer li a:hover {
 	margin:0px;
 	padding: 8px 0 0 0;
 	/* for non-css3 browsers */
-	background:#790600;
+	background: #790600;
 	/* for IE */
 	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8f0900', endColorstr='#5a0500');
 	/* for webkit browsers */
@@ -1528,23 +1523,15 @@ footer#section-footer li a:hover {
 .pane-quicktabs-home-page-tabs{
 	max-width:508px;
 	min-height:274px;
-	/* for non-css3 browsers */
-	background:#fff;
-	/* for IE */
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff', endColorstr='#eeeff3');
-	/* for webkit browsers */
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#fff), to(#eeeff3), color-stop(.6, #fff));
-	/* for firefox 3.6+ */
-	background: -moz-linear-gradient(25% 87% 90deg, #fff, #eeeff3, #fff 100%);
-	-moz-box-shadow: 3px 3px 6px #dddedf;
-	-webkit-box-shadow: 3px 3px 6px #dddedf;
-	box-shadow: 3px 3px 6px #dddedf;	
+	-moz-box-shadow: 3px 3px 4px #dddedf;
+	-webkit-box-shadow: 3px 3px 4px #dddedf;
+	box-shadow: 3px 3px 4px #dddedf;
 	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=-90, Color='#dddedf')";
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf')";
 	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=-90, Color='#dddedf');
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf');
+	background:#fff url(../images/bg-audience.jpg) no-repeat bottom center;
 }
-
 .pane-quicktabs-home-page-tabs .block-inner{
 	padding:20px;
 }
@@ -1555,4 +1542,29 @@ footer#section-footer li a:hover {
 
 
 
-
+/******************************
+ *  HOMEPAGE HEADER           *
+ ******************************/
+ 
+ /* 
+ body.front {
+ 	background:#f9f9f9 url("../images/home/bg-stripe-home.jpg") repeat-x top left;
+ }
+ */
+ body.front div#page header#section-header {
+ 	margin:0 auto;
+ 	width:1290px;
+ 	height: 450px;
+ 	background: #47515b url(../images/home/big-image.jpg) no-repeat top center;
+ }
+ body.front section#section-content {
+ 	background: transparent url(../images/home/convex-curve.png) no-repeat top center;
+ 	width:1290px;
+ 	margin:0 auto;
+ 	margin-top:-25px;
+ }
+ body.front #page { width:1290px; margin:0 auto; 
+ }
+ body.front section#secton-content .zone-content-wrapper {
+ 	margin:0 auto;
+ }
