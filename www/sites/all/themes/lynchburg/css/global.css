@@ -20,6 +20,11 @@ body {
 	background-color:#f9f9f9;
 	margin-top:-5px;
 }
+.front .section-content {
+	background:url(../images/bg2-home.jpg) no-repeat top center;
+	background-color:#f9f9f9;
+	margin-top:-5px;
+}
 .zone-content {
 	margin-top:30px;
 }
@@ -1460,8 +1465,8 @@ footer#section-footer li a:hover {
 }
 /* HOMEPAGE TABS AUDIENCE */
 #quicktabs-home_page_tabs ul{
-	height:35px;
-	max-width:510px;
+	min-height:23px;
+	width:508px;
 	margin:0px;
 	padding: 10px 0 0 0;
 	/* for non-css3 browsers */
@@ -1472,48 +1477,51 @@ footer#section-footer li a:hover {
 	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8f0900), to(#5a0500), color-stop(.6, #790600));
 	/* for firefox 3.6+ */
 	background: -moz-linear-gradient(25% 87% 90deg, #5a0500, #790600, #8f0900 100%);
-	-webkit-border-top-right-radius:3px;
-	-webkit-border-top-left-radius: 3px;
-	-moz-border-radius-topleft: 3px;
-	-moz-border-radius-topright: 3px;
-	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
+	-webkit-border-bottom-right-radius:6px;
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-bottomright: 6px;
+	border-top-left-radius: 6px;
+	border-bottom-right-radius: 6px;
 }
 #quicktabs-home_page_tabs ul a:link{
 	color:#fff;
-	margin:1px 1px 0 1px;
-	padding:3px 6px 8px;
+	margin:1px 1px 0 -11px;
+	padding:3px 9px 8px;
+	
 }
 
 #quicktabs-home_page_tabs ul a:hover{
-	-webkit-border-top-right-radius:3px;
-	-webkit-border-top-left-radius: 3px;
-	-moz-border-radius-topleft: 3px;
-	-moz-border-radius-topright: 3px;
-	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
+	-webkit-border-top-right-radius:6px;
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
 	border:1px solid #dddedf;
 	border-bottom:none;
-	margin:0;
+	margin:0 0 0 -12px;
 	background:#fff;
 	color:#27282d;
 }
-#quicktabs-home_page_tabs ul a:hover{
-	-webkit-border-top-right-radius:3px;
-	-webkit-border-top-left-radius: 3px;
-	-moz-border-radius-topleft: 3px;
-	-moz-border-radius-topright: 3px;
-	border-top-left-radius: 3px;
-	border-top-right-radius: 3px;
-	border:1px solid #dddedf;
-	border-bottom:none;
-	margin:0;
-	background:#fff;
-	color:#27282d;
-}
-.quicktabs-tabs quicktabs-style-nostyle{
+
+.pane-quicktabs-home-page-tabs{
+	max-width:508px;
+	min-height:274px;
+	-moz-box-shadow: 3px 3px 4px #dddedf;
+	-webkit-box-shadow: 3px 3px 4px #dddedf;
+	box-shadow: 3px 3px 4px #dddedf;
+	/* For IE 8 */
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf')";
+	/* For IE 5.5 - 7 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf');
+	background:#fff url(../images/bg-audience.jpg) no-repeat bottom center;
 	
 }
+.pane-quicktabs-home-page-tabs .block-inner{
+	padding:20px;
+}
+
 
 
 
