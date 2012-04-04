@@ -1,4 +1,4 @@
-﻿/* This file will hold the main styles for your website. */
+/* This file will hold the main styles for your website. */
 /*@font-face {
 	font-family: Arimo;
 	src: url("/sites/all/themes/lynchburg/fonts/Arimo.ttf");
@@ -20,11 +20,7 @@ body {
 	background-color:#f9f9f9;
 	margin-top:-5px;
 }
-.front .section-content {
-	background:url(../images/bg2-home.jpg) no-repeat top center;
-	background-color:#f9f9f9;
-	margin-top:-5px;
-}
+
 .zone-content {
 	margin-top:30px;
 }
@@ -1550,3 +1546,29 @@ footer#section-footer li a:hover {
 
 
 
+/******************************
+ *  HOMEPAGE HEADER           *
+ ******************************/
+ 
+ /* 
+ body.front {
+ 	background:#f9f9f9;
+ }
+ */
+ body.front div#page header#section-header {
+ 	margin:0 auto;
+ 	width:1290px;
+ 	height: 450px;
+ 	background: url(../images/home/big-image.jpg) no-repeat top center;
+ }
+ body.front section#section-content {
+ 	background: transparent url(../images/home/convex-curve.png) no-repeat top center;
+ 	width:1290px;
+ 	margin:0 auto;
+ 	margin-top:-25px;
+ }
+ body.front #page { width:1290px; margin:0 auto; 
+ }
+ body.front section#secton-content .zone-content-wrapper {
+ 	margin:0 auto;
+ }
