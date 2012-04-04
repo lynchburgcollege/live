@@ -1548,14 +1548,14 @@ footer#section-footer li a:hover {
  
  /* 
  body.front {
- 	background:#f9f9f9;
+ 	background:#f9f9f9 url("../images/home/bg-stripe-home.jpg") repeat-x top left;
  }
  */
  body.front div#page header#section-header {
  	margin:0 auto;
  	width:1290px;
  	height: 450px;
- 	background: url(../images/home/big-image.jpg) no-repeat top center;
+ 	background: #47515b url(../images/home/big-image.jpg) no-repeat top center;
  }
  body.front section#section-content {
  	background: transparent url(../images/home/convex-curve.png) no-repeat top center;
