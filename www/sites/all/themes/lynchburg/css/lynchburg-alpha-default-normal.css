@@ -1,14 +1,14 @@
 /* This file will hold styles that are loaded using the same media query as the normal grid. */
 
 body {
-	background: url(../images/bg-body-top3.jpg) repeat-x top left;
+	background: url("../images/bg-body-top3.jpg") repeat-x top left;
 }
 .section-header {
 	/*width:1500px;*/
 	height:142px;
 	margin:0 auto;
 	padding:0;
-	background: transparent url(../images/bg-header-arch.jpg) no-repeat top center;
+	background: transparent url("../images/bg-header-arch.jpg") no-repeat top center;
 }
 
 
@@ -30,7 +30,7 @@ body {
 /*********************/
 
  body.front {
- 	background:#f9f9f9 url("../images/home/bg-stripe-home1.jpg") repeat-x top left;
+ 	background: url("../images/home/bg-stripe-home1.jpg") repeat-x top left;
  }
  
  .front .section-header {
