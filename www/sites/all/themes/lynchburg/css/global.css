@@ -169,8 +169,6 @@ p {
 }
 .lynchburg-main p a:link {
 	text-decoration: underline;
-	padding:0 3px 0 3px;
-	font-weight: bold;
 	}
 .lynchburg-main p a:hover, {
 	text-decoration:none;
