@@ -1462,6 +1462,10 @@ table.footer-list {
 	border:none;
 	background:none;
 }
+table.footer-list:hover {
+	border:none;
+	background:none;
+}
 
 
 /******************************
