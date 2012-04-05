@@ -1561,7 +1561,7 @@ footer#section-footer li a:hover {
  	margin:0 auto;
  	margin-top:-25px;
  }
- body.front #page { width:1290px; margin:0 auto; 
+ body.front #page header { width:1290px; margin:0 auto; 
  }
  body.front section#secton-content .zone-content-wrapper {
  	margin:0 auto;
