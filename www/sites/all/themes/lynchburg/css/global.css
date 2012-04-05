@@ -818,14 +818,14 @@ table.feature_table tbody tr td.noborder {
 	border-right:none;
 }
 table.feature_table tbody tr:hover {
-	background-color:#dcdcdc;
+	background-color:#ececec;
 	-moz-transition: all 0.2s linear 0s;
 	-webkit-transition: all 0.2s linear 0s;
 	-o-transition: all 0.2s linear 0s;
 }
 
 table.feature_table tr:hover td,  table.feature_table tr.even:hover td.active,  table.feature_table tr.odd:hover td.active {  
-	background:#dcdcdc;
+	background:#ececec;
 	-moz-transition: all 0.2s linear 0s;
 	-webkit-transition: all 0.2s linear 0s;
 	-o-transition: all 0.2s linear 0s;
