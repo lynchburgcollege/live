@@ -1470,6 +1470,7 @@ table.footer-list, table.footer-list:hover {
 	-webkit-box-shadow:none;
 	box-shadow:none;
 }
+table.footer-list tr:hover td,  table.footer-list tr.even:hover td.active,  table.footer-list tr.odd:hover td.active {  background: transparent  }
 
 
 /******************************
