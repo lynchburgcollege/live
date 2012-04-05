@@ -1551,16 +1551,18 @@ footer#section-footer li a:hover {
  */
  body.front div#page header#section-header {
  	margin:0 auto;
+ 	/*width:1500px;*/
  	height: 450px;
  	background: #47515b url(../images/home/big-image2.jpg) no-repeat top center;
  }
  body.front section#section-content {
  	background: transparent url(../images/home/convex-curve.png) no-repeat top center;
+ 	width:1500px;
  	margin:0 auto;
  	margin-top:-22px;
  }
-/* body.front #page header { width:1500px; margin:0 auto; 
- }*/
+ body.front #page header { width:1500px; margin:0 auto; 
+ }
  body.front section#secton-content .zone-content-wrapper {
  	margin:0 auto;
  }
