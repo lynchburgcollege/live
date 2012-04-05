@@ -1,7 +1,7 @@
 /* This file will hold the main styles for your website. */
 /*@font-face {
 	font-family: Arimo;
-	src: url("/sites/all/themes/lynchburg/fonts/Arimo.ttf");
+	src: url("./sites/all/themes/lynchburg/fonts/Arimo.ttf");
 }*/
 
 
@@ -16,7 +16,7 @@ body {
 }
 
 .section-content {
-	background:url(../images/bg3.jpg) no-repeat top center;
+	background:url("../images/bg3.jpg") no-repeat top center;
 	background-color:#f9f9f9;
 	margin-top:-5px;
 }
@@ -49,11 +49,11 @@ body {
 	padding-bottom:50px;
 }
 .lynchburg-left-sidebar.equal-height-element{
-	background:url(../images/vertical_rig_right.png) repeat-y top right;
+	background:url("../images/vertical_rig_right.png") repeat-y top right;
 	padding-right:20px;
 }
 .lynchburg-right-sidebar{
-	background:url(../images/vertical_rig_right.png) repeat-y top left;
+	background:url("../images/vertical_rig_right.png") repeat-y top left;
 }
 */
 
@@ -110,15 +110,15 @@ ul.unordered li {
 	background-repeat: no-repeat;
 }
 ul.unordered.type-1 li {
-	background-image: url(../images/tick.png);
+	background-image: url("../images/tick.png");
 	background-repeat: no-repeat;
 }
 ul.unordered.type-2 li {
-	background-image: url(../images/arrow_state_blue_right.png);
+	background-image: url("../images/arrow_state_blue_right.png");
 	background-repeat: no-repeat;
 }
 ul.unordered.type-3 li {
-	background-image: url(../images/media_controls_forward_small.png);
+	background-image: url("../images/media_controls_forward_small.png");
 	background-repeat: no-repeat;
 }
 ul.unordered.type-4 li {
@@ -338,7 +338,7 @@ ul.main-menu li {
 	position: relative;
 	text-align: left;
 	text-decoration: none;
-	background:transparent url(../images/apply-visit.png) 0 50%;
+	background:transparent url("../images/apply-visit.png") 0 50%;
 	padding: 9px 20px 7px 25px;
 	border:none;
 	margin:0 0 0 -14px;
@@ -365,7 +365,7 @@ ul.main-menu li {
 
 ul.jquerymenu li.parent span.open,
 ul.jquerymenu li.parent span.closed  {
-	background:url(../images/circle_list.png?a) no-repeat 3px -62px;
+	background:url("../images/circle_list.png?a") no-repeat 3px -62px;
 	z-index:10;
 }
 ul.jquerymenu li.parent span.open {
@@ -386,12 +386,12 @@ ul.jquerymenu li.parent span.open {
 
 .lynchburg-right-sidebar ul, .lynchburg-left-sidebar .pane-content ul {
 	/*border:red  solid 1px;*/
-	background:url(../images/square_divider.png) repeat-x top;
+	background:url("../images/square_divider.png") repeat-x top;
 	padding-bottom:24px;
 }
 .lynchburg-right-sidebar ul li, .lynchburg-left-sidebar .pane-content ul li,  
 .lynchburg-left-sidebar .pane-node-field-links .field-item{
-	background:url(../images/square_divider.png) repeat-x bottom;
+	background:url("../images/square_divider.png") repeat-x bottom;
 	padding:0.9em 4px 0.9em 1.5em;
 	position:relative;
 	list-style:none;
@@ -405,7 +405,7 @@ ul.jquerymenu li.parent span.open {
 	background-position:0 0;
 }
 .lynchburg-right-sidebar ul li:after, .lynchburg-right-sidebar ul li .after, .lynchburg-left-sidebar li:after, .lynchburg-left-sidebar li .after {
-	background:url(../images/circle_list.png?a) no-repeat 0 -30px;
+	background:url("../images/circle_list.png?a") no-repeat 0 -30px;
 	position:absolute;
 	content:"";
 	after:"&nbsp;";
@@ -498,7 +498,7 @@ blockquote {
 	-webkit-border-radius:5px;
 	border-radius:5px;
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url(".s/PIE.htc");
 }
 .image:hover, .imageTopLeft:hover, .imageTopRight:hover, .imageLeft:hover, .imageRight:hover, .imageCenter:hover {
 	background:#e0e1e0;
@@ -617,7 +617,7 @@ blockquote {
 	padding: 3px 0;
 }
 .dropcap2 {
-	background: url(../images/dropcapspot_2.png) no-repeat scroll 50% 50% transparent;
+	background: url("../images/dropcapspot_2.png") no-repeat scroll 50% 50% transparent;
 	color: #f0f0f0;
 	float: left;
 	text-shadow: none;
@@ -628,7 +628,7 @@ blockquote {
 	text-align: center;
 }
 .dropcap3 {
-	background: url(../images/dropcap3.png) no-repeat scroll 50% 50% transparent;
+	background: url("../images/dropcap3.png") no-repeat scroll 50% 50% transparent;
 	color: #bfbfbf;
 	float: left;
 	clear:both;
@@ -639,7 +639,7 @@ blockquote {
 	text-align: center;
 }
 .dropcapspot, .dropcapspot2 {
-	background: url(../images/dropcapspot_2.png) no-repeat scroll left center transparent;
+	background: url("../images/dropcapspot_2.png") no-repeat scroll left center transparent;
 	color: #FFFEFE;
 	display: block;
 	float: left;
@@ -657,7 +657,7 @@ blockquote {
 	top:-6px;
 }
 .dropcapspot3 {
-	background: url(../images/dropcapspot3.png) no-repeat scroll left center transparent;
+	background: url("../images/dropcapspot3.png") no-repeat scroll left center transparent;
 	color: #FFFEFE;
 	display: block;
 	float: left;
@@ -674,13 +674,13 @@ blockquote {
 }
 /* ========== DIVIDERS ========== */
 .divider_content {
-	background:url(../images/divider_content.png) no-repeat center;
+	background:url("../images/divider_content.png") no-repeat center;
 	height:4px;
 	width:100%;
 	margin:30px 0 45px;
 }
 .divider_top {
-	background: url(../images/square_divider.png) repeat-x scroll center center transparent;
+	background: url("../images/square_divider.png") repeat-x scroll center center transparent;
 	clear: both;
 	position:relative;
 	display: block;
@@ -699,12 +699,12 @@ blockquote {
 	top: 0;
 }
 .divider_bottom {
-	background:url(../images/bottom_line.png) no-repeat bottom center;
+	background:url("../images/bottom_line.png") no-repeat bottom center;
 	width:100%;
 	height:4px;
 }
 .divider_line {
-	background:url(../images/bottom_line.png) no-repeat center center;
+	background:url("../images/bottom_line.png") no-repeat center center;
 	width:100%;
 	margin:60px 0 50px;
 	height:4px;
@@ -724,7 +724,7 @@ blockquote {
 }
 /* ========== BIO STYLES ========== */
 #bio {
-	background:url(../images/bg_bio.png) repeat-x left top #f0f0f0;
+	background:url("../images/bg_bio.png") repeat-x left top #f0f0f0;
 	min-height:120px;
 	margin-top:3.4em;
 	padding:14px 20px;
@@ -736,7 +736,7 @@ blockquote {
 	-webkit-box-shadow: 1px 2px 3px rgba(228,228,228,0.8);
 	box-shadow: 1px 2px 3px rgba(228,228,228,0.8);
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url(".s/PIE.htc");
 }
 .bio_info {
 	overflow:hidden;
@@ -779,7 +779,7 @@ table.feature_table thead tr {
 	box-shadow:0 1px 3px #e4e4e4;
 }
 table.feature_table thead tr th {
-	/*background:url(../images/sprite_table.png) repeat-x #fff;*/
+	/*background:url("../images/sprite_table.png") repeat-x #fff;*/
 	border-right:1px solid #e7e7e7;
 }
 table.feature_table thead tr th.left_round {
@@ -959,7 +959,7 @@ input, select, textarea {
 	box-shadow:1px 1px 0 rgba(215,215,215,1) inset, 0 10px 15px rgba(255,255,255,1) inset;
 	position:relative;
 	overflow:hidden;
-	behavior: url(js/PIE.htc);
+	behavior: url(".s/PIE.htc");
 }
 input:hover, select:hover, textarea:hover {
 	-moz-box-shadow:0 2px 2px rgba(204,204,204,0.7) inset;
@@ -985,7 +985,7 @@ select {
 	-webkit-border-radius:5px;
 	border-radius:5px;
 	min-height:60px;
-	/*background: url(../images/notifications.png) repeat-x scroll 0 0 #efeded;*/
+	/*background: url("../images/notifications.png") repeat-x scroll 0 0 #efeded;*/
 	/* for non-css3 browsers */
 	background: #d9d9d9;
 	/* for IE */
@@ -1045,7 +1045,7 @@ select {
 	margin-right:2px;
 	text-indent:-9999px;
 	line-height:9999px;
-	background-image: url(../images/buttons.png);
+	background-image: url("../images/buttons.png");
 	background-repeat:no-repeat;
 }
 /* ----- Styles for Buttons ----- */
@@ -1086,7 +1086,7 @@ select {
 	border: 1px solid transparent;
 	vertical-align: baseline;
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url(".s/PIE.htc");
 }
 .button:active {
 	top: 1px;
@@ -1126,7 +1126,7 @@ select {
 	background: -o-linear-gradient(rgb(243,243,243), rgb(228,228,228));
 	/*	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f3f3f3', endColorstr='#e3e3e3');*/
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url(".s/PIE.htc");
 }
 .dark {
 	color:#f1f1f1;
@@ -1141,7 +1141,7 @@ select {
 	background: -o-linear-gradient(rgb(78,78,78), rgb(38,38,38));
 	/*	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4d4e4e', endColorstr='#262727');*/
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url(".s/PIE.htc");
 }
 .light {
 	color:#f1f1f1;
@@ -1156,7 +1156,7 @@ select {
 	background: -o-linear-gradient(rgb(159,179,185), rgb(124,151,159));
 	/*	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#9fb3b9', endColorstr='#7c979f');*/
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url(".s/PIE.htc");
 }
 .red {
 	color:#f1f1f1;
@@ -1171,7 +1171,7 @@ select {
 	background: -o-linear-gradient(rgb(203,106,106), rgb(184,49,49));
 	/*	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#cb6a6a', endColorstr='#b83131');*/
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url(".s/PIE.htc");
 }
 .blue {
 	color:#f1f1f1;
@@ -1186,7 +1186,7 @@ select {
 	background: -o-linear-gradient(rgb(86,156,200), rgb(25,120,180));
 	/*	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#569cc8', endColorstr='#1978b4');*/
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url(".s/PIE.htc");
 }
 .button:hover {
 	background: #f3f3f3;
@@ -1245,7 +1245,7 @@ select {
 	border-radius:5px;
 	-webkit-border-radius:5px;
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url(".s/PIE.htc");
 }
 .wp-pagenavi span.extend {
 	border:0;
@@ -1253,12 +1253,12 @@ select {
 .wp-pagenavi a, .wp-pagenavi a.page {
 	color:#858585;
 	text-shadow:#fdfdfd 1px 1px 0;
-	background:url(../images/bg_pagenavi.png) repeat-x;
+	background:url("../images/bg_pagenavi.png") repeat-x;
 	-moz-box-shadow:0 2px 2px rgba(228,228,228,1);
 	-webkit-box-shadow:0 2px 2px rgba(228,228,228,1);
 	box-shadow:0 2px 2px rgba(228,228,228,1);
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url(".s/PIE.htc");
 }
 .wp-pagenavi a:hover, .wp-pagenavi a:hover.page, .wp-pagenavi a.nextpostslink:hover, .wp-pagenavi span.current, .comments-navigation a:hover, .wp-pagenavi a:hover.first, .wp-pagenavi a:hover.last, .comments-navigation a:hover {
 	color:#636363;
@@ -1269,27 +1269,27 @@ select {
 	font-size:1em;
 	color:#636363;
 	text-shadow:#fdfdfd 1px 1px 0;
-	background:url(../images/bg_pagenavi.png) repeat-x 0 -23px;
+	background:url("../images/bg_pagenavi.png") repeat-x 0 -23px;
 	-moz-box-shadow:0 2px 2px rgba(228,228,228,1);
 	-webkit-box-shadow:0 2px 2px rgba(228,228,228,1);
 	box-shadow:0 2px 2px rgba(228,228,228,1);
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url(".s/PIE.htc");
 }
 .wp-pagenavi a.first, .wp-pagenavi a.last, .wp-pagenavi a.previouspostslink, .wp-pagenavi a.nextpostslink {
 	font-size:1em;
 	color:#636363;
 	text-shadow:#fdfdfd 1px 1px 0;
-	background:url(../images/bg_pagenavi.png) repeat-x 0 0;
+	background:url("../images/bg_pagenavi.png") repeat-x 0 0;
 	-moz-box-shadow:0 2px 2px rgba(228,228,228,1);
 	-webkit-box-shadow:0 2px 2px rgba(228,228,228,1);
 	box-shadow:0 2px 2px rgba(228,228,228,1);
 	text-indent:-9999px;
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url(".s/PIE.htc");
 }
 .wp-pagenavi a.nextpostslink em {
-	background:url(../images/nextpostlink.png) no-repeat 2px center;
+	background:url("../images/nextpostlink.png") no-repeat 2px center;
 	display:block;
 	height:23px;
 	width:6px
@@ -1332,7 +1332,7 @@ select {
 	padding-left:0px;
 }
 #dhtml_menu-34352 a {
-	background:url(../images/giveIcon.png) no-repeat left;
+	background:url("../images/giveIcon.png") no-repeat left;
 	padding-left:25px;
 	padding-right:40px;
 	border-right:#56585b solid 2px;
@@ -1341,82 +1341,82 @@ select {
 	color:#fff;
 }
 #dhtml_menu-34352 a:hover {
-	background:url(../images/giveIconHover.png) no-repeat left;
+	background:url("../images/giveIconHover.png") no-repeat left;
 	color:#000;
 }
 /*follow us*/
 #dhtml_menu-34355 a {
-	background:url(../images/followIcon.png) no-repeat center;
+	background:url("../images/followIcon.png") no-repeat center;
 	padding-left:30px;
 	padding-right:40px;
 	margin-right:0;
 	text-indent:0px;
 }
 #dhtml_menu-34355 a:hover {
-	background:url(../images/followIconHover.png) no-repeat center;
+	background:url("../images/followIconHover.png") no-repeat center;
 }
 /*news*/
 #dhtml_menu-34354 a {
-	background:url(../images/newsIcon.png) no-repeat center left;
+	background:url("../images/newsIcon.png") no-repeat center left;
 	border-right:#56585b solid 2px;
 	text-align:right;
 	width:120px;
 	text-indent:0px;
 }
 #dhtml_menu-34354 a:hover {
-	background:url(../images/newsIconHover.png) no-repeat center left;
+	background:url("../images/newsIconHover.png") no-repeat center left;
 }
 /*faculty staff*/
 #dhtml_menu-34353 a {
-	background:url(../images/facultyStaffIcon.png) no-repeat center left;
+	background:url("../images/facultyStaffIcon.png") no-repeat center left;
 	text-align:right;
 	width:168px;
 	text-indent:0px;
 }
 #dhtml_menu-34353 a:hover {
-	background:url(../images/facultyStaffIconHover.png) no-repeat center left;
+	background:url("../images/facultyStaffIconHover.png") no-repeat center left;
 }
 /*facebook*/
 #dhtml_menu-34356 a {
-	background:url(../images/facebookIcon.png) no-repeat center;
+	background:url("../images/facebookIcon.png") no-repeat center;
 	padding-left:0px;
 }
 #dhtml_menu-34356 a:hover {
-	background:url(../images/facebookIconHover.png) no-repeat center;
+	background:url("../images/facebookIconHover.png") no-repeat center;
 }
 /*twitter*/
 #dhtml_menu-34357 a {
-	background:url(../images/twitterIcon.png) no-repeat center;
+	background:url("../images/twitterIcon.png") no-repeat center;
 }
 #dhtml_menu-34357 a:hover {
-	background:url(../images/twitterIconHover.png) no-repeat center;
+	background:url("../images/twitterIconHover.png") no-repeat center;
 }
 /*youTube*/
 #dhtml_menu-34358 a {
-	background:url(../images/youTubeIcon.png) no-repeat center;
+	background:url("../images/youTubeIcon.png") no-repeat center;
 }
 #dhtml_menu-34358 a:hover {
-	background:url(../images/youTubeIconHover.png) no-repeat center;
+	background:url("../images/youTubeIconHover.png") no-repeat center;
 }
 /*flickr*/
 #dhtml_menu-34359 a {
-	background:url(../images/flickrIcon.png) no-repeat center;
+	background:url("../images/flickrIcon.png") no-repeat center;
 }
 #dhtml_menu-34359 a:hover {
-	background:url(../images/flickrIconHover.png) no-repeat center;
+	background:url("../images/flickrIconHover.png") no-repeat center;
 }
 /*blog*/
 #dhtml_menu-34360 a {
-	background:url(../images/blogIcon.png) no-repeat center;
+	background:url("../images/blogIcon.png") no-repeat center;
 }
 #dhtml_menu-34360 a:hover {
-	background:url(../images/blogIconHover.png) no-repeat center;
+	background:url("../images/blogIconHover.png") no-repeat center;
 }
 /*************************
  *  footer area  bottom  *
  *************************/
 footer#section-footer {
-	background:#202022 url(../images/bg-footer-first1.jpg) repeat-x top left;
+	background:#202022 url("../images/bg-footer-first1.jpg") repeat-x top left;
 }
 footer#section-footer h1, footer#section-footer h2, footer#section-footer h3, footer#section-footer h4, footer#section-footer h5, footer#section-footer h6 {
 	color:#fff;
@@ -1528,7 +1528,7 @@ footer#section-footer li a:hover {
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf')";
 	/* For IE 5.5 - 7 */
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf');
-	background:#fff url(../images/bg-audience.jpg) no-repeat bottom center;
+	background:#fff url("../images/bg-audience.jpg") no-repeat bottom center;
 }
 .pane-quicktabs-home-page-tabs .block-inner{
 	padding:20px;
@@ -1542,25 +1542,21 @@ footer#section-footer li a:hover {
  *  HOMEPAGE HEADER           *
  ******************************/
  
- /* 
- body.front {
- 	background:#f9f9f9 url("../images/home/bg-stripe-home.jpg") repeat-x top left;
- }
- */
  
  body.front div#page header#section-header {
  	margin:0 auto;
  	height: 450px;
- 	background: #47515b url(../images/home/big-image2.jpg) no-repeat top center;
+ 	background: #47515b url("../images/home/big-image2.jpg") no-repeat top center;
  }
  
  body.front section#section-content {
- 	background: transparent url(../images/home/convex-curve.png) no-repeat top center;
+ 	background: transparent url("../images/home/convex-curve.png") no-repeat top center;
  	margin:0 auto;
  	margin-top:-22px;
  }
  
- body.front #page header {  margin:0 auto; 
+ body.front #page header {  
+ 	margin:0 auto; 
  }
  
  body.front section#secton-content .zone-content-wrapper {
