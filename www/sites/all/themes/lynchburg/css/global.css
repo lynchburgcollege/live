@@ -1551,7 +1551,7 @@ footer#section-footer li a:hover {
  */
  body.front div#page header#section-header {
  	margin:0 auto;
- 	width:1500px;
+ 	/*width:1500px;*/
  	height: 450px;
  	background: #47515b url(../images/home/big-image2.jpg) no-repeat top center;
  }
