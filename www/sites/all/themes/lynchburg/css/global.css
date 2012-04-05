@@ -13,6 +13,7 @@ body {
 	line-height:16px;
 	background-color:#f9f9f9;
 	margin-top:-1px;
+	
 }
 
 .section-content {
@@ -1542,11 +1543,6 @@ footer#section-footer li a:hover {
  *  HOMEPAGE HEADER           *
  ******************************/
  
- /* 
- body.front {
- 	background:#f9f9f9 url("../images/home/bg-stripe-home.jpg") repeat-x top left;
- }
- */
  
  body.front div#page header#section-header {
  	margin:0 auto;
@@ -1566,3 +1562,10 @@ footer#section-footer li a:hover {
  body.front section#secton-content .zone-content-wrapper {
  	margin:0 auto;
  }
+ 
+  .front .section-header {
+	 background:url("../images/home/bg-stripe-home1.jpg") repeat-x top left;
+	
+ 	/* custom homepage background overrides the above default background ^ */
+ 	/* also add some more padding here */
+}
