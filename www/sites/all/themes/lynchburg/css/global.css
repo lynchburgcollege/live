@@ -1568,13 +1568,13 @@ table.footer-list tr:hover td,  table.footer-list tr.even:hover td.active,  tabl
  	background:transparent url("../images/home/big-image2.jpg") no-repeat top center;
  }
  
- .front .section .section-content {
+ .front .section-content {
  	background: transparent url("../images/home/convex-curve.png") no-repeat top center;
  	margin:0 auto;
  	margin-top:-22px;
  }
 
-.front .section-content {
+/*.front .section-content {
 	background:#f9f9f9 url("../images/bg2-home.jpg") no-repeat bottom center;
-}
+}*/
 
