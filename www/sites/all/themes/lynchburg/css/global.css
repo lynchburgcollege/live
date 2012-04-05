@@ -1458,6 +1458,10 @@ footer#section-footer li a:hover {
 	margin-right:25px;
 }
 
+table.footer-list {
+	border:none;
+	background:none;
+}
 
 
 /******************************
