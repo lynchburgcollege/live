@@ -1542,11 +1542,9 @@ footer#section-footer li a:hover {
  *  HOMEPAGE HEADER           *
  ******************************/
  
- /* 
  body.front {
- 	background:#f9f9f9 url("../images/home/bg-stripe-home.jpg") repeat-x top left;
+ 	background:#f9f9f9 url("../images/home/bg-stripe-home1.jpg") repeat-x top left;
  }
- */
  
  body.front div#page header#section-header {
  	margin:0 auto;
@@ -1560,7 +1558,8 @@ footer#section-footer li a:hover {
  	margin-top:-22px;
  }
  
- body.front #page header {  margin:0 auto; 
+ body.front #page header {  
+ 	margin:0 auto; 
  }
  
  body.front section#secton-content .zone-content-wrapper {
