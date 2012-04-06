@@ -141,6 +141,12 @@ body.front {
  * modified by KMB
  */
 
+.pane-jcarousel-article-rotation {
+	height:190px;
+	overflow:hidden;
+	margin-bottom:20px;
+}
+
 .jcarousel-skin-default {
   text-align: center;
   border:solid 1px #00f;
@@ -151,6 +157,7 @@ body.front {
   height: 182px;
   padding: 20px 40px;
   margin: auto;
+  overflow:hidden;
 }
 
 .jcarousel-skin-default .jcarousel-container-vertical {
@@ -189,7 +196,7 @@ body.front {
 }
 
 .jcarousel-skin-default .jcarousel-item-placeholder {
-  background: #fff url(throbber.gif) no-repeat center center;
+  background: #fff url("../images/throbber.gif") no-repeat center center;
   color: #000;
 }
 
@@ -201,7 +208,7 @@ body.front {
   display: block;
   width: 32px;
   height: 32px;
-  background-image: url(../images/home/arrows.png);
+  background-image: url("../images/home/arrows.png");
 }
 
 .jcarousel-skin-default .jcarousel-next-disabled,
@@ -287,9 +294,24 @@ body.front {
 /**
  * Content Items
  */
+ 
+.jcarousel li, .views-field-field-image {
+	width:280px;
+}
 
-div.views-field-title { display:none; }
+.jcarousel .views-field-field-image {
+}
 
-div.views-field-body { margin-top:-50px; }
+.jcarousel .views-field-field-image:hover {
+	margin-bottom:-75px;
+}
 
-.jcarousel .views-field-body .field-content p { display:inline; }
+.jcarousel .views-field-body {
+	margin-top:10px;
+	width:260px;
+	padding:10px;
+	background: url("../images/home/alpha-gray.png") repeat;
+	color:#fff;
+}
+
+.jcarousel .views-field-view-node { display:none; }
