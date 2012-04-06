@@ -8,35 +8,35 @@
  * CSS and icons by Nathan Haug.
  */
 
-.jcarousel-skin-default {
+.jcarousel-skin-lynchburg {
   text-align: center;
 }
 
-.jcarousel-skin-default .jcarousel-container-horizontal {
+.jcarousel-skin-lynchburg .jcarousel-container-horizontal {
   width: 890px;
   height: 182px;
   padding: 20px 40px;
   margin: auto;
 }
 
-.jcarousel-skin-default .jcarousel-container-vertical {
+.jcarousel-skin-lynchburg .jcarousel-container-vertical {
   width: 102px;
   height: 440px;
   padding: 40px 20px;
   margin: auto;
 }
 
-.jcarousel-skin-default .jcarousel-clip-horizontal {
+.jcarousel-skin-lynchburg .jcarousel-clip-horizontal {
   width: 890px;
   overflow: hidden;
 }
 
-.jcarousel-skin-default .jcarousel-clip-vertical {
+.jcarousel-skin-lynchburg .jcarousel-clip-vertical {
   height: 440px;
   overflow: hidden;
 }
 
-.jcarousel-skin-default .jcarousel-item {
+.jcarousel-skin-lynchburg .jcarousel-item {
   padding: 0;
   width: 268px;
   height: 180px;
@@ -46,15 +46,15 @@
   background: #fff none;
 }
 
-.jcarousel-skin-default .jcarousel-item-horizontal {
+.jcarousel-skin-lynchburg .jcarousel-item-horizontal {
   margin: 0 4px;
 }
 
-.jcarousel-skin-default .jcarousel-item-vertical {
+.jcarousel-skin-lynchburg .jcarousel-item-vertical {
   margin: 4px 0;
 }
 
-.jcarousel-skin-default .jcarousel-item-placeholder {
+.jcarousel-skin-lynchburg .jcarousel-item-placeholder {
   background: #fff url(throbber.gif) no-repeat center center;
   color: #000;
 }
@@ -62,90 +62,90 @@
 /**
  * Buttons
  */
-.jcarousel-skin-default .jcarousel-next,
-.jcarousel-skin-default .jcarousel-prev {
+.jcarousel-skin-lynchburg .jcarousel-next,
+.jcarousel-skin-lynchburg .jcarousel-prev {
   display: block;
   width: 32px;
   height: 32px;
   background-image: url(arrows.png);
 }
 
-.jcarousel-skin-default .jcarousel-next-disabled,
-.jcarousel-skin-default .jcarousel-prev-disabled {
+.jcarousel-skin-lynchburg .jcarousel-next-disabled,
+.jcarousel-skin-lynchburg .jcarousel-prev-disabled {
   display: none;
 }
 
 /**
  * Horizontal Buttons
  */
-.jcarousel-skin-default .jcarousel-prev-horizontal {
+.jcarousel-skin-lynchburg .jcarousel-prev-horizontal {
   position: absolute;
   top: 55px;
   left: 10px;
   background-position: 0 0;
 }
-.jcarousel-skin-default .jcarousel-prev-horizontal:hover {
+.jcarousel-skin-lynchburg .jcarousel-prev-horizontal:hover {
   background-position: -32px 0;
 }
-.jcarousel-skin-default .jcarousel-prev-horizontal:active {
+.jcarousel-skin-lynchburg .jcarousel-prev-horizontal:active {
   background-position: -64px 0;
 }
 
-.jcarousel-skin-default .jcarousel-next-horizontal {
+.jcarousel-skin-lynchburg .jcarousel-next-horizontal {
   position: absolute;
   top: 55px;
   right: 10px;
   background-position: 0 -32px;
 }
-.jcarousel-skin-default .jcarousel-next-horizontal:hover {
+.jcarousel-skin-lynchburg .jcarousel-next-horizontal:hover {
   background-position: -32px -32px;
 }
-.jcarousel-skin-default .jcarousel-next-horizontal:active {
+.jcarousel-skin-lynchburg .jcarousel-next-horizontal:active {
   background-position: -64px -32px;
 }
 
 /**
  * Vertical Buttons
  */
-.jcarousel-skin-default .jcarousel-prev-vertical {
+.jcarousel-skin-lynchburg .jcarousel-prev-vertical {
   position: absolute;
   top: 10px;
   left: 55px;
   background-position: 0 -64px;
 }
-.jcarousel-skin-default .jcarousel-prev-vertical:hover {
+.jcarousel-skin-lynchburg .jcarousel-prev-vertical:hover {
   background-position: -32px -64px;
 }
-.jcarousel-skin-default .jcarousel-prev-vertical:active {
+.jcarousel-skin-lynchburg .jcarousel-prev-vertical:active {
   background-position: -64px -64px;
 }
 
-.jcarousel-skin-default .jcarousel-next-vertical {
+.jcarousel-skin-lynchburg .jcarousel-next-vertical {
   position: absolute;
   bottom: 10px;
   left: 55px;
   background-position: 0 -96px;
 }
-.jcarousel-skin-default .jcarousel-next-vertical:hover {
+.jcarousel-skin-lynchburg .jcarousel-next-vertical:hover {
   background-position: -32px -96px;
 }
-.jcarousel-skin-default .jcarousel-next-vertical:active {
+.jcarousel-skin-lynchburg .jcarousel-next-vertical:active {
   background-position: -64px -96px;
 }
 
-.jcarousel-skin-default .jcarousel-navigation {
+.jcarousel-skin-lynchburg .jcarousel-navigation {
   margin: 0;
   padding: 0;
 }
 
-.jcarousel-skin-default .jcarousel-navigation li {
+.jcarousel-skin-lynchburg .jcarousel-navigation li {
   display: inline;
   margin: 0 2px 0 0;
   padding: 0;
   background: none;
 }
 
-.jcarousel-skin-default .jcarousel-navigation li.active a {
+.jcarousel-skin-lynchburg .jcarousel-navigation li.active a {
   font-weight: bold;
   text-decoration: none;
 }
