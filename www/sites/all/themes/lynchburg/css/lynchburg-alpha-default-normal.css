@@ -312,6 +312,7 @@ body.front {
 	padding:10px;
 	background: url("../images/home/alpha-gray.png") repeat;
 	color:#fff;
+	z-index:100;
 }
 
 .jcarousel .views-field-view-node { display:none; }
