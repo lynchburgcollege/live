@@ -310,7 +310,7 @@ body.front {
 	margin-top:10px;
 	width:260px;
 	padding:10px;
-	background: url("../images/home/alpha-gray.png") repeat;
+	background: url("../images/home/alpha-gray.png");
 	color:#fff;
 	z-index:100;
 }
