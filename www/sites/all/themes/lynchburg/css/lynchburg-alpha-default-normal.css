@@ -55,7 +55,7 @@ body.front {
 /**************************************
  *  HOMEPAGE SPECIFIC CONTENT STYLES  *
  *************************************/
-#quicktabs-home_page_tabs ul{
+#quicktabs-home_page_tabs ul, #whats-happening {
 	min-height:23px;
 	width:508px;
 	margin:0px;
@@ -110,7 +110,7 @@ body.front {
 #quicktabs-home_page_tabs li.active a{
 	color:#27282d;
 }
-.pane-quicktabs-home-page-tabs{
+.pane-quicktabs-home-page-tabs {
 	max-width:508px;
 	min-height:274px;
 	-moz-box-shadow: 3px 3px 4px #dddedf;
@@ -127,9 +127,28 @@ body.front {
 }
 
 
-
-
-
+.pane-1, .pane-1 pane-content, #whats-happening {
+	width:960px;
+	height:31px;
+	color:#f9f9f9;
+}
+#whats-happening h2 { 
+	float:left; 
+	height:31px;
+	color:#f9f9f9; 
+	font-size:14px;
+	margin:0px 0px 10px 10px;
+	}
+#whats-happening p { 
+	float:right; 
+	width:101px;
+	height:31px;
+	background: url("../images/home/bg-more-news.png") no-repeat top left;
+	color:#f9f9f9;
+	-webkit-margin-before:none;
+	-webkit-margin-after:none;
+	}
+#whats-happening p a { color:#f9f9f9; }
 
 
 /****************************************/
@@ -160,20 +179,8 @@ body.front {
   overflow:hidden;
 }
 
-.jcarousel-skin-default .jcarousel-container-vertical {
-  width: 890px;
-  height: 440px;
-  padding: 40px 20px;
-  margin: auto;
-}
-
 .jcarousel-skin-default .jcarousel-clip-horizontal {
   width: 890px;
-  overflow: hidden;
-}
-
-.jcarousel-skin-default .jcarousel-clip-vertical {
-  height: 440px;
   overflow: hidden;
 }
 
@@ -189,10 +196,6 @@ body.front {
 
 .jcarousel-skin-default .jcarousel-item-horizontal {
   margin: 0 4px;
-}
-
-.jcarousel-skin-default .jcarousel-item-vertical {
-  margin: 4px 0;
 }
 
 .jcarousel-skin-default .jcarousel-item-placeholder {
@@ -245,9 +248,58 @@ body.front {
   background-position: -64px -32px;
 }
 
+
+
+/**
+ * Content Items
+ */
+ 
+.jcarousel li, .views-field-field-image {
+	width:280px;
+	z-index:-100;
+}
+
+.jcarousel .views-field-field-image {
+}
+
+.jcarousel .views-field-field-image:hover {
+	margin-bottom:-75px;
+}
+
+.jcarousel .views-field-body {
+	margin-top:10px;
+	width:260px;
+	padding:10px;
+	background: url("../images/home/alpha-gray.png");
+	color:#fff;
+	z-index:100;
+}
+
+.jcarousel .views-field-view-node { display:none; }
+
+/****
+ * Verticle styles - not using 
+ */
+/*
+.jcarousel-skin-default .jcarousel-clip-vertical {
+  height: 440px;
+  overflow: hidden;
+}
+
+.jcarousel-skin-default .jcarousel-container-vertical {
+  width: 890px;
+  height: 440px;
+  padding: 40px 20px;
+  margin: auto;
+}
+
+.jcarousel-skin-default .jcarousel-item-vertical {
+  margin: 4px 0;
+}
+*/
 /**
  * Vertical Buttons
- */
+ *
 .jcarousel-skin-default .jcarousel-prev-vertical {
   position: absolute;
   top: 10px;
@@ -290,30 +342,4 @@ body.front {
   font-weight: bold;
   text-decoration: none;
 }
-
-/**
- * Content Items
- */
- 
-.jcarousel li, .views-field-field-image {
-	width:280px;
-	z-index:-100;
-}
-
-.jcarousel .views-field-field-image {
-}
-
-.jcarousel .views-field-field-image:hover {
-	margin-bottom:-75px;
-}
-
-.jcarousel .views-field-body {
-	margin-top:10px;
-	width:260px;
-	padding:10px;
-	background: url("../images/home/alpha-gray.png");
-	color:#fff;
-	z-index:100;
-}
-
-.jcarousel .views-field-view-node { display:none; }
+*/
