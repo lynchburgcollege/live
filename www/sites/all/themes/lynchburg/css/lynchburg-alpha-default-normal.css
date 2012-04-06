@@ -148,7 +148,12 @@ body.front {
 	-webkit-margin-before:none;
 	-webkit-margin-after:none;
 	}
-#whats-happening p a { color:#f9f9f9; }
+#whats-happening p a { 
+	color:#f9f9f9; 
+}
+#whats-happening p a:hover { 
+	text-decoration:underline; 
+}
 
 
 /****************************************/
