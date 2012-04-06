@@ -1,0 +1,18 @@
+Views Slideshow: Galleria 7.x-3.x, xxxx-xx-xx
+-----------------------
+- #1451604 by sgabe | coleman.sean.c: Fixed Advanced settings and custom theme
+  options aren't exportable.
+- #1437048 by sgabe: Added Handle version numbers in Galleria file paths.
+- #1443566 by carn1x: Fixed Theme path is wrong when using custom theme.
+- #1412824 by sgabe | mrupal: Fixed No 'Overlay opacity' when Lightbox is used.
+- #1399722 by gateone: Fixed Prepend base path to theme path.
+
+Views Slideshow: Galleria 7.x-3.0-alpha2, 2011-12-31
+-----------------------
+- #936480 by sgabe, mparker17: Fixed Some Galleria options expect JavaScript functions,
+  Drupal.settings gives string.
+- #1066836 by sgabe: Added option to strip images.
+
+Views Slideshow: Galleria 7.x-3.0-alpha1, 2011-12-29
+-----------------------
+- #934828 by vordude, sgabe: Fixed PHP Notices in views_slideshow_galleria.theme.inc.
