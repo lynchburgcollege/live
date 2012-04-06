@@ -297,6 +297,7 @@ body.front {
  
 .jcarousel li, .views-field-field-image {
 	width:280px;
+	z-index:-100;
 }
 
 .jcarousel .views-field-field-image {
