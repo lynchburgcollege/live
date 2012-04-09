@@ -14,6 +14,9 @@ body {
 	margin-top:-1px;
 }
 
+.float-left { float:left; }
+.float-right { float:right; }
+
 .section-content {
 	background:#f9f9f9 url("../images/bg3.jpg") no-repeat top center;
 	margin-top:-5px;
