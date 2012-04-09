@@ -1482,3 +1482,10 @@ table.footer-list, table.footer-list:hover {
 table.footer-list tr:hover td,  table.footer-list tr.even:hover td.active,  table.footer-list tr.odd:hover td.active {  background: transparent;  }
 
 
+
+
+/*****************************************
+ * Specific landing page styling         *
+*****************************************/
+
+.pane-2 .pane-content { width:40%; }
