@@ -75,8 +75,11 @@ body.front {
 	border-top-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 }
-.pane-quicktabs-undergraduate-admission-tabs .item-list ul, #quicktabs-library_tabs .item-list ul {
+.pane-quicktabs-undergraduate-admission-tabs .item-list ul {
 	width:380px;
+}
+#quicktabs-library_tabs .item-list ul {
+	width:460px;
 }
 #quicktabs-home_page_tabs li, .pane-quicktabs-undergraduate-admission-tabs li, #quicktabs-library_tabs li {
 	margin:0px;
@@ -129,11 +132,14 @@ body.front {
 .pane-quicktabs-home-page-tabs .block-inner, .pane-quicktabs-undergraduate-admission-tabs .block-inner, pane-quicktabs-library-tabs {
 	padding:20px;
 }
-.pane-quicktabs-undergraduate-admission-tabs, pane-quicktabs-library-tabs {
+.pane-quicktabs-undergraduate-admission-tabs {
 	width:380px;
 	max-width:380px;
 }
-
+pane-quicktabs-library-tabs {
+	width:460px;
+	max-width:460px;
+}
 .pane-1, .pane-1 pane-content, #whats-happening {
 	width:960px;
 	height:31px;
