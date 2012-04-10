@@ -28,6 +28,9 @@ div#region-user-second {
 	margin-bottom:5px;
 	border:solid 1px #000;
 }
+.view-news-stories-by-date .view-content .views-row {
+	margin-bottom:15px;
+}
 
 /*****************/
 /* footer region */
