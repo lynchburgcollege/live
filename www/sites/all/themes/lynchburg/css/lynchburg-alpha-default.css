@@ -18,6 +18,14 @@ div#region-user-second {
 	clear:both;
 }
 
+/****************
+* specific body styles *
+*****************/
+
+.news-page-thumbnail-image {
+	float:left;
+}
+
 /*****************/
 /* footer region */
 /*****************/
