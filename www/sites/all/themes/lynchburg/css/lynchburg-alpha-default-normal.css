@@ -81,6 +81,12 @@ body.front {
 #quicktabs-library_tabs .item-list ul {
 	width:460px;
 }
+#quicktabs-undergraduate_admission_tabs ul li {
+	background:none;
+}
+#quicktabs-undergraduate_admission_tabs ul li::after {
+	background:none;
+}
 #quicktabs-home_page_tabs li, #quicktabs-undergraduate_admission_tabs li, #quicktabs-library_tabs li {
 	margin:0px;
 	margin-left:5px;
