@@ -11,9 +11,11 @@ function lynchburg_lynchburg_12_threecol_3_6_3_panels_layouts() {
     'theme' => 'lynchburg_12_threecol_3_6_3',
     'admin css' => '../lynchburg_panels_admin_12.css',
     'regions' => array(
+      'top' => t('Top'),
       'left' => t('Left Column'),
       'main' => t('Main Content'),
       'right' => t('Right Column'),
+      'bottom' => t('Bottom'),
     ),
   );
 
