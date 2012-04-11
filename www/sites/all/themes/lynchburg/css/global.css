@@ -133,7 +133,7 @@ table {
 }
 
 
-/* ========== TEXT SELECTION STYLES ========== */
+/* ========== TEXT SELECTION STYLES ========== Commented out because they affected random pane text and made it invisible
 ::-moz-selection {
 color:#fff;
 background-color:#115482;
@@ -141,7 +141,9 @@ background-color:#115482;
 ::selection {
 	color:#fff;
 	background-color:#115482;
-}
+} */
+
+
 /* ========== LINK STYLES ========== */
 a:link {
 	text-decoration:none;
@@ -158,11 +160,15 @@ a, a:link, a:visited, a:focus a:active {
 	text-decoration:none;
 	outline:none;
 }
+
+
 /* ========== SEARCH ========== */
 .block-search{
 	float:right;
 	padding:20px 24px 0 0px;
 }
+
+
 /* ========== PARAGRAPH STYLES ========== */
 p {
 	margin:0 0 1.5em 0;
