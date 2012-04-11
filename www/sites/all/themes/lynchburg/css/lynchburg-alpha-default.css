@@ -31,6 +31,10 @@ div#region-user-second {
 .view-news-stories-by-date .view-content .views-row {
 	margin-bottom:20px;
 }
+#campus-life-left {
+	height:250px;
+	width:inherit;
+}
 
 /*****************/
 /* footer region */
