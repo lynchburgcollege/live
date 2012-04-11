@@ -35,7 +35,10 @@ div#region-user-second {
 	height:250px;
 	width:inherit;
 }
-
+#student-activities-left {
+	height:500px;
+	width:inherit;
+}
 /*****************/
 /* footer region */
 /*****************/
