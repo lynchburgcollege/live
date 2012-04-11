@@ -15,7 +15,7 @@ body {
 .zone-menu-wrapper {
 	margin-top: -60px;
 	background:none;
-	filter:none;
+	filter:none; 
 }
 
 #megamenu-studentlife {
@@ -143,6 +143,7 @@ body.front {
 .pane-quicktabs-undergraduate-admission-tabs {
 	width:380px;
 	max-width:380px;
+	margin-bottom:20px;
 }
 pane-quicktabs-library-tabs {
 	width:460px;
