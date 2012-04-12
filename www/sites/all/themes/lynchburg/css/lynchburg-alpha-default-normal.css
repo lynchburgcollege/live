@@ -149,7 +149,12 @@ pane-quicktabs-library-tabs {
 	width:460px;
 	max-width:460px;
 }
-.pane-1, .pane-1 pane-content, #whats-happening {
+
+/* commenting this out because it has messed up every pane-1 on the site terribly 
+.pane-1, .pane-1 pane-content, 
+*/
+
+#whats-happening {
 	width:960px;
 	height:31px;
 	color:#f9f9f9;
