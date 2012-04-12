@@ -10,6 +10,7 @@ body {
 	color:#6b6b6b;
 	font-size:12px;
 	line-height:16px;
+	background-color:#f9f9f9;
 	margin-top:-1px;
 }
 
@@ -43,18 +44,9 @@ body {
 	background: linear-gradient(top,  #eeeeee 0%,#f9f9f9 7%,#f9f9f9 91%,#e5e5e5 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
 }
-/*.lynchburg-main{
-	margin: 0 auto;
-	padding-bottom:50px;
+.lynchburg-main{
+	margin-bottom:80px;
 }
-.lynchburg-left-sidebar.equal-height-element{
-	background:url("../images/vertical_rig_right.png") repeat-y top right;
-	padding-right:20px;
-}
-.lynchburg-right-sidebar{
-	background:url("../images/vertical_rig_right.png") repeat-y top left;
-}
-*/
 
 /* ========== LOGO ========== */
 .region-branding {
@@ -102,7 +94,6 @@ ol.type-2 {
 }
 /* ========== UNORDERED LISTS ========== */
 ul.unordered li {
-	list-style:none;
 	padding-left: 2.1em;
 	background-position: 0 0.6em;
 	background-repeat: no-repeat;
@@ -127,7 +118,7 @@ table {
 }
 
 
-/* ========== TEXT SELECTION STYLES ========== Commented out because they affected random pane text and made it invisible
+/* ========== TEXT SELECTION STYLES ========== */
 ::-moz-selection {
 color:#fff;
 background-color:#115482;
@@ -135,7 +126,7 @@ background-color:#115482;
 ::selection {
 	color:#fff;
 	background-color:#115482;
-} */
+}
 /* ========== LINK STYLES ========== */
 a:link {
 	text-decoration:none;
@@ -154,12 +145,9 @@ a, a:link, a:visited, a:focus a:active {
 	text-decoration:none;
 	outline:none;
 }
-
-
-/* ========== SEARCH ========== */
-.block-search{
+.region-user-second-inner{
 	float:right;
-	padding:20px 24px 0 0px;
+	padding:20px 64px 0 0px;
 }
 /* ========== PARAGRAPH STYLES ========== */
 p {
@@ -168,6 +156,8 @@ p {
 }
 .lynchburg-main p a:link {
 	text-decoration: underline;
+	padding:0 3px 0 3px;
+	font-weight: bold;
 	}
 .lynchburg-main p a:hover, {
 	text-decoration:none;
@@ -272,9 +262,9 @@ ul.main-menu li {
 	margin-right:40px;
 }
 /*dropdown inside*/
-/*.panels-flexible-region-last{
+.panels-flexible-region-last{
 	border-left:#dddedf dotted 1px;
-	margin-bottom: -200px; 
+	margin-bottom: -200px; /*margins are necessary for border to extend full height of longest column*/
 	padding-bottom: 200px;
 }
 .panels-flexible-region-last{
@@ -288,10 +278,10 @@ ul.main-menu li {
 	-webkit-border-top-right-radius:8px;
 	-moz-border-radius-topleft:8px;
 	-webkit-border-top-left-radius:8px;
-}*/
+}
 
 
-.qtip-wrapper, /*.panels-flexible-region-inside-last*/ {
+.qtip-wrapper, .panels-flexible-region-inside-last {
 	-moz-box-shadow: 3px 3px 6px #dddedf;
 	-webkit-box-shadow: 3px 3px 6px #dddedf;
 	box-shadow: 3px 3px 6px #dddedf;
@@ -370,10 +360,10 @@ ul.jquerymenu li.parent span.closed  {
 ul.jquerymenu li.parent span.open {
 	background-position:3px -90px;
 }
-/*.lynchburg-right-sidebar {
+.lynchburg-right-sidebar {
 	margin:0px;
 	border-left:#e8e8e8 double 3px;
-	padding:0 0 0px 0px;
+	padding:0 0 30px 10px;
 }
 
 .lynchburg-left-sidebar{
@@ -381,14 +371,22 @@ ul.jquerymenu li.parent span.open {
 	overflow:visible;
 	margin:0px;
 	padding:0 10px 30px 0;
-}*/
+}
 
+
+.pane-node-field-links li {
+	padding:1em 0 1em 0;
+}
+.pane-node-field-links h2 {
+	margin-bottom:.5em;
+	margin-top:2em;
+}
 .lynchburg-right-sidebar ul, .lynchburg-left-sidebar .pane-content ul {
 	/*border:red  solid 1px;*/
 	background:url(../images/square_divider.png) repeat-x top;
-	padding-bottom:24px;
 }
 .lynchburg-right-sidebar ul li, .lynchburg-left-sidebar .pane-content ul li,
+/*related links*/
 .lynchburg-left-sidebar .pane-node-field-links .field-item{
 	background:url(../images/square_divider.png) repeat-x bottom;
 	padding:0.9em 4px 0.9em 1.5em;
@@ -419,7 +417,7 @@ ul.jquerymenu li.parent span.open {
 .lynchburg-right-sidebar li:hover:after, .lynchburg-right-sidebar li .after:hover, .lynchburg-left-sidebar .pane-content li:hover:after, .lynchburg-left-sidebar .pane-content li .after:hover {
 	background-position:0 0;
 }
-.lynchburg-left-sidebar h2 a {
+.lynchburg-left-sidebar h2 a:link {
 	font-size:15px;
 	background:none;
 	line-height:20px;
@@ -428,15 +426,8 @@ ul.jquerymenu li.parent span.open {
 }
 .lynchburg-left-sidebar h2 a:hover {
 	color:#242424;
-	text-decoration:underline;
 }
-.lynchburg-left-sidebar h2, .lynchburg-right-sidebar h2 {
-	font-size:15px; 
-	line-height:19px;
-	margin-bottom:.5em;
-	color:#242424;
-}
-.lynchburg-left-sidebar h3, .lynchburg-right-sidebar h3 {
+.lynchburg-left-sidebar .pane-title, h3, .lynchburg-right-sidebar .pane-title h3 {
 	color:#900900;
 }
 .lynchburg-left-sidebar h4, .lynchburg-right-sidebar h4 {
@@ -1454,37 +1445,18 @@ footer#section-footer li a:hover {
 }
 
 /* Flickrset */
-.footer-image {
-	margin:30px;
-	height:282px;
-	width:425px;
-	border:5px solid #e8e8e8;
-	-moz-border-radius:8px;
-	-webkit-border-radius:8px;
-	border-radius:8px;
-	border-collapse:inherit;
-	-moz-box-shadow:0 1px 3px #000;
-	-webkit-box-shadow:0 1px 3px #000;
-	box-shadow:0 1px 3px #000;
+.pane-flickrset iframe {
+  width: 500px !important;
+  height: 400px !important;
+}
+#mini-panel-lc_twitter_feed, .pane-photo-of-the-time{
+	margin-left:25px;
 }
 
 .pane-menu-menu-about-us, .pane-accreditation{
 	margin-right:25px;
 }
 
-table.footer-list, table.footer-list:hover {
-	border:none;
-	background:none;
-	margin:0;
-	-moz-border-radius:0;
-	-webkit-border-radius:0;
-	border-radius:0;
-	border-collapse:inherit;
-	-moz-box-shadow:none;
-	-webkit-box-shadow:none;
-	box-shadow:none;
-}
-table.footer-list tr:hover td,  table.footer-list tr.even:hover td.active,  table.footer-list tr.odd:hover td.active {  background: transparent;  }
 
 
 
