@@ -40,6 +40,11 @@ div#region-user-second {
 	width:inherit;
 	color:inherit;
 }
+
+.view-lc-events .view-content .views-row {
+	margin-bottom:8px;
+}
+
 /*****************/
 /* footer region */
 /*****************/
