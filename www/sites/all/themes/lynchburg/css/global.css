@@ -419,15 +419,6 @@ ul.jquerymenu li.parent span.open {
 .lynchburg-right-sidebar li:hover:after, .lynchburg-right-sidebar li .after:hover, .lynchburg-left-sidebar .pane-content li:hover:after, .lynchburg-left-sidebar .pane-content li .after:hover {
 	background-position:0 0;
 }
-li.parent.last.open ul, li.parent.open ul, li.parent.open li {
-	background-image:none;
-	line-height:15px;
-	padding:4px 0 4px 4px;
-	margin:0;
-}
-li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open ul li:after, li.parent.open ul li .after {
-	background-image:none;
-}
 .lynchburg-left-sidebar h2 a {
 	font-size:15px;
 	background:none;
@@ -453,7 +444,15 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	line-height:18px;
 	margin-bottom:0.2em;
 }
-
+li.parent.last.open ul, li.parent.open ul, li.parent.open li {
+	background-image:none;
+	line-height:15px;
+	padding:4px 0 4px 4px;
+	margin:0;
+}
+li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open ul li:after, li.parent.open ul li .after {
+	background-image:none;
+}
 /* ========== BLOCKQUOTES ========== */
 blockquote {
 	font-family: Georgia, "Times New Roman", Times, serif;
