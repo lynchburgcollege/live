@@ -114,7 +114,6 @@ body.front {
 }
 #quicktabs-home_page_tabs li:hover a, #quicktabs-undergraduate_admission_tabs li:hover a, #quicktabs-library_tabs li:hover a{
 	color:#27282d;
-
 }
 #quicktabs-home_page_tabs li.active, #quicktabs-undergraduate_admission_tabs li.active, #quicktabs-library_tabs li.active {
 	-webkit-border-top-right-radius:6px;
@@ -141,7 +140,7 @@ body.front {
 	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf');
 	background:#fff url("../images/bg-audience.jpg") no-repeat bottom center;
 }
-.pane-quicktabs-home-page-tabs .block-inner, .pane-quicktabs-undergraduate-admission-tabs .block-inner, pane-quicktabs-library-tabs {
+.pane-quicktabs-home-page-tabs .block-inner, .pane-quicktabs-undergraduate-admission-tabs .block-inner, .pane-quicktabs-library-tabs .block-inner{
 	padding:20px;
 }
 .pane-quicktabs-undergraduate-admission-tabs {
@@ -149,7 +148,7 @@ body.front {
 	max-width:380px;
 	margin-bottom:20px;
 }
-pane-quicktabs-library-tabs {
+.pane-quicktabs-library-tabs {
 	width:460px;
 	max-width:460px;
 }
