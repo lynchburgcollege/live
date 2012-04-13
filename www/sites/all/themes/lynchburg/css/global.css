@@ -449,6 +449,104 @@ li.parent.last.open ul, li.parent.open ul, li.parent.open li {
 li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open ul li:after, li.parent.open ul li .after {
 	background-image:none;
 }
+
+/* ========== PANEL STYLES ============ */
+
+/* custom lc-rounded style has border radius and rounded corners */
+.region-content .pane-plain-box-lc-rounded-pane,
+.region-content .region-plain-box-lc-rounded-region,
+.region-content .pane-plain-box-lc-rounded-pane .pane-content,
+.region-content .region-plain-box-lc-rounded-region .rounded-shadow-background {
+	-webkit-border-top-left-radius:9px;
+	-moz-border-radius-topleft:9px;
+	border-top-left-radius:9px;
+}
+.region-content .region-plain-box-lc-rounded-region,
+.region-content .pane-plain-box-lc-rounded-pane {
+	min-height: 100px;
+	padding:0;
+	margin:0;
+	position: relative;
+
+	-moz-box-shadow: 3px 3px 4px #dddedf;
+	-webkit-box-shadow: 3px 3px 4px #dddedf;
+	box-shadow: 3px 3px 4px #dddedf;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf')"; /* IE8 */
+	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf'); /* IE 5.5 - 7 */
+}
+.region-content .region-plain-box-lc-rounded-region .rounded-shadow-background,
+.region-content .pane-plain-box-lc-rounded-pane .pane-content {
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 74%, #f7f8fc 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(74%,#ffffff), color-stop(100%,#f7f8fc)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 74%,#f7f8fc 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 74%,#f7f8fc 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 74%,#f7f8fc 100%); /* IE10+ */
+	background: linear-gradient(top,  #ffffff 74%,#f7f8fc 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f8fc',GradientType=0 ); /* IE6-9 */
+}
+.region-content .region-plain-box-lc-rounded-region .lc-title-bar,
+.region-content .pane-plain-box-lc-rounded-pane .quicktabs-tabs {
+	-webkit-border-top-left-radius:9px;
+	-moz-border-radius-topleft:9px;
+	border-top-left-radius:9px;
+
+	-webkit-border-bottom-right-radius:9px;
+	-moz-border-radius-bottomright:9px;
+	border-bottom-right-radius:9px;
+}
+
+/* ========== QUICKTABS ============ */
+.region-content .lc-title-bar,
+.region-content .quicktabs-tabs{
+	min-height:23px;
+	margin:0px;
+	padding: 8px 2px 0;
+	background: #790600;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8f0900', endColorstr='#5a0500');
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8f0900), to(#5a0500), color-stop(.6, #790600));
+	background: -moz-linear-gradient(25% 87% 90deg, #5a0500, #790600, #8f0900 100%);
+}
+.region-content .quicktabs_main {
+	padding: 10px;
+	margin: 0;
+}
+.region-content .lc-title-bar,
+.region-content .lc-title-bar a,
+.region-content .lc-title-bar p,
+.region-content .lc-title-bar h2,
+.region-content .quicktabs-tabs a {
+	color:#f9f9f9;
+}
+.region-content .quicktabs-tabs li {
+	margin:0 0 0 5px;
+	padding:6px 9px 8px 9px;
+}
+.region-content .quicktabs-tabs li:hover {
+	-webkit-border-top-right-radius:6px;
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom:none;
+	background:#fff;
+}
+.region-content .quicktabs-tabs li.active {
+	-webkit-border-top-right-radius:6px;
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom:none;
+	background:#fff;
+}
+.region-content .quicktabs-tabs li:hover a,
+.region-content .quicktabs-tabs li.active a {
+	color:#27282d;
+}
+
 /* ========== BLOCKQUOTES ========== */
 blockquote {
 	font-family: Georgia, "Times New Roman", Times, serif;

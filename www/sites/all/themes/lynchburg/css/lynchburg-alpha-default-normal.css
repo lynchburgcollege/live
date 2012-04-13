@@ -63,114 +63,14 @@ body.front {
  * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
  **********************************************/
 
-/* custom lc-rounded style has border radius and rounded corners */
-.region-content .pane-plain-box-lc-rounded-pane,
-.region-content .region-plain-box-lc-rounded-region,
-.region-content .pane-plain-box-lc-rounded-pane .pane-content,
-.region-content .region-plain-box-lc-rounded-region .rounded-shadow-background {
-	-webkit-border-top-left-radius:9px;
-	-moz-border-radius-topleft:9px;
-	border-top-left-radius:9px;
-}
-
-.region-content .region-plain-box-lc-rounded-region,
-.region-content .pane-plain-box-lc-rounded-pane {
-	min-height: 100px;
-	padding:0;
-	margin:0;
-	position: relative;
-
-/* Shadow */
-	-moz-box-shadow: 3px 3px 4px #dddedf;
-	-webkit-box-shadow: 3px 3px 4px #dddedf;
-	box-shadow: 3px 3px 4px #dddedf;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf')"; /* IE8 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf'); /* IE 5.5 - 7 */
-}
-
-.region-content .region-plain-box-lc-rounded-region .rounded-shadow-background,
-.region-content .pane-plain-box-lc-rounded-pane .pane-content {
-/* background */
-	background: #ffffff; /* Old browsers */
-	background: -moz-linear-gradient(top,  #ffffff 74%, #f7f8fc 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(74%,#ffffff), color-stop(100%,#f7f8fc)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #ffffff 74%,#f7f8fc 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #ffffff 74%,#f7f8fc 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #ffffff 74%,#f7f8fc 100%); /* IE10+ */
-	background: linear-gradient(top,  #ffffff 74%,#f7f8fc 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f8fc',GradientType=0 ); /* IE6-9 */
-}
-
-/*
-.region-content .pane-plain-box-lc-rounded-pane:before,
-.region-content .pane-plain-box-lc-rounded-pane:after {
-	z-index: -1;
-	position: absolute;
-	content: "";
-	bottom: 15px;
-	left: 10px;
-	width: 50%;
-	top: 80%;
-	max-width:300px;
-	background: rgba(0, 0, 0, 0.7);
-	-webkit-box-shadow: 0 15px 10px rgba(0,0,0, 0.7);
-	-moz-box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
-	box-shadow: 0 15px 10px rgba(0, 0, 0, 0.7);
-	-webkit-transform: rotate(-3deg);
-	-moz-transform: rotate(-3deg);
-	-o-transform: rotate(-3deg);
-}
-
-.region-content .pane-plain-box-lc-rounded-pane:after {
-	-webkit-transform: rotate(3deg);
-	-moz-transform: rotate(3deg);
-	-o-transform: rotate(3deg);
-	right: 10px;
-	left: auto;
-}
-*/
-.region-content .region-plain-box-lc-rounded-region .lc-title-bar,
-.region-content .pane-plain-box-lc-rounded-pane .quicktabs-tabs {
-	-webkit-border-top-left-radius:9px;
-	-moz-border-radius-topleft:9px;
-	border-top-left-radius:9px;
-
-	-webkit-border-bottom-right-radius:9px;
-	-moz-border-radius-bottomright:9px;
-	border-bottom-right-radius:9px;
-}
-
-
-.front .region-content .lc-title-bar,
-.front .region-content .quicktabs-tabs/*,
-#quicktabs-undergraduate_admission_tabs .item-list ul*/{
-	min-height:23px;
-	margin:0px;
-	padding: 8px 2px 0;
-	/* for non-css3 browsers */
-	background: #790600;
-	/* for IE */
-	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8f0900', endColorstr='#5a0500');
-	/* for webkit browsers */
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8f0900), to(#5a0500), color-stop(.6, #790600));
-	/* for firefox 3.6+ */
-	background: -moz-linear-gradient(25% 87% 90deg, #5a0500, #790600, #8f0900 100%);
-}
-
-.front .region-content .lc-title-bar,
-.front .region-content .lc-title-bar a,
-.front .region-content .lc-title-bar p,
-.front .region-content .lc-title-bar h2,
-.front .region-content .quicktabs-tabs a {
-	color:#f9f9f9;
-}
-
-.front .region-content .quicktabs_main {
-	height:220px;
+/* A extra quicktabs content whitespace on normal view. */
+.region-content .quicktabs_main {
+	min-height:220px;
 	padding:20px;
 	margin:0;
 }
 
+/** Quicktab customizations for normal view ***/
 #quicktabs-undergraduate_admission_tabs .item-list ul {
 	width:380px;
 }
@@ -183,53 +83,6 @@ body.front {
 #quicktabs-undergraduate_admission_tabs ul li::after {
 	background:none;
 }
-#quicktabs-home_page_tabs li, #quicktabs-undergraduate_admission_tabs li, #quicktabs-library_tabs li {
-	margin:0px;
-	margin-left:5px;
-	padding:6px 9px 8px 9px;
-}
-#quicktabs-home_page_tabs li a:link, #quicktabs-undergraduate_admission_tabs li a:link, #quicktabs-library_tabs li a:link {
-	color:#fff;
-}
-#quicktabs-home_page_tabs li:hover, #quicktabs-undergraduate_admission_tabs li:hover, #quicktabs-library_tabs li:hover {
-	-webkit-border-top-right-radius:6px;
-	-webkit-border-top-left-radius: 6px;
-	-moz-border-radius-topleft: 6px;
-	-moz-border-radius-topright: 6px;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-	border-bottom:none;
-	background:#fff;
-}
-#quicktabs-home_page_tabs li:hover a, #quicktabs-undergraduate_admission_tabs li:hover a, #quicktabs-library_tabs li:hover a{
-	color:#27282d;
-}
-#quicktabs-home_page_tabs li.active, #quicktabs-undergraduate_admission_tabs li.active, #quicktabs-library_tabs li.active {
-	-webkit-border-top-right-radius:6px;
-	-webkit-border-top-left-radius: 6px;
-	-moz-border-radius-topleft: 6px;
-	-moz-border-radius-topright: 6px;
-	border-top-left-radius: 6px;
-	border-top-right-radius: 6px;
-	border-bottom:none;
-	background:#fff;
-}
-#quicktabs-home_page_tabs li.active a, #quicktabs-undergraduate_admission_tabs li.active a, #quicktabs-library_tabs li.active a {
-	color:#27282d;
-}
-/*
-.pane-quicktabs-home-page-tabs, .pane-quicktabs-undergraduate-admission-tabs, .pane-quicktabs-library-tabs {
-	max-width:508px;
-	min-height:274px;
-	-moz-box-shadow: 3px 3px 4px #dddedf;
-	-webkit-box-shadow: 3px 3px 4px #dddedf;
-	box-shadow: 3px 3px 4px #dddedf;
-	/* For IE 8 */
-/*	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf')";
-	/* For IE 5.5 - 7 */
-/*	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf');
-	background:#fff url("../images/bg-audience.jpg") no-repeat bottom center;
-}*/
 
 .pane-quicktabs-undergraduate-admission-tabs {
 	width:380px;
