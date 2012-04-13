@@ -35,15 +35,11 @@ body {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#840a0a', endColorstr='#360d08',GradientType=0 ); /* IE6-9 */
 }
 .zone-menu-wrapper {
-	background: #f9f9f9; /* Old browsers */
-	background: -moz-linear-gradient(top,  #eeeeee 0%, #f9f9f9 7%, #f9f9f9 91%, #e5e5e5 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#eeeeee), color-stop(7%,#f9f9f9), color-stop(91%,#f9f9f9), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #eeeeee 0%,#f9f9f9 7%,#f9f9f9 91%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #eeeeee 0%,#f9f9f9 7%,#f9f9f9 91%,#e5e5e5 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #eeeeee 0%,#f9f9f9 7%,#f9f9f9 91%,#e5e5e5 100%); /* IE10+ */
-	background: linear-gradient(top,  #eeeeee 0%,#f9f9f9 7%,#f9f9f9 91%,#e5e5e5 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#eeeeee', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+	border-top:#c3a7a3;
+	background:#fff url(../images/bg-header-nav-mobile.png) repeat-x bottom left;
+	padding: 3px 0 36px;
 }
+
 .lynchburg-main{
 	margin-bottom:80px;
 }
@@ -51,23 +47,17 @@ body {
 /* ========== LOGO ========== */
 .region-branding {
 	display:block;
-	width:353px;
-	height:137px;
-	margin:-30px 0 0 0;
 }
-
-.region-branding a{
-	display: block;
-	width: 100%;
-	height: 100%;
-	outline: none;
-}
-
 .logo-img {
-	display:block;
-	margin-right:0;
+	display: block;
+	margin: 0 auto;
+	float: none;
+	width:280px;
 	text-align:center;
-	width:100%;
+}
+.logo-img img {
+  margin-top: -10px;
+  margin-bottom: 10px;
 }
 /* ========== LIST STYLES ========== */
 ol, ul {
@@ -145,9 +135,9 @@ a, a:link, a:visited, a:focus a:active {
 	text-decoration:none;
 	outline:none;
 }
-.region-user-second-inner{
-	float:right;
-	padding:20px 64px 0 0px;
+.region-user-second-inner {
+	float: right;
+	padding: 20px 0 0 0px;
 }
 /* ========== PARAGRAPH STYLES ========== */
 p {
@@ -238,6 +228,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 ul.main-menu li {
 	padding:0;
+	float: left;
 }
 
 /* ========== MAIN NAV DROPDOWN ========== */
