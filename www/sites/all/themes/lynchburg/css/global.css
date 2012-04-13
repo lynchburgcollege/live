@@ -541,9 +541,10 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	border-top-right-radius: 6px;
 	border-bottom:none;
 	background:#fff;
+	color:#27282d;
 }
-.region-content .quicktabs-tabs li:hover a,
-.region-content .quicktabs-tabs li.active a {
+.region-content .quicktabs-tabs li.active a,
+.region-content .quicktabs-tabs li:hover a {
 	color:#27282d;
 }
 
