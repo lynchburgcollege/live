@@ -17,4 +17,6 @@
   position: relative;
   margin-left: -10px;
   margin-right: -10px;
+  zoom:1;
+  position:relative;
 }
