@@ -1,0 +1,10 @@
+
+# Ignore drushrc files, these should be symlinked to the appropriate 
+# environment settings in sites/*.com/
+/www/drushrc.php
+/www/sites/all/drush/drushrc.php
+
+# Ignore default settings.php, you may symlink this to the appropriate
+# environment settings in sites/*.com/settings.php
+/www/sites/default/settings.php
+
