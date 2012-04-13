@@ -9,6 +9,7 @@ body {
 	margin:0 auto;
 	padding:0;
 	background: transparent url(../images/bg-header-arch.jpg) no-repeat top center;
+	filter:none;
 }
 
 .region-user-second-inner {
