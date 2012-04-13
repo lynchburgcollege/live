@@ -743,14 +743,7 @@ blockquote {
 	margin-bottom:1em;
 	color:#858585;
 }
-/* ========== CALENDAR ========== */
-.view .date-nav-wrapper .date-nav {
-	margin-bottom: 5px;
-	min-height: 0px;
-}
-.view .date-nav-wrapper .date-prev {
-	right: auto;
-}
+
 /* ========== FEATURE TABLES ========== */
 table, table.feature_table {
 	background:#fff;
@@ -910,6 +903,61 @@ table.feature_table.table_red thead tr th.left_round {
 table.feature_table.table_red thead tr th.right_round {
 	border-right:1px solid #490101;
 }
+
+/* ========== CALENDAR ========== */
+.view .date-nav-wrapper .date-nav {
+	margin-bottom: 5px;
+	min-height: 0px;
+}
+.view .date-nav-wrapper .date-prev {
+	right: auto;
+}
+
+/* views calendar */
+.calendar-calendar table {
+	border:0;
+	-webkit-box-shadow:none;
+	-moz-box-shadow:none;
+	box-shadow:none;
+	-webkit-border-radius:0;
+	-moz-border-radius:0;
+	border-radius:0;
+	background: transparent;
+}
+.calendar-calendar tr {
+	background-color:transparent;
+}
+.calendar-calendar .mini td,
+.calendar-calendar table.mini td.empty {
+	text-align:center;
+	background:none;
+	border: 1px solid #e2e2e2;
+	border-left-color:#f2f3f8;
+	border-right-color:#f2f3f8;
+	border-bottom-width:0;
+	padding:.4em 0;
+}
+.calendar-calendar table.mini th.days {
+	background-color: transparent;
+	color: #777;
+	font-weight: 100;
+	border: 1px solid #828282;
+	border-width:0 0 1px 0;
+	padding:.5em 0;
+}
+.calendar-calendar .mini td.sat,
+.calendar-calendar .mini td.sun {
+	background:#d8d8da;
+	border-color:#f2f3f8;
+}
+.calendar-calendar .mini td.today {
+	color:#f9f9f9;
+	background: #790600;
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#8f0900', endColorstr='#5a0500');
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#8f0900), to(#5a0500), color-stop(.6, #790600));
+	background: -moz-linear-gradient(25% 87% 90deg, #5a0500, #790600, #8f0900 100%);
+}
+
 /* ========== EMPHASIS BOX STYLES ========== */
 .emphasis_box {
 	clear:both;
