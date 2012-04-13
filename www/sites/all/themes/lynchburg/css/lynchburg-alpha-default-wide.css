@@ -3,3 +3,9 @@
 #megamenu-studentlife {
 	margin-right: 480px;
 }
+.main-menu a {
+  padding: 7px 14px 8px;
+}
+#megamenu-apply, #megamenu-visit {
+  padding: 9px 21px 8px 30px;
+}
