@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Lynchburg Homepage feature.
+ */
+
+include_once('lc_homepage.features.inc');
