@@ -1,10 +1,10 @@
 /* This file will hold styles that are loaded using the same media query as the wide grid. */
 
-#megamenu-studentlife {
-	margin-right: 480px;
-}
 .main-menu a {
   padding: 7px 14px 8px;
+}
+#megamenu-studentlife {
+	margin-right: 480px;
 }
 #megamenu-apply, #megamenu-visit {
   padding: 9px 21px 8px 30px;
