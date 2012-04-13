@@ -13,12 +13,14 @@ body {
 }
 
 .region-user-second-inner {
-	float: right;
-	padding: 20px 64px 0 0px;
+	padding: 20px 0 0 10px;
+}
+
+.zone-branding {
+	height: 47px;
 }
 
 .zone-menu-wrapper {
-	margin-top: -33px;
 	background:none;
 	filter:none;
 	padding: 0;
