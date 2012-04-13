@@ -11,11 +11,16 @@ body {
 	background: transparent url("../images/bg-header-arch.jpg") no-repeat top center;
 }
 
+.region-user-second-inner {
+  float: right;
+  padding: 20px 64px 0 0px;
+}
 
 .zone-menu-wrapper {
-	margin-top: -60px;
+	margin-top: -33px;
 	background:none;
-	filter:none; 
+	filter:none;
+  padding: 0;
 }
 
 #megamenu-studentlife {
@@ -36,13 +41,13 @@ body.front {
 /*	 border:red solid 1px;*/
  	background: url("../images/home/bg-stripe-home1.jpg") repeat-x top left;
 }
- 
+
 .front .section-header {
  	margin:0 auto;
  	height: 450px;
  	background:transparent url("../images/home/big-image2.jpg") no-repeat top center;
  }
- 
+
 .front .section-content {
  	background: transparent url("../images/home/convex-curve.png") no-repeat top center;
  	margin:0 auto;
@@ -150,8 +155,8 @@ pane-quicktabs-library-tabs {
 	max-width:460px;
 }
 
-/* commenting this out because it has messed up every pane-1 on the site terribly 
-.pane-1, .pane-1 pane-content, 
+/* commenting this out because it has messed up every pane-1 on the site terribly
+.pane-1, .pane-1 pane-content,
 */
 
 #whats-happening {
@@ -159,15 +164,15 @@ pane-quicktabs-library-tabs {
 	height:31px;
 	color:#f9f9f9;
 }
-#whats-happening h2 { 
-	float:left; 
+#whats-happening h2 {
+	float:left;
 	height:31px;
-	color:#f9f9f9; 
+	color:#f9f9f9;
 	font-size:14px;
 	margin:0px 0px 10px 10px;
 	}
-#whats-happening p { 
-	float:right; 
+#whats-happening p {
+	float:right;
 	width:101px;
 	height:31px;
 	background: url("../images/home/bg-more-news.png") no-repeat top left;
@@ -175,11 +180,11 @@ pane-quicktabs-library-tabs {
 	-webkit-margin-before:none;
 	-webkit-margin-after:none;
 	}
-#whats-happening p a { 
-	color:#f9f9f9; 
+#whats-happening p a {
+	color:#f9f9f9;
 }
-#whats-happening p a:hover { 
-	text-decoration:underline; 
+#whats-happening p a:hover {
+	text-decoration:underline;
 }
 
 
@@ -285,7 +290,7 @@ pane-quicktabs-library-tabs {
 /**
  * Content Items
  */
- 
+
 .jcarousel li, .views-field-field-image {
 	width:280px;
 	z-index:-100;
@@ -310,7 +315,7 @@ pane-quicktabs-library-tabs {
 .jcarousel .views-field-view-node { display:none; }
 
 /****
- * Verticle styles - not using 
+ * Verticle styles - not using
  */
 /*
 .jcarousel-skin-default .jcarousel-clip-vertical {
