@@ -1,4 +1,7 @@
 
+# Ignore database snapshots.
+/assets/db_snapshot/*.gz
+
 # Ignore drushrc files, these should be symlinked to the appropriate 
 # environment settings in sites/*.com/
 /www/drushrc.php
