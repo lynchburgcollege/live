@@ -365,19 +365,18 @@ ul.jquerymenu li.parent span.closed  {
 ul.jquerymenu li.parent span.open {
 	background-position:3px -90px;
 }
-.lynchburg-right-sidebar {
-	margin:0px;
-	border-left:#e8e8e8 double 3px;
-	padding:0 0 30px 10px;
+.lynchburg-right-sidebar{
+	background:url(../images/vertical_rig_right.png) repeat-y top left;
 }
-
-.lynchburg-left-sidebar{
-	border-right:#e8e8e8 double 3px;
-	overflow:visible;
-	margin:0px;
-	padding:0 10px 30px 0;
+.lynchburg-left-sidebar {
+	background:url(../images/vertical_rig_left.png) repeat-y top right;
 }
-
+.lynchburg-right-sidebar .inside {
+	padding-left:20px;
+}
+.lynchburg-left-sidebar .inside {
+	padding-right:20px;
+}
 
 .pane-node-field-links li {
 	padding:1em 0 1em 0;
