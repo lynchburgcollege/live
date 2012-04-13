@@ -165,6 +165,12 @@ body.front {
 	color:#f9f9f9;
 }
 
+.front .region-content .quicktabs_main {
+	height:220px;
+	padding:20px;
+	margin:0;
+}
+
 #quicktabs-undergraduate_admission_tabs .item-list ul {
 	width:380px;
 }
@@ -224,9 +230,7 @@ body.front {
 /*	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf');
 	background:#fff url("../images/bg-audience.jpg") no-repeat bottom center;
 }*/
-.pane-quicktabs-home-page-tabs .block-inner, .pane-quicktabs-undergraduate-admission-tabs .block-inner, .pane-quicktabs-library-tabs .block-inner{
-	padding:20px;
-}
+
 .pane-quicktabs-undergraduate-admission-tabs {
 	width:380px;
 	max-width:380px;
@@ -236,10 +240,6 @@ body.front {
 	width:460px;
 	max-width:460px;
 }
-
-/* commenting this out because it has messed up every pane-1 on the site terribly
-.pane-1, .pane-1 pane-content,
-*/
 
 #whats-happening h2 {
 	float:left;
@@ -260,6 +260,10 @@ body.front {
 }
 #whats-happening ul a:hover {
 	text-decoration:underline;
+}
+
+.block-views-calendar-block-1 {
+	margin:0 15px;
 }
 
 /****************************************/
