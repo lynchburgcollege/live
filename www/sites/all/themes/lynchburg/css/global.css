@@ -24,6 +24,11 @@ body {
 .zone-content {
 	margin-top:30px;
 }
+
+.front .lynchburg-middle {
+	margin-top: 25px;
+	margin-bottom:25px;
+}
 .section-header {
 	background: #840a0a; /* Old browsers */
 	background: -moz-linear-gradient(top,  #840a0a 0%, #360d08 100%); /* FF3.6+ */
