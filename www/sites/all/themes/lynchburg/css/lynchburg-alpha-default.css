@@ -6,11 +6,11 @@
 /*****************/
 
 /* this should be unnecessary when we are done. */
-div.region-user-first-inner {
+.region-user-first-inner {
 	display:none;
 }
 
-div#region-user-second {
+.region-user-second {
 	height:30px;
 }
 

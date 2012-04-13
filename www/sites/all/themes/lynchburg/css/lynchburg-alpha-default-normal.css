@@ -1,14 +1,14 @@
 /* This file will hold styles that are loaded using the same media query as the normal grid. */
 
 body {
-	background: url("../images/bg-body-top3.jpg") repeat-x top left;
+	background: #f9f9f9 url(../images/bg-body-top3.jpg) repeat-x top left;
 }
 .section-header {
 	/*width:1500px;*/
 	height:142px;
 	margin:0 auto;
 	padding:0;
-	background: transparent url("../images/bg-header-arch.jpg") no-repeat top center;
+	background: transparent url(../images/bg-header-arch.jpg) no-repeat top center;
 }
 
 .region-user-second-inner {
@@ -38,18 +38,17 @@ h2.pane-title {
  ******************************/
 
 body.front {
-/*	 border:red solid 1px;*/
- 	background: url("../images/home/bg-stripe-home1.jpg") repeat-x top left;
+ 	background:#f9f9f9 url(../images/home/bg-stripe-home1.jpg) repeat-x top left;
 }
 
 .front .section-header {
  	margin:0 auto;
  	height: 450px;
- 	background:transparent url("../images/home/big-image2.jpg") no-repeat top center;
+ 	background:transparent url(../images/home/big-image2.jpg) no-repeat top center;
  }
 
 .front .section-content {
- 	background: transparent url("../images/home/convex-curve.png") no-repeat top center;
+ 	background: transparent url(../images/home/convex-curve.png) no-repeat top center;
  	margin:0 auto;
  	margin-top:-22px;
  }
@@ -175,7 +174,7 @@ pane-quicktabs-library-tabs {
 	float:right;
 	width:101px;
 	height:31px;
-	background: url("../images/home/bg-more-news.png") no-repeat top left;
+	background: url(../images/home/bg-more-news.png) no-repeat top left;
 	color:#f9f9f9;
 	-webkit-margin-before:none;
 	-webkit-margin-after:none;
@@ -307,7 +306,7 @@ pane-quicktabs-library-tabs {
 	margin-top:10px;
 	width:260px;
 	padding:10px;
-	background: url("../images/home/alpha-gray.png");
+	background: url(../images/home/alpha-gray.png);
 	color:#fff;
 	z-index:100;
 }
