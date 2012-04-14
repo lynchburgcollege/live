@@ -549,6 +549,28 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	color:#27282d;
 }
 
+/* ========== HOMEPAGE NEWS ======== */
+#whats-happening h2 {
+	float:left;
+	font-size:14px;
+	margin: 0px 0px 0 10px;
+	line-height: 1.2em;
+}
+#whats-happening ul {
+	position:absolute;
+	top:0;
+	right:0;
+	padding-left: 19px;
+	height:31px;
+	background: url(../images/home/bg-more-news.png) no-repeat top left;
+}
+#whats-happening ul a {
+	padding:2px 10px
+}
+#whats-happening ul a:hover {
+	text-decoration:underline;
+}
+
 /* ========== BLOCKQUOTES ========== */
 blockquote {
 	font-family: Georgia, "Times New Roman", Times, serif;
