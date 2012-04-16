@@ -54,7 +54,8 @@ body {
 }
 
 .lynchburg-main{
-	margin-bottom:80px;
+	margin: 0 auto;
+	padding-bottom:50px;
 }
 
 /* ========== LOGO ========== */
@@ -100,6 +101,7 @@ ol.type-2 {
 }
 /* ========== UNORDERED LISTS ========== */
 ul.unordered li {
+	list-style:none;
 	padding-left: 2.1em;
 	background-position: 0 0.6em;
 	background-repeat: no-repeat;
@@ -124,7 +126,7 @@ table {
 }
 
 
-/* ========== TEXT SELECTION STYLES ========== */
+/* ========== TEXT SELECTION STYLES ========== Commented out because they affected random pane text and made it invisible
 ::-moz-selection {
 color:#fff;
 background-color:#115482;
@@ -159,8 +161,6 @@ p {
 }
 .lynchburg-main p a:link {
 	text-decoration: underline;
-	padding:0 3px 0 3px;
-	font-weight: bold;
 	}
 .lynchburg-main p a:hover, {
 	text-decoration:none;
@@ -290,7 +290,7 @@ ul.main-menu li {
 }
 */
 
-.qtip-wrapper, /*.panels-flexible-region-inside-last*/ {
+.qtip-wrapper/*, .panels-flexible-region-inside-last*/ {
 	-moz-box-shadow: 3px 3px 6px #dddedf;
 	-webkit-box-shadow: 3px 3px 6px #dddedf;
 	box-shadow: 3px 3px 6px #dddedf;
@@ -397,6 +397,7 @@ ul.jquerymenu li.parent span.open {
 .lynchburg-right-sidebar ul, .lynchburg-left-sidebar .pane-content ul {
 	/*border:red  solid 1px;*/
 	background:url(../images/square_divider.png) repeat-x top;
+	padding-bottom:24px;
 }
 .lynchburg-right-sidebar ul li, .lynchburg-left-sidebar .pane-content ul li,
 /*related links*/
@@ -439,8 +440,16 @@ ul.jquerymenu li.parent span.open {
 }
 .lynchburg-left-sidebar h2 a:hover {
 	color:#242424;
+	text-decoration:underline;
 }
-.lynchburg-left-sidebar .pane-title, h3, .lynchburg-right-sidebar .pane-title h3 {
+.lynchburg-left-sidebar h2, .lynchburg-right-sidebar h2 {
+	font-size:15px;
+	line-height:19px;
+	margin-bottom:.5em;
+	color:#242424;
+}
+
+.lynchburg-left-sidebar h3, .lynchburg-right-sidebar h3 {
 	color:#900900;
 }
 .lynchburg-left-sidebar h4, .lynchburg-right-sidebar h4 {
@@ -1617,6 +1626,20 @@ footer#section-footer li a:hover {
 	color:#fff;
 	text-decoration:underline;
 	/*border:#0F0 solid 1px;*/
+}
+
+.footer-image {
+    margin:30px;
+    height:282px;
+    width:425px;
+    border:5px solid #e8e8e8;
+    -moz-border-radius:8px;
+    -webkit-border-radius:8px;
+    border-radius:8px;
+    border-collapse:inherit;
+    -moz-box-shadow:0 1px 3px #000;
+    -webkit-box-shadow:0 1px 3px #000;
+    box-shadow:0 1px 3px #000;
 }
 
 /* Flickrset */
