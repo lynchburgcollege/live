@@ -1629,17 +1629,17 @@ footer#section-footer li a:hover {
 }
 
 .footer-image {
-    margin:30px;
-    height:282px;
-    width:425px;
-    border:5px solid #e8e8e8;
-    -moz-border-radius:8px;
-    -webkit-border-radius:8px;
-    border-radius:8px;
-    border-collapse:inherit;
-    -moz-box-shadow:0 1px 3px #000;
-    -webkit-box-shadow:0 1px 3px #000;
-    box-shadow:0 1px 3px #000;
+	margin:30px;
+	height:282px;
+	width:425px;
+	border:5px solid #e8e8e8;
+	-moz-border-radius:8px;
+	-webkit-border-radius:8px;
+	border-radius:8px;
+	border-collapse:inherit;
+	-moz-box-shadow:0 1px 3px #000;
+	-webkit-box-shadow:0 1px 3px #000;
+	box-shadow:0 1px 3px #000;
 }
 
 /* Flickrset */
