@@ -45,8 +45,8 @@
 	margin-bottom:15px;
 }
 
-#tour-left { float:left; }
-#tour-middle { float:left; }
+#tour-left { float:left; margin-right:20px; }
+#tour-middle { float:left; margin-right:20px; }
 #tour-right {}
 
 /*****************/
