@@ -266,31 +266,7 @@ ul.main-menu li {
 	margin-right:40px;
 }
 /*dropdown inside*/
-
-/* The following code is very generic and dangerous.
-	 I'm leaving it here commented out until we figure
-	 out for what element it was intended. -- James
-
-.panels-flexible-region-last{
-	border-left:#dddedf dotted 1px;
-	margin-bottom: -200px;
-	padding-bottom: 200px;
-}
-.panels-flexible-region-last{
-	padding-left:5px;}
-
-.panels-flexible-region-inside-last {
-	background-color:#f4f4f4;
-	padding:20px 0 20px 20px;
-	margin:20px 0 0 10px;
-	-moz-border-radius-topright:8px;
-	-webkit-border-top-right-radius:8px;
-	-moz-border-radius-topleft:8px;
-	-webkit-border-top-left-radius:8px;
-}
-*/
-
-.qtip-wrapper/*, .panels-flexible-region-inside-last*/ {
+.qtip-wrapper {
 	-moz-box-shadow: 3px 3px 6px #dddedf;
 	-webkit-box-shadow: 3px 3px 6px #dddedf;
 	box-shadow: 3px 3px 6px #dddedf;
@@ -303,10 +279,6 @@ ul.main-menu li {
 	-moz-border-radius-bottomleft:8px;
 	-webkit-border-bottom-left-radius:8px;
 }
-/*.qtip-wrapper.qtip-contentWrapper{
-	border:#dddedf solid 3px;
-}*/
-
 #mini-panel-undergraduate_megamenu, #mini-panel-graduate_megamenu, #mini-panel-student_life_megamenu, #mini-panel-alumni_megamenu, #mini-panel-athletics_megamenu {
 	margin:20px;
 	line-height:14px;
@@ -318,8 +290,6 @@ ul.main-menu li {
 	color:#900900;
 }
 #mini-panel-undergraduate_megamenu ul, #mini-panel-graduate_megamenu ul, #mini-panel-student_life_megamenu ul, #mini-panel-alumni_megamen ul, #mini-panel-athletics_megamen ul {
-	/*list-style:none;*/
-	/*line=height:1em;*/
 	margin:0;
 	padding:0;
 }
@@ -395,11 +365,11 @@ ul.jquerymenu li.parent span.open {
 	margin-top:2em;
 }
 .lynchburg-right-sidebar ul, .lynchburg-left-sidebar .pane-content ul {
-	/*border:red  solid 1px;*/
 	background:url(../images/square_divider.png) repeat-x top;
 	padding-bottom:24px;
 }
 .lynchburg-right-sidebar ul li, .lynchburg-left-sidebar .pane-content ul li,
+
 /*related links*/
 .lynchburg-left-sidebar .pane-node-field-links .field-item{
 	background:url(../images/square_divider.png) repeat-x bottom;
@@ -408,11 +378,9 @@ ul.jquerymenu li.parent span.open {
 	list-style:none;
 	margin:0;
 }
-
-
 .lynchburg-right-sidebar ul a:link, .lynchburg-left-sidebar .pane-content ul a:link {
 	margin-left:6px;
-	}
+}
 
 .lynchburg-right-sidebar ul li:hover:after, lynchburg-right-sidebar ul li .after:hover, .lynchburg-left-sidebar .pane-content ul li:hover:after, .lynchburg-left-sidebar .pane-content ul li .after:hover {
 	background-position:0 0;
@@ -448,7 +416,6 @@ ul.jquerymenu li.parent span.open {
 	margin-bottom:.5em;
 	color:#242424;
 }
-
 .lynchburg-left-sidebar h3, .lynchburg-right-sidebar h3 {
 	color:#900900;
 }
@@ -484,8 +451,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	padding:0;
 	margin:0;
 	position: relative;
-
-	-moz-box-shadow: 3px 3px 4px #dddedf;
+    -moz-box-shadow: 3px 3px 4px #dddedf;
 	-webkit-box-shadow: 3px 3px 4px #dddedf;
 	box-shadow: 3px 3px 4px #dddedf;
 	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf')"; /* IE8 */
@@ -629,7 +595,6 @@ blockquote {
 }
 .image:hover, .imageTopLeft:hover, .imageTopRight:hover, .imageLeft:hover, .imageRight:hover, .imageCenter:hover {
 	background:#e0e1e0;
-	;
 	-moz-transition: all 0.2s linear 0s;
 	-webkit-transition: all 0.2s linear 0s;
 	-o-transition: all 0.2s linear 0s;
@@ -657,7 +622,7 @@ blockquote {
 /* ========== IMAGE CAPTION STYLES ========== */
 .caption {
 	clear:both;
-	padding-top:.5em;
+	padding-top:1.5em;
 	padding-bottom:1.5em;
 	/*margin-top:1.5em;*/
 	margin-bottom:2.5em;
@@ -723,8 +688,8 @@ blockquote {
 .quoteleft p, .quoteright p {
 	margin:0;
 }
-/* ----- Columns Styles ----- */
 
+/* ----- Columns Styles ----- */
 .columns, .columns2, .columns3, .columns4, .columns5, .columns6, .columns7, .columns8, .columns9, .columns10, .columns11, .columns12, .columns13, .columns14, .columns15, .columns16 {
 	width:auto;
 	margin-bottom:2em;
@@ -734,6 +699,7 @@ blockquote {
 	float:left;
 	position:relative;
 }
+
 /* ========== DROPCAPS ========== */
 .dropcap {
 	color: #5e5e5e;
@@ -799,6 +765,7 @@ blockquote {
 	top: 0;
 	width: 40px;
 }
+
 /* ========== DIVIDERS ========== */
 .divider_content {
 	background:url(../images/divider_content.png) no-repeat center;
@@ -849,6 +816,7 @@ blockquote {
 	line-height: 0;
 	width: 100%;
 }
+
 /* ========== BIO STYLES ========== */
 #bio {
 	background:url(../images/bg_bio.png) repeat-x left top #f0f0f0;
@@ -1014,7 +982,6 @@ table.feature_table.table_blue thead tr th.right_round {
 }
 /* --- Table Red --- */
 table.feature_table.table_red thead th {
-	/*background-position: 0 -226px;*/
 	font-size:16px;
 	border-right:1px solid #6d0903;
 	text-shadow:1px 1px #484848;
@@ -1124,8 +1091,8 @@ table.feature_table.table_red thead tr th.right_round {
 .emphasis-box .emphasis-title h2 a:hover, .emphasis-box .emphasis-title h3 a:hover {
 	color:#A1A1A1;
 }
-/* ----- Default Form Elements ----- */
 
+/* ----- Default Form Elements ----- */
 input, select, textarea {
 	font-size:12px;
 	font-family:Arial, Helvetica, sans-serif;
@@ -1158,6 +1125,7 @@ input:focus, select:focus, textarea:focus {
 select {
 	padding:1px;
 }
+
 /* ========== NOTIFICATIONS ========== */
 .info, .warnings, .errors, .success {
 	border:1px solid #d7d7d7;
@@ -1211,6 +1179,7 @@ select {
 .success {
 	color:#75bc16;
 }
+
 /* ========== BUTTONS ========== */
 .buttons {
 	width:300px;
@@ -1231,8 +1200,8 @@ select {
 	background-image: url(../images/buttons.png);
 	background-repeat:no-repeat;
 }
-/* ----- Styles for Buttons ----- */
 
+/* ----- Styles for Buttons ----- */
 .small_button_block .button {
 	margin:0 0.5em 1em 0;
 }
