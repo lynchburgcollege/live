@@ -165,8 +165,6 @@ p {
 .lynchburg-main p a:hover, {
 	text-decoration:none;
 	}
-
-
 strong {
 	color:#565656;
 }
@@ -379,7 +377,7 @@ ul.jquerymenu li.parent span.open {
 	margin:0;
 }
 .lynchburg-right-sidebar ul a:link, .lynchburg-left-sidebar .pane-content ul a:link {
-	margin-left:6px;
+	margin-left:0px;
 }
 
 .lynchburg-right-sidebar ul li:hover:after, lynchburg-right-sidebar ul li .after:hover, .lynchburg-left-sidebar .pane-content ul li:hover:after, .lynchburg-left-sidebar .pane-content ul li .after:hover {
