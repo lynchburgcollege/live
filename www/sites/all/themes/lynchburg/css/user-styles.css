@@ -32,13 +32,13 @@ ul.unordered li {
 	background-repeat: no-repeat;
 }
 ul.unordered.type-1 li {
-	background-image: url(../images/tick.png);
+	background-image: url("../images/tick.png");
 }
 ul.unordered.type-2 li {
-	background-image: url(../images/arrow_state_blue_right.png);
+	background-image: url("../images/arrow_state_blue_right.png");
 }
 ul.unordered.type-3 li {
-	background-image: url(../images/media_controls_forward_small.png);
+	background-image: url("../images/media_controls_forward_small.png");
 }
 ul.unordered.type-4 li {
 	background-image: none;
@@ -78,14 +78,14 @@ table {
 .image, .imageTopLeft, .imageTopRight, .imageLeft, .imageRight, .imageCenter {
 	padding:3px;
 	background:#fff;
-	-moz-box-shadow: 1px 2px 3px rgba(230, 230, 230, 0.8), -1px -1px 3px rgba(230, 230, 230, 0.8);
-	-webkit-box-shadow: 1px 2px 3px rgba(230, 230, 230, 0.8), -1px -1px 3px rgba(230, 230, 230, 0.8);
-	box-shadow: 1px 2px 3px rgba(230, 230, 230, 0.8), -1px -1px 3px rgba(230, 230, 230, 0.8);
+	-moz-box-shadow: 1px 2px 3px rgba(230, 230, 230, 0.8"), -1px -1px 3px rgba(230, 230, 230, 0.8");
+	-webkit-box-shadow: 1px 2px 3px rgba(230, 230, 230, 0.8"), -1px -1px 3px rgba(230, 230, 230, 0.8");
+	box-shadow: 1px 2px 3px rgba(230, 230, 230, 0.8"), -1px -1px 3px rgba(230, 230, 230, 0.8");
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url("js/PIE.htc");
 }
 .image:hover, .imageTopLeft:hover, .imageTopRight:hover, .imageLeft:hover, .imageRight:hover, .imageCenter:hover {
 	background:#e0e1e0;
@@ -160,7 +160,7 @@ table {
 	padding: 3px 0;
 }
 .dropcap2 {
-	background: url(../images/dropcapspot_2.png) no-repeat scroll 50% 50% transparent;
+	background: url("../images/dropcapspot_2.png") no-repeat scroll 50% 50% transparent;
 	color: #f0f0f0;
 	float: left;
 	text-shadow: none;
@@ -171,7 +171,7 @@ table {
 	text-align: center;
 }
 .dropcap3 {
-	background: url(../images/dropcap3.png) no-repeat scroll 50% 50% transparent;
+	background: url("../images/dropcap3.png") no-repeat scroll 50% 50% transparent;
 	color: #bfbfbf;
 	float: left;
 	clear:both;
@@ -182,7 +182,7 @@ table {
 	text-align: center;
 }
 .dropcapspot, .dropcapspot2 {
-	background: url(../images/dropcapspot_2.png) no-repeat scroll left center transparent;
+	background: url("../images/dropcapspot_2.png") no-repeat scroll left center transparent;
 	color: #FFFEFE;
 	display: block;
 	float: left;
@@ -200,7 +200,7 @@ table {
 	top:-6px;
 }
 .dropcapspot3 {
-	background: url(../images/dropcapspot3.png) no-repeat scroll left center transparent;
+	background: url("../images/dropcapspot3.png") no-repeat scroll left center transparent;
 	color: #FFFEFE;
 	display: block;
 	float: left;
@@ -218,13 +218,13 @@ table {
 
 /* ========== DIVIDERS ========== */
 .divider_content {
-	background:url(../images/divider_content.png) no-repeat center;
+	background:url("../images/divider_content.png") no-repeat center;
 	height:4px;
 	width:100%;
 	margin:30px 0 45px;
 }
 .divider_top {
-	background: url(../images/square_divider.png) repeat-x scroll center center transparent;
+	background: url("../images/square_divider.png") repeat-x scroll center center transparent;
 	clear: both;
 	position:relative;
 	display: block;
@@ -243,12 +243,12 @@ table {
 	top: 0;
 }
 .divider_bottom {
-	background:url(../images/bottom_line.png) no-repeat bottom center;
+	background:url("../images/bottom_line.png") no-repeat bottom center;
 	width:100%;
 	height:4px;
 }
 .divider_line {
-	background:url(../images/bottom_line.png) no-repeat center center;
+	background:url("../images/bottom_line.png") no-repeat center center;
 	width:100%;
 	margin:60px 0 50px;
 	height:4px;
@@ -269,7 +269,7 @@ table {
 
 /* ========== BIO STYLES ========== */
 #bio {
-	background:url(../images/bg_bio.png) repeat-x left top #f0f0f0;
+	background:url("../images/bg_bio.png") repeat-x left top #f0f0f0;
 	min-height:120px;
 	margin-top:3.4em;
 	padding:14px 20px;
@@ -281,7 +281,7 @@ table {
 	-webkit-box-shadow: 1px 2px 3px rgba(228,228,228,0.8);
 	box-shadow: 1px 2px 3px rgba(228,228,228,0.8);
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url("js/PIE.htc");
 }
 .bio_info {
 	overflow:hidden;
@@ -317,7 +317,7 @@ table {
 	box-shadow:0 1px 3px #e4e4e4;
 }
 .feature_table thead tr th, .table_grey thead tr th, table_dark thead tr th, .table_blue thead tr th, .table_red thead tr th {
-	/*background:url(../images/sprite_table.png) repeat-x #fff;*/
+	/*background:url("../images/sprite_table.png") repeat-x #fff;*/
 	border-right:1px solid #e7e7e7;
 }
 .feature_table thead tr th.left_round, .table_grey thead tr th.left_round, .table_dark thead tr th.left_round, .table_blue thead tr th.left_round, .table_red thead tr th.left_round {
@@ -526,7 +526,7 @@ table.table_red thead tr th.right_round {
 	border: 1px solid transparent;
 	vertical-align: baseline;
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url("js/PIE.htc");
 }
 .button:active {
 	top: 1px;
@@ -566,7 +566,7 @@ table.table_red thead tr th.right_round {
 	background: -o-linear-gradient(rgb(243,243,243), rgb(228,228,228));
 	/*	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f3f3f3', endColorstr='#e3e3e3');*/
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url("js/PIE.htc");
 }
 .dark {
 	color:#f1f1f1;
@@ -579,9 +579,9 @@ table.table_red thead tr th.right_round {
 	background: -webkit-gradient(linear, left top, left bottom, from(#4d4e4e), to(#262727));
 	background: -moz-linear-gradient(top, #4d4e4e, #262727);
 	background: -o-linear-gradient(rgb(78,78,78), rgb(38,38,38));
-	/*	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4d4e4e', endColorstr='#262727');*/
+	/*	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#4d4e4e', endColorstr='#262727'");*/
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url("js/PIE.htc");
 }
 .light {
 	color:#f1f1f1;
@@ -596,7 +596,7 @@ table.table_red thead tr th.right_round {
 	background: linear-gradient(top,  #f1f1f1 0%,#d9d9d9 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#d9d9d9',GradientType=0 ); /* IE6-9 */
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url("js/PIE.htc");
 }
 .red {
 	color:#f1f1f1;
@@ -611,7 +611,7 @@ table.table_red thead tr th.right_round {
 	background: linear-gradient(top,  #900900 0%,#560500 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#900900', endColorstr='#560500',GradientType=0 ); /* IE6-9 */
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url("js/PIE.htc");
 }
 .blue {
 	color:#f1f1f1;
@@ -626,7 +626,7 @@ table.table_red thead tr th.right_round {
 	background: linear-gradient(top,  #218bd5 0%,#125786 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#218bd5', endColorstr='#125786',GradientType=0 ); /* IE6-9 */
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url("js/PIE.htc");
 }
 .button:hover {
 	background: #f3f3f3;

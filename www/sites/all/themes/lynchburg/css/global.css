@@ -43,7 +43,7 @@ body {
 }
 .zone-menu-wrapper {
 	border-top:#c3a7a3;
-	background:#fff url(../images/bg-header-nav-mobile.png) repeat-x bottom left;
+	background:#fff url("../images/bg-header-nav-mobile.png") repeat-x bottom left;
 	padding: 3px 0 36px;
 }
 
@@ -290,7 +290,7 @@ ul.jquerymenu li span.parent {
 }
 ul.jquerymenu li.parent span.open,
 ul.jquerymenu li.parent span.closed  {
-	background:url(../images/circle_list.png?a) no-repeat 3px -60px;
+	background:url("../images/circle_list.png?a") no-repeat 3px -60px;
 	z-index:10;
 }
 ul.jquerymenu li.parent span.open {
@@ -298,10 +298,10 @@ ul.jquerymenu li.parent span.open {
 }
 
 .lynchburg-right-sidebar{
-	background:url(../images/vertical_rig_right.png) repeat-y top left;
+	background:url("../images/vertical_rig_right.png") repeat-y top left;
 }
 .lynchburg-left-sidebar {
-	background:url(../images/vertical_rig_left.png) repeat-y top right;
+	background:url("../images/vertical_rig_left.png") repeat-y top right;
 }
 .lynchburg-right-sidebar .inside {
 	padding-left:20px;
@@ -318,14 +318,14 @@ ul.jquerymenu li.parent span.open {
 	margin-top:2em;
 }
 .lynchburg-right-sidebar ul, .lynchburg-left-sidebar .pane-content ul {
-	background:url(../images/square_divider.png) repeat-x top;
+	background:url("../images/square_divider.png") repeat-x top;
 	padding-bottom:24px;
 }
 .lynchburg-right-sidebar ul li, .lynchburg-left-sidebar .pane-content ul li,
 
 /*related links*/
 .lynchburg-left-sidebar .pane-node-field-links .field-item{
-	background:url(../images/square_divider.png) repeat-x bottom;
+	background:url("../images/square_divider.png") repeat-x bottom;
 	padding:0.9em 4px 0.9em 1.5em;
 	position:relative;
 	list-style:none;
@@ -339,7 +339,7 @@ ul.jquerymenu li.parent span.open {
 	background-position:0 0;
 }
 .lynchburg-right-sidebar ul li:after, .lynchburg-right-sidebar ul li .after, .lynchburg-left-sidebar li:after, .lynchburg-left-sidebar li .after {
-	background:url(../images/circle_list.png?a) no-repeat 0 -30px;
+	background:url("../images/circle_list.png?a") no-repeat 0 -30px;
 	position:absolute;
 	content:"";
 	after:"&nbsp;";
@@ -490,7 +490,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	right:0;
 	padding-left: 19px;
 	height:31px;
-	background: url(../images/home/bg-more-news.png) no-repeat top left;
+	background: url("../images/home/bg-more-news.png") no-repeat top left;
 }
 #whats-happening ul a {
 	padding:2px 10px
@@ -656,7 +656,7 @@ form.email_updates input[type="text"] {
 }
 form.email_updates .submit {
 	font-family: 'Arimo', Arial, Verdana;
-	background:url(../images/dark_grey_button.png) repeat-x 0 0 #2c2d2d;
+	background:url("../images/dark_grey_button.png") repeat-x 0 0 #2c2d2d;
 	padding:6px 19px;
 	font-size:12px;
 	-moz-border-radius:4px;
@@ -790,7 +790,7 @@ form.email_updates .submit:hover {
 	-webkit-box-shadow:0 2px 2px rgba(228,228,228,1);
 	box-shadow:0 2px 2px rgba(228,228,228,1);
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url("js/PIE.htc");
 }
 .wp-pagenavi a:hover, .wp-pagenavi a:hover.page, .wp-pagenavi a.nextpostslink:hover, .wp-pagenavi span.current, .comments-navigation a:hover, .wp-pagenavi a:hover.first, .wp-pagenavi a:hover.last, .comments-navigation a:hover {
 	color:#636363;
@@ -801,18 +801,18 @@ form.email_updates .submit:hover {
 	font-size:1em;
 	color:#636363;
 	text-shadow:#fdfdfd 1px 1px 0;
-	background:url(../images/bg_pagenavi.png) repeat-x 0 -23px;
+	background:url("../images/bg_pagenavi.png") repeat-x 0 -23px;
 	-moz-box-shadow:0 2px 2px rgba(228,228,228,1);
 	-webkit-box-shadow:0 2px 2px rgba(228,228,228,1);
 	box-shadow:0 2px 2px rgba(228,228,228,1);
 	position:relative;
-	behavior: url(js/PIE.htc);
+	behavior: url("js/PIE.htc");
 }
 .wp-pagenavi a.first, .wp-pagenavi a.last, .wp-pagenavi a.previouspostslink, .wp-pagenavi a.nextpostslink {
 	font-size:1em;
 	color:#636363;
 	text-shadow:#fdfdfd 1px 1px 0;
-	background:url(../images/bg_pagenavi.png) repeat-x 0 0;
+	background:url("../images/bg_pagenavi.png") repeat-x 0 0;
 	-moz-box-shadow:0 2px 2px rgba(228,228,228,1);
 	-webkit-box-shadow:0 2px 2px rgba(228,228,228,1);
 	box-shadow:0 2px 2px rgba(228,228,228,1);
@@ -821,7 +821,7 @@ form.email_updates .submit:hover {
 	behavior: url(js/PIE.htc);
 }
 .wp-pagenavi a.nextpostslink em {
-	background:url(../images/nextpostlink.png) no-repeat 2px center;
+	background:url("../images/nextpostlink.png") no-repeat 2px center;
 	display:block;
 	height:23px;
 	width:6px
@@ -864,7 +864,7 @@ form.email_updates .submit:hover {
 	padding-left:0px;
 }
 #dhtml_menu-34352 a {
-	background:url(../images/giveIcon.png) no-repeat left;
+	background:url("../images/giveIcon.png") no-repeat left;
 	padding-left:25px;
 	padding-right:40px;
 	border-right:#56585b solid 2px;
@@ -873,82 +873,82 @@ form.email_updates .submit:hover {
 	color:#fff;
 }
 #dhtml_menu-34352 a:hover {
-	background:url(../images/giveIconHover.png) no-repeat left;
+	background:url("../images/giveIconHover.png") no-repeat left;
 	color:#000;
 }
 /*follow us*/
 #dhtml_menu-34355 a {
-	background:url(../images/followIcon.png) no-repeat center;
+	background:url("../images/followIcon.png") no-repeat center;
 	padding-left:30px;
 	padding-right:40px;
 	margin-right:0;
 	text-indent:0px;
 }
 #dhtml_menu-34355 a:hover {
-	background:url(../images/followIconHover.png) no-repeat center;
+	background:url("../images/followIconHover.png") no-repeat center;
 }
 /*news*/
 #dhtml_menu-34354 a {
-	background:url(../images/newsIcon.png) no-repeat center left;
+	background:url("../images/newsIcon.png") no-repeat center left;
 	border-right:#56585b solid 2px;
 	text-align:right;
 	width:120px;
 	text-indent:0px;
 }
 #dhtml_menu-34354 a:hover {
-	background:url(../images/newsIconHover.png) no-repeat center left;
+	background:url("../images/newsIconHover.png") no-repeat center left;
 }
 /*faculty staff*/
 #dhtml_menu-34353 a {
-	background:url(../images/facultyStaffIcon.png) no-repeat center left;
+	background:url("../images/facultyStaffIcon.png") no-repeat center left;
 	text-align:right;
 	width:168px;
 	text-indent:0px;
 }
 #dhtml_menu-34353 a:hover {
-	background:url(../images/facultyStaffIconHover.png) no-repeat center left;
+	background:url("../images/facultyStaffIconHover.png") no-repeat center left;
 }
 /*facebook*/
 #dhtml_menu-34356 a {
-	background:url(../images/facebookIcon.png) no-repeat center;
+	background:url("../images/facebookIcon.png") no-repeat center;
 	padding-left:0px;
 }
 #dhtml_menu-34356 a:hover {
-	background:url(../images/facebookIconHover.png) no-repeat center;
+	background:url("../images/facebookIconHover.png") no-repeat center;
 }
 /*twitter*/
 #dhtml_menu-34357 a {
-	background:url(../images/twitterIcon.png) no-repeat center;
+	background:url("../images/twitterIcon.png") no-repeat center;
 }
 #dhtml_menu-34357 a:hover {
-	background:url(../images/twitterIconHover.png) no-repeat center;
+	background:url("../images/twitterIconHover.png") no-repeat center;
 }
 /*youTube*/
 #dhtml_menu-34358 a {
-	background:url(../images/youTubeIcon.png) no-repeat center;
+	background:url("../images/youTubeIcon.png") no-repeat center;
 }
 #dhtml_menu-34358 a:hover {
-	background:url(../images/youTubeIconHover.png) no-repeat center;
+	background:url("../images/youTubeIconHover.png") no-repeat center;
 }
 /*flickr*/
 #dhtml_menu-34359 a {
-	background:url(../images/flickrIcon.png) no-repeat center;
+	background:url("../images/flickrIcon.png") no-repeat center;
 }
 #dhtml_menu-34359 a:hover {
-	background:url(../images/flickrIconHover.png) no-repeat center;
+	background:url("../images/flickrIconHover.png") no-repeat center;
 }
 /*blog*/
 #dhtml_menu-34360 a {
-	background:url(../images/blogIcon.png) no-repeat center;
+	background:url("../images/blogIcon.png") no-repeat center;
 }
 #dhtml_menu-34360 a:hover {
-	background:url(../images/blogIconHover.png) no-repeat center;
+	background:url("../images/blogIconHover.png") no-repeat center;
 }
 /*************************
  *  footer area  bottom  *
  *************************/
 footer#section-footer {
-	background:#202022 url(../images/bg-footer-first1.jpg) repeat-x top left;
+	background:#202022 url("../images/bg-footer-first1.jpg") repeat-x top left;
 }
 footer#section-footer h1, footer#section-footer h2, footer#section-footer h3, footer#section-footer h4, footer#section-footer h5, footer#section-footer h6 {
 	color:#fff;
