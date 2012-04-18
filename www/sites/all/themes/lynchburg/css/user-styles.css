@@ -294,7 +294,7 @@ table {
 }
 
 /* ========== FEATURE TABLES ========== */
-table, table.feature_table {
+table {
 	background:#fff;
 	margin:0 0 20px 0;
 	width:100%;
@@ -308,7 +308,7 @@ table, table.feature_table {
 	-webkit-box-shadow:0 1px 3px #e4e4e4;
 	box-shadow:0 1px 3px #e4e4e4;
 }
-table.feature_table thead tr {
+.feature_table thead tr, .table_grey thead tr, .table_dark thead tr, .table_blue thead tr, .table_red thead tr {
 	-moz-border-radius:8px;
 	-webkit-border-radius:8px;
 	border-radius:8px;
@@ -316,21 +316,21 @@ table.feature_table thead tr {
 	-webkit-box-shadow:0 1px 3px #e4e4e4;
 	box-shadow:0 1px 3px #e4e4e4;
 }
-table.feature_table thead tr th {
+.feature_table thead tr th, .table_grey thead tr th, table_dark thead tr th, .table_blue thead tr th, .table_red thead tr th {
 	/*background:url(../images/sprite_table.png) repeat-x #fff;*/
 	border-right:1px solid #e7e7e7;
 }
-table.feature_table thead tr th.left_round {
+.feature_table thead tr th.left_round, .table_grey thead tr th.left_round, .table_dark thead tr th.left_round, .table_blue thead tr th.left_round, .table_red thead tr th.left_round {
 	-moz-border-radius:8px 0 0 8px;
 	-webkit-border-radius:8px 0 0 8px;
 	border-radius:8px 0 0 8px;
 }
-table.feature_table thead tr th.right_round {
+.feature_table thead tr th.right_round, .table_grey thead tr th.right_round, .table_dark thead tr th.right_round, .table_blue thead tr th.right_round, .table_red thead tr th.right_round {
 	-moz-border-radius:0 8px 8px 0;
 	-webkit-border-radius:0 8px 8px 0;
 	border-radius:0 8px 8px 0;
 }
-.feature_table thead tr th {
+.feature_table thead tr th, .table_grey thead tr th, .table_dark thead tr th, .table_blue thead tr th, .table_red thead tr th {
 	font-family:Arial, Verdana;
 	padding:14px 20px 12px 20px;
 	font-size:16px;
@@ -341,7 +341,7 @@ table.feature_table thead tr th.right_round {
 	color:#6b6b6b;
 	margin:0;
 }
-table.feature_table tbody td {
+.feature_table tbody td, .table_grey tbody td, .table_dark tbody td, .table_blue tbody td, .table_red tbody td {
 	margin:0;
 	padding:10px 20px;
 	font-size:12px;
@@ -349,20 +349,20 @@ table.feature_table tbody td {
 	border-top:1px solid #f0f0f0;
 	border-right:1px solid #f0f0f0;
 }
-table.feature_table tbody tr:first-child td {
+.feature_table tbody tr:first-child td, .table-grey tbody tr:first-child td, .table-dark tbody tr:first-child td, .table_blue tbody tr:first-child td, .table_red tbody tr:first-child td {
 	border-top:none;
 }
-table.feature_table tbody tr td.noborder {
+.feature_table tbody tr td.noborder, .table_grey tbody tr td.noborder, .table-dark tbody tr td.noborder, .table_blue tbody tr td.noborder, .table_red tbody tr td.noborder {
 	border-right:none;
 }
-table.feature_table tbody tr:hover {
+.feature_table tbody tr:hover, .table_grey tbody tr:hover, .table_dark tbody tr:hover, .table_blue tbody tr:hover, .table_red tbody tr:hover {
 	background-color:#ececec;
 	-moz-transition: all 0.2s linear 0s;
 	-webkit-transition: all 0.2s linear 0s;
 	-o-transition: all 0.2s linear 0s;
 }
 
-table.feature_table tr:hover td,  table.feature_table tr.even:hover td.active,  table.feature_table tr.odd:hover td.active {
+.feature_table tr:hover td, .table_grey tr:hover td, .table_dark tr:hover td, .table_blue tr:hover td, .table_red tr:hover td,  .feature_table tr.even:hover td.active, .table_grey tr.even:hover td.active, .table_dark tr.even:hover td.active, .table_blue tr.even:hover td.active, .table_red tr.even:hover td.active, .feature_table tr.odd:hover td.active, .table.grey tr.odd:hover td.active, .table_dark tr.odd:hover td.active, .table_blue tr.odd:hover td.active, .table_red tr.odd:hover td.active {
 	background:#ececec;
 	-moz-transition: all 0.2s linear 0s;
 	-webkit-transition: all 0.2s linear 0s;
@@ -370,7 +370,7 @@ table.feature_table tr:hover td,  table.feature_table tr.even:hover td.active,  
 }
 
 /* --- Table Grey --- */
-table.feature_table.table_grey thead th {
+table.table_grey thead th {
 	/* for non-css3 browsers */
 	background: #d9d9d9;
 	/* for IE */
@@ -380,14 +380,14 @@ table.feature_table.table_grey thead th {
 	/* for firefox 3.6+ */
 	background: -moz-linear-gradient(25% 87% 90deg, #d9d9d9, #e9e9e9, #f1f1f1 100%);/*background-position: 0 0;*/
 }
-table.feature_table.table_grey thead tr th.left_round {
+table.table_grey thead tr th.left_round {
 	border-left:1px solid #f6f6f6;
 }
-table.feature_table.table_grey thead tr th.right_round {
+table.table_grey thead tr th.right_round {
 	border-right:1px solid #f6f6f6;
 }
 /* --- Table Dark --- */
-table.feature_table.table_dark thead th {
+table.table_dark thead th {
 	/*background-position: 0 -45px;*/
 	font-size:16px;
 	border-right:1px solid #595a5a;
@@ -402,14 +402,14 @@ table.feature_table.table_dark thead th {
 	/* for firefox 3.6+ */
 	background: -moz-linear-gradient(25% 87% 90deg, #323232, #5a5f63, #727b82 100%);
 }
-table.feature_table.table_dark thead tr th.left_round {
+table.table_dark thead tr th.left_round {
 	border-left:1px solid #2b2c2c;
 }
-table.feature_table.table_dark thead tr th.right_round {
+table.table_dark thead tr th.right_round {
 	border-right:1px solid #2b2c2c;
 }
 /* --- Table blue --- */
-table.feature_table.table_blue thead th {
+table.table_blue thead th {
 	/*background-position: 0 -181px;*/
 	font-size:16px;
 	border-right:1px solid #1369a4;
@@ -424,14 +424,14 @@ table.feature_table.table_blue thead th {
 	/* for firefox 3.6+ */
 	background: -moz-linear-gradient(25% 87% 90deg, #125889, #1b74b0, #2187cf 100%);/*background-position: 0 0;*/
 }
-table.feature_table.table_blue thead tr th.left_round {
+table.table_blue thead tr th.left_round {
 	border-left:1px solid #1369a4;
 }
-table.feature_table.table_blue thead tr th.right_round {
+table.table_blue thead tr th.right_round {
 	border-right:1px solid #1369a4;
 }
 /* --- Table Red --- */
-table.feature_table.table_red thead th {
+table.table_red thead th {
 	font-size:16px;
 	border-right:1px solid #6d0903;
 	text-shadow:1px 1px #484848;
@@ -445,10 +445,10 @@ table.feature_table.table_red thead th {
 	/* for firefox 3.6+ */
 	background: -moz-linear-gradient(25% 87% 90deg, #5a0500, #790600, #8f0900 100%);/*background-position: 0 0;*/
 }
-table.feature_table.table_red thead tr th.left_round {
+table.table_red thead tr th.left_round {
 	border-left:1px solid #490101;
 }
-table.feature_table.table_red thead tr th.right_round {
+table.table_red thead tr th.right_round {
 	border-right:1px solid #490101;
 }
 
