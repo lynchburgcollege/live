@@ -65,46 +65,12 @@
 /* footer region */
 /*****************/
 
-
-/*footer#section-footer a {
-	color:#b9b9b9;
-	text-decoration:none;
-}
-footer#section-footer a:hover {
-	color:#fff;
-	text-decoration:underline;
-}
-*/
 #region-footer-first, #region-footer-first div.content {
 	background:transparent;
 	height:60px;
 }
 
-/*.footer-bar-link {
-	display:inline-block;
-	border: #3F0 solid 1px;
-}
-.footer-bar-link a {
-	display:inline-block;
-	margin:20px ;
-}*/
-/*.give {
-	height:60px; width: 70px;
-	background: transparent url("/sites/all/themes/lynchburg/images/bg-give.png") no-repeat center;
-
-}
-.give:hover {
-	background: transparent url("/sites/all/themes/lynchburg/images/bg-give-hover.png") no-repeat center;
-}*/
-/*footer#section-footer span.give a {
-	color:#fff;
-}
-footer#section-footer span.give:hover a {
-	color:#000;
-}
-*/
 
 #region-footer-second {
 	clear:both;
-	/*background:#202022 url("/sites/all/themes/lynchburg/images/footerHighlight.jpg") no-repeat center;*/
 }
