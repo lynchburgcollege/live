@@ -456,8 +456,6 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	background: -ms-linear-gradient(top,  #ffffff 0%,#edeef2 100%); /* IE10+ */
 	background: linear-gradient(top,  #ffffff 0%,#edeef2 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 ); /* IE6-9 */
-
-
 }
 .region-content .lc-title-bar,
 .region-content .lc-title-bar a,
@@ -488,90 +486,6 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 .region-content .quicktabs-tabs li:hover a,
 .region-content .quicktabs-tabs li.active a{
 	color:#27282d;
-}
-
-/* ========== HOMEPAGE NEWS ======== */
-
-#whats-happening h2 {
-	float:left;
-	font-size:14px;
-	margin: 0px 0px 0 10px;
-	line-height: 1.2em;
-}
-#whats-happening {
-	height:23px;
-}
-#whats-happening ul{
-	padding-top:0px;
-}
-#whats-happening ul a {
-	color:#fff;
-	position:relative;
-	width:100px;
-	height:23px;
-	display:block;
-	background-image:url(../images/apply-visit.png);
-	background-position:right right;
-	padding:9px 0 0 50px;
-	-webkit-border-bottom-right-radius:9px;
-	-moz-border-radius-bottomright:9px;
-	border-bottom-right-radius:9px;
-	margin-left:790px;
-	margin-top:-14px;
-	
-}
-#whats-happening ul a:hover {
-	background-position:200px;
-	color:#000;
-	
-}
-
-/* ========== BLOCKQUOTES ========== */
-blockquote {
-	font-family: Georgia, "Times New Roman", Times, serif;
-	font-size:16px;
-	border-left:4px solid #115482;
-	font-style: italic;
-	color: #303030;
-	line-height:20px;
-	margin-bottom:1em;
-	padding:0 0 0 1em;
-
-}
-
-/* ========== FLOATING & ALIGNMENT ========== */
-.alignleft {
-	float: left;
-	margin-right:1.5em;
-}
-.alignleft20 {
-	float:left;
-	margin-right:20px;
-}
-.alignright {
-	float: right;
-	margin-left:1.5em;
-}
-.topmargin {
-	margin-top:10px;
-}
-.aligncenter, div.aligncenter {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
-}
-.quoteright {
-	float: right;
-	margin: 0 0 10px 30px;
-	width: 240px;
-}
-.quoteleft {
-	float: left;
-	margin: 0 30px 10px 0;
-	width: 240px;
-}
-.quoteleft p, .quoteright p {
-	margin:0;
 }
 /* ========== CALENDAR ========== */
 .view .date-nav-wrapper .date-nav {
@@ -627,6 +541,134 @@ blockquote {
 	background: -moz-linear-gradient(25% 87% 90deg, #5a0500, #790600, #8f0900 100%);
 }
 
+#quicktabs-event_calendar_tabs .quicktabs-tabs li:hover {
+	background:transparent;
+}
+#quicktabs-tab-event_calendar_tabs-1, #quicktabs-tab-event_calendar_tabs-2{
+	color:#ffffff;
+	position: relative;
+	text-align: left;
+	text-decoration: none;
+	background:transparent url("../images/apply-visit.png") 0 50%;
+	padding: 9px 20px 7px 25px;
+	border:none;
+	margin:0 0 0 -34px;
+	z-index: 99;
+}
+#quicktabs-tab-event_calendar_tabs-1:hover, #quicktabs-tab-event_calendar_tabs-2:hover{
+	background-position: -200px 50%;
+	background-color:transparent;
+	margin:0 0 0 -34px;
+	border:none;
+	border-radius:0;
+	color:#000;
+}
+
+#quicktabs-tab-event_calendar_tabs-2{
+	-webkit-border-bottom-right-radius:9px;
+	-moz-border-radius-bottomright:9px;
+	border-bottom-right-radius:9px;	
+	
+}
+#quicktabs-tab-event_calendar_tabs-2:hover{
+	-webkit-border-bottom-right-radius:9px;
+	-moz-border-radius-bottomright:9px;
+	border-bottom-right-radius:9px;		
+}
+#quicktabs-event_calendar_tabs .quicktabs-tabs #quicktabs-tab-event_calendar_tabs-1 {
+	margin-left:120px;
+}
+#quicktabs-event_calendar_tabs .quicktabs-tabs #quicktabs-tab-event_calendar_tabs-2 {
+	margin-left:-32px;
+}
+.last #quicktabs-tab-event_calendar_tabs-1,
+.last #quicktabs-tab-event_calendar_tabs-2 {
+	/* Because I wasnt sure which one would be last, this allows them to be switched */
+	z-index: 100;
+}
+
+/* ========== HOMEPAGE NEWS ======== */
+
+#whats-happening h2 {
+	float:left;
+	font-size:14px;
+	margin: 0px 0px 0 10px;
+	line-height: 1.2em;
+}
+#whats-happening {
+	height:23px;
+}
+#whats-happening ul{
+	padding-top:0px;
+}
+#whats-happening ul a {
+	color:#fff;
+	position:relative;
+	width:100px;
+	height:23px;
+	display:block;
+	background-image:url(../images/apply-visit.png);
+	background-position:right right;
+	padding:9px 0 0 50px;
+	-webkit-border-bottom-right-radius:9px;
+	-moz-border-radius-bottomright:9px;
+	border-bottom-right-radius:9px;
+	margin-left:790px;
+	margin-top:-14px;
+	
+}
+#whats-happening ul a:hover {
+	background-position:200px;
+	color:#000;
+	
+}
+/* ========== BLOCKQUOTES ========== */
+blockquote {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-size:16px;
+	border-left:4px solid #115482;
+	font-style: italic;
+	color: #303030;
+	line-height:20px;
+	margin-bottom:1em;
+	padding:0 0 0 1em;
+
+}
+
+/* ========== FLOATING & ALIGNMENT ========== */
+.alignleft {
+	float: left;
+	margin-right:1.5em;
+}
+.alignleft20 {
+	float:left;
+	margin-right:20px;
+}
+.alignright {
+	float: right;
+	margin-left:1.5em;
+}
+.topmargin {
+	margin-top:10px;
+}
+.aligncenter, div.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.quoteright {
+	float: right;
+	margin: 0 0 10px 30px;
+	width: 240px;
+}
+.quoteleft {
+	float: left;
+	margin: 0 30px 10px 0;
+	width: 240px;
+}
+.quoteleft p, .quoteright p {
+	margin:0;
+}
 
 /* ----- Default Form Elements ----- */
 input, select, textarea {
