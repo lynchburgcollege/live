@@ -19,9 +19,7 @@ body {
 .float-left { float:left; }
 .float-right { float:right; }
 
-.front .section-content {
-	border:blue solid 1px;
-}
+
 .section-content {
 	background:#f9f9f9 url("../images/bg3.jpg") no-repeat top center;
 	margin-top:-5px;

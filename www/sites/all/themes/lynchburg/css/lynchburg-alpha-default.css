@@ -16,7 +16,7 @@
 
 #section-content {
 	clear:both;
-}
+}*/
 
 /****************
 * specific body styles *
@@ -196,7 +196,7 @@ body.front {
 }
 
 .jcarousel-skin-default {
-	text-align: center;
+	text-align: left;
 	background: #ffffff; /* Old browsers */
 	background: -moz-linear-gradient(top,  #ffffff 0%, #edeef2 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#edeef2)); /* Chrome,Safari4+ */
@@ -208,8 +208,8 @@ body.front {
 }
 
 .jcarousel-skin-default .jcarousel-container-horizontal {
-	width: 860px;
-	height: 182px;
+	width: 850px;
+	height: 190px;
 	padding: 20px 40px 20px 40px;
 	margin: auto;
 	overflow:hidden;
@@ -235,7 +235,7 @@ body.front {
 }
 
 .jcarousel-skin-default .jcarousel-item-placeholder {
-	background: #fff url("../images/throbber.gif") no-repeat center center;
+	background: #fff url("../images/home/testImage.jpg") no-repeat center center;
 	color: #000;
 }
 
@@ -263,7 +263,7 @@ body.front {
 	top: 90px;
 	left: 10px;
 	background-position: 0 0;
-	margin-left:-10px;
+	margin-left:-15px;
 }
 .jcarousel-skin-default .jcarousel-prev-horizontal:hover {
 	background-position: -32px 0;
@@ -277,7 +277,7 @@ body.front {
 	top: 90px;
 	right: 10px;
 	background-position: 0 -32px;
-	margin-right:-10px;
+	margin-right:-15px;
 }
 .jcarousel-skin-default .jcarousel-next-horizontal:hover {
 	background-position: -32px -32px;
@@ -302,7 +302,7 @@ body.front {
 }
 
 .jcarousel .views-field-field-image:hover {
-	margin-bottom:-75px;
+	margin-bottom:-90px;
 }
 
 .jcarousel .views-field-body {
@@ -310,7 +310,7 @@ body.front {
 	width:260px;
 	padding:10px;
 	background: url(../images/home/alpha-gray.png);
-	color:#fff;
+	color:#c6c6c6;
 	z-index:100;
 }
 
