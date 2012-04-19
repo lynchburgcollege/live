@@ -541,10 +541,25 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	background: -moz-linear-gradient(25% 87% 90deg, #5a0500, #790600, #8f0900 100%);
 }
 
-#quicktabs-event_calendar_tabs .quicktabs-tabs li:hover {
+#quicktabs-event_calendar_tabs .quicktabs-tabs li:hover, #quicktabs-event_calendar_tabs .quicktabs-tabs li.active{
 	background:transparent;
 }
-#quicktabs-tab-event_calendar_tabs-1, #quicktabs-tab-event_calendar_tabs-2{
+.quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-0 {
+	margin:0 0 0 -10px;
+	padding:6px 9px 8px 9px;
+	zoom:1; /* Fix IE tab layout */
+	}
+.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-0 , .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-0 {
+	-webkit-border-top-right-radius:6px;
+	-webkit-border-top-left-radius: 6px;
+	-moz-border-radius-topleft: 6px;
+	-moz-border-radius-topright: 6px;
+	border-top-left-radius: 6px;
+	border-top-right-radius: 6px;
+	border-bottom:none;
+	background:#fff;
+}
+.quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-1, .quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-2{
 	color:#ffffff;
 	position: relative;
 	text-align: left;
@@ -555,7 +570,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	margin:0 0 0 -34px;
 	z-index: 99;
 }
-#quicktabs-tab-event_calendar_tabs-1:hover, #quicktabs-tab-event_calendar_tabs-2:hover{
+.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-1, .quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-2, .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-1, .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-2{
 	background-position: -200px 50%;
 	background-color:transparent;
 	margin:0 0 0 -34px;
@@ -576,7 +591,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	border-bottom-right-radius:9px;		
 }
 #quicktabs-event_calendar_tabs .quicktabs-tabs #quicktabs-tab-event_calendar_tabs-1 {
-	margin-left:120px;
+	margin-left:110px;
 }
 #quicktabs-event_calendar_tabs .quicktabs-tabs #quicktabs-tab-event_calendar_tabs-2 {
 	margin-left:-32px;
