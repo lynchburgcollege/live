@@ -579,13 +579,13 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	color:#000;
 }
 
-#quicktabs-tab-event_calendar_tabs-2{
+.quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-2{
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;	
 	
 }
-#quicktabs-tab-event_calendar_tabs-2:hover{
+.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-2, .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-2{
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;		
