@@ -191,7 +191,8 @@ body.front {
 .pane-jcarousel-article-rotation {
 	height:190px;
 	overflow:hidden;
-	padding-bottom:20px;
+	padding-bottom:30px;
+	/*border:solid 1px #00f;*/
 }
 
 .jcarousel-skin-default {
@@ -204,34 +205,33 @@ body.front {
 	background: -ms-linear-gradient(top,  #ffffff 0%,#edeef2 100%); /* IE10+ */
 	background: linear-gradient(top,  #ffffff 0%,#edeef2 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 ); /* IE6-9 */
-	/*border:solid 1px #00f;*/
 }
 
 .jcarousel-skin-default .jcarousel-container-horizontal {
-	width: 890px;
+	width: 860px;
 	height: 182px;
-	padding: 20px 40px;
+	padding: 20px 40px 20px 40px;
 	margin: auto;
 	overflow:hidden;
 }
 
 .jcarousel-skin-default .jcarousel-clip-horizontal {
-	width: 890px;
+	width: 850px;
 	overflow: hidden;
 }
 
 .jcarousel-skin-default .jcarousel-item {
 	padding: 0;
-	width: 268px;
 	height: 180px;
 	overflow: hidden;
-	border: 1px solid #CCC;
+	/*border: 1px solid #CCC;*/
 	list-style: none;
 	background: #fff none;
 }
 
 .jcarousel-skin-default .jcarousel-item-horizontal {
-	margin: 0 4px;
+	margin: 0 4px 0px 4px;
+	
 }
 
 .jcarousel-skin-default .jcarousel-item-placeholder {
@@ -245,8 +245,8 @@ body.front {
 .jcarousel-skin-default .jcarousel-next,
 .jcarousel-skin-default .jcarousel-prev {
 	display: block;
-	width: 32px;
-	height: 32px;
+	width: 33px;
+	height: 33px;
 	background-image: url("../images/home/arrows.png");
 }
 
@@ -260,9 +260,10 @@ body.front {
  */
 .jcarousel-skin-default .jcarousel-prev-horizontal {
 	position: absolute;
-	top: 55px;
+	top: 90px;
 	left: 10px;
 	background-position: 0 0;
+	margin-left:-10px;
 }
 .jcarousel-skin-default .jcarousel-prev-horizontal:hover {
 	background-position: -32px 0;
@@ -273,9 +274,10 @@ body.front {
 
 .jcarousel-skin-default .jcarousel-next-horizontal {
 	position: absolute;
-	top: 55px;
+	top: 90px;
 	right: 10px;
 	background-position: 0 -32px;
+	margin-right:-10px;
 }
 .jcarousel-skin-default .jcarousel-next-horizontal:hover {
 	background-position: -32px -32px;
@@ -291,11 +293,12 @@ body.front {
  */
 
 .jcarousel li, .views-field-field-image {
-	width:280px;
-	z-index:-1000;
+	width:260px;
+	z-index:-100;
 }
 
 .jcarousel .views-field-field-image {
+	border:none;
 }
 
 .jcarousel .views-field-field-image:hover {
@@ -312,71 +315,4 @@ body.front {
 }
 
 .jcarousel .views-field-view-node { display:none; }
-
-/****
- * Verticle styles - not using
- */
-/*
-.jcarousel-skin-default .jcarousel-clip-vertical {
-	height: 440px;
-	overflow: hidden;
-}
-
-.jcarousel-skin-default .jcarousel-container-vertical {
-	width: 890px;
-	height: 440px;
-	padding: 40px 20px;
-	margin: auto;
-}
-
-.jcarousel-skin-default .jcarousel-item-vertical {
-	margin: 4px 0;
-}
-*/
-/**
- * Vertical Buttons
- *
-.jcarousel-skin-default .jcarousel-prev-vertical {
-	position: absolute;
-	top: 10px;
-	left: 55px;
-	background-position: 0 -64px;
-}
-.jcarousel-skin-default .jcarousel-prev-vertical:hover {
-	background-position: -32px -64px;
-}
-.jcarousel-skin-default .jcarousel-prev-vertical:active {
-	background-position: -64px -64px;
-}
-
-.jcarousel-skin-default .jcarousel-next-vertical {
-	position: absolute;
-	bottom: 10px;
-	left: 55px;
-	background-position: 0 -96px;
-}
-.jcarousel-skin-default .jcarousel-next-vertical:hover {
-	background-position: -32px -96px;
-}
-.jcarousel-skin-default .jcarousel-next-vertical:active {
-	background-position: -64px -96px;
-}
-
-.jcarousel-skin-default .jcarousel-navigation {
-	margin: 0;
-	padding: 0;
-}
-
-.jcarousel-skin-default .jcarousel-navigation li {
-	display: inline;
-	margin: 0 2px 0 0;
-	padding: 0;
-	background: none;
-}
-
-.jcarousel-skin-default .jcarousel-navigation li.active a {
-	font-weight: bold;
-	text-decoration: none;
-}
-*/
 
