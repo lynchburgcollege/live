@@ -550,7 +550,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	text-align: left;
 	text-decoration: none;
 	background:transparent url("../images/apply-visit.png") 0 50%;
-	padding: 9px 20px 7px 25px;
+	padding: 9px 20px 8px 25px;
 	border:none;
 	margin:0 0 0 -34px;
 	z-index: 99;
