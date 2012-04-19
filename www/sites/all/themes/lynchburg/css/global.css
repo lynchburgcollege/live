@@ -300,9 +300,13 @@ ul.jquerymenu li.parent span.open {
 
 .lynchburg-right-sidebar{
 	background:url("../images/vertical_rig_right.png") repeat-y top left;
+	margin-top:-45px;
+	padding-top:45px;
 }
 .lynchburg-left-sidebar {
 	background:url("../images/vertical_rig_left.png") repeat-y top right;
+	margin-top:-45px;
+	padding-top:45px;
 }
 .lynchburg-right-sidebar .inside {
 	padding-left:20px;
@@ -617,7 +621,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 #whats-happening ul a {
 	color:#fff;
 	position:relative;
-	width:100px;
+	width:120px;
 	height:23px;
 	display:block;
 	background-image:url(../images/apply-visit.png);
@@ -626,7 +630,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;
-	margin-left:790px;
+	margin-left:770px;
 	margin-top:-15px;
 	
 }
