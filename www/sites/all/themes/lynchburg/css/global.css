@@ -7,6 +7,7 @@
 }*/
 
 /* ========== GENERAL STYLES ========== */
+
 body {
 	font-family:Arial, Helvetica, sans-serif;
 	color:#6b6b6b;
@@ -15,10 +16,12 @@ body {
 	background-color:#f9f9f9;
 	margin-top:-1px;
 }
-
 .float-left { float:left; }
 .float-right { float:right; }
 
+.front .section-content {
+	border:blue solid 1px;
+}
 .section-content {
 	background:#f9f9f9 url("../images/bg3.jpg") no-repeat top center;
 	margin-top:-5px;
@@ -445,6 +448,16 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 .region-content .quicktabs_main {
 	padding: 10px;
 	margin: 0;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #edeef2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#edeef2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#edeef2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#edeef2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#edeef2 100%); /* IE10+ */
+	background: linear-gradient(top,  #ffffff 0%,#edeef2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 ); /* IE6-9 */
+
+
 }
 .region-content .lc-title-bar,
 .region-content .lc-title-bar a,
@@ -478,25 +491,39 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 }
 
 /* ========== HOMEPAGE NEWS ======== */
+
 #whats-happening h2 {
 	float:left;
 	font-size:14px;
 	margin: 0px 0px 0 10px;
 	line-height: 1.2em;
 }
-#whats-happening ul {
-	position:absolute;
-	top:0;
-	right:0;
-	padding-left: 19px;
-	height:31px;
-	background: url("../images/home/bg-more-news.png") no-repeat top left;
+#whats-happening {
+	height:23px;
+}
+#whats-happening ul{
+	padding-top:0px;
 }
 #whats-happening ul a {
-	padding:2px 10px
+	color:#fff;
+	position:relative;
+	width:100px;
+	height:23px;
+	display:block;
+	background-image:url(../images/apply-visit.png);
+	background-position:right right;
+	padding:9px 0 0 50px;
+	-webkit-border-bottom-right-radius:9px;
+	-moz-border-radius-bottomright:9px;
+	border-bottom-right-radius:9px;
+	margin-left:790px;
+	margin-top:-14px;
+	
 }
 #whats-happening ul a:hover {
-	text-decoration:underline;
+	background-position:200px;
+	color:#000;
+	
 }
 
 /* ========== BLOCKQUOTES ========== */
