@@ -16,7 +16,7 @@
 
 #section-content {
 	clear:both;
-}
+}*/
 
 /****************
 * specific body styles *
@@ -26,7 +26,7 @@
 	float:left;
 	margin-right:10px;
 	margin-bottom:5px;
-	border:solid 1px #000;
+	/*border:solid 1px #000;*/
 }
 .view-news-stories-by-date .view-content .views-row {
 	margin-bottom:20px;
@@ -65,46 +65,254 @@
 /* footer region */
 /*****************/
 
-
-/*footer#section-footer a {
-	color:#b9b9b9;
-	text-decoration:none;
-}
-footer#section-footer a:hover {
-	color:#fff;
-	text-decoration:underline;
-}
-*/
 #region-footer-first, #region-footer-first div.content {
 	background:transparent;
 	height:60px;
 }
 
-/*.footer-bar-link {
-	display:inline-block;
-	border: #3F0 solid 1px;
-}
-.footer-bar-link a {
-	display:inline-block;
-	margin:20px ;
-}*/
-/*.give {
-	height:60px; width: 70px;
-	background: transparent url("/sites/all/themes/lynchburg/images/bg-give.png") no-repeat center;
-
-}
-.give:hover {
-	background: transparent url("/sites/all/themes/lynchburg/images/bg-give-hover.png") no-repeat center;
-}*/
-/*footer#section-footer span.give a {
-	color:#fff;
-}
-footer#section-footer span.give:hover a {
-	color:#000;
-}
-*/
 
 #region-footer-second {
 	clear:both;
-	/*background:#202022 url("/sites/all/themes/lynchburg/images/footerHighlight.jpg") no-repeat center;*/
 }
+
+/*moved over from normal.css*/
+/* This file will hold styles that are loaded using the same media query as the normal grid. */
+
+body {
+	background: #f9f9f9 url(../images/bg-body-top3.jpg) repeat-x top left;
+}
+.section-header {
+	/*width:1500px;*/
+	height:142px;
+	margin:0 auto;
+	padding:0;
+	background: transparent url(../images/bg-header-arch.jpg) no-repeat top center;
+	filter:none;
+}
+
+.region-user-second-inner {
+	padding: 20px 0 0 10px;
+}
+
+.zone-branding {
+	height: 47px;
+}
+
+.zone-menu-wrapper {
+	background:none;
+	filter:none;
+	padding: 0;
+}
+
+#megamenu-studentlife {
+	margin-right: 330px;
+}
+
+
+h2.pane-title {
+	font-size:20px;
+	line-height:24px;
+}
+
+/******************************
+ *  HOMEPAGE HEADER           *
+ ******************************/
+
+body.front {
+	background:#f9f9f9 url(../images/home/bg-stripe-home1.jpg) repeat-x top left;
+}
+
+.front .section-header {
+	margin:0 auto;
+	height: 450px;
+	background:transparent url(../images/home/big-image2.jpg) no-repeat top center;
+ }
+
+.front .section-content {
+	background: transparent url(../images/home/convex-curve.png) no-repeat top center;
+	margin:0 auto;
+	margin-top:-23px;
+ }
+
+.front .zone-content-wrapper {
+	background:#f9f9f9 url("../images/home/bg3-home.jpg") no-repeat bottom center;
+	margin-top:-8px;
+}
+
+
+
+/**********************************************
+ * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
+ **********************************************/
+
+/* A extra quicktabs content whitespace on normal view. */
+.region-content .quicktabs_main {
+	min-height:220px;
+	padding:20px;
+	margin:0;
+}
+
+/** Quicktab customizations for normal view ***/
+#quicktabs-undergraduate_admission_tabs .item-list ul {
+	width:380px;
+}
+#quicktabs-library_tabs .item-list ul {
+	width:460px;
+}
+#quicktabs-undergraduate_admission_tabs ul li {
+	background:none;
+}
+#quicktabs-undergraduate_admission_tabs ul li::after {
+	background:none;
+}
+
+.pane-quicktabs-undergraduate-admission-tabs {
+	width:380px;
+	max-width:380px;
+	margin-bottom:20px;
+}
+.pane-quicktabs-library-tabs {
+	width:460px;
+	max-width:460px;
+}
+
+.block-views-calendar-block-1 {
+	margin:0 15px;
+}
+
+/****************************************/
+/* JCarousel "What's Happening" Rotator */
+
+
+/**
+ * original CSS and icons by Nathan Haug, included with JCarousel plugin
+ * modified by KMB
+ */
+
+.pane-jcarousel-article-rotation {
+	height:190px;
+	overflow:hidden;
+	padding-bottom:30px;
+}
+
+.jcarousel-skin-default {
+	text-align: left;
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ffffff 0%, #edeef2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#edeef2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#edeef2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ffffff 0%,#edeef2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ffffff 0%,#edeef2 100%); /* IE10+ */
+	background: linear-gradient(top,  #ffffff 0%,#edeef2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 ); /* IE6-9 */
+}
+
+.jcarousel-skin-default .jcarousel-container-horizontal {
+	width: 850px;
+	height: 190px;
+	padding: 20px 40px 20px 40px;
+	margin: auto;
+	overflow:hidden;
+}
+
+.jcarousel-skin-default .jcarousel-clip-horizontal {
+	width: 850px;
+	overflow: hidden;
+}
+
+.jcarousel-skin-default .jcarousel-item {
+	padding: 0;
+	height: 180px;
+	overflow: hidden;
+	/*border: 1px solid #CCC;*/
+	list-style: none;
+	background: #fff none;
+}
+
+.jcarousel-skin-default .jcarousel-item-horizontal {
+	margin: 0 4px 0px 4px;
+	
+}
+
+.jcarousel-skin-default .jcarousel-item-placeholder {
+	background: #fff url("../images/home/testImage.jpg") no-repeat center center;
+	color: #000;
+}
+
+/**
+ * Buttons
+ */
+.jcarousel-skin-default .jcarousel-next,
+.jcarousel-skin-default .jcarousel-prev {
+	display: block;
+	width: 33px;
+	height: 33px;
+	background-image: url("../images/home/arrows.png");
+}
+
+.jcarousel-skin-default .jcarousel-next-disabled,
+.jcarousel-skin-default .jcarousel-prev-disabled {
+	display: none;
+}
+
+/**
+ * Horizontal Buttons
+ */
+.jcarousel-skin-default .jcarousel-prev-horizontal {
+	position: absolute;
+	top: 90px;
+	left: 10px;
+	background-position: 0 0;
+	margin-left:-15px;
+}
+.jcarousel-skin-default .jcarousel-prev-horizontal:hover {
+	background-position: -32px 0;
+}
+.jcarousel-skin-default .jcarousel-prev-horizontal:active {
+	background-position: -64px 0;
+}
+
+.jcarousel-skin-default .jcarousel-next-horizontal {
+	position: absolute;
+	top: 90px;
+	right: 10px;
+	background-position: 0 -32px;
+	margin-right:-15px;
+}
+.jcarousel-skin-default .jcarousel-next-horizontal:hover {
+	background-position: -32px -32px;
+}
+.jcarousel-skin-default .jcarousel-next-horizontal:active {
+	background-position: -64px -32px;
+}
+
+
+
+/**
+ * Content Items
+ */
+
+.jcarousel li, .views-field-field-image {
+	width:260px;
+	z-index:-100;
+}
+
+.jcarousel .views-field-field-image {
+	border:none;
+}
+
+.jcarousel .views-field-field-image:hover {
+	margin-bottom:-90px;
+}
+
+.jcarousel .views-field-body {
+	margin-top:10px;
+	width:260px;
+	padding:10px;
+	background: url(../images/home/alpha-gray.png);
+	color:#c6c6c6;
+	z-index:100;
+}
+
+.jcarousel .views-field-view-node { display:none; }
+
