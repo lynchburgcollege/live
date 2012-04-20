@@ -165,7 +165,7 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 /* ========== MAIN NAV ========== */
 #top-menu-center, #top-menu-left, #top-menu-right {
-	margin-top:8px;
+	margin:8px 0 0 0;
 }
 #mini-panel-sitewide_top_menu .menu a{
 	font-family:Arial, Helvetica, sans-serif;
@@ -203,7 +203,8 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	border-bottom:#dddedf solid 1px;
 	border-right:#dddedf solid 1px;
 	border-left:#dddedf solid 1px;
-	margin-left:1px;
+	margin:0;
+
 }
 .qtip a {
 		text-decoration:underline;
@@ -212,21 +213,10 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 		text-decoration:none;
 }
 .qtip ul li{
-	width:200px;
-	margin-left:0px;
 }
-.pane-menu-menu-academics, .pane-menu-menu-admission, .pane-menu-menu-financial-aid {
-	margin-right:40px;
-}
+
 /*dropdown inside*/
 .qtip-wrapper {
-	-moz-box-shadow: 3px 3px 6px #dddedf;
-	-webkit-box-shadow: 3px 3px 6px #dddedf;
-	box-shadow: 3px 3px 6px #dddedf;
-	/* For IE 8 */
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf')";
-	/* For IE 5.5 - 7 */
-	filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf');
 	-moz-border-radius-bottomright:8px;
 	-webkit-border-bottom-right-radius:8px;
 	-moz-border-radius-bottomleft:8px;
@@ -234,8 +224,8 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 #mini-panel-undergraduate_megamenu, #mini-panel-graduate_megamenu, #mini-panel-student_life_megamenu, #mini-panel-alumni_megamenu, #mini-panel-athletics_megamenu {
 	margin:20px;
-	line-height:14px;
-	font-size:1em;
+	line-height:16px;
+	font-size:12;
 }
 .menu-minipanels .pane-title, .pane-node-field-links .pane-title {
 	font-size:1.333em;
@@ -248,7 +238,9 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 }
 #mini-panel-undergraduate_megamenu li, #mini-panel-graduate_megamenu li, #mini-panel-student_life_megamenu li, #mini-panel-alumni_megamen li, #mini-panel-athletics_megamen li {
 	list-style:none;
-	padding:10px 40px 0 0;
+	line-height:16px;
+	padding:4px 0px;
+	
 }
 
 #mini-panel-sitewide_top_menu #apply,
@@ -258,10 +250,13 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	text-align: left;
 	text-decoration: none;
 	background:transparent url("../images/apply-visit.png") 0 50%;
-	padding: 9px 20px 7px 30px;
+	padding:8px 20px 7px 30px;
 	border:none;
-	margin:0 0 0 -14px;
+	margin:0;
 	z-index: 99;
+}
+#mini-panel-sitewide_top_menu #visit {
+	margin:0 0 0 -13px;
 }
 #mini-panel-sitewide_top_menu #apply:hover,
 #mini-panel-sitewide_top_menu  #visit:hover,
@@ -269,12 +264,14 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 #mini-panel-sitewide_top_menu  #visit.qtip-hover  {
 	background-position: -200px 50%;
 	background-color:transparent;
-	margin:0 0 0 -14px;
+	margin:0;
 	border:none;
 	border-radius:0;
 	color:#000;
 }
-
+#mini-panel-sitewide_top_menu #visit:hover, #mini-panel-sitewide_top_menu  #visit.qtip-hover {
+	margin:0 0 0 -13px;
+}
 .last #mini-panel-sitewide_top_menu  #apply,
 .last #mini-panel-sitewide_top_menu  #visit {
 	/* Because I wasnt sure which one would be last, this allows them to be switched */
@@ -324,7 +321,6 @@ ul.jquerymenu li.parent span.open {
 	padding-bottom:24px;
 }
 .lynchburg-right-sidebar ul li, .lynchburg-left-sidebar .pane-content ul li,
-
 /*related links*/
 .lynchburg-left-sidebar .pane-node-field-links .field-item{
 	background:url("../images/square_divider.png") repeat-x bottom;
