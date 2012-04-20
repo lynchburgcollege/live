@@ -164,24 +164,18 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	text-decoration:none;
 }
 /* ========== MAIN NAV ========== */
-/*.block-sitewide-top-menu .grid-4{
-	min-width:400px;
-	
-}*/
-
+#top-menu-center, #top-menu-left, #top-menu-right {
+	margin-top:9px;
+}
 #mini-panel-sitewide_top_menu .menu a{
 	font-family:Arial, Helvetica, sans-serif;
 	font-size:15px;
 	color:#454545;
-	margin-top:8px;
-	padding:6px 6px 7px 6px;
-	border: solid 1px transparent
-	
+	padding:6px 6px 0px 6px;
+	border: solid 1px transparent;
 }
 
-#mini-panel-sitewide_top_menu  .menu .active {
-	
-}
+#mini-panel-sitewide_top_menu  .menu .active {}
 #mini-panel-sitewide_top_menu  .menu a:hover {
 	color:#454545;
 }
@@ -194,8 +188,6 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	border-top-right-radius: 3px;
 	border:1px solid #dddedf;
 	border-bottom:none;
-	margin:0px;
-	padding-bottom:9px;
 	background:#fff;
 	color:#454545;
 }
