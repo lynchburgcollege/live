@@ -131,11 +131,12 @@ body.front {
 .front .section-content {
 	background: transparent url(../images/home/convex-curve.png) no-repeat top center;
 	margin:0 auto;
-	margin-top:-22px;
+	margin-top:-23px;
  }
 
 .front .zone-content-wrapper {
-	background:#f9f9f9 url("../images/bg3.jpg") no-repeat bottom center;
+	background:#f9f9f9 url("../images/home/bg3-home.jpg") no-repeat bottom center;
+	margin-top:-8px;
 }
 
 
@@ -192,7 +193,6 @@ body.front {
 	height:190px;
 	overflow:hidden;
 	padding-bottom:30px;
-	/*border:solid 1px #00f;*/
 }
 
 .jcarousel-skin-default {

@@ -21,7 +21,7 @@ body {
 
 
 .section-content {
-	background:#f9f9f9 url("../images/bg3.jpg") no-repeat top center;
+	background:#f9f9f9 url("../images/bg1.jpg") no-repeat top center;
 	margin-top:-5px;
 }
 .zone-content {
@@ -29,8 +29,8 @@ body {
 }
 
 .front .lynchburg-middle {
-	margin-top: 25px;
-	margin-bottom:25px;
+	margin-top: 30px;
+	margin-bottom:40px;
 }
 .section-header {
 	background: #840a0a; /* Old browsers */
@@ -300,14 +300,14 @@ ul.jquerymenu li.parent span.open {
 
 .lynchburg-right-sidebar{
 	background:url("../images/vertical_rig_right.png") repeat-y top left;
-	margin-top:-45px;
+/*	margin-top:-45px;
 	padding-top:45px;
-}
+*/}
 .lynchburg-left-sidebar {
 	background:url("../images/vertical_rig_left.png") repeat-y top right;
-	margin-top:-45px;
+/*	margin-top:-45px;
 	padding-top:45px;
-}
+*/}
 .lynchburg-right-sidebar .inside {
 	padding-left:20px;
 }
@@ -435,7 +435,9 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;
 }
-
+#home{
+	margin-top:20px;
+}
 /* ========== QUICKTABS ============ */
 .region-content .lc-title-bar,
 .region-content .quicktabs-tabs{
