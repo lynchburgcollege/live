@@ -396,16 +396,19 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	-moz-border-radius-topleft:9px;
 	border-top-left-radius:9px;
 }
+
 .region-content .region-plain-box-lc-rounded-region,
 .region-content .pane-plain-box-lc-rounded-pane {
 	min-height: 100px;
 	padding:0;
 	margin:0;
 	position: relative;
-    -moz-box-shadow: 3px 3px 4px #dddedf;
-	-webkit-box-shadow: 3px 3px 4px #dddedf;
-	box-shadow: 3px 3px 4px #dddedf;
-	-ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#dddedf')"; /* IE8 */
+	
+-webkit-box-shadow:0px 14px 32px -5px #333333;
+-moz-box-shadow:0px 14px 32px -5px #333333;
+-o-box-shadow:0px 14px 32px -5px #333333;
+-ms-box-shadow:0px 14px 32px -5px #333333;
+box-shadow:0px 14px 32px -5px #333333;
 }
 .region-content .region-plain-box-lc-rounded-region .rounded-shadow-background,
 .region-content .pane-plain-box-lc-rounded-pane .pane-content {
@@ -417,19 +420,20 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	background: -ms-linear-gradient(top,  #ffffff 74%,#f7f8fc 100%); /* IE10+ */
 	background: linear-gradient(top,  #ffffff 74%,#f7f8fc 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f7f8fc',GradientType=0 ); /* IE6-9 */
+		
+
 }
 .region-content .region-plain-box-lc-rounded-region .lc-title-bar,
 .region-content .pane-plain-box-lc-rounded-pane .quicktabs-tabs {
 	-webkit-border-top-left-radius:9px;
 	-moz-border-radius-topleft:9px;
 	border-top-left-radius:9px;
-
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;
 }
 #home{
-	margin-top:20px;
+	margin-top:10px;
 }
 /* ========== QUICKTABS ============ */
 .region-content .lc-title-bar,
@@ -479,6 +483,11 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	border-top-right-radius: 6px;
 	border-bottom:none;
 	background:#fff;
+	-webkit-box-shadow:0px -23px 48px -23px #000000;
+-moz-box-shadow:0px -23px 48px -23px #000000;
+-o-box-shadow:0px -23px 48px -23px #000000;
+-ms-box-shadow:0px -23px 48px -23px #000000;
+box-shadow:0px -23px 48px -23px #000000;
 }
 .region-content .quicktabs-tabs li:hover a,
 .region-content .quicktabs-tabs li.active a{
@@ -486,13 +495,38 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 }
 /* ========== CALENDAR ========== */
 .view .date-nav-wrapper .date-nav {
-	margin-bottom: 5px;
+	margin-bottom:0px;
 	min-height: 0px;
 }
 .view .date-nav-wrapper .date-prev {
+	background-color:transparent;
 	right: auto;
 }
-
+.view .date-nav-wrapper .date-next {
+	background-color:transparent;
+}
+.view .date-nav-wrapper .date-next a, .view .date-nav-wrapper .date-prev a  {
+	width:11px;
+	height:17px;
+	text-indent:-9999;
+	color:#434343;
+}
+.view .date-nav-wrapper .date-next a {
+	content:url(../images/home/arrow-cal-next.png) no-repeat center center;
+}
+.view .date-nav-wrapper .date-prev a {
+	content:url(../images/home/arrow-cal-prev.png) no-repeat center center;
+}
+.view .date-nav-wrapper .date-next a:hover {
+	bcontent:url(../images/home/arrow-cal-next-hover.png) no-repeat center center;
+}
+.view .date-nav-wrapper .date-prev a:hover {
+	content:url(../images/home/arrow-cal-prev-hover.png) no-repeat center center;
+}
+.view .date-nav-wrapper .date-heading {
+	color:#595959;
+	font-size:11px;
+}
 /* views calendar */
 .calendar-calendar table {
 	border:0;
@@ -519,15 +553,15 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 }
 .calendar-calendar table.mini th.days {
 	background-color: transparent;
-	color: #777;
+	color: #6c6c6c;
 	font-weight: 100;
-	border: 1px solid #828282;
+	border: 1px solid #777575;
 	border-width:0 0 1px 0;
 	padding:.5em 0;
 }
 .calendar-calendar .mini td.sat,
 .calendar-calendar .mini td.sun {
-	background:#d8d8da;
+	background:#d8d9db;
 	border-color:#f2f3f8;
 }
 .calendar-calendar .mini td.today {
@@ -540,6 +574,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 
 #quicktabs-event_calendar_tabs .quicktabs-tabs li:hover, #quicktabs-event_calendar_tabs .quicktabs-tabs li.active{
 	background:transparent;
+	
 }
 .quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-0 {
 	margin:0 0 0 -10px;

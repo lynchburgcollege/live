@@ -149,7 +149,7 @@ body.front {
 }
 
 /** Quicktab customizations for normal view ***/
-#quicktabs-undergraduate_admission_tabs .item-list ul {
+/*#quicktabs-undergraduate_admission_tabs .item-list ul {
 	width:380px;
 }
 #quicktabs-library_tabs .item-list ul {
@@ -170,7 +170,7 @@ body.front {
 .pane-quicktabs-library-tabs {
 	width:460px;
 	max-width:460px;
-}
+}*/
 
 .block-views-calendar-block-1 {
 	margin:0 15px;
@@ -290,7 +290,7 @@ body.front {
 
 .jcarousel li, .views-field-field-image {
 	width:260px;
-	z-index:-100;
+	z-index:2;
 }
 
 .jcarousel .views-field-field-image {
@@ -307,7 +307,7 @@ body.front {
 	padding:10px;
 	background: url(../images/home/alpha-gray.png);
 	color:#c6c6c6;
-	z-index:100;
+	z-index:1;
 }
 
 .jcarousel .views-field-view-node { display:none; }
