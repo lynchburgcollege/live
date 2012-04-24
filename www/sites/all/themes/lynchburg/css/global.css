@@ -1058,7 +1058,13 @@ form.email_updates .submit:hover {
  *  footer area  bottom  *
  *************************/
 footer#section-footer {
-	background:#202022 url("../images/bg-footer-first1.jpg") repeat-x top left;
+	background:#202022 url("../images/home/footer.jpg") no-repeat bottom center;
+	
+	
+}
+	
+#zone-footer-wrapper {
+	background:transparent url("../images/bg-footer-first1.jpg") repeat-x top left;
 }
 footer#section-footer h1, footer#section-footer h2, footer#section-footer h3, footer#section-footer h4, footer#section-footer h5, footer#section-footer h6 {
 	color:#fff;

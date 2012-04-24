@@ -66,8 +66,7 @@
 /*****************/
 
 #region-footer-first, #region-footer-first div.content {
-	background:transparent;
-	height:60px;
+height:60px;
 }
 
 
@@ -121,7 +120,7 @@ body.front {
 .front .section-header {
 	margin:0 auto;
 	height: 450px;
-	background:transparent url(../images/home/big-image2.jpg) no-repeat top center;
+	background:transparent url(../images/home/big-image4.jpg) no-repeat top center;
  }
 
 .front .section-content {
@@ -293,6 +292,11 @@ body.front {
 	width:260px;
 	background:transparent url(../images/home/alpha-gray.png);
 	color:#c6c6c6;
+	/*-webkit-transition:all 1.0s ease-in-out;
+	-moz-transition:all 1.0s ease-in-out;
+	-o-transition:all 1.0s ease-in-out;
+	-ms-transition:all 1.0s ease-in-out;	
+	transition:all 1.0s ease-in-out;*/
 }
 
 .jcarousel .views-field-view-node { display:none; }
