@@ -1097,18 +1097,16 @@ footer#section-footer li a:hover {
 }
 
 .footer-image {
-	margin:30px;
+	margin:15px 0px 0px 10px;
 	height:233px;
 	width:375px;
 	border:1px solid #5b5b5b;
-/*	-moz-border-radius:8px;
-	-webkit-border-radius:8px;
-	border-radius:8px;
-	border-collapse:inherit;
-	-moz-box-shadow:0 1px 3px #000;
-	-webkit-box-shadow:0 1px 3px #000;
-*/
-	box-shadow:0 1px 3px #000;
+	background:url(../images/home/news-shadow.png)no-repeat bottom center;
+	-webkit-box-shadow:2px 2px 16px 2px #202424;
+	-moz-box-shadow:2px 2px 16px 2px #202424;
+	-o-box-shadow:2px 2px 16px 2px #202424;
+	-ms-box-shadow:2px 2px 16px 2px #202424;
+	box-shadow:2px 2px 16px 2px #202424;
 }
 
 /* Flickrset */
