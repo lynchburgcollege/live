@@ -16,6 +16,9 @@ body {
 	background-color:#f9f9f9;
 	margin-top:-1px;
 }
+
+td { vertical-align:top; }
+
 .float-left { float:left; }
 .float-right { float:right; }
 
