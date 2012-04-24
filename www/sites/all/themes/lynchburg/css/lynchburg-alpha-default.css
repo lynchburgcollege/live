@@ -109,6 +109,12 @@ body.front {
 	margin:0 15px;
 }
 
+<<<<<<< HEAD
+=======
+/****************************************/
+/* JCarousel "What's Happening" News Rotator */
+
+>>>>>>> origin/master
 
 /**********************************************
     JCarousel "What's Happening" Rotator 
@@ -121,6 +127,7 @@ body.front {
 	overflow:hidden;
 	padding-bottom:30px;
 }
+
 .jcarousel-skin-default {
 	text-align: left;
 	background: #ffffff; /* Old browsers */
@@ -132,6 +139,7 @@ body.front {
 	background: linear-gradient(top,  #ffffff 0%,#edeef2 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 ); /* IE6-9 */
 }
+
 .jcarousel-skin-default .jcarousel-container-horizontal {
 	width: 850px;
 	height: 190px;
@@ -139,10 +147,12 @@ body.front {
 	margin: auto;
 	overflow:hidden;
 }
+
 .jcarousel-skin-default .jcarousel-clip-horizontal {
 	width: 850px;
 	overflow: hidden;
 }
+
 .jcarousel-skin-default .jcarousel-item {
 	padding: 0;
 	height: 180px;
@@ -150,10 +160,10 @@ body.front {
 	list-style: none;
 	background: #fff none;
 }
+
 .jcarousel-skin-default .jcarousel-item-horizontal {
 	margin: 0 4px 0px 4px;
 }
-
 /* Buttons*/
 .jcarousel-skin-default .jcarousel-next,
 .jcarousel-skin-default .jcarousel-prev {
@@ -162,6 +172,7 @@ body.front {
 	height: 33px;
 	background-image: url("../images/home/arrows.png");
 }
+
 .jcarousel-skin-default .jcarousel-next-disabled,
 .jcarousel-skin-default .jcarousel-prev-disabled {
 	display: none;
@@ -181,6 +192,7 @@ body.front {
 .jcarousel-skin-default .jcarousel-prev-horizontal:active {
 	background-position: -64px 0;
 }
+
 .jcarousel-skin-default .jcarousel-next-horizontal {
 	position: absolute;
 	top: 90px;
@@ -195,16 +207,25 @@ body.front {
 	background-position: -64px -32px;
 }
 
+
+
 /* Content Items */
+
 .jcarousel li, .views-field-field-image {
 	width:260px;
 }
+
 .jcarousel .views-field-field-image {
 	border:none;
 }
+
 .jcarousel .views-field-field-image:hover {
-	margin-bottom:-96px;
+	margin-bottom:-69px;
 }
+.jcarousel .views-field-body:hover {
+	margin-top:-69px;
+}
+
 .jcarousel .views-field-body {
 	position:relative;
 	margin-bottom:10px;
@@ -218,6 +239,7 @@ body.front {
 	-ms-transition:all 1.0s ease-in-out;	
 	transition:all 1.0s ease-in-out;*/
 }
+
 .jcarousel .views-field-view-node { display:none; }
 
 
