@@ -31,7 +31,6 @@ body {
 .region-user-second-inner {
 	padding: 20px 0 0 10px;
 }
-
 .zone-branding {
 	height: 47px;
 }
@@ -43,27 +42,22 @@ body {
 .region-user-second {
 	height:30px;
 }
-
 #section-content {
 	clear:both;
 }
-
 body.front {
 	background:#f9f9f9 url(../images/home/bg-stripe-home1.jpg) repeat-x top left;
 }
-
 .front .section-header {
 	margin:0 auto;
 	height: 450px;
 	background:transparent url(../images/home/big-image4.jpg) no-repeat top center;
- }
-
+}
 .front .section-content {
 	background: transparent url(../images/home/convex-curve.png) no-repeat top center;
 	margin:0 auto;
 	margin-top:-23px;
- }
-
+}
 .front .zone-content-wrapper {
 	background:#f9f9f9 url(../images/home/bg3-home.jpg) no-repeat bottom center;
 	margin-top:-8px;
@@ -81,6 +75,7 @@ body.front {
 	padding:20px;
 	margin:0;
 }
+
 /** Quicktab customizations for normal view ***/
 /*#quicktabs-undergraduate_admission_tabs .item-list ul {
 	width:380px;
@@ -109,15 +104,9 @@ body.front {
 	margin:0 15px;
 }
 
-<<<<<<< HEAD
-=======
-/****************************************/
-/* JCarousel "What's Happening" News Rotator */
-
->>>>>>> origin/master
 
 /**********************************************
-    JCarousel "What's Happening" Rotator 
+    JCarousel "WHAT"S HAPPENING \" ROTATOR
  **********************************************/
 /* original CSS and icons by Nathan Haug, included with JCarousel plugin
  * modified by KMB */
@@ -127,7 +116,6 @@ body.front {
 	overflow:hidden;
 	padding-bottom:30px;
 }
-
 .jcarousel-skin-default {
 	text-align: left;
 	background: #ffffff; /* Old browsers */
@@ -139,7 +127,6 @@ body.front {
 	background: linear-gradient(top,  #ffffff 0%,#edeef2 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 ); /* IE6-9 */
 }
-
 .jcarousel-skin-default .jcarousel-container-horizontal {
 	width: 850px;
 	height: 190px;
@@ -147,12 +134,10 @@ body.front {
 	margin: auto;
 	overflow:hidden;
 }
-
 .jcarousel-skin-default .jcarousel-clip-horizontal {
 	width: 850px;
 	overflow: hidden;
 }
-
 .jcarousel-skin-default .jcarousel-item {
 	padding: 0;
 	height: 180px;
@@ -160,10 +145,10 @@ body.front {
 	list-style: none;
 	background: #fff none;
 }
-
 .jcarousel-skin-default .jcarousel-item-horizontal {
 	margin: 0 4px 0px 4px;
 }
+
 /* Buttons*/
 .jcarousel-skin-default .jcarousel-next,
 .jcarousel-skin-default .jcarousel-prev {
@@ -172,7 +157,6 @@ body.front {
 	height: 33px;
 	background-image: url("../images/home/arrows.png");
 }
-
 .jcarousel-skin-default .jcarousel-next-disabled,
 .jcarousel-skin-default .jcarousel-prev-disabled {
 	display: none;
@@ -192,7 +176,6 @@ body.front {
 .jcarousel-skin-default .jcarousel-prev-horizontal:active {
 	background-position: -64px 0;
 }
-
 .jcarousel-skin-default .jcarousel-next-horizontal {
 	position: absolute;
 	top: 90px;
@@ -207,25 +190,19 @@ body.front {
 	background-position: -64px -32px;
 }
 
-
-
 /* Content Items */
-
 .jcarousel li, .views-field-field-image {
 	width:260px;
 }
-
 .jcarousel .views-field-field-image {
 	border:none;
 }
-
 .jcarousel .views-field-field-image:hover {
 	margin-bottom:-69px;
 }
 .jcarousel .views-field-body:hover {
 	margin-top:-69px;
 }
-
 .jcarousel .views-field-body {
 	position:relative;
 	margin-bottom:10px;
@@ -233,17 +210,8 @@ body.front {
 	width:260px;
 	background:transparent url(../images/home/alpha-gray.png);
 	color:#c6c6c6;
-	/*-webkit-transition:all 1.0s ease-in-out;
-	-moz-transition:all 1.0s ease-in-out;
-	-o-transition:all 1.0s ease-in-out;
-	-ms-transition:all 1.0s ease-in-out;	
-	transition:all 1.0s ease-in-out;*/
 }
-
 .jcarousel .views-field-view-node { display:none; }
-
-
-
 
 
 /****************************
