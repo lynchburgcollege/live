@@ -715,6 +715,39 @@ blockquote {
 }
 
 /* ----- Default Form Elements ----- */
+
+#edit-submit{
+	display: inline-block;
+	cursor:pointer;
+	text-align:center;
+	text-decoration: none;
+	font: 12px/100% Arial, Helvetica, sans-serif;
+	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
+	-webkit-border-radius:0.5em 0.5em 0.5em 0.5em;
+	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	-moz-box-shadow: 0 1px 2px rgba(130, 130, 130, 0.2);
+	-webkit-box-shadow: 0 1px 2px rgba(130, 130, 130, 0.2);
+	box-shadow: 0 1px 2px rgba(130, 130, 130, 0.2);
+	outline: medium none;
+	color:#f1f1f1;
+	border: 1px solid rgba(134,27,27,0.2);
+	text-shadow:1px 1px 0 #943636;
+	background: #900900; /* Old browsers */
+	background: -moz-linear-gradient(top,  #900900 0%, #560500 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#900900), color-stop(100%,#560500)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #900900 0%,#560500 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #900900 0%,#560500 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #900900 0%,#560500 100%); /* IE10+ */
+	background: linear-gradient(top,  #900900 0%,#560500 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#900900', endColorstr='#560500',GradientType=0 ); /* IE6-9 */
+	padding: 0.6em 1.5em 0.6em 1.5em;
+	position:relative;
+	margin-left:3px;
+}
+#edit-submit:hover{
+	background: #900900;
+}
+
 input, select, textarea {
 	font-size:12px;
 	font-family:Arial, Helvetica, sans-serif;
@@ -765,11 +798,10 @@ form.email_updates input[type="text"] {
 	font-style:italic;
 	color:#686868;
 	position:relative;
-	behavior: url(js/PIE.htc);
 }
 form.email_updates .submit {
-	font-family: 'Arimo', Arial, Verdana;
-	background:url("../images/dark_grey_button.png") repeat-x 0 0 #2c2d2d;
+	font-family: Arial, Verdana;
+	background:url(../images/dark_grey_button.png) repeat-x 0 0 #2c2d2d;
 	padding:6px 19px;
 	font-size:12px;
 	-moz-border-radius:4px;
@@ -785,13 +817,77 @@ form.email_updates .submit {
 	width:75px;
 	border:1px solid #38393a;
 	position:relative;
-	behavior: url(js/PIE.htc);
 }
 form.email_updates .submit:hover {
 	background-position:0 -31px;
 	background:#474848;
 	color:#bab9b9;
 }
+
+/* ----- Default Form Elements moved from old site ----- */
+form.normal fieldset, form.madlib fieldset {
+	display:block;
+	padding:1.2em;
+	border:solid 1px #dbdbdb;
+	margin:1em;
+	clear:right;
+	background:#f9f9f9 url(../images/fieldsetbg2.jpg) repeat-x bottom right;
+	-webkit-border-radius:0em 0em 1em 1em;
+	-moz-border-radius:0em 0em 1em 1em;
+	-o-border-radius:0em 0em 1em 1em;
+	-ms-border-radius:0em 0em 1em 1em;
+	border-radius:0em 0em 1em 1em;
+}
+form.normal legend, form.madlib legend {
+	padding:.5em;
+	border:0;
+	margin:.5em;
+	font-family:georgia, serif;
+	font-weight:bold;
+	font-size:1.3em;
+}
+form.normal fieldset fieldset {
+	border: solid 1px #babcc7;
+}
+form.normal fieldset fieldset legend {
+	font-size:1.1em;
+}
+form.normal label {
+	float:left;
+	display:block;
+	margin:.2em .5em .4em .1em;
+}
+form.normal input {
+	display:block;
+}
+form.normal input:focus, form.normal textarea:focus {
+	background:#f4f4f5;
+}
+form.normal textarea {
+	display:block;
+}
+form.normal select {
+	display:block;
+}
+form.normal br {
+	clear:both;
+}
+form.normal .submit {
+	text-align:left;
+	width:200px;
+	margin: 20px auto 5px auto;
+}
+span.required {
+	color:#900;
+}
+.sameline {
+	display:inline;
+}
+
+form.madlib input {
+	display:inline;
+	}
+	
 
 /* ========== NOTIFICATIONS ========== */
 .info, .warnings, .errors, .success {

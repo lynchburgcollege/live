@@ -16,7 +16,6 @@
 /******************************
         HOMEPAGE HEADER   
  ******************************/
-
 body {
 	background: #f9f9f9 url(../images/bg-body-top3.jpg) repeat-x top left;
 }
@@ -64,11 +63,9 @@ body.front {
 }
 
 
-
 /**********************************************
  * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
- **********************************************/
-
+**********************************************/
 /* A extra quicktabs content whitespace on normal view. */
 .region-content .quicktabs_main {
 	min-height:220px;
@@ -155,7 +152,7 @@ body.front {
 	display: block;
 	width: 33px;
 	height: 33px;
-	background-image: url("../images/home/arrows.png");
+	background-image: url(../images/home/arrows.png);
 }
 .jcarousel-skin-default .jcarousel-next-disabled,
 .jcarousel-skin-default .jcarousel-prev-disabled {
@@ -217,7 +214,6 @@ body.front {
 /****************************
     SPECIFIC BODY STYLES
 *****************************/
-
 .news-page-thumbnail-image {
 	float:left;
 	margin-right:10px;
