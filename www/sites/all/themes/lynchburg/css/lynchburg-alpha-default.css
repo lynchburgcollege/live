@@ -177,7 +177,7 @@ body.front {
 }
 
 /****************************************/
-/* JCarousel "What's Happening" Rotator */
+/* JCarousel "What's Happening" News Rotator */
 
 
 /**
@@ -284,6 +284,9 @@ body.front {
 
 .jcarousel .views-field-field-image:hover {
 	margin-bottom:-96px;
+}
+.jcarousel .views-field-body:hover {
+	margin-top:-96px;
 }
 
 .jcarousel .views-field-body {
