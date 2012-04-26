@@ -715,24 +715,28 @@ blockquote {
 }
 
 /* ----- Default Form Elements ----- */
-
-#edit-submit{
+#block-search-form{
+	padding-left:68px;
+}
+#search-block-form #edit-submit{
 	display: inline-block;
 	cursor:pointer;
 	text-align:center;
 	text-decoration: none;
 	font: 12px/100% Arial, Helvetica, sans-serif;
-	-moz-border-radius: 0.5em 0.5em 0.5em 0.5em;
-	-webkit-border-radius:0.5em 0.5em 0.5em 0.5em;
-	border-radius: 0.5em 0.5em 0.5em 0.5em;
+	padding: 0.6em 1.5em 0.6em 1.5em;
+	position:relative;
+	margin-left:3px;
+	color:#f1f1f1;
+	-moz-border-radius: 0.3em 0.3em 0.3em 0.3em;
+	-webkit-border-radius:0.3em 0.3em 0.3em 0.3em;
+	border-radius: 0.3em 0.3em 0.3em 0.3em;
 	-moz-box-shadow: 0 1px 2px rgba(130, 130, 130, 0.2);
 	-webkit-box-shadow: 0 1px 2px rgba(130, 130, 130, 0.2);
 	box-shadow: 0 1px 2px rgba(130, 130, 130, 0.2);
-	outline: medium none;
-	color:#f1f1f1;
-	border: 1px solid rgba(134,27,27,0.2);
+	border:#560500 solid 1px;
 	text-shadow:1px 1px 0 #943636;
-	background: #900900; /* Old browsers */
+	background: #560500; /* Old browsers */
 	background: -moz-linear-gradient(top,  #900900 0%, #560500 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#900900), color-stop(100%,#560500)); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top,  #900900 0%,#560500 100%); /* Chrome10+,Safari5.1+ */
@@ -740,88 +744,17 @@ blockquote {
 	background: -ms-linear-gradient(top,  #900900 0%,#560500 100%); /* IE10+ */
 	background: linear-gradient(top,  #900900 0%,#560500 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#900900', endColorstr='#560500',GradientType=0 ); /* IE6-9 */
-	padding: 0.6em 1.5em 0.6em 1.5em;
-	position:relative;
-	margin-left:3px;
+	
 }
-#edit-submit:hover{
+#search-block-form #edit-submit:hover{
 	background: #900900;
 }
 
-input, select, textarea {
-	font-size:12px;
-	font-family:Arial, Helvetica, sans-serif;
-	color:#6b6b6b;
-	font-weight:normal;
-	border:1px solid #d7d7d7;
-	background:#f9f9f9;
-	padding:5px 10px;
-	-moz-border-radius:5px;
-	-webkit-border-radius:5px;
-	border-radius:5px;
-	-moz-box-shadow:1px 1px 0 rgba(215,215,215,1) inset, 0 10px 15px rgba(255,255,255,1) inset;
-	-webkit-box-shadow:1px 1px 0 rgba(215,215,215,1) inset, 0 10px 15px rgba(255,255,255,1) inset;
-	box-shadow:1px 1px 0 rgba(215,215,215,1) inset, 0 10px 15px rgba(255,255,255,1) inset;
-	position:relative;
-	overflow:hidden;
-	behavior: url(js/PIE.htc);
-}
-input:hover, select:hover, textarea:hover {
-	-moz-box-shadow:0 2px 2px rgba(204,204,204,0.7) inset;
-	-webkit-box-shadow:0 2px 2px rgba(204,204,204,0.7) inset;
-	box-shadow:0 2px 2px rgba(204,204,204,0.7) inset;
-}
 input:focus, select:focus, textarea:focus {
 	background:#fff;
 	-moz-box-shadow:0 2px 4px rgba(204,204,204,0.8) inset;
 	-webkit-box-shadow:0 2px 4px rgba(204,204,204,0.8) inset;
 	-box-shadow:0 2px 4px rgba(204,204,204,0.8) inset;
-}
-select {
-	padding:1px;
-}
-form.email_updates {
-	margin-top:10px;
-}
-form.email_updates input[type="text"] {
-	background:#272829;
-	-moz-border-radius:4px;
-	-webkit-border-radius:4px;
-	border-radius:4px;
-	width:116px;
-	border:1px solid #3a3b3c;
-	-moz-box-shadow:inset #1c1d1e 1px 1px 0;
-	-webkit-box-shadow:inset #1c1d1e 1px 1px 0;
-	box-shadow:inset #1c1d1e 1px 1px 0;
-	padding:7px 10px;
-	font-size:11px;
-	font-style:italic;
-	color:#686868;
-	position:relative;
-}
-form.email_updates .submit {
-	font-family: Arial, Verdana;
-	background:url(../images/dark_grey_button.png) repeat-x 0 0 #2c2d2d;
-	padding:6px 19px;
-	font-size:12px;
-	-moz-border-radius:4px;
-	-webkit-border-radius:4px;
-	border-radius:4px;
-	margin-left:1px;
-	-moz-box-shadow:#1d1f21 0 2px 2px;
-	-webkit-box-shadow:#1d1f21 0 2px 2px;
-	box-shadow:#1d1f21 0 2px 2px;
-	text-shadow:#282828 1px 1px 0;
-	cursor:pointer;
-	color:#9b9b9b;
-	width:75px;
-	border:1px solid #38393a;
-	position:relative;
-}
-form.email_updates .submit:hover {
-	background-position:0 -31px;
-	background:#474848;
-	color:#bab9b9;
 }
 
 /* ----- Default Form Elements moved from old site ----- */
@@ -842,52 +775,60 @@ form.normal legend, form.madlib legend {
 	padding:.5em;
 	border:0;
 	margin:.5em;
-	font-family:georgia, serif;
+	font-family:Arial, Helvetica, sans-serif;
 	font-weight:bold;
-	font-size:1.3em;
-}
-form.normal fieldset fieldset {
-	border: solid 1px #babcc7;
-}
-form.normal fieldset fieldset legend {
 	font-size:1.1em;
+	color:#414242;
 }
+form.normal fieldset fieldset {border:#dbdbdb solid 1px;}
+form.normal fieldset fieldset legend {font-size:1.1em;}
 form.normal label {
 	float:left;
 	display:block;
-	margin:.2em .5em .4em .1em;
+	margin:.4em .5em .8em .5em;
+	font-weight:200;
 }
-form.normal input {
-	display:block;
-}
-form.normal input:focus, form.normal textarea:focus {
-	background:#f4f4f5;
-}
-form.normal textarea {
-	display:block;
-}
-form.normal select {
-	display:block;
-}
-form.normal br {
-	clear:both;
-}
+form.normal input {display:block;}
+form.normal input:focus, form.normal textarea:focus {background:#f4f4f5;}
+form.normal textarea {display:block;border:red solid 1px;}
+form.normal select {display:block;}
+form.normal br {clear:both;}
 form.normal .submit {
-	text-align:left;
-	width:200px;
-	margin: 20px auto 5px auto;
+	text-align:center;
+	width:70px;
+	margin:0;
 }
-span.required {
-	color:#900;
+span.required {color:#900;}
+.sameline {display:inline;}
+form.madlib input {display:inline;}	
+
+form.normal input[type="radio"] {
+margin:2px 4px 6px 0;
 }
-.sameline {
-	display:inline;
+form.normal input[type="submit"] {
+	display: inline-block;
+	cursor:pointer;
+	text-align:center;
+	text-decoration: none;
+	font: 12px/100% Arial, Helvetica, sans-serif;
+	padding: 0.6em 1.5em 0.6em 1.5em;
+	position:relative;
+	-moz-border-radius: 0.3em 0.3em 0.3em 0.3em;
+	-webkit-border-radius:0.3em 0.3em 0.3em 0.3em;
+	border-radius: 0.3em 0.3em 0.3em 0.3em;
+	
+}
+form.normal input[type="submit"]:hover {
+	background: rgb(242,242,242); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(242,242,242,1) 3%, rgba(244,244,244,1) 98%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(3%,rgba(242,242,242,1)), color-stop(98%,rgba(244,244,244,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(242,242,242,1) 3%,rgba(244,244,244,1) 98%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(242,242,242,1) 3%,rgba(244,244,244,1) 98%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(242,242,242,1) 3%,rgba(244,244,244,1) 98%); /* IE10+ */
+	background: linear-gradient(top,  rgba(242,242,242,1) 3%,rgba(244,244,244,1) 98%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#f4f4f4',GradientType=0 ); /* IE6-9 */
 }
 
-form.madlib input {
-	display:inline;
-	}
-	
 
 /* ========== NOTIFICATIONS ========== */
 .info, .warnings, .errors, .success {
@@ -930,18 +871,10 @@ form.madlib input {
 	display:table;
 	overflow:hidden;
 }
-.info {
-	color:#3cb4e4;
-}
-.warnings {
-	color:#ff9c00;
-}
-.errors {
-	color:#f76565;
-}
-.success {
-	color:#75bc16;
-}
+.info {color:#3cb4e4;}
+.warnings {color:#ff9c00;}
+.errors {color:#f76565;}
+.success {color:#75bc16;}
 
 
 /* ----- Pagination ----- */
@@ -1158,10 +1091,7 @@ form.madlib input {
  *************************/
 footer#section-footer {
 	background:#202022 url("../images/home/footer.jpg") no-repeat bottom center;
-	
-	
-}
-	
+}	
 #zone-footer-wrapper {
 	background:transparent url("../images/bg-footer-first1.jpg") repeat-x top left;
 }
@@ -1212,12 +1142,15 @@ footer#section-footer li a:hover {
 }
 #mini-panel-lc_twitter_feed, .pane-photo-of-the-time{
 	margin-left:25px;
+	margin-bottom:25px;
 }
 
 .pane-menu-menu-about-us, .pane-accreditation{
 	margin-right:25px;
 }
-
+.pane-accreditation{
+	display:none;
+}
 table.footer-list, table.footer-list:hover {
 	border:none;
 	background:none;
@@ -1235,3 +1168,5 @@ table.footer-list tr.even:hover td.active,
 table.footer-list tr.odd:hover td.active {
 	background: transparent;
 }
+table.footer-list li, table.footer-list:hover li {
+margin-bottom:-8px;}
