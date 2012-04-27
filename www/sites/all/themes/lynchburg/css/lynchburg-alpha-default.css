@@ -244,6 +244,9 @@ body.front {
 .news-page-thumbnail-image a img {
 	border:solid 1px #242424;
 }
+.view-news-stories-by-date .view-content .views-row {
+	margin-bottom:30px;
+}
 
 
 /******************************
