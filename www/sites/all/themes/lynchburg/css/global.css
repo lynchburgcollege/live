@@ -23,7 +23,7 @@ td { vertical-align:top; }
 
 
 .section-content {
-	background:#f9f9f9 url("../images/bg1.jpg") no-repeat top center;
+	background:#f9f9f9 url(../images/bg1.jpg) no-repeat top center;
 	margin-top:-5px;
 }
 .front .zone-content {
