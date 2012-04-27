@@ -72,14 +72,14 @@ td { vertical-align:top; }
 	display: block;
 	margin: 0 auto;
 	float: none;
-	width:280px;
+	width:310px;
 	text-align:center;
 	position: absolute;
 	left: 50%;
-	margin-left: -140px;
+	margin-left: -160px;
 }
 .logo-img img {
-	margin-top:-23px;
+	margin-top:-32px;
 	margin-bottom: 10px;
 }
 
