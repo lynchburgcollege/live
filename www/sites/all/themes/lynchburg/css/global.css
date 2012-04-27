@@ -27,13 +27,14 @@ td { vertical-align:top; }
 	background:#f9f9f9 url("../images/bg1.jpg") no-repeat top center;
 	margin-top:-5px;
 }
-.zone-content {
-	margin-top:30px;
+.front .zone-content {
+	margin-top:30px 0 0 0;
 }
-
+.zone-content {
+	margin-top:-18px;
+}
 .front .lynchburg-middle {
-	margin-top: 0px;
-	margin-bottom:0px;
+	margin:0 0px 0 -10px;
 }
 .section-header {
 	background: #840a0a; /* Old browsers */
@@ -61,8 +62,9 @@ td { vertical-align:top; }
 
 .lynchburg-main{
 	margin: 0 auto;
-	padding-bottom:50px;
+	padding-top:30px;
 }
+
 
 /* ========== LOGO ========== */
 .region-branding {
@@ -301,14 +303,12 @@ ul.jquerymenu li.parent span.open {
 
 .lynchburg-right-sidebar{
 	background:url("../images/vertical_rig_right.png") repeat-y top left;
-/*	margin-top:-45px;
-	padding-top:45px;
-*/}
+	padding-top:30px;
+}
 .lynchburg-left-sidebar {
 	background:url("../images/vertical_rig_left.png") repeat-y top right;
-/*	margin-top:-45px;
-	padding-top:45px;
-*/}
+	padding-top:30px;
+}
 .lynchburg-right-sidebar .inside {
 	padding-left:20px;
 }

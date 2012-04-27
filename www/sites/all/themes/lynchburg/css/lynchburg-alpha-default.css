@@ -111,8 +111,7 @@ body.front {
 .pane-jcarousel-article-rotation {
 	height:190px;
 	/*overflow:hidden;*/
-	margin:0 0px 88px 0px;
-	padding:0;
+	padding:0 0px 96px 0px;
 	background:transparent url(../images/shadow-home-news.png) no-repeat bottom center;
 }
 .jcarousel-skin-default {
@@ -156,13 +155,16 @@ body.front {
 	padding:0;
 }
 .jcarousel .views-field-field-image:hover {
+	cursor:pointer;
 	margin-bottom:-69px;
 	
 }
 .jcarousel .views-field-body:hover {
+	cursor:pointer;
 	margin-top:-69px;
 }
 .jcarousel .views-field-body {
+	cursor:pointer;
 	position:relative;
 	margin-bottom:10px;
 	padding:10px 10px 20px 10px;
