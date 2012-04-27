@@ -239,7 +239,9 @@ body.front {
 .field-name-field-headshot {
 	margin-bottom: 20px;
 }
-
+.news-page-thumbnail-image a img {
+	border:solid 1px #242424;
+}
 
 
 /******************************
