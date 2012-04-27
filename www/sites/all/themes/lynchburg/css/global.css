@@ -1172,7 +1172,7 @@ footer#section-footer li a:hover {
 	/*border:#0F0 solid 1px;*/
 }
 
-/*.footer-image {
+.footer-image {
 	margin:15px 0px 0px 10px;
 	height:233px;
 	width:375px;
@@ -1183,7 +1183,7 @@ footer#section-footer li a:hover {
 	-o-box-shadow:2px 2px 16px 2px #202424;
 	-ms-box-shadow:2px 2px 16px 2px #202424;
 	box-shadow:2px 2px 16px 2px #202424;
-}*/
+}
 
 /* Flickrset */
 .pane-flickrset iframe {
