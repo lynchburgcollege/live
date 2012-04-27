@@ -129,6 +129,7 @@ table {
 	float:left;
 	font-style:italic;
 }
+
 .caption .caption-date a:hover, .caption .caption-author a:hover, .caption .caption-tags a:hover {
 	color:#a1a1a1;
 }

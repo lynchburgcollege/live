@@ -15,9 +15,7 @@ body {
 	line-height:16px;
 	background-color:#f9f9f9;
 	margin-top:-1px;
-	border:solid 1px;
 }
-
 td { vertical-align:top; }
 
 .float-left { float:left; }
@@ -305,10 +303,12 @@ ul.jquerymenu li.parent span.open {
 .lynchburg-right-sidebar{
 	background:url("../images/vertical_rig_right.png") repeat-y top left;
 	padding-top:30px;
+	padding-bottom:60px;
 }
 .lynchburg-left-sidebar {
 	background:url("../images/vertical_rig_left.png") repeat-y top right;
 	padding-top:30px;
+	padding-bottom:60px;
 }
 .lynchburg-right-sidebar .inside {
 	padding-left:20px;
@@ -369,10 +369,15 @@ ul.jquerymenu li.parent span.open {
 	margin-bottom:.75em;
 	color:#242424;
 }
-.lynchburg-left-sidebar h2 a:hover {
-	color:#242424;
+.lynchburg-left-sidebar h2 a.active  {
+	color:#1b76b4;
 	text-decoration:underline;
 }
+.lynchburg-left-sidebar h2 a:hover {
+	color:#a1a1a1;
+	text-decoration:none;
+}
+
 .lynchburg-left-sidebar h2, .lynchburg-right-sidebar h2 {
 	font-size:15px;
 	line-height:19px;
@@ -396,6 +401,9 @@ li.parent.last.open ul, li.parent.open ul, li.parent.open li {
 li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open ul li:after, li.parent.open ul li .after {
 	background-image:none;
 }
+
+
+
 
 /* ========== PANEL STYLES ============ */
 
