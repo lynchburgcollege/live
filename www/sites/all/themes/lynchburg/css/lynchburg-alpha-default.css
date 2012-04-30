@@ -175,6 +175,8 @@ body.front {
 	background:#f5f5f5;
 }
 
+.megamenu-grid3-width { max-width:150px; }
+
 /**********************************************
  * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
 **********************************************/
