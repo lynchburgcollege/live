@@ -171,6 +171,9 @@ body.front {
 .main-menu-undergraduate-lists tr:hover td, .main-menu-undergraduate-lists tr.even:hover td.active, .main-menu-undergraduate-lists tr.odd:hover td.active {
 	background:#fff;
 }
+.main-menu-undergraduate-lists tr.bottom-more-row:hover td, .main-menu-undergraduate-lists tr.bottom-more-row:hover td.active, .main-menu-undergraduate-lists tr.bottom-more-row:hover td.active {
+	background:#f5f5f5;
+}
 
 /**********************************************
  * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
