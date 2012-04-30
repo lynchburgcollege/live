@@ -1,3 +1,4 @@
+
 /* This file will hold the main styles for your website. */
 @import url("user-styles.css");
 
@@ -31,7 +32,6 @@ td { vertical-align:top; }
 }
 .zone-content {
 	margin-top:-18px;
-	z-index:-1000;
 }
 
 .front .lynchburg-middle {
