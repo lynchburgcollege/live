@@ -67,9 +67,10 @@ function lc_news_search_news_form($form, $form_state) {
 function lc_news_search_news_form_submit($form, &$form_state) {
   if (isset($form_state['values']['search_terms'])) {
     $date_range = (date('Y') - 3) . '--' . date('Y-m-d');
-    drupal_goto('events/' . $date_range . '/' . $form_state['values']['search_terms']);
+    drupal_goto('news/' . $date_range . '/' . $form_state['values']['search_terms']);
   }
 }
+
 /**
  * Callback for /news - redirect to current news article list.
  */
