@@ -130,10 +130,10 @@ body.front {
 	margin-top:10px;
 }
 
-#mini-panel-undergraduate_megamenu {
+#mini-panel-undergraduate_megamenu, #mini-panel-student_life_megamenu {
 	border:solid 1px #f00;
 }
-#mini-panel-undergraduate_megamenu table{
+#mini-panel-undergraduate_megamenu table, #mini-panel-student_life_megamenu table {
 	border:solid 1px #f00;
 	margin:0;
 	border-radius:0;
@@ -143,10 +143,10 @@ body.front {
 	-ms-border-radius:0;
 }
 
-#mini-panel-undergraduate_megamenu table tr td {
+#mini-panel-undergraduate_megamenu table tr td, #mini-panel-student_life_megamenu table tr td {
 	padding-right:20px;
 }
-#mini-panel-undergraduate_megamenu .grid-9 {
+#mini-panel-undergraduate_megamenu .grid-9, #mini-panel-student_life_megamenu .grid-9 {
 	margin-left:0;
 	margin-right:0;
 }
