@@ -73,7 +73,7 @@ function lc_news_search_news_form_submit($form, &$form_state) {
 /**
  * Callback for /news - redirect to current news article list.
  */
-function lc_calendar_event_default() {
+function lc_news_news_page_default() {
   $category = '';
   $date_range = (date('Y-m-d', strtotime("-1 year"))) . '--' . date('Y-m-d');
   drupal_goto('news/' . $date_range);
