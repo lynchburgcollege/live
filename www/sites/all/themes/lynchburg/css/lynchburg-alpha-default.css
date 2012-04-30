@@ -64,6 +64,68 @@ body.front {
 
 
 /**********************************************
+ * SITEWIDE TOP MENU *
+**********************************************/
+/* ========== MAIN NAV DROPDOWN ========== */
+.qtip {
+	border-bottom:#dddedf solid 1px;
+	border-right:#dddedf solid 1px;
+	border-left:#dddedf solid 1px;
+	-webkit-border-radius:0em 0em 1em 1em;
+	-moz-border-radius:0em 0em 1em 1em;
+	-o-border-radius:0em 0em 1em 1em;
+	-ms-border-radius:0em 0em 1em 1em;
+	border-radius:0em 0em 1em 1em;
+	background-color: #FFFFFF;
+
+}
+.qtip a {
+		text-decoration:underline;
+}
+.qtip a:hover, .qtip a:visited {
+		text-decoration:none;
+}
+.qtip ul li{
+}
+
+/*dropdown inside*/
+#mini-panel-undergraduate_megamenu .pane-content,#mini-panel-undergraduate_megamenu, #mini-panel-graduate_megamenu, #mini-panel-student_life_megamenu, #mini-panel-alumni_megamenu, #mini-panel-athletics_megamenu, #mini-panel-apply_megamenu, #mini-panel-visit_megamenu_block {
+	margin:20px 10px 20px 10px;
+	line-height:16px;
+	font-size:12;
+	/*border:pink solid 1px;*/
+}
+.menu-minipanels .pane-title, .pane-node-field-links .pane-title {
+	font-size:1.333em;
+	line-height:1em;
+	color:#900900;
+/*	border:orange solid 1px;
+*/}
+#mini-panel-undergraduate_megamenu ul, #mini-panel-graduate_megamenu ul, #mini-panel-student_life_megamenu ul, #mini-panel-alumni_megamen ul, #mini-panel-athletics_megamen ul,  #mini-panel-apply_megamenu ul, #mini-panel-visit_megamenu_block ul {
+	
+	/*border:red solid 1px;*/
+}
+#mini-panel-undergraduate_megamenu li, #mini-panel-graduate_megamenu li, #mini-panel-student_life_megamenu li, #mini-panel-alumni_megamen li, #mini-panel-athletics_megamen li, #mini-panel-apply_megamenu li, #mini-panel-visit_megamenu li {
+	list-style:none;
+	line-height:16px;
+	padding:4px 0px;
+	/*border:green solid 1px;*/
+	}
+.pane-menu-menu-admission, .pane-menu-menu-academics, .pane-menu-menu-financial-aid {
+	/*border:red solid 1px;*/
+}
+.pane-menu-menu-admission li, .pane-menu-menu-academics li, .pane-menu-menu-financial-aid li{
+	/*border:yellow solid 1px;*/
+}
+
+
+#mini-panel-undergraduate_megamenu {
+	border:solid 1px #f00;
+}
+
+
+
+/**********************************************
  * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
 **********************************************/
 /* A extra quicktabs content whitespace on normal view. */
