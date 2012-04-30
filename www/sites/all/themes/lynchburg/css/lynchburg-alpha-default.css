@@ -110,20 +110,21 @@ body.front {
 
 .pane-jcarousel-article-rotation {
 	height:190px;
-	/*overflow:hidden;*/
+	overflow:hidden;
 	padding:0 0px 96px 0px;
+	margin:0;
 	background:transparent url(../images/shadow-home-news.png) no-repeat bottom center;
 }
 .jcarousel-skin-default {
 	text-align: left;
-	background:#fff;
+	/*background:#fff;
 	background: -moz-linear-gradient(top,  #ffffff 0%, #edeef2 100%); 
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#edeef2));
 	background: -webkit-linear-gradient(top,  #ffffff 0%,#edeef2 100%);
 	background: -o-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
 	background: -ms-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
 	background: linear-gradient(top,  #ffffff 0%,#edeef2 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 );
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 );*/
 }
 .jcarousel-skin-default .jcarousel-container-horizontal {
 	width: 860px;

@@ -31,6 +31,7 @@ td { vertical-align:top; }
 }
 .zone-content {
 	margin-top:-18px;
+	z-index:-1000;
 }
 
 .front .lynchburg-middle {
@@ -284,7 +285,6 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	/*border:yellow solid 1px;*/
 }
 
-
 /* ========== ASIDE & SECONDARY NAV ========== */
 
 ul.jquerymenu li span.parent {
@@ -322,7 +322,7 @@ ul.jquerymenu li.parent span.open {
 }
 .pane-node-field-links h2 {
 	margin-bottom:.5em;
-	margin-top:2em;
+	/*margin-top:2em;*/
 }
 .lynchburg-right-sidebar ul, .lynchburg-left-sidebar .pane-content ul {
 	background:url("../images/square_divider.png") repeat-x top;
