@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Lynchburg News feature.
+ */
+
+include_once('lc_news.features.inc');
