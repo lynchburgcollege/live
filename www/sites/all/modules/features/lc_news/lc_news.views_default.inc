@@ -220,6 +220,12 @@ function lc_news_views_default_views() {
   $handler->display->display_options['arguments']['keys']['summary']['number_of_records'] = '0';
   $handler->display->display_options['arguments']['keys']['summary']['format'] = 'default_summary';
   $handler->display->display_options['arguments']['keys']['summary_options']['items_per_page'] = '25';
+  $handler->display->display_options['arguments']['keys']['specify_validation'] = 1;
+  $handler->display->display_options['arguments']['keys']['validate']['type'] = 'php';
+  $handler->display->display_options['arguments']['keys']['validate_options']['code'] = 'if ($argument == \'\') {
+  $argument = \'all\';
+}
+return TRUE;';
   $handler->display->display_options['path'] = 'news-stories-by-date';
 
   /* Display: Block */

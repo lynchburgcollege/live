@@ -83,8 +83,8 @@ function lc_news_default_page_manager_pages() {
     $pane->access = array();
     $pane->configuration = array(
       'admin_title' => '',
-      'title' => 'Search the News',
-      'body' => 'Search widget',
+      'title' => 'News Archives',
+      'body' => 'Archives date selection widget',
       'format' => 'plain_text',
       'substitute' => NULL,
     );
@@ -107,10 +107,10 @@ function lc_news_default_page_manager_pages() {
     $pane->access = array();
     $pane->configuration = array(
       'admin_title' => '',
-      'title' => 'News Archives',
-      'body' => 'Archives date selection widget',
-      'format' => 'plain_text',
-      'substitute' => NULL,
+      'title' => 'Lynchburg College Magazine',
+      'body' => '<p><a href="/spring2012">[[{"type":"media","view_mode":"media_original","fid":"49","attributes":{"alt":"","class":"media-image","height":"78","style":"float: left; margin-left: 5px; margin-right: 5px; border: 1px solid rgb(36, 36, 36);","typeof":"foaf:Image","width":"60"}}]]</a><a href="/spring2012">Current Issue</a></p><p><a href="/magazine">Archives</a></p>',
+      'format' => 'full_html',
+      'substitute' => TRUE,
     );
     $pane->cache = array();
     $pane->style = array(
@@ -125,16 +125,13 @@ function lc_news_default_page_manager_pages() {
     $pane = new stdClass();
     $pane->pid = 'new-3';
     $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'search_news';
+    $pane->subtype = 'search_news';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'Lynchburg College Magazine',
-      'body' => '<p><a href="/spring2012">[[{"type":"media","view_mode":"media_original","fid":"49","attributes":{"alt":"","class":"media-image","height":"78","style":"float: left; margin-left: 5px; margin-right: 5px; border: 1px solid rgb(36, 36, 36);","typeof":"foaf:Image","width":"60"}}]]</a><a href="/spring2012">Current Issue</a></p><p><a href="/magazine">Archives</a></p>',
-      'format' => 'full_html',
-      'substitute' => TRUE,
+      'override_title' => 1,
+      'override_title_text' => 'Search the News',
     );
     $pane->cache = array();
     $pane->style = array(
@@ -246,7 +243,7 @@ function lc_news_default_page_manager_pages() {
     $display->content['new-7'] = $pane;
     $display->panels['right'][1] = 'new-7';
   $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = 'new-1';
+  $display->title_pane = '0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['news'] = $page;
