@@ -5,3 +5,76 @@
  */
 
 include_once('lc_news.features.inc');
+
+/**
+ * Implements hook_ctools_plugin_directory().
+ */
+function lc_news_ctools_plugin_directory($owner, $plugin_type) {
+  if ($owner == 'ctools' && $plugin_type == 'content_types') {
+    return 'plugins/content_types';
+  }
+}
+
+/**
+ * Implements hook_events
+ *
+ * @return 
+ */
+function lc_news_menu() {
+  $items['news'] = array(
+    'page callback' => 'lc_news_news_page_default',
+    'access callback' => TRUE,
+  );
+  return $items;
+}
+
+/**
+ * Implements hook_form.
+ */
+function lc_news_search_news_form($form, $form_state) {
+  // Get the active search terms (if any) from the URL
+  $arguments = explode('/', $_GET['q']);
+  $active_search_terms = '';
+  if (isset($arguments[2])) {
+    $active_search_terms = $arguments[2];
+  }
+  // Handle wildcard.
+  if ($active_search_terms == 'all') {
+    $active_search_terms = '';
+  }
+
+  $search_form = array(
+    'search_terms' => array(
+      '#type' => 'textfield', 
+      '#title' => t(''), 
+      '#default_value' => $active_search_terms,
+      '#size' => 20, 
+      '#maxlength' => 128, 
+      '#required' => FALSE,
+    ),
+    'submit' => array(
+      '#type' => 'submit', 
+      '#value' => t('Search')
+    ),
+  );
+
+  return $search_form;
+}
+
+/**
+ * Submit handler for lc_news_search_news_form().
+ */
+function lc_news_search_news_form_submit($form, &$form_state) {
+  if (isset($form_state['values']['search_terms'])) {
+    $date_range = (date('Y') - 3) . '--' . date('Y-m-d');
+    drupal_goto('events/' . $date_range . '/' . $form_state['values']['search_terms']);
+  }
+}
+/**
+ * Callback for /news - redirect to current news article list.
+ */
+function lc_calendar_event_default() {
+  $category = '';
+  $date_range = (date('Y-m-d', strtotime("-1 year"))) . '--' . date('Y-m-d');
+  drupal_goto('news/' . $date_range);
+}
