@@ -63,7 +63,25 @@ function ct_page_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'menu_options_page';
-  $strongarm->value = array();
+  $strongarm->value = array(
+    0 => 'menu-about-us',
+    1 => 'menu-academic-divisions',
+    2 => 'menu-academics',
+    3 => 'menu-activities',
+    4 => 'menu-admission',
+    5 => 'menu-campus-life',
+    6 => 'menu-centers',
+    7 => 'devel',
+    8 => 'menu-financial-aid',
+    9 => 'menu-footer-bar-left',
+    10 => 'menu-footer-bar-right',
+    11 => 'menu-graduate-programs',
+    12 => 'main-menu',
+    13 => 'management',
+    14 => 'navigation',
+    15 => 'menu-student-services',
+    16 => 'user-menu',
+  );
   $export['menu_options_page'] = $strongarm;
 
   $strongarm = new stdClass();
@@ -76,25 +94,9 @@ function ct_page_strongarm() {
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
-  $strongarm->name = 'nh_allowchild_page';
-  $strongarm->value = array(
-    0 => 'page',
-  );
-  $export['nh_allowchild_page'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
   $strongarm->name = 'nh_createmenu_page';
   $strongarm->value = 'always';
   $export['nh_createmenu_page'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'nh_defaultparent_page';
-  $strongarm->value = '';
-  $export['nh_defaultparent_page'] = $strongarm;
 
   $strongarm = new stdClass();
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
@@ -137,23 +139,8 @@ function ct_page_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'pathauto_node_page_pattern';
-  $strongarm->value = '[node:field-nav]/[node:nodehierarchy:parent:title]/[node:title]';
+  $strongarm->value = '[node:field-nav:name]/[node:field-parents:1:title]/[node:title]';
   $export['pathauto_node_page_pattern'] = $strongarm;
-
-  $strongarm = new stdClass();
-  $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
-  $strongarm->api_version = 1;
-  $strongarm->name = 'taxonomy_menu_trails_node_page';
-  $strongarm->value = array(
-    'selection_method' => 'last',
-    'only_without_menu' => 0,
-    'tm_integration' => 1,
-    'instances' => array(
-      'field_nav' => 'field_nav',
-    ),
-    'paths_ui' => '',
-  );
-  $export['taxonomy_menu_trails_node_page'] = $strongarm;
 
   return $export;
 }
