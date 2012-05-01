@@ -300,7 +300,7 @@ table.surreptitious tr.odd:hover td.active {
   background: inherit;
 }
 
-td ul.links {
+table.surreptitious td ul.links {
   margin-bottom: 0;
 }
 
