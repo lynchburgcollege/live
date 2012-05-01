@@ -204,6 +204,8 @@ body.front {
 
 #athletics-stories-feed, #athletics-events-feed, .megamenu-athletics-pane { max-width: 250px; }
 
+.view-athletics-schedule li { margin-bottom:8px; }
+
 
 /**********************************************
  * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
