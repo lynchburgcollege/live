@@ -58,25 +58,25 @@ function lc_calendar_strongarm() {
   $strongarm->api_version = 1;
   $strongarm->name = 'beautytips_defaults';
   $strongarm->value = array(
-    'fill' => '#F4F4F4',
-    'strokeStyle' => '#666666',
-    'spikeLength' => 20,
-    'spikeGirth' => 10,
-    'width' => '240px',
-    'overlap' => 0,
-    'centerPointY' => 1,
-    'cornerRadius' => 5,
-    'cssStyles' => array(
-      'fontFamily' => '"Lucida Grande",Helvetica,Arial,Verdana,sans-serif',
-      'fontSize' => '12px',
-      'padding' => '10px 14px',
+    'positions' => array(
+      0 => 'right',
+      1 => 'left',
     ),
-    'shadow' => TRUE,
-    'shadowColor' => 'rgba(0,0,0,.5)',
-    'shadowBlur' => 8,
-    'shadowOffsetX' => 4,
-    'shadowOffsetY' => 4,
+    'fill' => '#FFF',
     'padding' => '20px',
+    'shadow' => TRUE,
+    'shadowBlur' => 12,
+    'strokeStyle' => '#B9090B',
+    'spikeLength' => 50,
+    'spikeGirth' => 60,
+    'cornerRadius' => 5,
+    'centerPointY' => 0.1,
+    'overlap' => -8,
+    'cssStyles' => array(
+      'fontSize' => '12px',
+      'fontFamily' => 'arial,helvetica,sans-serif',
+    ),
+    'width' => '240px',
   );
   $export['beautytips_defaults'] = $strongarm;
 
@@ -84,7 +84,7 @@ function lc_calendar_strongarm() {
   $strongarm->disabled = FALSE; /* Edit this to true to make a default strongarm disabled initially */
   $strongarm->api_version = 1;
   $strongarm->name = 'beautytips_default_style';
-  $strongarm->value = 'hulu';
+  $strongarm->value = 'netflix';
   $export['beautytips_default_style'] = $strongarm;
 
   $strongarm = new stdClass();
