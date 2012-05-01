@@ -241,6 +241,13 @@ td ul.links {
 /***** surreptitious ***/
 table.surreptitious {
   border: none;
+  background:transparent;
+	-moz-border-radius: 0;
+	-webkit-border-radius:0;
+	border-radius: 0;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+  
 }
 
 table.surreptitious thead th, table.surreptitous th {
