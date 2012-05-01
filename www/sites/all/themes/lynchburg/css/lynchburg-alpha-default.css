@@ -74,10 +74,17 @@ body.front {
 	-ms-border-radius:0em 0em .5em .5em;
 	border-radius:0em 0em .5em .5em;
 }
-.qtip-contentWrapper{
+.qtip-wrapper{
 	border-bottom:#dddedf solid 1px;
 	border-right:#dddedf solid 1px;
 	border-left:#dddedf solid 1px;
+	 box-shadow:0 3px 6px 0 rgba(31, 31, 31, .2);
+	-webkit-box-shadow:0 3px 6px 0 rgba(31, 31, 31, .2);
+	-moz-box-shadow:0 3px 6px 0 rgba (31, 31, 31, .2);
+	-khtml-box-shadow:0 3px 6px 0 rgba (31, 31, 31, .2);
+	-moz-transition: all 0.4s linear 0s;
+	-webkit-transition: all 0.4s linear 0s;
+	-o-transition: all 0.4s linear 0s;
 }
 .qtip a {
 		text-decoration:underline;
@@ -85,32 +92,24 @@ body.front {
 .qtip a:hover, .qtip a:visited {
 		text-decoration:none;
 }
-.qtip ul li{
+#mini-panel-alumni_megamenu, #mini-panel-apply_megamenu, #mini-panel-visit_megamenu_block, #mini-panel-athletics_megamenu{
+	padding:20px 0px 0px 20px;
 }
-
 /*dropdown inside*/
 #mini-panel-undergraduate_megamenu .pane-content,#mini-panel-undergraduate_megamenu, #mini-panel-graduate_megamenu, #mini-panel-student_life_megamenu, #mini-panel-alumni_megamenu, #mini-panel-athletics_megamenu, #mini-panel-apply_megamenu, #mini-panel-visit_megamenu_block {
-	/*margin:10px;
-	*/line-height:15px;
+	/*margin:10px;*/
+	line-height:15px;
 	font-size:12;
+	border-top:none;
 }
 .menu-minipanels .pane-title, .pane-node-field-links .pane-title {
 	font-size:1.333em;
 	line-height:1em;
 	color:#900900;
 }
-#mini-panel-undergraduate_megamenu ul, #mini-panel-graduate_megamenu ul, #mini-panel-student_life_megamenu ul, #mini-panel-alumni_megamen ul, #mini-panel-athletics_megamen ul,  #mini-panel-apply_megamenu ul, #mini-panel-visit_megamenu_block ul {
-	
-}
-#mini-panel-undergraduate_megamenu li, #mini-panel-graduate_megamenu li, #mini-panel-student_life_megamenu li, #mini-panel-alumni_megamen li, #mini-panel-athletics_megamen li, #mini-panel-apply_megamenu li, #mini-panel-visit_megamenu li {
+#mini-panel-undergraduate_megamenu li, #mini-panel-graduate_megamenu li, #mini-panel-student_life_megamenu li, #mini-panel-alumni_megamenu li, #mini-panel-athletics_megamenu li, #mini-panel-apply_megamenu li, #mini-panel-visit_megamenu li {
 	list-style:none;
 	line-height:15px;
-	}
-.pane-menu-menu-admission, .pane-menu-menu-academics, .pane-menu-menu-financial-aid {
-	
-}
-.pane-menu-menu-admission li, .pane-menu-menu-academics li, .pane-menu-menu-financial-aid li{
-	
 }
 /* ========== UNDERGRADUATE DROPDOWN ========== */
 .menu-button {
@@ -123,27 +122,24 @@ body.front {
 	margin:20px;
 	background:#f0f0f0; /* Old browsers */
 }
-#mini-panel-undergraduate_megamenu, #mini-panel-student_life_megamenu {
-	border-top:none;
-}
-#mini-panel-undergraduate_megamenu table,  #mini-panel-student_life_megamenu {
+#mini-panel-undergraduate_megamenu table, #mini-panel-graduate_megamenu table,   #mini-panel-student_life_megamenu table {
 	background:#fff;
 	margin:0;
 	border:none;
 	border-right:#dddedf solid 1px;
 }
-#mini-panel-undergraduate_megamenu th,  #mini-panel-student_life_megamenu th {
+#mini-panel-undergraduate_megamenu th, #mini-panel-graduate_megamenu th, #mini-panel-student_life_megamenu th, #mini-panel-student_life_megamenu .grid-3 {
 	padding:20px 20px 0px 20px;
 	/*border-top:none;*/
 }
-#mini-panel-undergraduate_megamenu td,  #mini-panel-student_life_megamenu td {
+#mini-panel-undergraduate_megamenu td, #mini-panel-graduate_megamenu td, #mini-panel-student_life_megamenu td {
 	padding:10px 20px 10px 20px;
 }
-#mini-panel-undergraduate_megamenu .grid-9,  #mini-panel-student_life_megamenu .grid-9 {
+#mini-panel-undergraduate_megamenu .grid-9, #mini-panel-graduate_megamenu .grid-9, #mini-panel-student_life_megamenu .grid-9{
 	margin-left:0;
 	margin-right:0;
 }
-.main-menu-undergraduate-lists, .main-menu-undergraduate-lists tbody, {
+.main-menu-undergraduate-lists, .main-menu-undergraduate-lists tbody {
 	background-color:#fff;
 	border:0px;
 }
