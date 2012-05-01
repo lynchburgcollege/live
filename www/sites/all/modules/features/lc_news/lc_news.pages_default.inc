@@ -98,16 +98,13 @@ function lc_news_default_page_manager_pages() {
     $pane = new stdClass();
     $pane->pid = 'new-2';
     $pane->panel = 'left';
-    $pane->type = 'custom';
-    $pane->subtype = 'custom';
+    $pane->type = 'news_date_picker';
+    $pane->subtype = 'news_date_picker';
     $pane->shown = TRUE;
     $pane->access = array();
     $pane->configuration = array(
-      'admin_title' => '',
-      'title' => 'News Archives',
-      'body' => 'Archives date selection widget',
-      'format' => 'plain_text',
-      'substitute' => NULL,
+      'override_title' => 0,
+      'override_title_text' => 'News Archives',
     );
     $pane->cache = array();
     $pane->style = array(

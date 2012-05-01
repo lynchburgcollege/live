@@ -199,8 +199,14 @@ body.front {
 }
 
 .megamenu-grid3-width { max-width:150px; }
+.megamenu-grid4-width { max-width:225px; }
+
+#graduate-programs-certificates { max-width:400px; }
 
 #athletics-stories-feed, #athletics-events-feed, .megamenu-athletics-pane { max-width: 250px; }
+
+.view-athletics-schedule li { margin-bottom:10px; }
+
 
 /**********************************************
  * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
