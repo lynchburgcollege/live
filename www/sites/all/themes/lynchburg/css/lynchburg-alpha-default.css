@@ -202,6 +202,8 @@ body.front {
 	border-radius:0em 0em 0em .5em;
 }
 
+.megamenu-grid3-width { max-width:150px; }
+
 /**********************************************
  * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
 **********************************************/
