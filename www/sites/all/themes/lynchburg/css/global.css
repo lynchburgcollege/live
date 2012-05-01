@@ -238,6 +238,72 @@ td ul.links {
   margin-bottom: 0;
 }
 
+/***** surreptitious ***/
+table.surreptitious {
+  border: none;
+}
+
+table.surreptitious thead th, table.surreptitous th {
+  background: inherit;
+  border-bottom: none;
+  color: inherit;
+}
+
+table.surreptitious td, table.surreptitious th {
+  padding: 4px 8px;
+  vertical-align: middle;
+}
+
+table.surreptitious th a, table.surreptitious th a:link, table.surreptitious th a:visited {
+  text-decoration: underline;
+}
+
+table.surreptitious th a {
+  display: inline;
+}
+
+table.surreptitious th a img {
+  margin: 0 0 0 0;
+}
+
+table.surreptitious th.active {
+  background: inherit;
+  border-left: 0;
+  border-right: 0;
+}
+
+/* Odd & Even Styles */
+table.surreptitious tr.even td {
+  background: inherit;
+}
+
+table.surreptitious tr.odd td {
+  background: inherit;
+}
+
+table.surreptitious td.active {
+  border-left: 0;
+  border-right: 0;
+}
+
+table.surreptitious tr.even td.active {
+  background: inherit;
+}
+
+table.surreptitious tr.odd td.active {
+  background: inherit;
+}
+
+table.surreptitious tr:hover td,
+table.surreptitious tr.even:hover td.active,
+table.surreptitious tr.odd:hover td.active {
+  background: inherit;
+}
+
+td ul.links {
+  margin-bottom: 0;
+}
+
 
 /* ========== MAIN NAV ========== */
 #top-menu-center, #top-menu-left, #top-menu-right {
