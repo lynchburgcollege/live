@@ -970,7 +970,6 @@ form.normal input[type="submit"]:hover {
 /*************************
  *  footer area  top        *
  *************************/
-
 .pane-menu-menu-footer-bar-left, .pane-menu-menu-footer-bar-right{
 	 float:left;
  }
@@ -1169,3 +1168,23 @@ table.footer-list tr.odd:hover td.active {
 }
 table.footer-list li, table.footer-list:hover li {
 margin-bottom:-8px;}
+
+/* News Page Thumbnail Image*/
+.news-page-thumbnail-image{
+	padding:3px;
+	background:#fff;
+	-webkit-box-shadow:2px 2px 7px 1px #A8A8A8;
+	-moz-box-shadow:2px 2px 7px 1px #A8A8A8;
+	-o-box-shadow:2px 2px 7px 1px #A8A8A8;
+	-ms-box-shadow:2px 2px 7px 1px #A8A8A8;
+	box-shadow:2px 2px 7px 1px #A8A8A8;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+}
+.news-page-thumbnail-image:hover{
+		background:#e0e1e0;
+	-moz-transition: all 0.2s linear 0s;
+	-webkit-transition: all 0.2s linear 0s;
+	-o-transition: all 0.2s linear 0s;
+}
