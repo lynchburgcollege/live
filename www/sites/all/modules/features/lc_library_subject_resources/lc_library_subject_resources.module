@@ -5,3 +5,35 @@
  */
 
 include_once('lc_library_subject_resources.features.inc');
+
+function lc_library_subject_resources_feeds_after_parse($source, $result) {
+  if ($source->id == 'lc_library_resources') {
+    // Set up our new items array.
+    $new_items = array();
+    // Template for individual item;
+    $item_template = array();
+    for ($i = 0; $i++; $i <= 5) {
+      $item_template['jsonpath_parser:' . $i] = '';
+    }
+    $guid = '';
+    foreach ($result->items as $item) {
+      if ($item['jsonpath_parser:0'] != $guid) {
+        $guid = $item['jsonpath_parser:0'];
+        // This here is a new item.
+        // So shoot me, I'm listening to country right now.
+        $new_items[$guid] = $item;
+        $new_items[$guid]['jsonpath_parser:5'] = array($item['jsonpath_parser:5']);
+        $new_items[$guid]['jsonpath_parser:6'] = array($item['jsonpath_parser:6']);
+        $new_items[$guid]['jsonpath_parser:7'] = array($item['jsonpath_parser:7']);
+      }
+      else { // This isn't a new item, just add the URLs and descriptions.
+        $new_items[$guid]['jsonpath_parser:5'][] = $item['jsonpath_parser:5'];
+        $new_items[$guid]['jsonpath_parser:6'][] = $item['jsonpath_parser:6'];
+        $new_items[$guid]['jsonpath_parser:7'][] = $item['jsonpath_parser:7'];
+      }
+    }
+    // Replace the original items with our modified items, re-indexing the array numerically.
+    $result->items = array_values($new_items);
+  }
+}
+
