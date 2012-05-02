@@ -1456,3 +1456,87 @@ function field_collection_devel_generate($object, $field, $instance, $bundle) {
 
   return array('value' => $field_collection->item_id);
 }
+
+/**
+ * Implements hook_feeds_processor_targets_alter()
+ */
+function field_collection_feeds_processor_targets_alter(&$targets, $entity_type, $bundle_name) {
+  // Thou shalt not attempt Sorcery!
+  if ($entity_type == 'field_collection_item') {
+    return;
+  }
+  foreach (field_info_instances($entity_type, $bundle_name) as $name => $instance) {
+    $info = field_info_field($name);
+    if ($info['type'] == 'field_collection') {
+      $new_targets = array();
+      feeds_alter('feeds_processor_targets', $new_targets, 'field_collection_item', $info['field_name']);
+      foreach ($new_targets as $sub_name => $target) {
+        $new_name = $info['field_name'] . ':' . $sub_name;
+        $targets[$new_name] = $target;
+        if (isset($target['name'])) {
+          $targets[$new_name]['name'] = $instance['label'] . ': ' . $target['name'];
+        }
+
+        // We override callback for now and retrieve original later.
+        $targets[$new_name]['callback'] = 'field_collection_feeds_set_target';
+      }
+    }
+  }
+}
+
+/**
+ * Process Field Collection items
+ */
+function field_collection_feeds_set_target($source, $entity, $target, $value) {
+  static $sub_targets = array();
+
+  $args = explode(':', $target);
+  $target = array_shift($args);
+  $sub_target = implode(':', $args);
+
+  // Now we retrieve old callbacks and keep then on a static cache
+  if (!isset($sub_targets[$target])) {
+    feeds_alter('feeds_processor_targets', $sub_targets[$target], 'field_collection_item', $target);
+  }
+  $_sub_targets = $sub_targets[$target];
+
+  $value = is_array($value) ? $value : array($value);
+  $info = field_info_field($target);
+
+  // Iterate over all values.
+  $delta = 0;
+  $field = isset($entity->$target) ? $entity->$target : array();
+  foreach ($value as $v) {
+    if (empty($v)) {
+      // Avoid creation of empty field collections
+      continue;
+    }
+    if (isset($field['und'][$delta]['entity'])) {
+      $field_collection_item = $field['und'][$delta]['entity'];
+    }
+    elseif (isset($field['und'][$delta]['value'])) {
+      $field_collection_item = field_collection_item_load($field['und'][$delta]['value']);
+    }
+    if (empty($field_collection_item)) {
+      $field_collection_item = entity_create('field_collection_item', array('field_name' => $target));
+    }
+
+    if (isset($_sub_targets[$sub_target]['callback']) && function_exists($_sub_targets[$sub_target]['callback'])) {
+      $callback = $_sub_targets[$sub_target]['callback'];
+      $callback($source, $field_collection_item, $sub_target, $v);
+    }
+
+
+    $field['und'][$delta]['entity'] = $field_collection_item;
+    $field['und'][$delta]['value'] = $field_collection_item->item_id;
+
+    unset($field_collection_item);
+
+    if ($info['cardinality'] == 1) {
+      break;
+    }
+    $delta++;
+  }
+
+  $entity->{$target} = $field;
+}
