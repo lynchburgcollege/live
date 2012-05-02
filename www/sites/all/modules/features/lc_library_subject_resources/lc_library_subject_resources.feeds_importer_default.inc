@@ -88,7 +88,7 @@ function lc_library_subject_resources_feeds_importer_default() {
             'unique' => FALSE,
           ),
         ),
-        'update_existing' => '1',
+        'update_existing' => '2',
         'input_format' => 'filtered',
       ),
     ),
