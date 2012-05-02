@@ -57,6 +57,49 @@ if (isset($vid)) {
 ?>';
   $handler->display->display_options['header']['area']['format'] = 'php_code';
   $handler->display->display_options['header']['area']['tokenize'] = 0;
+  /* Relationship: Content: Taxonomy terms on node */
+  $handler->display->display_options['relationships']['term_node_tid']['id'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['table'] = 'node';
+  $handler->display->display_options['relationships']['term_node_tid']['field'] = 'term_node_tid';
+  $handler->display->display_options['relationships']['term_node_tid']['required'] = 0;
+  $handler->display->display_options['relationships']['term_node_tid']['vocabularies'] = array(
+    'organization_type' => 'organization_type',
+    'graduate_programs' => 0,
+    'undergraduate_programs' => 0,
+    'schools' => 0,
+    'expertise' => 0,
+    'course_prefix' => 0,
+    'event_category' => 0,
+    'site_structure' => 0,
+    'tags' => 0,
+  );
+  /* Field: Content: Organization Type */
+  $handler->display->display_options['fields']['field_organization_type']['id'] = 'field_organization_type';
+  $handler->display->display_options['fields']['field_organization_type']['table'] = 'field_data_field_organization_type';
+  $handler->display->display_options['fields']['field_organization_type']['field'] = 'field_organization_type';
+  $handler->display->display_options['fields']['field_organization_type']['label'] = '';
+  $handler->display->display_options['fields']['field_organization_type']['exclude'] = TRUE;
+  $handler->display->display_options['fields']['field_organization_type']['alter']['alter_text'] = 1;
+  $handler->display->display_options['fields']['field_organization_type']['alter']['text'] = '<a name="[field_organization_type]">[field_organization_type]</a>';
+  $handler->display->display_options['fields']['field_organization_type']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_organization_type']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_organization_type']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_organization_type']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_organization_type']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_organization_type']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_organization_type']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_organization_type']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_organization_type']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_organization_type']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_organization_type']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_organization_type']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_organization_type']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_organization_type']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_organization_type']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_organization_type']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_organization_type']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_organization_type']['type'] = 'taxonomy_term_reference_plain';
+  $handler->display->display_options['fields']['field_organization_type']['field_api_classes'] = 0;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -120,37 +163,11 @@ if (isset($vid)) {
   $handler->display->display_options['fields']['field_organization_contact']['empty_zero'] = 0;
   $handler->display->display_options['fields']['field_organization_contact']['hide_alter_empty'] = 1;
   $handler->display->display_options['fields']['field_organization_contact']['field_api_classes'] = 0;
-  /* Field: Content: Organization Type */
-  $handler->display->display_options['fields']['field_organization_type']['id'] = 'field_organization_type';
-  $handler->display->display_options['fields']['field_organization_type']['table'] = 'field_data_field_organization_type';
-  $handler->display->display_options['fields']['field_organization_type']['field'] = 'field_organization_type';
-  $handler->display->display_options['fields']['field_organization_type']['label'] = '';
-  $handler->display->display_options['fields']['field_organization_type']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_organization_type']['alter']['alter_text'] = 1;
-  $handler->display->display_options['fields']['field_organization_type']['alter']['text'] = '<a name="[field_organization_type]">[field_organization_type]</a>';
-  $handler->display->display_options['fields']['field_organization_type']['alter']['make_link'] = 0;
-  $handler->display->display_options['fields']['field_organization_type']['alter']['absolute'] = 0;
-  $handler->display->display_options['fields']['field_organization_type']['alter']['external'] = 0;
-  $handler->display->display_options['fields']['field_organization_type']['alter']['replace_spaces'] = 0;
-  $handler->display->display_options['fields']['field_organization_type']['alter']['trim_whitespace'] = 0;
-  $handler->display->display_options['fields']['field_organization_type']['alter']['nl2br'] = 0;
-  $handler->display->display_options['fields']['field_organization_type']['alter']['word_boundary'] = 1;
-  $handler->display->display_options['fields']['field_organization_type']['alter']['ellipsis'] = 1;
-  $handler->display->display_options['fields']['field_organization_type']['alter']['more_link'] = 0;
-  $handler->display->display_options['fields']['field_organization_type']['alter']['strip_tags'] = 0;
-  $handler->display->display_options['fields']['field_organization_type']['alter']['trim'] = 0;
-  $handler->display->display_options['fields']['field_organization_type']['alter']['html'] = 0;
-  $handler->display->display_options['fields']['field_organization_type']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_organization_type']['element_default_classes'] = 1;
-  $handler->display->display_options['fields']['field_organization_type']['hide_empty'] = 0;
-  $handler->display->display_options['fields']['field_organization_type']['empty_zero'] = 0;
-  $handler->display->display_options['fields']['field_organization_type']['hide_alter_empty'] = 1;
-  $handler->display->display_options['fields']['field_organization_type']['type'] = 'taxonomy_term_reference_plain';
-  $handler->display->display_options['fields']['field_organization_type']['field_api_classes'] = 0;
-  /* Sort criterion: Content: Organization Type (field_organization_type) */
-  $handler->display->display_options['sorts']['field_organization_type_tid']['id'] = 'field_organization_type_tid';
-  $handler->display->display_options['sorts']['field_organization_type_tid']['table'] = 'field_data_field_organization_type';
-  $handler->display->display_options['sorts']['field_organization_type_tid']['field'] = 'field_organization_type_tid';
+  /* Sort criterion: Taxonomy term: Name */
+  $handler->display->display_options['sorts']['name']['id'] = 'name';
+  $handler->display->display_options['sorts']['name']['table'] = 'taxonomy_term_data';
+  $handler->display->display_options['sorts']['name']['field'] = 'name';
+  $handler->display->display_options['sorts']['name']['relationship'] = 'term_node_tid';
   /* Sort criterion: Content: Title */
   $handler->display->display_options['sorts']['title']['id'] = 'title';
   $handler->display->display_options['sorts']['title']['table'] = 'node';
