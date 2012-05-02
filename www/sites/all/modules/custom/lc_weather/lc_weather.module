@@ -1,0 +1,86 @@
+<?php
+/**
+ * @file
+ * Module file for lc_weather
+ */
+
+/**
+ * Implements hook_block_info().
+ */
+function lc_weather_block_info() {
+  $blocks['lc_emergency_weather'] = array(
+    'info' => t('LC Emergency Weather'),
+    // Disable the standard block cache, we're going to cache the 
+    // content ourselves.
+    'cache' => DRUPAL_NO_CACHE,
+  );
+
+  return $blocks;
+}
+
+/**
+ * Implements hook_block_configure().
+ */
+function lc_weather_block_configure($delta = '') {
+  $form = array();
+  if ($delta == 'lc_emergency_weather') {
+    $form['lc_weather_json_url'] = array(
+      '#type' => 'textfield',
+      '#title' => t('JSON URL'),
+      '#size' => 60,
+      '#description' => t('Enter the full URL to the JSON feed.'),
+      '#default_value' => variable_get('lc_weather_json_url', 'http://apps.lynchburg.edu/campus/system/public/export/weather.asp'),
+    );
+    $form['lc_weather_cache_lifetime'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Cache Lifetime in minutes.'),
+      '#size' => 10,
+      '#description' => t('Enter the length of time in minutes to wait before re-checking the source feed.'),
+      '#default_value' => variable_get('lc_weather_cache_lifetime', 15),
+    );
+  }
+  return $form;
+}
+
+/**
+ * Implements hook_block_save().
+ */
+function lc_weather_block_save($delta = '', $edit = array()) {
+  // We need to save settings from the configuration form.
+  if ($delta == 'lc_emergency_weather') {
+    variable_set('lc_weather_cache_lifetime', $edit['lc_weather_cache_lifetime']);
+    variable_set('lc_weather_json_url', $edit['lc_weather_json_url']);
+  }
+  return;
+}
+
+/**
+ * Implements hook_block_view().
+ */
+function lc_weather_block_view($delta = '') {
+  // The $delta parameter tells us which block is being requested.
+  switch ($delta) {
+    case 'lc_emergency_weather':
+      $cache = cache_get('lc_weather:lc_emergency_weather', 'cache_block');
+      // Make sure the data hasn't expired.
+      if ($cache->expire > time()) {
+        return $cache->data;
+      }
+      $block = array();
+      $block['subject'] = '';
+      $response = drupal_http_request(variable_get('lc_weather_json_url', 'http://apps.lynchburg.edu/campus/system/public/export/weather.asp'));
+      $message = '';
+      if (!empty($response->data)) {
+        $json = drupal_json_decode($response->data);
+        $message = $json['Records'][0]['message'];
+      }
+      if (strlen($message)) {
+        // There's a message, let's display it.
+        $block['content'] = array('#markup' => $message);
+      }
+      // Cache the block
+      cache_set('lc_weather:lc_emergency_weather', $block, 'cache_block', time() + (60 * variable_get('lc_weather_cache_lifetime', 15)));
+      break;
+  }
+  return $block;
+}
