@@ -63,14 +63,14 @@ table {
 	text-align:right;
 	font-style:italic;
 	font-size:12px;
-	line-height:20px
+	line-height:16px
 	color:#ff7706;
 }
 .quote-text {
 	font-family:Georgia, "Times New Roman", Times, serif;
 	color:#303030;
 	font-style:italic;
-	font-size:16px;
+	font-size:14px;
 	font-weight:normal;
 	line-height:20px;
 }

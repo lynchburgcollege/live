@@ -92,54 +92,87 @@ body.front {
 .qtip a:hover, .qtip a:visited {
 		text-decoration:none;
 }
-#mini-panel-alumni_megamenu, #mini-panel-apply_megamenu, #mini-panel-visit_megamenu_block, #mini-panel-athletics_megamenu{
-	padding:20px 0px 0px 20px;
-}
-/*dropdown inside*/
-#mini-panel-undergraduate_megamenu .pane-content,#mini-panel-undergraduate_megamenu, #mini-panel-graduate_megamenu, #mini-panel-student_life_megamenu, #mini-panel-alumni_megamenu, #mini-panel-athletics_megamenu, #mini-panel-apply_megamenu, #mini-panel-visit_megamenu_block {
-	/*margin:10px;*/
+
+/* ==========  DROPDOWN ========== */
+#mini-panel-undergraduate_megamenu .pane-content, 
+#mini-panel-undergraduate_megamenu, 
+#mini-panel-graduate_megamenu, 
+#mini-panel-student_life_megamenu, 
+#mini-panel-alumni_megamenu, 
+#mini-panel-athletics_megamenu, 
+#mini-panel-apply_megamenu, 
+#mini-panel-visit_megamenu_block {
 	line-height:15px;
 	font-size:12;
 	border-top:none;
 }
-.menu-minipanels .pane-title, .pane-node-field-links .pane-title {
+.menu-minipanels .pane-title, 
+.pane-node-field-links .pane-title {
 	font-size:1.333em;
 	line-height:1em;
 	color:#900900;
 }
-#mini-panel-undergraduate_megamenu li, #mini-panel-graduate_megamenu li, #mini-panel-student_life_megamenu li, #mini-panel-alumni_megamenu li, #mini-panel-athletics_megamenu li, #mini-panel-apply_megamenu li, #mini-panel-visit_megamenu li {
+#mini-panel-undergraduate_megamenu li, 
+#mini-panel-graduate_megamenu li, 
+#mini-panel-student_life_megamenu li, 
+#mini-panel-alumni_megamenu li, 
+#mini-panel-athletics_megamenu li, 
+#mini-panel-apply_megamenu li, 
+#mini-panel-visit_megamenu_block li {
 	list-style:none;
 	line-height:15px;
 }
-/* ========== UNDERGRADUATE DROPDOWN ========== */
-.menu-button {
-	-webkit-border-radius:.5em;
-	-moz-border-radius:.5em;
-	-o-border-radius:.5em;
-	-ms-border-radius:.5em;
-	border-radius:.5em;
-	padding:20px 20px 10px 20px;
-	margin:20px;
-	background:#f0f0f0; /* Old browsers */
+#mini-panel-visit_megamenu_block .inside{
+		padding:0 20px 0 20px;
 }
-#mini-panel-undergraduate_megamenu table, #mini-panel-graduate_megamenu table,   #mini-panel-student_life_megamenu table {
+#mini-panel-undergraduate_megamenu table, 
+#mini-panel-graduate_megamenu table,  
+#mini-panel-student_life_megamenu table, 
+#mini-panel-alumni_megamenu table,
+#mini-panel-athletics_megamenu table, 
+#mini-panel-visit_megamenu_block table  {
 	background:#fff;
 	margin:0;
-	border:none;
-	border-right:#dddedf solid 1px;
+	border-right:#dddedf solid 1px;	
 }
-#mini-panel-undergraduate_megamenu th, #mini-panel-graduate_megamenu th, #mini-panel-student_life_megamenu th, #mini-panel-student_life_megamenu .grid-3 {
+#mini-panel-athletics_megamenu table, 
+#mini-panel-visit_megamenu_block table {
+	border-left:#dddedf solid 1px;
+}
+#mini-panel-alumni_megamenu table{
+	border:none;
+}
+#mini-panel-undergraduate_megamenu th, 
+#mini-panel-graduate_megamenu th, 
+#mini-panel-student_life_megamenu th, 
+#mini-panel-alumni_megamenu th, 
+#mini-panel-athletics_megamenu th, 
+#mini-panel-visit_megamenu_block th{
 	padding:20px 20px 0px 20px;
 	/*border-top:none;*/
 }
-#mini-panel-undergraduate_megamenu td, #mini-panel-graduate_megamenu td, #mini-panel-student_life_megamenu td {
+#mini-panel-graduate_megamenu .grid-3, 
+#mini-panel-student_life_megamenu .grid-3{
+	padding:20px 10px 0px 10px;
+}
+#mini-panel-undergraduate_megamenu td, 
+#mini-panel-graduate_megamenu td, 
+#mini-panel-student_life_megamenu td, 
+#mini-panel-alumni_megamenu td, 
+#mini-panel-athletics_megamenu td, 
+#mini-panel-visit_megamenu_block td{
 	padding:10px 20px 10px 20px;
 }
-#mini-panel-undergraduate_megamenu .grid-9, #mini-panel-graduate_megamenu .grid-9, #mini-panel-student_life_megamenu .grid-9{
+#mini-panel-undergraduate_megamenu .grid-9, 
+#mini-panel-graduate_megamenu .grid-9, 
+#mini-panel-student_life_megamenu .grid-9, 
+#mini-panel-athletics_megamenu .grid-4, 
+#mini-panel-visit_megamenu_block .grid-6{
 	margin-left:0;
-	margin-right:0;
+	margin-right:-1px;
 }
-.main-menu-undergraduate-lists, .main-menu-undergraduate-lists tbody {
+.main-menu-undergraduate-lists, 
+.main-menu-undergraduate-lists tbody{
 	background-color:#fff;
 	border:0px;
 }
@@ -162,7 +195,6 @@ body.front {
 	-ms-border-radius:0em 0em 0em .5em;
 	border-radius:0em 0em 0em .5em;
 }
-
 .main-menu-undergraduate-lists .bottom-more-row a {
 	background:url(../images/icons/small/media_controls_forward_small.png) no-repeat center left;
 	padding-left:20px;
@@ -170,6 +202,9 @@ body.front {
 }
 .main-menu-undergraduate-lists .bottom-more-row a:hover {
 	background:url(../images/icons/small/media_controls_forward_small_hover.png) no-repeat center left;
+}
+#mini-panel-apply_megamenu{
+	padding:20px 0px 0px 20px;
 }
 /*undergraduate titles*/
 .main-menu-undergraduate-lists th{
@@ -179,10 +214,16 @@ body.front {
 	line-height:1em;
 	color:#900900;
 }
-.main-menu-undergraduate-lists tr:hover td, .main-menu-undergraduate-lists tr.even:hover td.active, .main-menu-undergraduate-lists tr.odd:hover td.active {
+#mini-panel-athletics_megamenu h2 {
+	padding-top:20px;
+}
+.main-menu-undergraduate-lists tr:hover td, 
+.main-menu-undergraduate-lists tr.even:hover td.active, 
+.main-menu-undergraduate-lists tr.odd:hover td.active {
 	background:#fff;		
 }
-.main-menu-undergraduate-lists tr.bottom-more-row:hover td, .main-menu-undergraduate-lists tr.bottom-more-row:hover td.active {
+.main-menu-undergraduate-lists tr.bottom-more-row:hover td, 
+.main-menu-undergraduate-lists tr.bottom-more-row:hover td.active {
 	background: rgb(247,247,247); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(247,247,247,1) 0%, rgba(230,230,230,1) 100%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(247,247,247,1)), color-stop(100%,rgba(230,230,230,1))); /* Chrome,Safari4+ */
@@ -197,17 +238,27 @@ body.front {
 	-ms-border-radius:0em 0em 0em .5em;
 	border-radius:0em 0em 0em .5em;
 }
-
+.menu-button { padding:20px 10px 0 10px; }
 .megamenu-grid3-width { max-width:150px; }
 .megamenu-grid4-width { max-width:225px; }
 
 #graduate-programs-certificates { max-width:400px; }
 
-#athletics-stories-feed, #athletics-events-feed, .megamenu-athletics-pane { max-width: 250px; }
+#athletics-stories-feed, 
+#athletics-events-feed, 
+.megamenu-athletics-pane { 
+	max-width: 250px;
+	padding-left:20px;}
 
 .view-athletics-schedule li { margin-bottom:10px; }
 
-
+#mini-panel-visit_megamenu_block h2 {
+	padding-top:20px;
+	padding-bottom:10px;
+}
+#mini-panel-student_life_megamenu h2{
+	padding-bottom:10px;
+}
 /**********************************************
  * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
 **********************************************/
