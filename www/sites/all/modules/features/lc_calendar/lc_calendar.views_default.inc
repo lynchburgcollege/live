@@ -223,6 +223,8 @@ function lc_calendar_views_default_views() {
 
   /* Display: Block */
   $handler = $view->new_display('block', 'Block', 'block_1');
+  $handler->display->display_options['defaults']['use_ajax'] = FALSE;
+  $handler->display->display_options['use_ajax'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'date_views_pager';
   $handler->display->display_options['pager']['options']['date_id'] = 'mini';
@@ -240,19 +242,30 @@ function lc_calendar_views_default_views() {
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
-  /* Field: Content: Date */
-  $handler->display->display_options['fields']['field_date_1']['id'] = 'field_date_1';
-  $handler->display->display_options['fields']['field_date_1']['table'] = 'field_data_field_date';
-  $handler->display->display_options['fields']['field_date_1']['field'] = 'field_date';
-  $handler->display->display_options['fields']['field_date_1']['label'] = '';
-  $handler->display->display_options['fields']['field_date_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_date_1']['settings'] = array(
-    'format_type' => 'lc_calendar_12_hr',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-  );
+  /* Field: Content: Time */
+  $handler->display->display_options['fields']['field_time']['id'] = 'field_time';
+  $handler->display->display_options['fields']['field_time']['table'] = 'field_data_field_time';
+  $handler->display->display_options['fields']['field_time']['field'] = 'field_time';
+  $handler->display->display_options['fields']['field_time']['label'] = '';
+  $handler->display->display_options['fields']['field_time']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_time']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_time']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_time']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_time']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_time']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_time']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_time']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_time']['field_api_classes'] = 0;
   /* Field: Content: Campus Location */
   $handler->display->display_options['fields']['field_campus_location']['id'] = 'field_campus_location';
   $handler->display->display_options['fields']['field_campus_location']['table'] = 'field_data_field_campus_location';
@@ -285,16 +298,24 @@ function lc_calendar_views_default_views() {
   $handler->display->display_options['fields']['view_node']['alter']['text'] = 'more info';
   $handler->display->display_options['fields']['view_node']['alter']['make_link'] = TRUE;
   $handler->display->display_options['fields']['view_node']['element_label_colon'] = FALSE;
+  $handler->display->display_options['defaults']['sorts'] = FALSE;
+  /* Sort criterion: Content: Day -  start date (field_day) */
+  $handler->display->display_options['sorts']['field_day_value']['id'] = 'field_day_value';
+  $handler->display->display_options['sorts']['field_day_value']['table'] = 'field_data_field_day';
+  $handler->display->display_options['sorts']['field_day_value']['field'] = 'field_day_value';
+  /* Sort criterion: Content: Time (field_time) */
+  $handler->display->display_options['sorts']['field_time_value']['id'] = 'field_time_value';
+  $handler->display->display_options['sorts']['field_time_value']['table'] = 'field_data_field_time';
+  $handler->display->display_options['sorts']['field_time_value']['field'] = 'field_time_value';
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Date: Date (node) */
   $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
   $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
   $handler->display->display_options['arguments']['date_argument']['field'] = 'date_argument';
   $handler->display->display_options['arguments']['date_argument']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['date_argument']['add_delta'] = 'yes';
+  $handler->display->display_options['arguments']['date_argument']['default_argument_skip_url'] = 0;
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
-    'field_data_field_date.field_date_value' => 'field_data_field_date.field_date_value',
+    'field_data_field_day.field_day_value' => 'field_data_field_day.field_day_value',
   );
 
   /* Display: Upcoming */
@@ -363,56 +384,101 @@ function lc_calendar_views_default_views() {
   $handler->display->display_options['empty']['area']['field'] = 'area';
   $handler->display->display_options['empty']['area']['label'] = 'No results';
   $handler->display->display_options['empty']['area']['empty'] = FALSE;
-  $handler->display->display_options['empty']['area']['content'] = 'No results were found with the specified dates and/or search terms.';
+  $handler->display->display_options['empty']['area']['content'] = 'No results were found.';
   $handler->display->display_options['empty']['area']['format'] = 'plain_text';
-  /* Field: Content: Date */
-  $handler->display->display_options['fields']['field_date']['id'] = 'field_date';
-  $handler->display->display_options['fields']['field_date']['table'] = 'field_data_field_date';
-  $handler->display->display_options['fields']['field_date']['field'] = 'field_date';
-  $handler->display->display_options['fields']['field_date']['label'] = '';
-  $handler->display->display_options['fields']['field_date']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_date']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_date']['settings'] = array(
-    'format_type' => 'lc_calendar_day_month_date_year',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-  );
+  $handler->display->display_options['empty']['area']['tokenize'] = 0;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
   $handler->display->display_options['fields']['title']['element_type'] = 'h4';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Content: Date */
-  $handler->display->display_options['fields']['field_date_1']['id'] = 'field_date_1';
-  $handler->display->display_options['fields']['field_date_1']['table'] = 'field_data_field_date';
-  $handler->display->display_options['fields']['field_date_1']['field'] = 'field_date';
-  $handler->display->display_options['fields']['field_date_1']['label'] = '';
-  $handler->display->display_options['fields']['field_date_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_date_1']['settings'] = array(
-    'format_type' => 'lc_calendar_12_hr',
+  $handler->display->display_options['fields']['title']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['title']['link_to_node'] = 0;
+  /* Field: Content: Day */
+  $handler->display->display_options['fields']['field_day']['id'] = 'field_day';
+  $handler->display->display_options['fields']['field_day']['table'] = 'field_data_field_day';
+  $handler->display->display_options['fields']['field_day']['field'] = 'field_day';
+  $handler->display->display_options['fields']['field_day']['label'] = '';
+  $handler->display->display_options['fields']['field_day']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_day']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_day']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_day']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_day']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_day']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_day']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_day']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_day']['settings'] = array(
+    'format_type' => 'events_widget_date',
     'fromto' => 'both',
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: Where */
-  $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
-  $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
-  $handler->display->display_options['fields']['field_location']['field'] = 'field_location';
-  $handler->display->display_options['fields']['field_location']['label'] = '';
-  $handler->display->display_options['fields']['field_location']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_day']['field_api_classes'] = 0;
+  /* Field: Content: Time */
+  $handler->display->display_options['fields']['field_time']['id'] = 'field_time';
+  $handler->display->display_options['fields']['field_time']['table'] = 'field_data_field_time';
+  $handler->display->display_options['fields']['field_time']['field'] = 'field_time';
+  $handler->display->display_options['fields']['field_time']['label'] = '';
+  $handler->display->display_options['fields']['field_time']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_time']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_time']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_time']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_time']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_time']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_time']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_time']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_time']['field_api_classes'] = 0;
   /* Field: Content: Campus Location */
   $handler->display->display_options['fields']['field_campus_location']['id'] = 'field_campus_location';
   $handler->display->display_options['fields']['field_campus_location']['table'] = 'field_data_field_campus_location';
   $handler->display->display_options['fields']['field_campus_location']['field'] = 'field_campus_location';
   $handler->display->display_options['fields']['field_campus_location']['label'] = '';
   $handler->display->display_options['fields']['field_campus_location']['element_label_colon'] = FALSE;
+  /* Field: Content: Where */
+  $handler->display->display_options['fields']['field_location']['id'] = 'field_location';
+  $handler->display->display_options['fields']['field_location']['table'] = 'field_data_field_location';
+  $handler->display->display_options['fields']['field_location']['field'] = 'field_location';
+  $handler->display->display_options['fields']['field_location']['label'] = '';
+  $handler->display->display_options['fields']['field_location']['element_label_colon'] = FALSE;
   /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
@@ -430,10 +496,14 @@ function lc_calendar_views_default_views() {
   $handler->display->display_options['fields']['field_contact']['table'] = 'field_data_field_contact';
   $handler->display->display_options['fields']['field_contact']['field'] = 'field_contact';
   $handler->display->display_options['fields']['field_contact']['hide_empty'] = TRUE;
-  /* Sort criterion: Content: Date (field_date) */
-  $handler->display->display_options['sorts']['field_date_value']['id'] = 'field_date_value';
-  $handler->display->display_options['sorts']['field_date_value']['table'] = 'field_data_field_date';
-  $handler->display->display_options['sorts']['field_date_value']['field'] = 'field_date_value';
+  /* Sort criterion: Content: Day -  start date (field_day) */
+  $handler->display->display_options['sorts']['field_day_value']['id'] = 'field_day_value';
+  $handler->display->display_options['sorts']['field_day_value']['table'] = 'field_data_field_day';
+  $handler->display->display_options['sorts']['field_day_value']['field'] = 'field_day_value';
+  /* Sort criterion: Content: Time (field_time) */
+  $handler->display->display_options['sorts']['field_time_value']['id'] = 'field_time_value';
+  $handler->display->display_options['sorts']['field_time_value']['table'] = 'field_data_field_time';
+  $handler->display->display_options['sorts']['field_time_value']['field'] = 'field_time_value';
   /* Contextual filter: Date: Date (node) */
   $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
   $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
@@ -441,18 +511,10 @@ function lc_calendar_views_default_views() {
   $handler->display->display_options['arguments']['date_argument']['default_action'] = 'default';
   $handler->display->display_options['arguments']['date_argument']['default_argument_type'] = 'raw';
   $handler->display->display_options['arguments']['date_argument']['default_argument_skip_url'] = 0;
-  $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['date_argument']['summary_options']['grouping'] = array(
-    0 => array(
-      'field' => 'field_date',
-      'rendered' => 1,
-      'rendered_strip' => 1,
-    ),
-  );
   $handler->display->display_options['arguments']['date_argument']['specify_validation'] = 1;
   $handler->display->display_options['arguments']['date_argument']['granularity'] = 'day';
   $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
-    'field_data_field_date.field_date_value' => 'field_data_field_date.field_date_value',
+    'field_data_field_day.field_day_value' => 'field_data_field_day.field_day_value',
   );
   /* Contextual filter: Search: Search Terms */
   $handler->display->display_options['arguments']['keys']['id'] = 'keys';
@@ -548,8 +610,50 @@ return TRUE;';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
+  /* Field: Content: Body */
+  $handler->display->display_options['fields']['body']['id'] = 'body';
+  $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
+  $handler->display->display_options['fields']['body']['field'] = 'body';
+  $handler->display->display_options['fields']['body']['label'] = '';
+  $handler->display->display_options['fields']['body']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['body']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['body']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['body']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['body']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['body']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['body']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['body']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['body']['field_api_classes'] = 0;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Date: Date (node) */
   $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
@@ -585,12 +689,16 @@ return TRUE;';
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
-  /* Filter criterion: Content: Date (field_date) */
-  $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
-  $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
-  $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
-  $handler->display->display_options['filters']['field_date_value']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now';
+  /* Filter criterion: Content: Featured Event? (field_featuredevent) */
+  $handler->display->display_options['filters']['field_featuredevent_value']['id'] = 'field_featuredevent_value';
+  $handler->display->display_options['filters']['field_featuredevent_value']['table'] = 'field_data_field_featuredevent';
+  $handler->display->display_options['filters']['field_featuredevent_value']['field'] = 'field_featuredevent_value';
+  $handler->display->display_options['filters']['field_featuredevent_value']['operator'] = 'not empty';
+  $handler->display->display_options['filters']['field_featuredevent_value']['value'] = array(
+    'all' => 'all',
+    0 => '0',
+    1 => '1',
+  );
 
   /* Display: Feed */
   $handler = $view->new_display('feed', 'Feed', 'feed_1');
@@ -672,6 +780,20 @@ return TRUE;';
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
   $handler->display->display_options['pager']['options']['offset'] = '0';
+  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
+  $handler->display->display_options['style_plugin'] = 'default';
+  $handler->display->display_options['defaults']['style_options'] = FALSE;
+  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
+  $handler->display->display_options['row_plugin'] = 'fields';
+  $handler->display->display_options['row_options']['inline'] = array(
+    'field_day' => 'field_day',
+    'title' => 'title',
+    'field_time' => 'field_time',
+  );
+  $handler->display->display_options['row_options']['separator'] = ', ';
+  $handler->display->display_options['row_options']['hide_empty'] = 1;
+  $handler->display->display_options['row_options']['default_field_elements'] = 1;
+  $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['footer'] = FALSE;
   /* Footer: Global: Text area */
   $handler->display->display_options['footer']['area']['id'] = 'area';
@@ -682,16 +804,86 @@ return TRUE;';
   $handler->display->display_options['footer']['area']['format'] = 'full_html';
   $handler->display->display_options['footer']['area']['tokenize'] = 1;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Content: Day */
+  $handler->display->display_options['fields']['field_day']['id'] = 'field_day';
+  $handler->display->display_options['fields']['field_day']['table'] = 'field_data_field_day';
+  $handler->display->display_options['fields']['field_day']['field'] = 'field_day';
+  $handler->display->display_options['fields']['field_day']['label'] = '';
+  $handler->display->display_options['fields']['field_day']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_day']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_day']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_day']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_day']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_day']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_day']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['field_day']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_day']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_day']['settings'] = array(
+    'format_type' => 'events_widget_date',
+    'fromto' => 'both',
+    'multiple_number' => '',
+    'multiple_from' => '',
+    'multiple_to' => '',
+  );
+  $handler->display->display_options['fields']['field_day']['field_api_classes'] = 0;
+  /* Field: Content: Time */
+  $handler->display->display_options['fields']['field_time']['id'] = 'field_time';
+  $handler->display->display_options['fields']['field_time']['table'] = 'field_data_field_time';
+  $handler->display->display_options['fields']['field_time']['field'] = 'field_time';
+  $handler->display->display_options['fields']['field_time']['label'] = '';
+  $handler->display->display_options['fields']['field_time']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['word_boundary'] = 1;
+  $handler->display->display_options['fields']['field_time']['alter']['ellipsis'] = 1;
+  $handler->display->display_options['fields']['field_time']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['field_time']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['field_time']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_time']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['field_time']['hide_empty'] = 1;
+  $handler->display->display_options['fields']['field_time']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['field_time']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['field_time']['field_api_classes'] = 0;
+  $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  $handler->display->display_options['defaults']['arguments'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
   /* Contextual filter: Content: Event Category (field_event_category) */
   $handler->display->display_options['arguments']['field_event_category_tid']['id'] = 'field_event_category_tid';
   $handler->display->display_options['arguments']['field_event_category_tid']['table'] = 'field_data_field_event_category';
@@ -726,13 +918,13 @@ return TRUE;';
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
-  /* Filter criterion: Content: Date (field_date) */
-  $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
-  $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
-  $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
-  $handler->display->display_options['filters']['field_date_value']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_date_value']['form_type'] = 'date_text';
-  $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now';
+  /* Filter criterion: Content: Day -  start date (field_day) */
+  $handler->display->display_options['filters']['field_day_value']['id'] = 'field_day_value';
+  $handler->display->display_options['filters']['field_day_value']['table'] = 'field_data_field_day';
+  $handler->display->display_options['filters']['field_day_value']['field'] = 'field_day_value';
+  $handler->display->display_options['filters']['field_day_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_day_value']['default_date'] = 'now';
+  $handler->display->display_options['filters']['field_day_value']['year_range'] = '-0:+3';
   $handler->display->display_options['argument_input'] = array(
     'field_event_category_tid' => array(
       'type' => 'user',
@@ -749,6 +941,7 @@ return TRUE;';
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Upcoming Events';
   $handler->display->display_options['defaults']['use_more'] = FALSE;
+  $handler->display->display_options['use_more'] = TRUE;
   $handler->display->display_options['defaults']['pager'] = FALSE;
   $handler->display->display_options['pager']['type'] = 'some';
   $handler->display->display_options['pager']['options']['items_per_page'] = '5';
@@ -768,10 +961,26 @@ return TRUE;';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = '';
-  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
-  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
-  $handler->display->display_options['fields']['title']['element_type'] = 'h4';
+  $handler->display->display_options['fields']['title']['alter']['alter_text'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['make_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['absolute'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['external'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['replace_spaces'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim_whitespace'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['nl2br'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['word_boundary'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['ellipsis'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['more_link'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['strip_tags'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['trim'] = 0;
+  $handler->display->display_options['fields']['title']['alter']['html'] = 0;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h5';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = 1;
+  $handler->display->display_options['fields']['title']['hide_empty'] = 0;
+  $handler->display->display_options['fields']['title']['empty_zero'] = 0;
+  $handler->display->display_options['fields']['title']['hide_alter_empty'] = 1;
+  $handler->display->display_options['fields']['title']['link_to_node'] = 1;
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   $handler->display->display_options['defaults']['filters'] = FALSE;
   /* Filter criterion: Content: Published */
@@ -788,13 +997,13 @@ return TRUE;';
   $handler->display->display_options['filters']['type']['value'] = array(
     'event' => 'event',
   );
-  /* Filter criterion: Content: Date (field_date) */
-  $handler->display->display_options['filters']['field_date_value']['id'] = 'field_date_value';
-  $handler->display->display_options['filters']['field_date_value']['table'] = 'field_data_field_date';
-  $handler->display->display_options['filters']['field_date_value']['field'] = 'field_date_value';
-  $handler->display->display_options['filters']['field_date_value']['operator'] = '>=';
-  $handler->display->display_options['filters']['field_date_value']['form_type'] = 'date_text';
-  $handler->display->display_options['filters']['field_date_value']['default_date'] = 'now';
+  /* Filter criterion: Content: Day -  start date (field_day) */
+  $handler->display->display_options['filters']['field_day_value']['id'] = 'field_day_value';
+  $handler->display->display_options['filters']['field_day_value']['table'] = 'field_data_field_day';
+  $handler->display->display_options['filters']['field_day_value']['field'] = 'field_day_value';
+  $handler->display->display_options['filters']['field_day_value']['operator'] = '>=';
+  $handler->display->display_options['filters']['field_day_value']['default_date'] = 'now';
+  $handler->display->display_options['filters']['field_day_value']['year_range'] = '-0:+1';
   $handler->display->display_options['argument_input'] = array(
     'field_event_category_tid' => array(
       'type' => 'user',

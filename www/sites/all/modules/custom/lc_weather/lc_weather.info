@@ -1,0 +1,5 @@
+name = LC Weather
+description = Provides a block that displays LC emergency weather information.
+package = LC
+core = 7.x
+dependencies[] = block
