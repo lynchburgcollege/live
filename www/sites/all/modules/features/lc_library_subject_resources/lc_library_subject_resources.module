@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Lynchburg Library Subject Resources feature.
+ */
+
+include_once('lc_library_subject_resources.features.inc');
