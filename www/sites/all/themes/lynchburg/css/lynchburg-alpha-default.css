@@ -175,7 +175,6 @@ body.front {
 .main-menu-undergraduate-lists tbody{
 	background-color:#fff;
 	border:0px;
-	height:100%;
 }
 .main-menu-undergraduate-lists .bottom-more-row{
 	padding:10px 0 10px 0;
@@ -207,14 +206,6 @@ body.front {
 #mini-panel-apply_megamenu{
 	padding:20px 0px 0px 20px;
 }
-
-#mini-panel-student_life_megamenu,
-#mini-panel-student_life_megamenu .panel-panel,
-#mini-panel-student_life_megamenu .inside,
-#mini-panel-student_life_megamenu .panel-pane,
-#mini-panel-student_life_megamenu .pane-content { height: 100%; }
-
-
 /*undergraduate titles*/
 .main-menu-undergraduate-lists th{
 	background:#fff;
@@ -268,12 +259,9 @@ body.front {
 #mini-panel-student_life_megamenu h2{
 	padding-bottom:10px;
 }
-
-
-.megamenu-text { margin-top:40px; }
-
-
-
+.megamenu-text{
+	paddint-top:20px;
+}
 /**********************************************
  * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
 **********************************************/
@@ -324,24 +312,31 @@ body.front {
 	overflow:hidden;
 	padding:0 0px 96px 0px;
 	margin:0;
-	background:transparent url(../images/shadow-home-news.png) no-repeat bottom center;
+	/*background:transparent url(../images/shadow-home-news.png) no-repeat bottom center;*/
 }
 .jcarousel-skin-default {
 	text-align: left;
-	/*background:#fff;
+	background:#fff;
 	background: -moz-linear-gradient(top,  #ffffff 0%, #edeef2 100%); 
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#edeef2));
 	background: -webkit-linear-gradient(top,  #ffffff 0%,#edeef2 100%);
 	background: -o-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
 	background: -ms-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
 	background: linear-gradient(top,  #ffffff 0%,#edeef2 100%);
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 );*/
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 );
+	box-shadow:0 3px 6px 0 rgba(31, 31, 31, .2);
+	-webkit-box-shadow:0 3px 6px 0 rgba(31, 31, 31, .2);
+	-moz-box-shadow:0 3px 6px 0 rgba (31, 31, 31, .2);
+	-khtml-box-shadow:0 3px 6px 0 rgba (31, 31, 31, .2);
+	width:900px;
 }
 .jcarousel-skin-default .jcarousel-container-horizontal {
 	width: 860px;
 	height: 190px;
 	overflow:hidden;
 	background:transparent url(../images/shadow-carousel-inner.png) no-repeat bottom center;
+	margin:0;
+	padding-left:20px;
 }
 .jcarousel-skin-default .jcarousel-clip-horizontal {
 	width: 860px;
@@ -380,7 +375,7 @@ body.front {
 	position:relative;
 	margin-bottom:10px;
 	padding:10px 10px 20px 10px;
-	width:260px;
+	/*width:260px;*/
 	background:transparent url(../images/home/alpha-gray.png);
 	color:#c6c6c6;
 }
@@ -401,7 +396,7 @@ body.front {
 .jcarousel-skin-default .jcarousel-prev-horizontal {
 	position: absolute;
 	top: 90px;
-	left: 10px;
+	left: 4px;
 	background-position: 0 0;
 	margin-left:-15px;
 }
@@ -414,7 +409,7 @@ body.front {
 .jcarousel-skin-default .jcarousel-next-horizontal {
 	position: absolute;
 	top: 90px;
-	right: 10px;
+	right:22px;
 	background-position: 0 -32px;
 	margin-right:-15px;
 }
