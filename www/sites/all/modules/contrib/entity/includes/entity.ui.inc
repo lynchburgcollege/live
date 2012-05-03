@@ -43,6 +43,11 @@ class EntityDefaultUIController {
       'access arguments' => array('view', $this->entityType),
       'file' => 'includes/entity.ui.inc',
     );
+    $items[$this->path . '/list'] = array(
+      'title' => 'List',
+      'type' => MENU_DEFAULT_LOCAL_TASK,
+      'weight' => -10,
+    );
     $items[$this->path . '/add'] = array(
       'title callback' => 'entity_ui_get_action_title',
       'title arguments' => array('add', $this->entityType),
@@ -162,13 +167,23 @@ class EntityDefaultUIController {
 
   /**
    * Overview form validation callback.
+   *
+   * @param $form
+   *   The form array of the overview form.
+   * @param $form_state
+   *   The overview form state which will be used for validating.
    */
-  public function overviewFormValidate() {}
+  public function overviewFormValidate($form, &$form_state) {}
 
   /**
    * Overview form submit callback.
+   *
+   * @param $form
+   *   The form array of the overview form.
+   * @param $form_state
+   *   The overview form state which will be used for submitting.
    */
-  public function overviewFormSubmit() {}
+  public function overviewFormSubmit($form, &$form_state) {}
 
 
   /**
@@ -205,26 +220,39 @@ class EntityDefaultUIController {
     foreach ($entities as $entity) {
       $rows[] = $this->overviewTableRow($conditions, entity_id($this->entityType, $entity), $entity);
     }
-    // Assemble the right table header.
-    $header = array(t('Label'));
-    if (!empty($this->entityInfo['exportable'])) {
-      $header[] = t('Status');
-    }
-    // Add operations with the right colspan.
-    $field_ui = !empty($this->entityInfo['bundle of']) && module_exists('field_ui');
-    $exportable = !empty($this->entityInfo['exportable']);
-    $colspan = 3;
-    $colspan = $field_ui ? $colspan + 2 : $colspan;
-    $colspan = $exportable ? $colspan + 1 : $colspan;
-    $header[] = array('data' => t('Operations'), 'colspan' => $colspan);
 
     $render = array(
       '#theme' => 'table',
-      '#header' => $header,
+      '#header' => $this->overviewTableHeaders($conditions, $rows),
       '#rows' => $rows,
       '#empty' => t('None.'),
     );
     return $render;
+  }
+
+  /**
+   * Generates the table headers for the overview table.
+   */
+  protected function overviewTableHeaders($conditions, $rows, $additional_header = array()) {
+    $header = $additional_header;
+    array_unshift($header, t('Label'));
+    if (!empty($this->entityInfo['exportable'])) {
+      $header[] = t('Status');
+    }
+    // Add operations with the right colspan.
+    $header[] = array('data' => t('Operations'), 'colspan' => $this->operationCount());
+    return $header;
+  }
+
+  /**
+   * Returns the operation count for calculating colspans.
+   */
+  protected function operationCount() {
+    $count = 3;
+    $count += !empty($this->entityInfo['bundle of']) && module_exists('field_ui') ? 2 : 0;
+    $count += !empty($this->entityInfo['exportable']) ? 1 : 0;
+    $count += !empty($this->entityInfo['i18n controller class']) ? 1 : 0;
+    return $count;
   }
 
   /**
@@ -261,13 +289,12 @@ class EntityDefaultUIController {
     $field_ui = !empty($this->entityInfo['bundle of']) && module_exists('field_ui');
     // For exportable entities we add an export link.
     $exportable = !empty($this->entityInfo['exportable']);
-    $colspan = 3;
-    $colspan = $field_ui ? $colspan + 2 : $colspan;
-    $colspan = $exportable ? $colspan + 1 : $colspan;
+    // If i18n integration is enabled, add a link to the translate tab.
+    $i18n = !empty($this->entityInfo['i18n controller class']);
 
     // Add operations depending on the status.
     if (entity_has_status($this->entityType, $entity, ENTITY_FIXED)) {
-      $row[] = array('data' => l(t('clone'), $this->path . '/manage/' . $id . '/clone'), 'colspan' => $colspan);
+      $row[] = array('data' => l(t('clone'), $this->path . '/manage/' . $id . '/clone'), 'colspan' => $this->operationCount());
     }
     else {
       $row[] = l(t('edit'), $this->path . '/manage/' . $id);
@@ -276,8 +303,13 @@ class EntityDefaultUIController {
         $row[] = l(t('manage fields'), $this->path . '/manage/' . $id . '/fields');
         $row[] = l(t('manage display'), $this->path . '/manage/' . $id . '/display');
       }
+      if ($i18n) {
+        $row[] = l(t('translate'), $this->path . '/manage/' . $id . '/translate');
+      }
+      if ($exportable) {
+        $row[] = l(t('clone'), $this->path . '/manage/' . $id . '/clone');
+      }
 
-      $row[] = l(t('clone'), $this->path . '/manage/' . $id . '/clone');
       if (empty($this->entityInfo['exportable']) || !entity_has_status($this->entityType, $entity, ENTITY_IN_CODE)) {
         $row[] = l(t('delete'), $this->path . '/manage/' . $id . '/delete', array('query' => drupal_get_destination()));
       }
@@ -448,12 +480,17 @@ class EntityDefaultUIController {
    * @see entity_ui_form_submit_build_entity()
    */
   public function entityFormSubmitBuildEntity($form, &$form_state) {
+    // Add the bundle property to the entity if the entity type supports bundles
+    // and the form provides a value for the bundle key. Especially new entities
+    // need to have their bundle property pre-populated before we invoke
+    // entity_form_submit_build_entity().
+    if (!empty($this->entityInfo['entity keys']['bundle']) && isset($form_state['values'][$this->entityInfo['entity keys']['bundle']])) {
+      $form_state[$this->entityType]->{$this->entityInfo['entity keys']['bundle']} = $form_state['values'][$this->entityInfo['entity keys']['bundle']];
+    }
     entity_form_submit_build_entity($this->entityType, $form_state[$this->entityType], $form, $form_state);
     return $form_state[$this->entityType];
   }
 }
-
-
 
 /**
  * Form builder function for the overview form.

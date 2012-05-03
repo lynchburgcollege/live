@@ -1,0 +1,7 @@
+<?php
+/**
+ * @file
+ * Code for the Lynchburg Organizations feature.
+ */
+
+include_once('lc_organizations.features.inc');
