@@ -207,6 +207,14 @@ body.front {
 #mini-panel-apply_megamenu{
 	padding:20px 0px 0px 20px;
 }
+
+#mini-panel-student_life_megamenu,
+#mini-panel-student_life_megamenu .panel-panel,
+#mini-panel-student_life_megamenu .inside,
+#mini-panel-student_life_megamenu .panel-pane,
+#mini-panel-student_life_megamenu .pane-content { height: 100%; }
+
+
 /*undergraduate titles*/
 .main-menu-undergraduate-lists th{
 	background:#fff;
