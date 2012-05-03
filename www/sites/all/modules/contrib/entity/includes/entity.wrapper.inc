@@ -483,6 +483,7 @@ class EntityStructureWrapper extends EntityMetadataWrapper implements IteratorAg
 
       // If the setter has not thrown any exceptions, proceed and apply the
       // update to the current and any parent wrappers as necessary.
+      $data = $this->info['type'] == 'entity' ? $this : $data;
       $this->set($data);
 
       // Clear the cache of properties dependent on this value.
@@ -675,7 +676,10 @@ class EntityDrupalWrapper extends EntityStructureWrapper {
 
     if ($this->bundle && isset($this->propertyInfo['bundles'][$this->bundle])) {
       $bundle_info = (array) $this->propertyInfo['bundles'][$this->bundle] + array('properties' => array());
-      $this->propertyInfo['properties'] += $bundle_info['properties'];
+      // Allow bundles to re-define existing properties, such that the bundle
+      // can add in more bundle-specific details like the bundle of a referenced
+      // entity.
+      $this->propertyInfo['properties'] = $bundle_info['properties'] + $this->propertyInfo['properties'];
     }
   }
 
@@ -729,6 +733,10 @@ class EntityDrupalWrapper extends EntityStructureWrapper {
   public function set($value) {
     if (!$this->validate($value)) {
       throw new EntityMetadataWrapperException('Invalid data value given. Be sure it matches the required data type and format.');
+    }
+    if ($this->info['type'] == 'entity' && $value === $this) {
+      // Nothing to do.
+      return $this;
     }
     $previous_id = $this->id;
     $previous_type = $this->type;
@@ -1031,7 +1039,7 @@ class EntityListWrapper extends EntityMetadataWrapper implements IteratorAggrega
   }
 
   public function offsetExists($delta) {
-    return $this->dataAvailable() && ($data = $this->value()) && isset($data[$delta]);
+    return $this->dataAvailable() && ($data = $this->value()) && array_key_exists($delta, $data);
   }
 
   public function offsetSet($delta, $value) {
@@ -1156,7 +1164,7 @@ class EntityMetadataArrayObject implements ArrayAccess, Countable, IteratorAggre
   }
 
   public function offsetExists($delta) {
-    return isset($this->data[$delta]);
+    return array_key_exists($delta, $this->data);
   }
 
   public function offsetSet($delta, $value) {
