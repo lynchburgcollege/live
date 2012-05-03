@@ -35,8 +35,9 @@ td { vertical-align:top; }
 }
 
 .front .lynchburg-middle {
-	margin:0 0px 0 -10px;
+	margin-left:31px;
 }
+
 .section-header {
 	background: #840a0a; /* Old browsers */
 	background: -moz-linear-gradient(top,  #840a0a 0%, #360d08 100%); /* FF3.6+ */
@@ -482,6 +483,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	background: -ms-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
 	background: linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 );
+	
 	/*border:yellow solid 1px;*/
 	
 }
@@ -495,11 +497,22 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;
 }
+.region-content .region-plain-box-lc-rounded-region .lc-title-bar{
+	max-width:900px;
+}
 #home{
 	margin-top:10px;
 	margin-bottom:0;
 }
+.audience-links{
+}
+.audience-links .audience-link-title {
+	color:#900900
+}
 /* ========== QUICKTABS ============ */
+.quicktabs-tabpage{
+	padding-bottom:0;
+}
 .region-content .lc-title-bar,
 .region-content .quicktabs-tabs{
 	min-height:23px;
@@ -513,14 +526,11 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	background: -ms-linear-gradient(top,  rgba(144,9,0,1) 0%,rgba(86,5,0,1) 100%); /* IE10+ */
 	background: linear-gradient(top,  rgba(144,9,0,1) 0%,rgba(86,5,0,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#900900', endColorstr='#560500',GradientType=0 ); /* IE6-9 */
-
 }
 .region-content .quicktabs_main {
 	padding: 10px;
 	margin: 0;
-
 }
-
 .region-content .lc-title-bar,
 .region-content .lc-title-bar a,
 .region-content .lc-title-bar p,
@@ -576,14 +586,14 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	content:url(../images/home/arrow-cal-prev.png) no-repeat center center;
 }
 .view .date-nav-wrapper .date-next a:hover {
-	bcontent:url(../images/home/arrow-cal-next-hover.png) no-repeat center center;
+	content:url(../images/home/arrow-cal-next-hover.png) no-repeat center center;
 }
 .view .date-nav-wrapper .date-prev a:hover {
 	content:url(../images/home/arrow-cal-prev-hover.png) no-repeat center center;
 }
 .view .date-nav-wrapper .date-heading {
 	color:#595959;
-	font-size:11px;
+	font-size:10px;
 }
 /* views calendar */
 .calendar-calendar table {
@@ -632,18 +642,16 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	background: -ms-linear-gradient(top,  rgba(144,9,0,1) 0%,rgba(86,5,0,1) 100%); /* IE10+ */
 	background: linear-gradient(top,  rgba(144,9,0,1) 0%,rgba(86,5,0,1) 100%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#900900', endColorstr='#560500',GradientType=0 ); /* IE6-9 */
-
 }
 
 #quicktabs-event_calendar_tabs .quicktabs-tabs li:hover, #quicktabs-event_calendar_tabs .quicktabs-tabs li.active{
-	background:transparent;
-	
+	background:transparent;	
 }
 .quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-0 {
 	margin:0 0 0 -10px;
 	padding:6px 9px 8px 9px;
 	zoom:1; /* Fix IE tab layout */
-	}
+}
 .quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-0 , .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-0 {
 	-webkit-border-top-right-radius:6px;
 	-webkit-border-top-left-radius: 6px;
@@ -708,7 +716,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	font-size:14px;
 	margin: 0px 0px 0 10px;
 	padding:0;
-	line-height: 1.2em;
+	line-height:1.2em;
 }
 #whats-happening ul{
 	padding:0px;
@@ -726,14 +734,12 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;
-	margin-left:757px;
-	margin-top:-14px;
-	
+	margin-left:742px;
+	margin-top:-14px;	
 }
 #whats-happening ul a:hover {
 	background-position:200px;
 	color:#000;
-	
 }
 /* ========== BLOCKQUOTES ========== */
 blockquote {
