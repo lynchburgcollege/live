@@ -154,6 +154,7 @@ body.front {
 #mini-panel-graduate_megamenu .grid-3, 
 #mini-panel-student_life_megamenu .grid-3{
 	padding:20px 10px 0px 10px;
+	margin-left:0px;
 }
 #mini-panel-undergraduate_megamenu td, 
 #mini-panel-graduate_megamenu td, 
