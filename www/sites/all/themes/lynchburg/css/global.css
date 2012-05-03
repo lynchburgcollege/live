@@ -1048,7 +1048,10 @@ form.normal input[type="submit"]:hover {
 /***************************
  * specific misc   *
  ***************************/
-.field-name-field-date {margin-bottom:15px;} 
+.field-name-field-date {
+	margin-bottom:15px;
+	font-style:italic;
+} 
  
  
  
