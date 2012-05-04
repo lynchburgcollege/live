@@ -345,7 +345,7 @@ ul.jquerymenu li.parent span.open {
 	margin-bottom:.5em;
 	/*margin-top:2em;*/
 }
-.lynchburg-right-sidebar ul, .lynchburg-left-sidebar .pane-content ul {
+/*.lynchburg-right-sidebar ul,*/ .lynchburg-left-sidebar .pane-content ul {
 	background:url("../images/square_divider.png") repeat-x top;
 	padding-bottom:24px;
 }
@@ -366,10 +366,10 @@ ul.jquerymenu li.parent span.open {
 	color:#1b76b4;
 }
 
-.lynchburg-right-sidebar ul li:hover:after, lynchburg-right-sidebar ul li .after:hover, .lynchburg-left-sidebar .pane-content ul li:hover:after, .lynchburg-left-sidebar .pane-content ul li .after:hover {
+/*.lynchburg-right-sidebar ul li:hover:after, lynchburg-right-sidebar ul li .after:hover, */.lynchburg-left-sidebar .pane-content ul li:hover:after, .lynchburg-left-sidebar .pane-content ul li .after:hover {
 	background-position:0 0;
 }
-.lynchburg-right-sidebar ul li:after, .lynchburg-right-sidebar ul li .after, .lynchburg-left-sidebar li:after, .lynchburg-left-sidebar li .after {
+/*.lynchburg-right-sidebar ul li:after, .lynchburg-right-sidebar ul li .after,*/ .lynchburg-left-sidebar li:after, .lynchburg-left-sidebar li .after {
 	background:url("../images/circle_list.png?a") no-repeat 0 -30px;
 	position:absolute;
 	content:"";
@@ -1275,4 +1275,154 @@ margin-bottom:-8px;}
 	-moz-transition: all 0.2s linear 0s;
 	-webkit-transition: all 0.2s linear 0s;
 	-o-transition: all 0.2s linear 0s;
+}
+
+/* ----- Clear Floats ----- */
+
+.clear {
+	clear: both;
+}
+.clearfix {
+	display: block;
+}
+.clearfix:after {
+	clear: both;
+	content: ' ';
+	display: block;
+	font-size: 0;
+	line-height: 0;
+	visibility: hidden;
+	width: 0;
+	height: 0;
+}
+hr{
+	background:#fff;
+	-webkit-box-shadow:2px 2px 9px 1px #dedfe4;
+	-moz-box-shadow:2px 2px 9px 1px #dedfe4;
+	-o-box-shadow:2px 2px 9px 1px #dedfe4;
+	-ms-box-shadow:2px 2px 9px 1px #dedfe4;
+	box-shadow:2px 2px 9px 1px #dedfe4;
+height:2px;
+}
+
+
+
+/* ----- Widget Latest Posts ----- */
+.widget-container {
+	margin-bottom:3em;
+}
+
+.widget_latest_posts ul li {
+	background:url(../images/square_divider.png) repeat-x center bottom;
+	padding: 0 0 1.1em 0;
+	margin: 0 0 1.4em;
+}
+.widget_latest_posts p {
+	color:#71ad09;
+	margin:0;
+}
+.widget_latest_posts .date {
+	color:#a1a1a1;
+	font-size:11px;
+	font-style:italic;
+}
+a.b-all {
+	background:url(../images/grey_button.png) repeat-x left top;
+	font-family: 'Arimo', Arial, Verdana;
+	color:#858585;
+	font-size:12px;
+	text-align:center;
+	text-shadow:#fcfcfc 1px 1px 0;
+	margin-top:5px;
+	padding:7px 10px;
+	border:1px solid #d4d4d4;
+	-moz-border-radius:5px;
+	-webkit-border-radius:5px;
+	border-radius:5px;
+	-moz-box-shadow:#e4e4e4 0 2px 3px;
+	-webkit-box-shadow:#e4e4e4 0 2px 3px;
+	box-shadow:#e4e4e4 0 2px 3px;
+	position:relative;
+	behavior: url(js/PIE.htc);
+}
+a.b-all:hover {
+	background-position:0 -28px;
+	color: #636363;
+}
+/* ----- Widget Recent Posts ----- */
+
+.widget_recent_posts li  {
+	list-style:none;
+	background:url(../images/square_divider.png) repeat-x bottom;
+	padding-bottom:24px;
+	margin-left:0px;
+	padding-left:0;
+	clear:both;
+}
+.widget_recent_posts .date {
+	color:#a1a1a1;
+	font-size:11px;
+	font-style:italic;
+}
+.widget_recent_posts h4 a:hover {
+	color:#a1a1a1;
+}
+/* ----- Widget Categories ----- */
+
+.widget_categories ul {
+	background:url(../images/square_divider.png) repeat-x top;
+}
+.widget_categories li {
+	background:url(../images/square_divider.png) repeat-x bottom;
+	padding:0.74em 0 0.74em 2em;
+	position:relative;
+	list-style:none;
+}
+.widget_categories li:after, .widget_categories li .after {
+	background-image:url(../images/circle_list.png);
+	background-repeat:no-repeat;
+	background-position:0 -30px;
+	position:absolute;
+	content:"";
+	after:"&nbsp;";
+	top:0.75em;
+	left:0;
+	list-style:none;
+	height:16px;
+	width:16px;
+}
+.widget_categories li .after {
+	top:4px;
+}
+.widget_categories li:hover:after, .widget_categories li .after:hover {
+	background-position:0 0;
+}
+/* ----- Widget Archive ----- */
+
+.widget_archive ul {
+	background:url(../images/square_divider.png) repeat-x top;
+}
+.widget_archive ul li {
+	background:url(../images/square_divider.png) repeat-x bottom;
+	padding:0.74em 0 0.74em 2em;
+	position:relative;
+	;
+}
+.widget_archive li:after, .widget_archive .after {
+	background-image:url(../images/circle_list.png);
+	background-repeat:no-repeat;
+	background-position:0 -30px;
+	position:absolute;
+	content:"";
+	after:"&nbsp;";
+	top:0.75em;
+	left:0;
+	height:16px;
+	width:16px;
+}
+.widget_archive .after {
+	top:4px;
+}
+.widget_archive li:hover:after {
+	background-position:0 0;
 }

@@ -285,10 +285,31 @@ body.front {
 }
 
 /** Quicktab customizations for normal view ***/
-/*#quicktabs-undergraduate_admission_tabs .item-list ul {
-	width:380px;
+#quicktabs-undergraduate_admission_tabs .item-list ul {
+	width:456px;
+	-webkit-border-top-left-radius:9px;
+	-moz-border-radius-topleft:9px;
+	border-top-left-radius:9px;
+	-webkit-border-bottom-right-radius:9px;
+	-moz-border-radius-bottomright:9px;
+	border-bottom-right-radius:9px;	
 }
-#quicktabs-library_tabs .item-list ul {
+.quicktabs-wrapper{
+	background: #ffffff; 
+	background: -moz-linear-gradient(top,  #ffffff 0%, #edeef2 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#edeef2));
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
+	background: -o-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
+	background: -ms-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
+	background: linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 );
+	-webkit-box-shadow:0px 14px 32px -5px #a0a0a0;
+	-moz-box-shadow:0px 14px 32px -5px #a0a0a0;
+	-o-box-shadow:0px 14px 32px -5px #a0a0a0;
+	-ms-box-shadow:0px 14px 32px -5px #a0a0a0;
+	box-shadow:0px 14px 32px -5px #a0a0a0;
+}
+/*#quicktabs-library_tabs .item-list ul {
 	width:460px;
 }
 #quicktabs-undergraduate_admission_tabs ul li {
