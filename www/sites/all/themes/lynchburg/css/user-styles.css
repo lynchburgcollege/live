@@ -46,7 +46,7 @@ ul.unordered.type-4 li {
 	padding-left: 0;
 }
 ul.unordered.type-5 li {
-	background-image: url("../images/arrow_state_gray_right.png");
+	background-image: url("../images/icons/small/arrow_state_gray_right.png");
 }
 /* tables still need 'cellspacing="0"' in the markup */
 table {
