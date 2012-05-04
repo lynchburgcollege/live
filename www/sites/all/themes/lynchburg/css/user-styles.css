@@ -42,7 +42,11 @@ ul.unordered.type-3 li {
 }
 ul.unordered.type-4 li {
 	background-image: none;
+	background:none;
 	padding-left: 0;
+}
+ul.unordered.type-5 li {
+	background-image: url("../images/arrow_state_gray_right.png");
 }
 /* tables still need 'cellspacing="0"' in the markup */
 table {
@@ -657,7 +661,7 @@ table.surreptitious td ul.links {
 	behavior: url("js/PIE.htc");
 }
 a.default:link {
-	color:#858585;
+	color:#000;
 }
 .dark {
 	color:#f1f1f1;
