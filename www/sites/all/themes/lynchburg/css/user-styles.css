@@ -481,6 +481,7 @@ table.surreptitious {
   	-moz-box-shadow:none;
   	-webkit-box-shadow:none;
 	box-shadow:none;
+	border:none;
 }
 
 table.surreptitious thead th, table.surreptitous th {
