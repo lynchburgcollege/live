@@ -42,7 +42,11 @@ ul.unordered.type-3 li {
 }
 ul.unordered.type-4 li {
 	background-image: none;
+	background:none;
 	padding-left: 0;
+}
+ul.unordered.type-5 li {
+	background-image: url("../images/icons/small/arrow_state_gray_right.png");
 }
 /* tables still need 'cellspacing="0"' in the markup */
 table {
@@ -641,7 +645,7 @@ table.surreptitious td ul.links {
 .align-btn-right {
 	float: right;
 }
-.default {
+.default  {
 	color:#858585;
 	border: 1px solid rgba(202,202,202,0.5);
 	text-shadow:1px 1px 0 #fcfcfc;
@@ -655,6 +659,9 @@ table.surreptitious td ul.links {
 	/*	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f3f3f3', endColorstr='#e3e3e3');*/
 	position:relative;
 	behavior: url("js/PIE.htc");
+}
+a.default:link {
+	color:#000;
 }
 .dark {
 	color:#f1f1f1;
@@ -671,6 +678,9 @@ table.surreptitious td ul.links {
 	position:relative;
 	behavior: url("js/PIE.htc");
 }
+a.dark:link {
+	color:#f1f1f1;
+}
 .light {
 	color:#f1f1f1;
 	border: 1px solid rgba(96,114,119,0.2);
@@ -685,6 +695,9 @@ table.surreptitious td ul.links {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#d9d9d9',GradientType=0 ); /* IE6-9 */
 	position:relative;
 	behavior: url("js/PIE.htc");
+}
+a.light:link {
+	color:#f1f1f1;
 }
 .red {
 	color:#f1f1f1;
@@ -701,6 +714,9 @@ table.surreptitious td ul.links {
 	position:relative;
 	behavior: url("js/PIE.htc");
 }
+a.red:link {
+	color:#fff;
+}
 .blue {
 	color:#f1f1f1;
 	border: 1px solid rgba(6,82,130,0.2);
@@ -715,6 +731,9 @@ table.surreptitious td ul.links {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#218bd5', endColorstr='#125786',GradientType=0 ); /* IE6-9 */
 	position:relative;
 	behavior: url("js/PIE.htc");
+}
+a.blue:link {
+	color:#f1f1f1;
 }
 .button:hover {
 	background: #f3f3f3;
