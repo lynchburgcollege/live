@@ -82,15 +82,14 @@ table {
 .image, .imageTopLeft, .imageTopRight, .imageLeft, .imageRight, .imageCenter, .field-name-field-headshot img {
 	padding:3px;
 	background:#fff;
-	-webkit-box-shadow:2px 2px 7px 1px #A8A8A8;
--moz-box-shadow:2px 2px 7px 1px #A8A8A8;
--o-box-shadow:2px 2px 7px 1px #A8A8A8;
--ms-box-shadow:2px 2px 7px 1px #A8A8A8;
-box-shadow:2px 2px 7px 1px #A8A8A8;
+	-moz-box-shadow: 1px 2px 3px rgba(230, 230, 230, 0.8), -1px -1px 3px rgba(230, 230, 230, 0.8);
+	-webkit-box-shadow: 1px 2px 3px rgba(230, 230, 230, 0.8), -1px -1px 3px rgba(230, 230, 230, 0.8);
+	box-shadow: 1px 2px 3px rgba(230, 230, 230, 0.8), -1px -1px 3px rgba(230, 230, 230, 0.8);
 	-moz-border-radius:5px;
 	-webkit-border-radius:5px;
 	border-radius:5px;
 	position:relative;
+	behavior: url(js/PIE.htc);
 }
 .image:hover, .imageTopLeft:hover, .imageTopRight:hover, .imageLeft:hover, .imageRight:hover, .imageCenter:hover, .field-name-field-headshot img {
 	background:#e0e1e0;
@@ -660,7 +659,7 @@ table.surreptitious td ul.links {
 	position:relative;
 	behavior: url("js/PIE.htc");
 }
-a.default:link {
+a.default:link, a.default:visited, a.default:hover {
 	color:#000;
 }
 .dark {
@@ -678,7 +677,7 @@ a.default:link {
 	position:relative;
 	behavior: url("js/PIE.htc");
 }
-a.dark:link {
+a.dark:link, a.dark:visited, a.dark:hover {
 	color:#f1f1f1;
 }
 .light {
@@ -696,7 +695,7 @@ a.dark:link {
 	position:relative;
 	behavior: url("js/PIE.htc");
 }
-a.light:link {
+a.light:link, a.light:visited, a.light:hover {
 	color:#f1f1f1;
 }
 .red {
@@ -714,7 +713,7 @@ a.light:link {
 	position:relative;
 	behavior: url("js/PIE.htc");
 }
-a.red:link {
+a.red:link, a.red:visited, a.red:hover {
 	color:#fff;
 }
 .blue {
@@ -732,7 +731,7 @@ a.red:link {
 	position:relative;
 	behavior: url("js/PIE.htc");
 }
-a.blue:link {
+a.blue:link, a.blue:visited, a.blue:hover {
 	color:#f1f1f1;
 }
 .button:hover {
@@ -750,6 +749,8 @@ a.blue:link {
 .blue:hover {
 	background: #218BD5; 
 }
+
+
 
 /* ----- Columns Styles ----- */
 .columns, .columns2, .columns3, .columns4, .columns5, .columns6, .columns7, .columns8, .columns9, .columns10, .columns11, .columns12, .columns13, .columns14, .columns15, .columns16 {

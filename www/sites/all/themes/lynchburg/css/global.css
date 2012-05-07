@@ -1426,3 +1426,7 @@ a.b-all:hover {
 .widget_archive li:hover:after {
 	background-position:0 0;
 }
+
+#main-content{
+	margin-top:20px;
+}
