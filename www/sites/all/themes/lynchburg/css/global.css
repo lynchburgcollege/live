@@ -346,7 +346,7 @@ ul.jquerymenu li.parent span.open {
 	/*margin-top:2em;*/
 }
 /*.lynchburg-right-sidebar ul,*/ .lynchburg-left-sidebar .pane-content ul {
-	background:url("../images/square_divider.png") repeat-x top;
+	background:none;
 	padding-bottom:24px;
 }
 .lynchburg-right-sidebar ul li, .lynchburg-left-sidebar .pane-content ul li,
@@ -1397,36 +1397,9 @@ a.b-all:hover {
 .widget_categories li:hover:after, .widget_categories li .after:hover {
 	background-position:0 0;
 }
-/* ----- Widget Archive ----- */
-
-.widget_archive ul {
-	background:url(../images/square_divider.png) repeat-x top;
-}
-.widget_archive ul li {
-	background:url(../images/square_divider.png) repeat-x bottom;
-	padding:0.74em 0 0.74em 2em;
-	position:relative;
-	;
-}
-.widget_archive li:after, .widget_archive .after {
-	background-image:url(../images/circle_list.png);
-	background-repeat:no-repeat;
-	background-position:0 -30px;
-	position:absolute;
-	content:"";
-	after:"&nbsp;";
-	top:0.75em;
-	left:0;
-	height:16px;
-	width:16px;
-}
-.widget_archive .after {
-	top:4px;
-}
-.widget_archive li:hover:after {
-	background-position:0 0;
+/* ----- Widget Links   (Left sidebar li override)----- */
+.lynchburg-left-sidebar .pane-content .widget_links li:after, .lynchburg-left-sidebar .widget_links .after {
+	background:none;
 }
 
-#main-content{
-	margin-top:20px;
-}
+
