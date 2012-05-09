@@ -272,12 +272,14 @@ body.front {
 }
 .megamenu-text{margin:20px 10px 0 0px;}
 
-#mini-panel-visit_megamenu_block .main-menu-undergraduate-lists {
+#mini-panel-visit_megamenu_block table.main-menu-undergraduate-lists {
 	min-width:200px;
 }
 #mini-panel-apply_megamenu .megamenu-text {
 	padding:20px;
 }
+.pane-21 {padding-left:20px;}
+
 /**********************************************
  * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
 **********************************************/
