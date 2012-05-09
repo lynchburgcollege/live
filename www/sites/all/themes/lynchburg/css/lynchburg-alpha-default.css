@@ -273,7 +273,7 @@ body.front {
 .megamenu-text{margin:20px 10px 0 0px;}
 
 #mini-panel-visit_megamenu_block .main-menu-undergraduate-lists {
-	padding:0;
+	min-width:200px;
 }
 #mini-panel-apply_megamenu .megamenu-text {
 	padding:20px;
