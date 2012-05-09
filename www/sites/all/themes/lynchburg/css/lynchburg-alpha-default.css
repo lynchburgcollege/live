@@ -179,7 +179,7 @@ body.front {
 }
 .main-menu-undergraduate-lists, 
 .main-menu-undergraduate-lists tbody{
-	background-color:#ff0;
+	background-color:#fff;
 	border:0px;
 	height:100%;
 	width:100%;
@@ -219,7 +219,7 @@ body.front {
 	line-height:1em;
 	color:#900900;
 }
-#mini-panel-visit_megamenu_block .view-content, #mini-panel-visit_megamenu_block .pane-19,
+#mini-panel-visit_megamenu_block .view-content,
 #mini-panel-apply_megamenu .view-content, #mini-panel-apply_megamenu .pane-16{
 	padding:0px 20px 0 20px;
 }
@@ -272,6 +272,9 @@ body.front {
 }
 .megamenu-text{margin:20px 10px 0 0px;}
 
+#mini-panel-visit_megamenu_block .main-menu-undergraduate-lists {
+	padding:0;
+}
 
 /**********************************************
  * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
