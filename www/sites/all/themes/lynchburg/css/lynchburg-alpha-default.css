@@ -275,7 +275,9 @@ body.front {
 #mini-panel-visit_megamenu_block .main-menu-undergraduate-lists {
 	padding:0;
 }
-
+#mini-panel-apply_megamenu .megamenu-text {
+	padding:20px;
+}
 /**********************************************
  * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
 **********************************************/
