@@ -185,7 +185,7 @@ thead th, th {
 
 td, th {
   padding: 4px 8px;
-  vertical-align: middle;
+  vertical-align: top;
 }
 
 th a, th a:link, th a:visited {

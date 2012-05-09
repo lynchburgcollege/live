@@ -181,6 +181,8 @@ body.front {
 .main-menu-undergraduate-lists tbody{
 	background-color:#fff;
 	border:0px;
+	height:100%;
+	width:100%;
 }
 .main-menu-undergraduate-lists .bottom-more-row{
 	padding:10px 0 10px 0;
