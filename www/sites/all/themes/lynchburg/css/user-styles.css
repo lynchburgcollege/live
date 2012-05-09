@@ -719,17 +719,17 @@ a.red:link, a.red:visited, a.red:hover {
 }
 .blue {
 	color:#f1f1f1;
-	border: 1px solid rgba(6,82,130,0.2);
+	border: 1px solid rgba(255,255,255,0.2);
 	text-shadow:1px 1px 0 #24658e;
-	background: #218bd5; /* Old browsers */
-	background: -moz-linear-gradient(top,  #218bd5 0%, #125786 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#218bd5), color-stop(100%,#125786)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #218bd5 0%,#125786 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #218bd5 0%,#125786 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #218bd5 0%,#125786 100%); /* IE10+ */
-	background: linear-gradient(top,  #218bd5 0%,#125786 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#218bd5', endColorstr='#125786',GradientType=0 ); /* IE6-9 */
-	position:relative;
+	background: rgb(101,135,161); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(101,135,161,1) 0%, rgba(70,104,129,1) 99%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(101,135,161,1)), color-stop(99%,rgba(70,104,129,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* IE10+ */
+background: linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6587a1', endColorstr='#466881',GradientType=0 ); /* IE6-9 */
+position:relative;
 	behavior: url("js/PIE.htc");
 }
 a.blue:link, a.blue:visited, a.blue:hover {
@@ -748,7 +748,7 @@ a.blue:link, a.blue:visited, a.blue:hover {
 	background: #900900;
 }
 .blue:hover {
-	background: #218BD5; 
+	background: #466881; 
 }
 
 
