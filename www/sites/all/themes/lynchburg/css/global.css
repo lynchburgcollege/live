@@ -1057,22 +1057,22 @@ form.normal input[type="submit"]:hover {
 /*************************
  *  footer area  top        *
  *************************/
-.pane-footer_bar_left, .pane-footer_bar_right{
+.pane-footer-bar-left, .pane-footer-bar-right{
 	 float:left;
  }
 
-.pane-footer_bar_left ul, .pane-footer_bar_right ul {
+.pane-footer-bar-left ul, .pane-footer-bar-right ul {
 	font-size:14px;
 }
-.pane-footer_bar_left li, .pane-footer_bar_right li {
+.pane-footer-bar-left li, .pane-footer-bar-right li {
 	float:left;
 	padding:10px 0px 0px 0px;
 }
- .pane-footer_bar_right li {
+ .pane-footer-bar-right li {
 	float:left;
 	padding-right:12px;
 }
-.pane-footer_bar_left li a, .pane-footer_bar_right li a {
+.pane-footer-bar-left li a, .pane-footer-bar-right li a {
 	padding:10px; border:#0F3 solid 1px;
 }
 #give a, #newsevents a, #facstaff a, #follow-us a, #facebook a, #twitter a, #youtube a, #flickr a, #blog a {
