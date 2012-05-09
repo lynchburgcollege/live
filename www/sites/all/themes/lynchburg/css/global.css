@@ -1060,6 +1060,7 @@ form.normal input[type="submit"]:hover {
 
 .pane-footer-bar-left ul, .pane-footer-bar-right ul {
 	font-size:14px;
+	border:solid 1px transparent;
 }
 .pane-footer-bar-left li, .pane-footer-bar-right li {
 	float:left;
