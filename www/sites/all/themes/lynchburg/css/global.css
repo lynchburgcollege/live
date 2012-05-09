@@ -1057,7 +1057,7 @@ form.normal input[type="submit"]:hover {
 /*************************
  *  footer area  top        *
  *************************/
-.pane-footer-bar-left, .pane-footer-bar-right{
+.pane-footer-bar-left, {
 	 float:left;
  }
 
