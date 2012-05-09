@@ -1104,14 +1104,14 @@ form.normal input[type="submit"]:hover {
 	color:#000;
 }
 /*follow us*/
-#dhtml_menu-34355 a {
+#follow-us a {
 	background:url("../images/followIcon.png") no-repeat center;
 	padding-left:30px;
 	padding-right:40px;
 	margin-right:0;
 	text-indent:0px;
 }
-#dhtml_menu-34355 a:hover {
+#follow-us a:hover {
 	background:url("../images/followIconHover.png") no-repeat center;
 }
 /*news*/
@@ -1136,39 +1136,39 @@ form.normal input[type="submit"]:hover {
 	background:url("../images/facultyStaffIconHover.png") no-repeat center left;
 }
 /*facebook*/
-#dhtml_menu-34356 a {
+#facebook a {
 	background:url("../images/facebookIcon.png") no-repeat center;
 	padding-left:0px;
 }
-#dhtml_menu-34356 a:hover {
+#facebook a:hover {
 	background:url("../images/facebookIconHover.png") no-repeat center;
 }
 /*twitter*/
-#dhtml_menu-34357 a {
+#twitter a {
 	background:url("../images/twitterIcon.png") no-repeat center;
 }
-#dhtml_menu-34357 a:hover {
+#twitter a:hover {
 	background:url("../images/twitterIconHover.png") no-repeat center;
 }
 /*youTube*/
-#dhtml_menu-34358 a {
+#youtube a {
 	background:url("../images/youTubeIcon.png") no-repeat center;
 }
-#dhtml_menu-34358 a:hover {
+#youtube a:hover {
 	background:url("../images/youTubeIconHover.png") no-repeat center;
 }
 /*flickr*/
-#dhtml_menu-34359 a {
+#flickr a {
 	background:url("../images/flickrIcon.png") no-repeat center;
 }
-#dhtml_menu-34359 a:hover {
+#flickr a:hover {
 	background:url("../images/flickrIconHover.png") no-repeat center;
 }
 /*blog*/
-#dhtml_menu-34360 a {
+#blog a {
 	background:url("../images/blogIcon.png") no-repeat center;
 }
-#dhtml_menu-34360 a:hover {
+#blog a:hover {
 	background:url("../images/blogIconHover.png") no-repeat center;
 }
 /*************************
