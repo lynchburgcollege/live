@@ -1075,22 +1075,22 @@ form.normal input[type="submit"]:hover {
 .pane-menu-menu-footer-bar-left li a, .pane-menu-menu-footer-bar-right li a {
 	padding:10px;/* border:#0F3 solid 1px;*/
 }
-#dhtml_menu-34352 a, #dhtml_menu-34355 a, #dhtml_menu-34354 a, #dhtml_menu-34353 a, #dhtml_menu-34356 a, #dhtml_menu-34357 a, #dhtml_menu-34358 a, #dhtml_menu-34359 a, #dhtml_menu-34360 a {
+#give a, #newsevents a, #facstaff a, #follow-us a, #facebook a, #twitter a, #youtube a, #flickr a, #blog a {
 	display:inline-block;
 	text-indent:-9999px;
 }
 
 
 /*social media icons*/
-#dhtml_menu-34356 a, #dhtml_menu-34357 a, #dhtml_menu-34358 a, #dhtml_menu-34359 a, #dhtml_menu-34360 a {
+#follow-us a, #facebook a, #twitter a, #youtube a, #flickr a, #blog a {
 	width:20px;
 }
 /*give*/
-#dhtml_menu-34352{
+#give {
 	margin-left:0px;
 	padding-left:0px;
 }
-#dhtml_menu-34352 a {
+#give a {
 	background:url("../images/giveIcon.png") no-repeat left;
 	padding-left:25px;
 	padding-right:40px;
@@ -1099,7 +1099,7 @@ form.normal input[type="submit"]:hover {
 	text-align:center;
 	color:#fff;
 }
-#dhtml_menu-34352 a:hover {
+#give a:hover {
 	background:url("../images/giveIconHover.png") no-repeat left;
 	color:#000;
 }
@@ -1115,24 +1115,24 @@ form.normal input[type="submit"]:hover {
 	background:url("../images/followIconHover.png") no-repeat center;
 }
 /*news*/
-#dhtml_menu-34354 a {
+#newsevents a {
 	background:url("../images/newsIcon.png") no-repeat center left;
 	border-right:#56585b solid 2px;
 	text-align:right;
 	width:120px;
 	text-indent:0px;
 }
-#dhtml_menu-34354 a:hover {
+#newsevents a:hover {
 	background:url("../images/newsIconHover.png") no-repeat center left;
 }
 /*faculty staff*/
-#dhtml_menu-34353 a {
+#facstaff a {
 	background:url("../images/facultyStaffIcon.png") no-repeat center left;
 	text-align:right;
 	width:168px;
 	text-indent:0px;
 }
-#dhtml_menu-34353 a:hover {
+#facstaff a:hover {
 	background:url("../images/facultyStaffIconHover.png") no-repeat center left;
 }
 /*facebook*/
