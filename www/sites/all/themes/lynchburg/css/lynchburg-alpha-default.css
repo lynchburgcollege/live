@@ -272,7 +272,7 @@ body.front {
 }
 .megamenu-text{margin:20px 10px 0 0px;}
 
-#mini-panel-visit_megamenu_block table.main-menu-undergraduate-lists {
+#mini-panel-visit_megamenu_block table.main-menu-undergraduate-lists, #mini-panel-apply_megamenu table.main-menu-undergraduate-lists {
 	min-width:200px;
 }
 #mini-panel-apply_megamenu .megamenu-text {
