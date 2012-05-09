@@ -179,7 +179,7 @@ body.front {
 }
 .main-menu-undergraduate-lists, 
 .main-menu-undergraduate-lists tbody{
-	background-color:#fff;
+	background-color:#ff0;
 	border:0px;
 	height:100%;
 	width:100%;
@@ -210,9 +210,6 @@ body.front {
 }
 .main-menu-undergraduate-lists .bottom-more-row a:hover {
 	background:url(../images/icons/small/media_controls_forward_small_hover.png) no-repeat center left;
-}
-#mini-panel-apply_megamenu{
-	padding:20px 0px 0px 20px;
 }
 /*undergraduate titles*/
 .main-menu-undergraduate-lists th{
