@@ -170,7 +170,6 @@ h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
 	text-decoration:none;
 }
 
-
 /********* tables ***************/
 
 table {
@@ -1400,6 +1399,22 @@ a.b-all:hover {
 /* ----- Widget Links   (Left sidebar li override)----- */
 .lynchburg-left-sidebar .pane-content .widget_links li:after, .lynchburg-left-sidebar .widget_links .after {
 	background:none;
+}
+
+/* ----- boxShadow for undergraduate academics----- */
+.box-inset{
+	background-color:#fff;
+	-webkit-box-shadow:inset 0px 4px 8px rgba(50, 50, 50, 0.41);
+-moz-box-shadow: inset   0px 4px 8px rgba(50, 50, 50, 0.41);
+box-shadow: inset        0px 4px 8px rgba(50, 50, 50, 0.41);
+margin-bottom:20px;
+	 
+       /* -webkit-box-shadow: inset 2px 4px 6px 2px rgba(50, 50, 50, 0.13);
+        
+        box-shadow: inset 2px 4px 6px 2px rgba(50, 50, 50, 0.13);*/
+        
+    -webkit-border-radius: 8px;
+	border-radius: 8px;
 }
 
 
