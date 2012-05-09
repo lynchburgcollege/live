@@ -1407,3 +1407,21 @@ a.b-all:hover {
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
 }
+
+.box-inset-gray{
+	background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(240,240,241,1) 84%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(84%,rgba(240,240,241,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(240,240,241,1) 84%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(240,240,241,1) 84%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(240,240,241,1) 84%); /* IE10+ */
+background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(240,240,241,1) 84%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f0f0f1',GradientType=0 ); /* IE6-9 */
+
+	-webkit-box-shadow:inset 0px 4px 8px rgba(50, 50, 50, 0.41);
+	-moz-box-shadow:   inset 0px 4px 8px rgba(50, 50, 50, 0.41);
+	box-shadow:        inset 0px 4px 8px rgba(50, 50, 50, 0.41);
+	margin-bottom:20px;
+	-webkit-border-radius: 8px;
+	border-radius: 8px;
+}
