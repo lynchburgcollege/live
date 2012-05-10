@@ -211,9 +211,6 @@ body.front {
 .main-menu-undergraduate-lists .bottom-more-row a:hover {
 	background:url(../images/icons/small/media_controls_forward_small_hover.png) no-repeat center left;
 }
-#mini-panel-apply_megamenu{
-	padding:20px 0px 0px 20px;
-}
 /*undergraduate titles*/
 .main-menu-undergraduate-lists th{
 	background:#fff;
@@ -222,7 +219,7 @@ body.front {
 	line-height:1em;
 	color:#900900;
 }
-#mini-panel-visit_megamenu_block .view-content, #mini-panel-visit_megamenu_block .pane-19,
+#mini-panel-visit_megamenu_block .view-content,
 #mini-panel-apply_megamenu .view-content, #mini-panel-apply_megamenu .pane-16{
 	padding:0px 20px 0 20px;
 }
@@ -275,6 +272,13 @@ body.front {
 }
 .megamenu-text{margin:20px 10px 0 0px;}
 
+#mini-panel-visit_megamenu_block table.main-menu-undergraduate-lists, #mini-panel-apply_megamenu table.main-menu-undergraduate-lists {
+	min-width:200px;
+}
+#mini-panel-apply_megamenu .megamenu-text {
+	padding:20px;
+}
+.pane-21 {padding-left:20px;}
 
 /**********************************************
  * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
