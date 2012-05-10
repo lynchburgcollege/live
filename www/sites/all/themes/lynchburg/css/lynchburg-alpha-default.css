@@ -137,6 +137,7 @@ body.front {
 #mini-panel-athletics_megamenu table
 /*#mini-panel-visit_megamenu_block table*/ {
 	border-left:#dddedf solid 1px;
+	border-right:none;
 }
 #mini-panel-alumni_megamenu table{
 	border:none;
