@@ -186,7 +186,7 @@ body.front {
 }
 .main-menu-undergraduate-lists .bottom-more-row{
 	padding:10px 0 10px 0;
-	background: transparent; /* Old browsers */
+	background: rgb(101,135,161); /* Old browsers */
 background: -moz-linear-gradient(top,  rgba(101,135,161,1) 0%, rgba(70,104,129,1) 99%); /* FF3.6+ */
 background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(101,135,161,1)), color-stop(99%,rgba(70,104,129,1))); /* Chrome,Safari4+ */
 background: -webkit-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Chrome10+,Safari5.1+ */
@@ -207,12 +207,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6587a1', end
 .main-menu-undergraduate-lists .bottom-more-row a {
 	background:url(../images/white-arrows.png) no-repeat center left;
 	padding-left:20px;
-	text-decoration:underline;
+	text-decoration:none;
 	color:#f1f1f1;
 }
 .main-menu-undergraduate-lists .bottom-more-row a:hover {
 	background:url(../images/white-arrows.png) no-repeat center left;
-	text-decoration:none;
+	text-decoration:underline;
 }
 /*undergraduate titles*/
 .main-menu-undergraduate-lists th{
