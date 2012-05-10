@@ -297,9 +297,11 @@ body.front {
 #mini-panel-visit_megamenu_block table.main-menu-undergraduate-lists, #mini-panel-apply_megamenu table.main-menu-undergraduate-lists {
 	min-width:200px;
 }
+/* needed if no image in the right 
 #mini-panel-apply_megamenu .megamenu-text {
 	padding:20px;
 }
+*/
 .pane-21 {padding-left:20px;}
 
 /**********************************************
