@@ -734,6 +734,7 @@ position:relative;
 }
 a.blue:link, a.blue:visited, a.blue:hover {
 	color:#f1f1f1;
+	text-decoration:none;
 }
 .button:hover {
 	background: #f3f3f3;
