@@ -180,15 +180,20 @@ body.front {
 }
 .main-menu-undergraduate-lists, 
 .main-menu-undergraduate-lists tbody{
-	background-color:#fff;
+	background:transparent;
 	border:0px;
 	height:100%;
 	width:100%;
 }
-.main-menu-undergraduate-lists .bottom-more-row{
+.main-menu-undergraduate-lists tr.bottom-more-row,
+.main-menu-undergraduate-lists tr.bottom-more-row:hover,
+.main-menu-undergraduate-lists tr.bottom-more-row td,
+.main-menu-undergraduate-lists tr.bottom-more-row td:hover
+.main-menu-undergraduate-lists tr.bottom-more-row:hover td,
+.main-menu-undergraduate-lists tr.bottom-more-row:hover td:hover {
 	padding:10px 0 10px 0;
 	background: rgb(101,135,161); /* Old browsers */
-	background: -moz-linear-gradient(top,  rgba(101,135,161,1) 0%, rgba(70,104,129,1) 99%); /* FF3.6+ */
+	background: -moz-linear-gradient(top, rgba(101,135,161,1) 0%, rgba(70,104,129,1) 99%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(101,135,161,1)), color-stop(99%,rgba(70,104,129,1))); /* Chrome,Safari4+ */
 	background: -webkit-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Chrome10+,Safari5.1+ */
 	background: -o-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Opera 11.10+ */
@@ -233,29 +238,42 @@ body.front {
 #mini-panel-athletics_megamenu h2 {
 	padding-top:20px;
 }
-.main-menu-undergraduate-lists tr:hover td, 
-.main-menu-undergraduate-lists tr.even:hover td.active, 
-.main-menu-undergraduate-lists tr.odd:hover td.active {
-	background:#fff;		
-}
 .main-menu-undergraduate-lists tr.bottom-more-row:hover td, 
 .main-menu-undergraduate-lists tr.bottom-more-row:hover td.active {
-	background: rgb(101,135,161); /* Old browsers */
-	background: -moz-linear-gradient(top,  rgba(101,135,161,1) 0%, rgba(70,104,129,1) 99%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(101,135,161,1)), color-stop(99%,rgba(70,104,129,1))); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* IE10+ */
-	background: linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6587a1', endColorstr='#466881',GradientType=0 ); /* IE6-9 */
+	
 	-webkit-border-radius:0em 0em 0em .5em ;
 	-moz-border-radius:0em 0em 0em .5em;
 	-o-border-radius:0em 0em 0em .5em;
 	-ms-border-radius:0em 0em 0em .5em;
 	border-radius:0em 0em 0em .5em;
 }
+
+/* curved bottom on alumni dropdown (curved both sides) */
+#mini-panel-alumni_megamenu .main-menu-undergraduate-lists .bottom-more-row td,
+#mini-panel-alumni_megamenu .main-menu-undergraduate-lists tr.bottom-more-row:hover td, 
+#mini-panel-alumni_megamenu .main-menu-undergraduate-lists tr.bottom-more-row:hover td.active{
+	border-top:#dddedf solid 1px;
+	-webkit-border-radius:0em 0em .5em .5em ;
+	-moz-border-radius:0em 0em .5em .5em;
+	-o-border-radius:0em 0em .5em .5em;
+	-ms-border-radius:0em 0em .5em .5em;
+	border-radius:0em 0em .5em .5em;
+} 
+
+/* curved bottom on athletics dropdown (curved on right) */
+#mini-panel-athletics_megamenu .main-menu-undergraduate-lists .bottom-more-row td,
+#mini-panel-athletics_megamenu .main-menu-undergraduate-lists tr.bottom-more-row:hover td, 
+#mini-panel-athletics_megamenu .main-menu-undergraduate-lists tr.bottom-more-row:hover td.active{
+	border-top:#dddedf solid 1px;
+	-webkit-border-radius:0em 0em .5em 0 ;
+	-moz-border-radius:0em 0em .5em 0;
+	-o-border-radius:0em 0em .5em 0;
+	-ms-border-radius:0em 0em .5em 0;
+	border-radius:0em 0em .5em 0;
+} 
+
 #megamenu-grid3-width { max-width:150px; }
-#megamenu-grid4-width { max-width:225px; }
+#megamenu-grid4-width { max-width:220px;  }
 
 #graduate-programs-certificates { max-width:400px; }
 
@@ -280,7 +298,7 @@ body.front {
 	min-width:200px;
 }
 #mini-panel-apply_megamenu .megamenu-text {
-	padding:20px;
+	padding:0px 10px;
 }
 .pane-21 {padding-left:20px;}
 
