@@ -865,7 +865,7 @@ form.normal label {
 }
 form.normal input {display:block;}
 form.normal input:focus, form.normal textarea:focus {background:#f4f4f5;}
-form.normal textarea {display:block;border:red solid 1px;}
+form.normal textarea {display:block;}
 form.normal select {display:block;}
 form.normal br {clear:both;}
 form.normal .submit {
