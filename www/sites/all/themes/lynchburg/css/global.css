@@ -139,26 +139,27 @@ h1, h2, h3, h4, h5, h6 {
 	letter-spacing:.5px;
 }
 h1 {
-	font-size:24px;
+	font-size:22px;
 	margin-bottom: 1em;
-	line-height:28px;
+	line-height:26px;
 	color:#900900;
 }
 h2 {
-	font-size:20px;
-	line-height:24px;
+	font-size:16px;
+	line-height:20px;
 }
 h3 {
-	font-size:17px;
-	line-height:21px;
+	font-size:16px;
+	line-height:20px;
+	color:#900900;
 }
 h4 {
-	font-size:15px;
-	line-height:19px;
+	font-size:14px;
+	line-height:18px;
 }
 h5 {
-	font-size:15px;
-	line-height:19px;
+	font-size:14px;
+	line-height:18px;
 	color:#900900;
 }
 h6 {
