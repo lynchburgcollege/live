@@ -405,12 +405,21 @@ ul.jquerymenu li.parent span.open {
 	color:#242424;
 }
 .lynchburg-left-sidebar h3, .lynchburg-right-sidebar h3 {
+	font-size:15px;
+	line-height:19px;
+	margin-bottom:.5em;
 	color:#900900;
 }
 .lynchburg-left-sidebar h4, .lynchburg-right-sidebar h4 {
-	font-size:14px;
+	font-size:12px;
 	line-height:18px;
 	margin-bottom:0.2em;
+}
+.lynchburg-left-sidebar h5, .lynchburg-right-sidebar h5 {
+	font-size:12px;
+	line-height:18px;
+	margin-bottom:0.2em;
+	color:#242424;
 }
 li.parent.last.open ul, li.parent.open ul, li.parent.open li {
 	background-image:none;
