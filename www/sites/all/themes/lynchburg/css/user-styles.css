@@ -681,23 +681,27 @@ a.default:link, a.default:visited, a.default:hover {
 a.dark:link, a.dark:visited, a.dark:hover {
 	color:#f1f1f1;
 }
-.light {
-	color:#f1f1f1;
-	border: 1px solid rgba(96,114,119,0.2);
-	text-shadow:1px 1px 0 #6a7e83;
-	background: #f1f1f1; /* Old browsers */
-	background: -moz-linear-gradient(top,  #f1f1f1 0%, #d9d9d9 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f1f1f1), color-stop(100%,#d9d9d9)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #f1f1f1 0%,#d9d9d9 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #f1f1f1 0%,#d9d9d9 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #f1f1f1 0%,#d9d9d9 100%); /* IE10+ */
-	background: linear-gradient(top,  #f1f1f1 0%,#d9d9d9 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f1', endColorstr='#d9d9d9',GradientType=0 ); /* IE6-9 */
+.light, .ui-accordion-header {
+	color:#242424;
+	border: 1px solid #ccc;
 	position:relative;
 	behavior: url("js/PIE.htc");
+	
+	background: rgb(255,255,255); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+
 }
-a.light:link, a.light:visited, a.light:hover {
-	color:#f1f1f1;
+.ui-widget-content{
+	border: 1px solid #ccc;
+}
+a.light:link, a.light:visited, a.light:hover, .ui-accordion-header a:link, .ui-accordion-header a:hover {
+	color:#454545;
 }
 .red {
 	color:#f1f1f1;
@@ -714,10 +718,10 @@ a.light:link, a.light:visited, a.light:hover {
 	position:relative;
 	behavior: url("js/PIE.htc");
 }
-a.red:link, a.red:visited, a.red:hover {
+a.red:link, a.red:visited, a.red:hover{
 	color:#fff;
 }
-.blue, .ui-accordion-header {
+.blue {
 	color:#f1f1f1;
 	border: 1px solid rgba(255,255,255,0.2);
 	text-shadow:1px 1px 0 #24658e;
@@ -732,7 +736,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6587a1', end
 position:relative;
 	behavior: url("js/PIE.htc");
 }
-a.blue:link, a.blue:visited, a.blue:hover, .ui-accordion-header a:link, .ui-accordion-header a:hover {
+a.blue:link, a.blue:visited, a.blue:hover {
 	color:#f1f1f1;
 	text-decoration:none;
 }
@@ -742,13 +746,13 @@ a.blue:link, a.blue:visited, a.blue:hover, .ui-accordion-header a:link, .ui-acco
 .dark:hover {
 	background: #2d2d2d;
 }
-.light:hover {
-	background: #a0b4b9;
+.light:hover, .ui-accordion-header:hover{
+	background: #ccc;
 }
-.red:hover {
+.red:hover  {
 	background: #900900;
 }
-.blue:hover, .ui-accordion-header:hover {
+.blue:hover{
 	background: #466881; 
 }
 
