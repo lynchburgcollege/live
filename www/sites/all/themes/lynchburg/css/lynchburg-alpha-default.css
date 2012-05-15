@@ -536,6 +536,9 @@ body.front {
 .lc-calendar-next-link {
 	margin-left:20px;
 }
+.lc-calendar-current-link {
+	display:none;
+}
 .lc-calendar-header-buttons {
 	float:right;
 }
