@@ -1,4 +1,4 @@
-/* Hide sidebars, main menu and footer for print - perhaps somewhat draconian. */
-div.lynchburg-left-sidebar, div.lynchburg-right-sidebar, div.block-panels-mini-footer-bar, #mini-panel-footer, #main-menu {
+/* Hide header, sidebars, main menu and footer for print - perhaps somewhat draconian. */
+header, div.lynchburg-left-sidebar, div.lynchburg-right-sidebar, div.block-panels-mini-footer-bar, #mini-panel-footer, #main-menu {
   display: none;
 }
