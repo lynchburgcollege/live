@@ -581,7 +581,7 @@ table.surreptitious td ul.links {
 	color:#A1A1A1;
 }
 
-/* ----- Styles for Buttons ----- */
+/* ----- Styles for Buttons & LIBRARY ONESEARCH (blue styles) ----- */
 .small_button_block .button {
 	margin:0 0.5em 1em 0;
 }
@@ -717,7 +717,7 @@ a.light:link, a.light:visited, a.light:hover {
 a.red:link, a.red:visited, a.red:hover {
 	color:#fff;
 }
-.blue {
+.blue, .ui-accordion-header {
 	color:#f1f1f1;
 	border: 1px solid rgba(255,255,255,0.2);
 	text-shadow:1px 1px 0 #24658e;
@@ -732,7 +732,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6587a1', end
 position:relative;
 	behavior: url("js/PIE.htc");
 }
-a.blue:link, a.blue:visited, a.blue:hover {
+a.blue:link, a.blue:visited, a.blue:hover, .ui-accordion-header a:link, .ui-accordion-header a:hover {
 	color:#f1f1f1;
 	text-decoration:none;
 }
@@ -748,7 +748,7 @@ a.blue:link, a.blue:visited, a.blue:hover {
 .red:hover {
 	background: #900900;
 }
-.blue:hover {
+.blue:hover, .ui-accordion-header:hover {
 	background: #466881; 
 }
 

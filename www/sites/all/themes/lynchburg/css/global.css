@@ -145,13 +145,12 @@ h1 {
 	color:#900900;
 }
 h2 {
-	font-size:16px;
-	line-height:20px;
+	font-size:18px;
+	line-height:22px;
 }
 h3 {
 	font-size:16px;
 	line-height:20px;
-	color:#900900;
 }
 h4 {
 	font-size:14px;
@@ -160,7 +159,6 @@ h4 {
 h5 {
 	font-size:14px;
 	line-height:18px;
-	color:#900900;
 }
 h6 {
 	font-size:14px;
@@ -1469,3 +1467,7 @@ a.b-all:hover {
 	border-top-left-radius: 4px;
 	border-top-right-radius: 4px;
 }
+
+/* ----- LIBRARY TABS----- */
+
+
