@@ -524,6 +524,30 @@ body.front {
 	margin-bottom:30px;
 }
 
+/* Events page */
+.lc-calendar-header-nav {
+	float:left;
+	width:40%;
+	margin-bottom:20px;
+}
+.lc-calendar-previous-link {
+	float:left;
+}
+.lc-calendar-next-link {
+	margin-left:20px;
+}
+.lc-calendar-header-buttons {
+	float:right;
+}
+.lc-calendar-print-link {}
+.lc-calendar-rss-link {
+	margin-left:20px;
+}
+.view-lc-events h4 {
+	clear:both;
+	margin-top:20px;
+}
+
 
 /******************************
         FOOTER REGION   
