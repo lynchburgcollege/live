@@ -1061,7 +1061,45 @@ form.normal input[type="submit"]:hover {
 	margin-bottom:15px;
 	font-style:italic;
 } 
- 
+/* Events page */
+.lc-calendar-header-nav {
+	float:left;
+	width:40%;
+	margin-bottom:20px;
+}
+.lc-calendar-previous-link {
+	float:left;
+}
+.lc-calendar-next-link {
+	margin-left:20px;
+}
+.lc-calendar-current-link {
+	float:left;
+	margin-left:20px;
+}
+.lc-calendar-header-buttons {
+	float:right;
+}
+.lc-calendar-print-link, .lc-calendar-rss-link {
+	display:inline-block;
+	text-indent:-9999px;
+}
+.lc-calendar-print-link {
+	width:40px;
+	height:40px;
+	background: url("../images/print-icon.png") no-repeat left;
+}
+.lc-calendar-rss-link {
+	margin-left:20px;
+	width:40px;
+	height:40px;
+	background: url("../images/rss-icon.png") no-repeat left;
+}
+.view-lc-events h4 {
+	clear:both;
+	margin-top:20px;
+}
+
 
  
 /*************************
