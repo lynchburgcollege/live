@@ -719,7 +719,7 @@ a.light:link, a.light:visited, a.light:hover {
 a.red:link, a.red:visited, a.red:hover{
 	color:#fff;
 }
-.blue, .ui-accordion-header{
+.blue, #quickset-library_accordion .ui-accordion-header{
 	color:#f1f1f1;
 	border: 1px solid rgba(255,255,255,0.2);
 	text-shadow:1px 1px 0 #24658e;
@@ -734,7 +734,7 @@ a.red:link, a.red:visited, a.red:hover{
 	position:relative;
 	behavior: url("js/PIE.htc");
 }
-a.blue:link, a.blue:visited, a.blue:hover , .ui-accordion-header a:link, .ui-accordion-header a:hover{
+a.blue:link, a.blue:visited, a.blue:hover , #quickset-library_accordion .ui-accordion-header a:link, #quickset-library_accordion .ui-accordion-header a:hover{
 	color:#f1f1f1;
 	text-decoration:none;
 }
@@ -750,10 +750,13 @@ a.blue:link, a.blue:visited, a.blue:hover , .ui-accordion-header a:link, .ui-acc
 .red:hover  {
 	background: #900900;
 }
-.blue:hover, .ui-accordion-header:hover{
+.blue:hover, #quickset-library_accordion .ui-accordion-header:hover{
 	background: #466881; 
 }
-
+#quickset-library_accordion .ui-accordion-header{
+	min-width:210px;
+}
+/*omega default button style override*/
 input[type="submit"]{
 	border: solid 1px #d5d6db;
 background: rgb(255,255,255); /* Old browsers */

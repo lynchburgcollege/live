@@ -1512,9 +1512,10 @@ Header styles are in the user styles  light button*/
 
 .ui-accordion .ui-accordion-content{
 	padding:10px 15px 20px 15px;
+	min-width:180px;
 }
-#ebscohostsearchtext{
-	margin:5px;
-	width:150px;
-}
+/*#ebscohostsearchtext{
+	margin-right:5px;
+	
+}*/
 
