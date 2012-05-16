@@ -12,8 +12,8 @@ function lynchburg_lynchburg_12_twocol_9_3_panels_layouts() {
     'admin css' => '../lynchburg_panels_admin_12.css',
     'regions' => array(
       'top' => t('Top'),
-      'left' => t('Left Column'),
       'main' => t('Main Content'),
+      'right' => t('Right Column'),
       'bottom' => t('Bottom'),
     ),
   );
