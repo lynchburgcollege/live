@@ -1506,6 +1506,14 @@ a.b-all:hover {
 	border-top-right-radius: 4px;
 }
 
-/* ----- LIBRARY TABS----- */
+/* ----- LIBRARY TABS----- 
+Header styles are in the user styles  light button*/
 
+.ui-accordion .ui-accordion-content{
+	padding:10px 15px 20px 15px;
+}
+#ebscohostsearchtext{
+	margin:5px;
+	width:150px;
+}
 

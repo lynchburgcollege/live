@@ -747,7 +747,7 @@ a.blue:link, a.blue:visited, a.blue:hover {
 	background: #2d2d2d;
 }
 .light:hover, .ui-accordion-header:hover{
-	background: #ccc;
+	background: #edeaea;
 }
 .red:hover  {
 	background: #900900;
