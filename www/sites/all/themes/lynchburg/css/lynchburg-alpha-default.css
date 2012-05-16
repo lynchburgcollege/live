@@ -378,7 +378,7 @@ body.front {
 	margin:0 15px;
 }
 /* View Calendar button under Admission Events in the Visit dropdown */
-.pane-22 { margin-left:20px; }
+.pane-22 div p a { margin-left:20px; }
 
 /**********************************************
     JCarousel "WHAT"S HAPPENING \" ROTATOR
