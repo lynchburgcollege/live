@@ -323,7 +323,7 @@ body.front {
 	border-bottom-right-radius:9px;	
 	
 }
-#quicktabs-container-undergraduate_admission_tabs {
+#quicktabs-container-undergraduate_admission_tabs, .pane-quicktabs-library-tabs {
 	background: #ffffff; 
 	background: -moz-linear-gradient(top,  #ffffff 0%, #edeef2 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#edeef2));
@@ -345,10 +345,29 @@ body.front {
 	-moz-border-radius-bottomright:5px;
 	border-bottom-right-radius:5px;
 }
-/*#quicktabs-library_tabs .item-list ul {
-	width:460px;
+#quicktabs-library_tabs .item-list ul {
+	
+	color:#f1f1f1;
+	border: 1px solid rgba(255,255,255,0.2);
+	border-bottom:none;
+	background: rgb(101,135,161); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(101,135,161,1) 0%, rgba(70,104,129,1) 99%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(101,135,161,1)), color-stop(99%,rgba(70,104,129,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* IE10+ */
+	background: linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6587a1', endColorstr='#466881',GradientType=0 ); /* IE6-9 */
+	-moz-border-radius-bottomleft:5px;
+	border-top-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomright:5px;
+	border-bottom-right-radius:5px;
 }
-#quicktabs-undergraduate_admission_tabs ul li {
+
+
+
+/*#quicktabs-undergraduate_admission_tabs ul li {
 	background:none;
 }
 #quicktabs-undergraduate_admission_tabs ul li::after {
@@ -359,10 +378,6 @@ body.front {
 	width:380px;
 	max-width:380px;
 	margin-bottom:20px;
-}
-.pane-quicktabs-library-tabs {
-	width:460px;
-	max-width:460px;
 }*/
 
 .block-views-calendar-block-1 {

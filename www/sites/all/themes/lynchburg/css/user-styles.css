@@ -681,26 +681,25 @@ a.default:link, a.default:visited, a.default:hover {
 a.dark:link, a.dark:visited, a.dark:hover {
 	color:#f1f1f1;
 }
-.light, .ui-accordion-header {
+.light {
 	color:#242424;
 	border: 1px solid #ccc;
 	position:relative;
 	behavior: url("js/PIE.htc");
-	
 	background: rgb(255,255,255); /* Old browsers */
-background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
-background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
+	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(237,237,237,1) 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(100%,rgba(237,237,237,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%); /* IE10+ */
+	background: linear-gradient(top,  rgba(255,255,255,1) 0%,rgba(237,237,237,1) 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
 
 }
 .ui-widget-content{
 	border: 1px solid #ccc;
 }
-a.light:link, a.light:visited, a.light:hover, .ui-accordion-header a:link, .ui-accordion-header a:hover {
+a.light:link, a.light:visited, a.light:hover {
 	color:#454545;
 }
 .red {
@@ -721,22 +720,22 @@ a.light:link, a.light:visited, a.light:hover, .ui-accordion-header a:link, .ui-a
 a.red:link, a.red:visited, a.red:hover{
 	color:#fff;
 }
-.blue {
+.blue, .ui-accordion-header{
 	color:#f1f1f1;
 	border: 1px solid rgba(255,255,255,0.2);
 	text-shadow:1px 1px 0 #24658e;
 	background: rgb(101,135,161); /* Old browsers */
-background: -moz-linear-gradient(top,  rgba(101,135,161,1) 0%, rgba(70,104,129,1) 99%); /* FF3.6+ */
-background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(101,135,161,1)), color-stop(99%,rgba(70,104,129,1))); /* Chrome,Safari4+ */
-background: -webkit-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Chrome10+,Safari5.1+ */
-background: -o-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Opera 11.10+ */
-background: -ms-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* IE10+ */
-background: linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* W3C */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6587a1', endColorstr='#466881',GradientType=0 ); /* IE6-9 */
-position:relative;
+	background: -moz-linear-gradient(top,  rgba(101,135,161,1) 0%, rgba(70,104,129,1) 99%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(101,135,161,1)), color-stop(99%,rgba(70,104,129,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* IE10+ */
+	background: linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6587a1', endColorstr='#466881',GradientType=0 ); /* IE6-9 */
+	position:relative;
 	behavior: url("js/PIE.htc");
 }
-a.blue:link, a.blue:visited, a.blue:hover {
+a.blue:link, a.blue:visited, a.blue:hover , .ui-accordion-header a:link, .ui-accordion-header a:hover{
 	color:#f1f1f1;
 	text-decoration:none;
 }
@@ -746,13 +745,13 @@ a.blue:link, a.blue:visited, a.blue:hover {
 .dark:hover {
 	background: #2d2d2d;
 }
-.light:hover, .ui-accordion-header:hover{
+.light:hover{
 	background: #edeaea;
 }
 .red:hover  {
 	background: #900900;
 }
-.blue:hover{
+.blue:hover, .ui-accordion-header:hover{
 	background: #466881; 
 }
 
