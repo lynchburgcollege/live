@@ -311,7 +311,6 @@ body.front {
 	padding:20px;
 	margin:0;
 }
-
 /** Quicktab customizations for normal view ***/
 #quicktabs-undergraduate_admission_tabs .item-list ul {
 	width:456px;
@@ -320,8 +319,7 @@ body.front {
 	border-top-left-radius:9px;
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
-	border-bottom-right-radius:9px;	
-	
+	border-bottom-right-radius:9px;		
 }
 #quicktabs-container-undergraduate_admission_tabs, .pane-quicktabs-library-tabs {
 	background: #ffffff; 
@@ -345,8 +343,7 @@ body.front {
 	-moz-border-radius-bottomright:5px;
 	border-bottom-right-radius:5px;
 }
-#quicktabs-library_tabs .item-list ul {
-	
+#quicktabs-library_tabs .item-list ul {	
 	color:#f1f1f1;
 	border: 1px solid rgba(255,255,255,0.2);
 	border-bottom:none;
@@ -364,16 +361,12 @@ body.front {
 	-moz-border-radius-bottomright:5px;
 	border-bottom-right-radius:5px;
 }
-
-
-
 /*#quicktabs-undergraduate_admission_tabs ul li {
 	background:none;
 }
 #quicktabs-undergraduate_admission_tabs ul li::after {
 	background:none;
 }
-
 .pane-quicktabs-undergraduate-admission-tabs {
 	width:380px;
 	max-width:380px;
