@@ -702,10 +702,14 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	border-bottom-right-radius:9px;		
 }
 #quicktabs-event_calendar_tabs .quicktabs-tabs #quicktabs-tab-event_calendar_tabs-1 {
-	margin-left:70px;
+	top:-9px;
+	right:89px;
+	float:right;
 }
 #quicktabs-event_calendar_tabs .quicktabs-tabs #quicktabs-tab-event_calendar_tabs-2 {
-	margin-left:-32px;
+	top:-9px;
+	right:-43px;
+	float:right;
 }
 .last #quicktabs-tab-event_calendar_tabs-1,
 .last #quicktabs-tab-event_calendar_tabs-2 {
