@@ -147,6 +147,10 @@ table {
 .caption_text .caption-title {
 	margin-top:5px;
 }
+.caption-text {
+	font-size:12px;
+	line-height:16px;
+}
 .caption-title h2 {
 	margin-bottom:0.75em;
 }
