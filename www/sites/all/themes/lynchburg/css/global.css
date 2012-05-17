@@ -738,12 +738,13 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	display:block;
 	background-image:url(../images/apply-visit.png);
 	background-position:right right;
-	padding:9px 0 0 50px;
+	padding:9px 0px 0 50px;
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;
-	margin-left:742px;
-	margin-top:-14px;	
+	margin-right:-2px;
+	margin-top:-14px;
+	float:right;
 }
 #whats-happening ul a:hover {
 	background-position:200px;
