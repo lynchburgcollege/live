@@ -739,8 +739,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	border-bottom-right-radius:9px;	
 }
 
-.last #quicktabs-tab-event_calendar_tabs-1,
-.last #quicktabs-tab-event_calendar_tabs-2 {
+.last {
 	/* Because I wasnt sure which one would be last, this allows them to be switched */
 	z-index: 100;
 }
