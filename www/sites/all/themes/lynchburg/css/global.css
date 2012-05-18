@@ -679,6 +679,17 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#900900', endColorstr='#560500',GradientType=0 ); /* IE6-9 */
 }
 
+#quicktabs-event_calendar_tabs .item-list .quicktabs-tabs li {
+	display:inline;
+}
+#quicktabs-event_calendar_tabs .item-list .quicktabs-tabs li {
+	float:right;
+}
+
+#quicktabs-event_calendar_tabs .item-list .quicktabs-tabs li.first {
+	float:left;
+}
+
 #quicktabs-event_calendar_tabs .quicktabs-tabs li:hover, #quicktabs-event_calendar_tabs .quicktabs-tabs li.active{
 	background:transparent;	
 }
@@ -717,28 +728,29 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	color:#000;
 }
 
-.quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-2{
+.quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-1{
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;
 }
-.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-2, .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-2{
+.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-1, .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-1{
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;	
 }
 
-.last #quicktabs-tab-event_calendar_tabs-1,
-.last #quicktabs-tab-event_calendar_tabs-2 {
+.last {
 	/* Because I wasnt sure which one would be last, this allows them to be switched */
 	z-index: 100;
 }
-.quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-1 {
+/*.quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-1 {
 	margin-left:114px;
 }
 .quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-1 {
 	margin-left:114px;
 }
+
+*/
 
 /* ========== HOMEPAGE NEWS ======== */
 #whats-happening {
