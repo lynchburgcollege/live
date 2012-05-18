@@ -14,7 +14,7 @@
     <div class="inside"><?php print $content['main']; ?></div>
   </div>
 
-  <div class="panel-panel grid-2 lynchburg-right-column equal-height-element">
+  <div class="panel-panel grid-2 lynchburg-right-sidebar equal-height-element">
     <div class="inside"><?php print $content['right']; ?></div>
   </div>
 
