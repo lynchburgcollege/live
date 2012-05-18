@@ -1143,7 +1143,9 @@ form.normal input[type="submit"]:hover {
 	clear:both;
 	margin-top:20px;
 }
-
+.view-graduate-certificates .view-content .item-list ul li p {
+	margin:0; padding:0;
+}
 
  
 /*************************
