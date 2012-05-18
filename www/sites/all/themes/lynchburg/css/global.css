@@ -445,7 +445,6 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	-moz-border-radius-topleft:9px;
 	border-top-left-radius:9px;
 }
-
 .region-content .region-plain-box-lc-rounded-region,
 .region-content .pane-plain-box-lc-rounded-pane {
 	min-height: 100px;
@@ -453,11 +452,11 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	margin:0;
 	position: relative;
 	background-color:transparent;
-	/*-webkit-box-shadow:0px 14px 32px -5px #a0a0a0;
+	-webkit-box-shadow:0px 14px 32px -5px #a0a0a0;
 	-moz-box-shadow:0px 14px 32px -5px #a0a0a0;
 	-o-box-shadow:0px 14px 32px -5px #a0a0a0;
 	-ms-box-shadow:0px 14px 32px -5px #a0a0a0;
-	box-shadow:0px 14px 32px -5px #a0a0a0;*/
+	box-shadow:0px 14px 32px -5px #a0a0a0;
 }
 .region-content .region-plain-box-lc-rounded-region .rounded-shadow-background,
 .region-content .pane-plain-box-lc-rounded-pane .pane-content{
@@ -468,34 +467,56 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	background: -o-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
 	background: -ms-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
 	background: linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 );
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 );	
 }
-
 .region-content .pane-plain-box-lc-rounded-pane .pane-content #quicktabs-home_page_tabs{
+	/margin:0;
 	/*background:transparent url(../images/shadow-home-audience.png) no-repeat bottom center;
 	padding:0px 20px 50px 21px;
-	*/margin:0;
-	/*border:red solid 1px;*/
+	border:red solid 1px;*/
 }
 .region-content .pane-plain-box-lc-rounded-pane .pane-content #quicktabs-event_calendar_tabs{
 /*	background:transparent url(../images/shadow-home-cal.png) no-repeat top left;
-	padding:0px 20px 20px 21px;
-*/}
+	padding:0px 20px 20px 21px;*/
+}
 
-#quicktabs-container-home_page_tabs, #quicktabs-container-event_calendar_tabs{
-	background: #ffffff; 
+#hpTabs, #hpCalendar{
+	margin-bottom:20px;
+	/*background: #ffffff; 
 	background: -moz-linear-gradient(top,  #ffffff 0%, #edeef2 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#edeef2));
 	background: -webkit-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
 	background: -o-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
 	background: -ms-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
 	background: linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 );
-	
-	/*border:yellow solid 1px;*/
-	
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 );*/	
 }
-
+/*#quicktabs-container-home_page_tabs{
+	border:green solid 1px;
+	margin-bottom:20px;
+}
+	#hpTabs:before, #hpCalendar:before{
+	-webkit-box-shadow: 11px 11px 32px rgba(255, 255, 255, 0.7);
+	position:absolute;
+	content:'';
+	background:transparent;
+	bottom:46px;
+	right:41px;
+	width:50%;
+	height:50%;
+	-webkit-transform:rotate(20deg) skew(45deg);
+}
+	#hpTabs:after, #hpCalendar:after{
+	-webkit-box-shadow: 8px 12px 10px rgba(0, 0, 0, 0.7);
+	position:absolute;
+	content:'';
+	background:transparent;
+	bottom:10px;
+	right:9px;
+	width:70%;
+	height:70%;
+	-webkit-transform: rotate(5deg) skew(10deg);
+} */
 .region-content .region-plain-box-lc-rounded-region .lc-title-bar,
 .region-content .pane-plain-box-lc-rounded-pane .quicktabs-tabs {
 	-webkit-border-top-left-radius:9px;
@@ -505,9 +526,9 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;
 }
-.region-content .region-plain-box-lc-rounded-region .lc-title-bar{
+/*.region-content .region-plain-box-lc-rounded-region .lc-title-bar{
 	max-width:900px;
-}
+}*/
 #home{
 	margin-top:10px;
 	margin-bottom:0;
@@ -517,12 +538,12 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 .audience-links .audience-link-title {
 	color:#900900
 }
-#hpTabs{
+/*#hpTabs{
 	margin-bottom:20px;
 }
 #hpCalendar{
 	margin-bottom:20px;
-}
+}*/
 /* ========== QUICKTABS ============ */
 .quicktabs-tabpage{
 	padding-bottom:0;
@@ -666,7 +687,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	padding:6px 9px 8px 9px;
 	zoom:1; /* Fix IE tab layout */
 }
-.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-0 , .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-0 {
+.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-0, .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-0 {
 	-webkit-border-top-right-radius:6px;
 	-webkit-border-top-left-radius: 6px;
 	-moz-border-radius-topleft: 6px;
@@ -699,25 +720,24 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 .quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-2{
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
-	border-bottom-right-radius:9px;	
-	
+	border-bottom-right-radius:9px;
 }
 .quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-2, .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-2{
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
-	border-bottom-right-radius:9px;		
+	border-bottom-right-radius:9px;	
 }
-#quicktabs-event_calendar_tabs .quicktabs-tabs #quicktabs-tab-event_calendar_tabs-1 {
-	/*margin-left:112px*/
-	/*float:right;*/
-}
-#quicktabs-event_calendar_tabs .quicktabs-tabs #quicktabs-tab-event_calendar_tabs-2 {
-	/*float:right;*/
-}
+
 .last #quicktabs-tab-event_calendar_tabs-1,
 .last #quicktabs-tab-event_calendar_tabs-2 {
 	/* Because I wasnt sure which one would be last, this allows them to be switched */
 	z-index: 100;
+}
+.quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-1 {
+	margin-left:114px;
+}
+.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-1 {
+	margin-left:114px;
 }
 
 /* ========== HOMEPAGE NEWS ======== */
@@ -742,19 +762,19 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	position:relative;
 	width:110px;
 	height:22px;
-	display:block;
+	display:inline-block;
 	background-image:url(../images/apply-visit.png);
 	background-position:right right;
 	padding:9px 0px 0 50px;
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;
-	margin-right:-40px;
+	margin-right:-3px;
 	margin-top:-14px;
 	float:right;
 }
 #whats-happening ul a:hover {
-	background-position:200px;
+	background-position:200px 0px;
 	color:#000;
 }
 /* ========== BLOCKQUOTES ========== */
@@ -1480,6 +1500,8 @@ a.b-all:hover {
 	-webkit-border-radius: 8px;
 	border-radius: 8px;
 }
+
+/*For areas that need box styles where content is not directly accessible*/
 #schools{
 	background: rgb(255,255,255); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(240,240,241,1) 84%); /* FF3.6+ */
