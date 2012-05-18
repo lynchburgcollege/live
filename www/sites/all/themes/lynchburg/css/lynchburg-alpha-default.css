@@ -50,13 +50,9 @@ body.front {
 .front .section-header {
 	margin:0 auto;
 	height: 450px;
-	background:transparent url(../images/home/big-image4.jpg) no-repeat top center;
+	background:transparent url(../images/home/big-image5.jpg) no-repeat center top;
 }
 .front .section-content {
-	background: transparent url(../images/home/convex-curve.png) no-repeat center top;
-	margin:0 auto;
-	margin-top:-23px;
-	border:transparent solid 1px;
 }
 .front .zone-content-wrapper {
 	background:#f9f9f9 url(../images/home/bg3-home.jpg) no-repeat bottom center;
