@@ -679,10 +679,14 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#900900', endColorstr='#560500',GradientType=0 ); /* IE6-9 */
 }
 
-#quicktabs-event_calendar_tabs { margin-right:0; padding-right:0;}
+#quicktabs-event_calendar_tabs .item-list ul {padding-right:0; margin-right:-10;}
 #quicktabs-event_calendar_tabs .item-list .quicktabs-tabs li {
 	display:inline;
-	margin-top:-6px;
+	margin-top:-6px; padding-right:0;
+}
+#quicktabs-event_calendar_tabs .item-list .quicktabs-tabs li.last {
+	display:inline;
+	margin-top:-6px; padding-right:12px;
 }
 #quicktabs-event_calendar_tabs .item-list .quicktabs-tabs li {
 	float:right;
@@ -699,9 +703,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	padding:6px 9px 8px 9px;
 	zoom:1; /* Fix IE tab layout */
 }
-.quicktabs-tabs li {
-	padding-right:0;
-}
+
 .quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-0, 
 .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-0 {
 	-webkit-border-top-right-radius:6px;
