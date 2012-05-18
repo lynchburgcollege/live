@@ -6,15 +6,15 @@
   </div>
   <?php endif; ?>
 
-  <div class="panel-panel grid-5 lynchburg-left-main equal-height-element">
+  <div class="panel-panel grid-5 lynchburg-main equal-height-element">
     <div class="inside"><?php print $content['left']; ?></div>
   </div>
 
-  <div class="panel-panel grid-5 lynchburg-center-main equal-height-element">
+  <div class="panel-panel grid-5 lynchburg-main equal-height-element">
     <div class="inside"><?php print $content['main']; ?></div>
   </div>
 
-  <div class="panel-panel grid-2 lynchburg-right-main equal-height-element">
+  <div class="panel-panel grid-2 lynchburg-right-sidebar equal-height-element">
     <div class="inside"><?php print $content['right']; ?></div>
   </div>
 

@@ -6,12 +6,12 @@
   </div>
   <?php endif; ?>
 
-  <?php if ($content['left_above'] || $content['rignt_above']) : ?>
+  <?php if ($content['left_above'] || $content['right_above']) : ?>
   <div class="clearfix equal-height-container">
-    <div class="panel-panel grid-7 equal-height-element">
+    <div class="panel-panel lynchburg-main grid-7 equal-height-element">
       <div class="inside"><?php print $content['left_above']; ?></div>
     </div>
-    <div class="panel-panel grid-5 equal-height-element">
+    <div class="panel-panel lynchburg-right-side grid-5 equal-height-element">
       <div class="inside"><?php print $content['right_above']; ?></div>
     </div>
   </div>

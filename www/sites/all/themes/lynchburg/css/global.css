@@ -336,6 +336,20 @@ ul.jquerymenu li.parent span.open {
 .lynchburg-left-sidebar .inside {
 	padding-right:20px;
 }
+.lynchburg-right-side{
+	padding-top:30px;
+	padding-bottom:60px;
+}
+.lynchburg-left-side {
+	padding-top:30px;
+	padding-bottom:60px;
+}
+.lynchburg-right-side .inside {
+	padding-left:20px;
+}
+.lynchburg-left-side .inside {
+	padding-right:20px;
+}
 
 .pane-node-field-links li {
 	padding:1em 0 1em 0;
@@ -679,13 +693,18 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#900900', endColorstr='#560500',GradientType=0 ); /* IE6-9 */
 }
 
+#quicktabs-event_calendar_tabs .item-list ul {padding-right:0; margin-right:-10;}
 #quicktabs-event_calendar_tabs .item-list .quicktabs-tabs li {
 	display:inline;
+	margin-top:-6px; padding-right:0;
+}
+#quicktabs-event_calendar_tabs .item-list .quicktabs-tabs li.last {
+	display:inline;
+	margin-top:-6px; padding-right:12px;
 }
 #quicktabs-event_calendar_tabs .item-list .quicktabs-tabs li {
 	float:right;
 }
-
 #quicktabs-event_calendar_tabs .item-list .quicktabs-tabs li.first {
 	float:left;
 }
@@ -698,7 +717,9 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	padding:6px 9px 8px 9px;
 	zoom:1; /* Fix IE tab layout */
 }
-.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-0, .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-0 {
+
+.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-0, 
+.quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-0 {
 	-webkit-border-top-right-radius:6px;
 	-webkit-border-top-left-radius: 6px;
 	-moz-border-radius-topleft: 6px;
@@ -708,7 +729,8 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	border-bottom:none;
 	background:#fff;
 }
-.quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-1, .quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-2{
+.quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-1, 
+.quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-2 {
 	color:#ffffff;
 	position: relative;
 	text-align: left;
@@ -719,7 +741,9 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	margin:0 0 0 -34px;
 	z-index: 99;
 }
-.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-1, .quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-2, .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-1, .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-2{
+.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-1, 
+.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-2, 
+.quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-1, .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-2 {
 	background-position: -200px 50%;
 	background-color:transparent;
 	margin:0 0 0 -34px;
@@ -728,29 +752,24 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	color:#000;
 }
 
-.quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-1{
+.quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-1 {
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;
 }
-.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-1, .quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-1{
+.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-1, 
+.quicktabs-tabs li.active #quicktabs-tab-event_calendar_tabs-1 {
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;	
 }
 
-.last {
+.quicktabs-tabs li.last #quicktabs-tab-event_calendar_tabs-1,
+.quicktabs-tabs li.last.last #quicktabs-tab-event_calendar_tabs-2 {
 	/* Because I wasnt sure which one would be last, this allows them to be switched */
-	z-index: 100;
-}
-/*.quicktabs-tabs li #quicktabs-tab-event_calendar_tabs-1 {
-	margin-left:114px;
-}
-.quicktabs-tabs li:hover #quicktabs-tab-event_calendar_tabs-1 {
-	margin-left:114px;
+	z-index: 10;
 }
 
-*/
 
 /* ========== HOMEPAGE NEWS ======== */
 #whats-happening {
@@ -1138,7 +1157,9 @@ form.normal input[type="submit"]:hover {
 	clear:both;
 	margin-top:20px;
 }
-
+.view-graduate-certificates .view-content .item-list ul li p {
+	margin:0; padding:0;
+}
 
  
 /*************************
