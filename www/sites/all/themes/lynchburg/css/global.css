@@ -336,6 +336,20 @@ ul.jquerymenu li.parent span.open {
 .lynchburg-left-sidebar .inside {
 	padding-right:20px;
 }
+.lynchburg-right-side{
+	padding-top:30px;
+	padding-bottom:60px;
+}
+.lynchburg-left-side {
+	padding-top:30px;
+	padding-bottom:60px;
+}
+.lynchburg-right-side .inside {
+	padding-left:20px;
+}
+.lynchburg-left-side .inside {
+	padding-right:20px;
+}
 
 .pane-node-field-links li {
 	padding:1em 0 1em 0;
