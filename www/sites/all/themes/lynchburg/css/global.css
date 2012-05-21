@@ -1535,7 +1535,7 @@ a.b-all:hover {
 }
 
 /*For areas that need box styles where content is not directly accessible*/
-#schools{
+#schools, .schools {
 	background: rgb(255,255,255); /* Old browsers */
 	background: -moz-linear-gradient(top,  rgba(255,255,255,1) 0%, rgba(240,240,241,1) 84%); /* FF3.6+ */
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(255,255,255,1)), color-stop(84%,rgba(240,240,241,1))); /* Chrome,Safari4+ */
@@ -1553,7 +1553,7 @@ a.b-all:hover {
 	padding:20px;
 }
 
-#schools li{
+#schools li, .schools li{
 	list-style:none;
 	padding-left: .5em;
 	padding-top:8px;
