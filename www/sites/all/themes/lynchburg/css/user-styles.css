@@ -496,7 +496,6 @@ table.surreptitious thead th, table.surreptitous th {
 
 table.surreptitious td, table.surreptitious th {
   padding: 4px 8px;
-  vertical-align: middle;
 }
 
 table.surreptitious th a, table.surreptitious th a:link, table.surreptitious th a:visited {
