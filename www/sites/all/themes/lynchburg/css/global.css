@@ -1553,7 +1553,7 @@ a.b-all:hover {
 	padding:20px;
 }
 
-#schools li, .schools li{
+#schools li, .schools .menu li{
 	list-style:none;
 	padding-left: .5em;
 	padding-top:8px;
