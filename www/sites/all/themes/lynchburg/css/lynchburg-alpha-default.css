@@ -521,7 +521,8 @@ body.front {
 /* View Calendar button under Admission Events in the Visit dropdown */
 .pane-22 div p { margin-left:20px; }
 
-
+/* place under tour slideshow */
+.pane-node-field-place { margin-top:15px; }
 
 /******************************
         FOOTER REGION   
