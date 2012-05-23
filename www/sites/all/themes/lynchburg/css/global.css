@@ -1688,6 +1688,13 @@ a.b-all:hover {
 }
 
 /* ----- LIBRARY ACCORDION----- */
+#quickset-library_accordion, 
+#quickset-financial_aid {
+	font-family:Arial, Helvetica, sans-serif;
+	color:#6b6b6b;
+	font-size:12px;
+	line-height:16px;
+	}
 #quickset-library_accordion h3.ui-accordion-header{
 	min-width:175px;
 }
