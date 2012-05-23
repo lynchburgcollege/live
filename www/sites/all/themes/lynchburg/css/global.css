@@ -1688,15 +1688,15 @@ a.b-all:hover {
 }
 
 /* ----- LIBRARY ACCORDION----- */
-#quickset-library_accordion .ui-accordion-header{
-	min-width:175px;
-	margin-bottom:0px;
-}
-#quickset-library_accordion .ui-accordion-content{
+#quickset-library_accordion .ui-accordion-content,
+#quickset-financial_aid .ui-accordion-content {
 	padding:10px 8px 20px 8px;
 	min-width:175px;
 }
-#quickset-library_accordion .ui-accordion-header{
+#quickset-library_accordion .ui-accordion-header,
+#quickset-financial_aid .ui-accordion-header{
+	min-width:175px;
+	margin-bottom:0px;
 	color:#f1f1f1;
 	border: 1px solid rgba(255,255,255,0.2);
 	text-shadow:1px 1px 0 #24658e;
@@ -1711,11 +1711,16 @@ a.b-all:hover {
 	position:relative;
 	behavior: url("js/PIE.htc");
 }
-#quickset-library_accordion .ui-accordion-header a:link, #quickset-library_accordion .ui-accordion-header a:hover{
+#quickset-library_accordion .ui-accordion-header a:link, 
+#quickset-library_accordion .ui-accordion-header a:hover,
+#quickset-financial_aid .ui-accordion-header a:link, 
+#quickset-financial_aid .ui-accordion-header a:hover,
+{
 	color:#f1f1f1;
 	text-decoration:none;
 }
-#quickset-library_accordion .ui-accordion-header:hover{
+#quickset-library_accordion .ui-accordion-header:hover,
+#quickset-financial_aid .ui-accordion-header:hover{
 	background: #466881; 
 }
 
