@@ -1716,10 +1716,10 @@ a.b-all:hover {
 	position:relative;
 	behavior: url("js/PIE.htc");
 }
-#quickset-library_accordion .ui-accordion-header a:link, 
-#quickset-library_accordion .ui-accordion-header a:hover,
-#quickset-financial_aid .ui-accordion-header a:link, 
-#quickset-financial_aid .ui-accordion-header a:hover,
+#quickset-library_accordion h3.ui-accordion-header a:link, 
+#quickset-library_accordion h3.ui-accordion-header a:hover,
+#quickset-financial_aid h3.ui-accordion-header a:link, 
+#quickset-financial_aid h3.ui-accordion-header a:hover,
 {
 	color:#f1f1f1;
 	text-decoration:none;
