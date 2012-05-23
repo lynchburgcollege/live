@@ -309,16 +309,20 @@ body.front {
 	margin:0;
 }
 /** Quicktab customizations for normal view ***/
-#quicktabs-undergraduate_admission_tabs .item-list ul {
-	width:456px;
+#quicktabs-undergraduate_admission_tabs .item-list {
 	-webkit-border-top-left-radius:9px;
 	-moz-border-radius-topleft:9px;
 	border-top-left-radius:9px;
 	-webkit-border-bottom-right-radius:9px;
 	-moz-border-radius-bottomright:9px;
 	border-bottom-right-radius:9px;		
+	overflow:hidden;
 }
-#quicktabs-container-undergraduate_admission_tabs, .pane-quicktabs-library-tabs {
+#quicktabs-undergraduate_admission_tabs .item-list ul {
+	width:456px;
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#900900', endColorstr='#560500',GradientType=0 ); 
+}
+#quicktabs-container-undergraduate_admission_tabs, #quicktabs-library-tabs {
 	background: #ffffff; 
 	background: -moz-linear-gradient(top,  #ffffff 0%, #edeef2 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#edeef2));
@@ -340,6 +344,14 @@ body.front {
 	-moz-border-radius-bottomright:5px;
 	border-bottom-right-radius:5px;
 }
+#quicktabs-library_tabs .item-list {
+	overflow:hidden;
+	-moz-border-radius-bottomleft:5px;
+	border-top-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomright:5px;
+	border-bottom-right-radius:5px;
+}
 #quicktabs-library_tabs .item-list ul {	
 	color:#f1f1f1;
 	border: 1px solid rgba(255,255,255,0.2);
@@ -352,11 +364,6 @@ body.front {
 	background: -ms-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* IE10+ */
 	background: linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* W3C */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6587a1', endColorstr='#466881',GradientType=0 ); /* IE6-9 */
-	-moz-border-radius-bottomleft:5px;
-	border-top-left-radius:5px;
-	-webkit-border-bottom-right-radius:5px;
-	-moz-border-radius-bottomright:5px;
-	border-bottom-right-radius:5px;
 }
 
 /*#quicktabs-undergraduate_admission_tabs ul li {

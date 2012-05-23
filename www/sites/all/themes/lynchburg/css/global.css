@@ -9,6 +9,8 @@
 
 /* ========== GENERAL STYLES ========== */
 
+
+
 body {
 	font-family:Arial, Helvetica, sans-serif;
 	color:#6b6b6b;
@@ -485,13 +487,17 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 }
 .region-content .pane-plain-box-lc-rounded-pane .pane-content #quicktabs-home_page_tabs{
 	/margin:0;
-	/*background:transparent url(../images/shadow-home-audience.png) no-repeat bottom center;
-	padding:0px 20px 50px 21px;
-	border:red solid 1px;*/
+	/*
+		background:transparent url(../images/shadow-home-audience.png) no-repeat bottom center;
+		padding:0px 20px 50px 21px;
+		border:red solid 1px;
+	*/
 }
 .region-content .pane-plain-box-lc-rounded-pane .pane-content #quicktabs-event_calendar_tabs{
-/*	background:transparent url(../images/shadow-home-cal.png) no-repeat top left;
-	padding:0px 20px 20px 21px;*/
+	/*	
+		background:transparent url(../images/shadow-home-cal.png) no-repeat top left;
+		padding:0px 20px 20px 21px;
+	*/
 }
 
 #hpTabs, #hpCalendar{
@@ -559,6 +565,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	margin-bottom:20px;
 }*/
 /* ========== QUICKTABS ============ */
+
 .quicktabs-tabpage{
 	padding-bottom:0;
 }
@@ -574,7 +581,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 	background: -o-linear-gradient(top,  rgba(144,9,0,1) 0%,rgba(86,5,0,1) 100%); /* Opera 11.10+ */
 	background: -ms-linear-gradient(top,  rgba(144,9,0,1) 0%,rgba(86,5,0,1) 100%); /* IE10+ */
 	background: linear-gradient(top,  rgba(144,9,0,1) 0%,rgba(86,5,0,1) 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#900900', endColorstr='#560500',GradientType=0 ); /* IE6-9 */
+	
 }
 .region-content .quicktabs_main {
 	padding: 10px;
@@ -609,7 +616,93 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 .region-content .quicktabs-tabs li:hover a,
 .region-content .quicktabs-tabs li.active a{
 	color:#27282d;
+}/**********************************************
+ * TABS AND HOMEPAGE SPECIFIC CONTENT STYLES  *
+**********************************************/
+/* A extra quicktabs content whitespace on normal view. */
+.region-content .quicktabs_main {
+	min-height:220px;
+	padding:20px;
+	margin:0;
 }
+/** Quicktab customizations for normal view ***/
+#quicktabs-undergraduate_admission_tabs .item-list,
+#quicktabs-home_page_tabs .item-list,
+#quicktabs-event_calendar_tabs .item-list {
+	-webkit-border-top-left-radius:9px;
+	-moz-border-radius-topleft:9px;
+	border-top-left-radius:9px;
+	-webkit-border-bottom-right-radius:9px;
+	-moz-border-radius-bottomright:9px;
+	border-bottom-right-radius:9px;		
+	overflow:hidden;
+}
+#quicktabs-undergraduate_admission_tabs .item-list ul { width:456px; }
+
+#quicktabs-undergraduate_admission_tabs .item-list ul,
+#quicktabs-home_page_tabs .item-list ul,
+#quicktabs-event_calendar_tabs .item-list ul {
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#900900', endColorstr='#560500',GradientType=0 ); 
+}
+#quicktabs-container-undergraduate_admission_tabs, #quicktabs-library-tabs {
+	background: #ffffff; 
+	background: -moz-linear-gradient(top,  #ffffff 0%, #edeef2 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#edeef2));
+	background: -webkit-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
+	background: -o-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
+	background: -ms-linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
+	background: linear-gradient(top,  #ffffff 0%,#edeef2 100%); 
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#edeef2',GradientType=0 );
+	-webkit-box-shadow:2px 2px 7px 1px #cacaca;
+	-moz-box-shadow:2px 2px 7px 1px #cacaca;
+	-o-box-shadow:2px 2px 7px 1px #cacaca;
+	-ms-box-shadow:2px 2px 7px 1px #cacaca;
+	box-shadow:2px 2px 7px 1px #cacaca;
+	margin-bottom:35px;
+	-webkit-border-bottom-left-radius:5px;
+	-moz-border-radius-bottomleft:5px;
+	border-top-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomright:5px;
+	border-bottom-right-radius:5px;
+}
+#quicktabs-library_tabs .item-list {
+	overflow:hidden;
+	-moz-border-radius-bottomleft:5px;
+	border-top-left-radius:5px;
+	-webkit-border-bottom-right-radius:5px;
+	-moz-border-radius-bottomright:5px;
+	border-bottom-right-radius:5px;
+}
+#quicktabs-library_tabs .item-list ul {	
+	color:#f1f1f1;
+	border: 1px solid rgba(255,255,255,0.2);
+	border-bottom:none;
+	background: rgb(101,135,161); /* Old browsers */
+	background: -moz-linear-gradient(top,  rgba(101,135,161,1) 0%, rgba(70,104,129,1) 99%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(101,135,161,1)), color-stop(99%,rgba(70,104,129,1))); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* IE10+ */
+	background: linear-gradient(top,  rgba(101,135,161,1) 0%,rgba(70,104,129,1) 99%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6587a1', endColorstr='#466881',GradientType=0 ); /* IE6-9 */
+}
+
+/*#quicktabs-undergraduate_admission_tabs ul li {
+	background:none;
+}
+#quicktabs-undergraduate_admission_tabs ul li::after {
+	background:none;
+}
+.pane-quicktabs-undergraduate-admission-tabs {
+	width:380px;
+	max-width:380px;
+	margin-bottom:20px;
+}*/
+
+
+
+
 /* ========== CALENDAR ========== */
 .view .date-nav-wrapper .date-nav {
 	margin-bottom:0px;
@@ -1594,7 +1687,7 @@ a.b-all:hover {
 	border-top-right-radius: 4px;
 }
 
-/* ----- LIBRARY TABS----- */
+/* ----- LIBRARY ACCORDION----- */
 #quickset-library_accordion .ui-accordion-header{
 	min-width:175px;
 	margin-bottom:0px;
