@@ -644,7 +644,7 @@ li.parent.last.open ul li:after, li.parent.last.open li .after, li.parent.open u
 #quicktabs-event_calendar_tabs .item-list ul {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#900900', endColorstr='#560500',GradientType=0 ); 
 }
-#quicktabs-container-undergraduate_admission_tabs, #quicktabs-library-tabs {
+#quicktabs-container-undergraduate_admission_tabs, #quicktabs-container-library_tabs {
 	background: #ffffff; 
 	background: -moz-linear-gradient(top,  #ffffff 0%, #edeef2 100%);
 	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#edeef2));

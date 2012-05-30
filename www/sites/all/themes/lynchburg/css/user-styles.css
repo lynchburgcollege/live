@@ -548,7 +548,10 @@ table.surreptitious td ul.links {
   margin-bottom: 0;
 }
 
-
+tr.hover a {
+   cursor: pointer;
+   /* whatever other hover styles you want */
+}
 /* ========== EMPHASIS BOX STYLES ========== */
 .emphasis_box {
 	clear:both;
