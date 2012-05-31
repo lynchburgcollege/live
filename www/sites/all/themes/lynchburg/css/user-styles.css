@@ -33,6 +33,7 @@ ul.unordered li{
 }
 ul.unordered.type-1 li {
 	background-image: url("../images/tick.png");
+	background-position: -0.2em 0em;
 }
 ul.unordered.type-2 li {
 	background-image: url("../images/arrow_state_blue_right.png");
@@ -548,9 +549,18 @@ table.surreptitious td ul.links {
   margin-bottom: 0;
 }
 
-tr.hover a {
+tr td.majors-minors{
+	vertical-align:middle;
+}
+tr td.majors-minors:hover  {
+   background-color:#3e6683;
+}
+.majors-minors:hover  {
    cursor: pointer;
-   /* whatever other hover styles you want */
+   color:#ccc;
+}
+.majors-minors:hover a {
+   color:#fff;
 }
 /* ========== EMPHASIS BOX STYLES ========== */
 .emphasis_box {
