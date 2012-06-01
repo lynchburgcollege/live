@@ -1,7 +1,7 @@
 
 /* This file will hold the main styles for your website. */
-@import url("user-styles.css");
-
+@import url(user-styles.css);
+@import url(http://fonts.googleapis.com/css?family=Arimo);
 /*@font-face {
 	font-family: Arimo;
 	src: url(../fonts/Arimo.ttf);
@@ -12,7 +12,7 @@
 
 
 body {
-	font-family:Arial, Helvetica, sans-serif;
+	font-family: Arial, Helvetica, sans-serif;
 	color:#6b6b6b;
 	font-size:12px;
 	line-height:16px;
@@ -135,7 +135,7 @@ strong {
 }
 /* ========== HEADING STYLES ========== */
 h1, h2, h3, h4, h5, h6 {
-	font-family: Arial, Verdana, sans-serif;
+	font-family: 'Arimo', Arial, Verdana, sans-serif;
 	font-weight:normal;
 	color:#242424;
 	margin-bottom:0.3em;
@@ -246,7 +246,7 @@ td ul.links {
 	margin:8px 0 0 0;
 }
 #mini-panel-sitewide_top_menu .menu a{
-	font-family:Arial, Helvetica, sans-serif;
+	font-family:Arimo, Arial, Helvetica, sans-serif;
 	font-size:15px;
 	color:#303030;
 	padding:6px 4px 8px 4px;
@@ -315,11 +315,11 @@ ul.jquerymenu li span.parent {
 }
 ul.jquerymenu li.parent span.open,
 ul.jquerymenu li.parent span.closed  {
-	background:url("../images/circle_list.png?a") no-repeat 3px -60px;
+	background:url("../images/circle_list.png?a") no-repeat -5px -60px;
 	z-index:10;
 }
 ul.jquerymenu li.parent span.open {
-	background-position:3px -90px;
+	background-position:-5px -90px;
 }
 
 .lynchburg-right-sidebar{
@@ -384,17 +384,15 @@ ul.jquerymenu li.parent span.open {
 /*.lynchburg-right-sidebar ul li:hover:after, lynchburg-right-sidebar ul li .after:hover, */.lynchburg-left-sidebar .pane-content ul li:hover:after, .lynchburg-left-sidebar .pane-content ul li .after:hover {
 	background-position:0 0;
 }
-/*.lynchburg-right-sidebar ul li:after, .lynchburg-right-sidebar ul li .after,*/ .lynchburg-left-sidebar li:after, .lynchburg-left-sidebar li .after {
-	background:url("../images/circle_list.png?a") no-repeat 0 -30px;
+/*.lynchburg-right-sidebar ul li:after, .lynchburg-right-sidebar ul li .after, .lynchburg-left-sidebar li:after, .lynchburg-left-sidebar li .after {
+	background:url("../images/circle_list.png?a") no-repeat -4 -60;
 	position:absolute;
 	content:"";
 	after:"&nbsp;";
-	top:0.75em;
-	left:0;
 	list-style:none;
 	height:16px;
 	width:16px;
-}
+}*/
 .lynchburg-right-sidebar li:hover:after, .lynchburg-right-sidebar li .after:hover, .lynchburg-left-sidebar .pane-content li:hover:after, .lynchburg-left-sidebar .pane-content li .after:hover {
 	background-position:0 0;
 }
